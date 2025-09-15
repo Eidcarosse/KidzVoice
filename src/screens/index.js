@@ -1,3 +1,7 @@
-export { default as HomeScreen } from "./home/home";
-export { default as WelcomeScreen } from "./welcome/welcome";
-export { default as LearnerQuestionScreen } from "./learnerQuestion/learnerQuestion";
+import AccountSetupScreen from "./accountSetup/account";
+import Home from "./home/home";
+import LearnerQuestionScreen from "./learnerQuestion/learnerQuestion";
+import Welcome from "./welcome/welcome";
+
+
+export { LearnerQuestionScreen, Home, Welcome, AccountSetupScreen }

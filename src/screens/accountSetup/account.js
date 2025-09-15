@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import InputField from '../components/InputField';
-import { PhotoUploader } from '../../components';
+import { Input, PhotoUploader } from '../../components';
+import FontAwesome from '@react-native-vector-icons/fontawesome';
+import colors from '../../utils/AppColors';
 
 const AccountSetupScreen = () => {
     const [code, setCode] = useState('CD65 I');
@@ -21,23 +22,21 @@ const AccountSetupScreen = () => {
 
             <Text style={styles.title}>Account Setup</Text>
             <Text style={styles.subtitle}>Enters the unique code from Sara</Text>
-
-            {/* <InputField
-                icon="person-add-alt"
+            <Input
                 placeholder="Enter code"
                 value={code}
                 onChangeText={setCode}
                 editable={false}
+                icon={<FontAwesome name="person-add-alt" size={20} color={colors.ebonyClays} />}
             />
 
-            <InputField
-                icon="person"
+            <Input
                 placeholder="Enter your name here"
                 value={name}
                 onChangeText={setName}
-            /> */}
-
-            <PhotoUploader onPress={handlePhotoUpload} />
+                icon={<FontAwesome name="person" size={20} color={colors.ebonyClays} />}
+            />
+            <PhotoUploader />
 
             <Pressable style={styles.button} onPress={handleContinue}>
                 <Text style={styles.buttonText}>Continue</Text>
