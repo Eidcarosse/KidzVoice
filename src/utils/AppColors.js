@@ -3,6 +3,8 @@ const colors = {
   white: "#FFFFFF",
   ebonyClay: "#28303F",
   alto: "#D1D1D1",
+  dodgerBlue: "#1B84F8",
+  emperor: "#545454",
 };
 
 export default colors;
