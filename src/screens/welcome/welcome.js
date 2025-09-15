@@ -1,22 +1,29 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import commonStyles from "../../utils/commonStyles";
 import { fonts } from "../../utils/fonts";
 import { Button, Input } from "../../components";
 import FontAwesome from "@react-native-vector-icons/fontawesome";
 import colors from "../../utils/AppColors";
+import StatusBarWrapper from "../../components/customStatusbar";
+import Images from "../../assets/images";
+import styles from "./styles";
 
 export default function Welcome() {
   return (
-    <View style={commonStyles.parentView}>
-      <Text style={{ fontFamily: fonts.regular }}>welcome</Text>
+    <StatusBarWrapper>
+      <View style={commonStyles.parentView}>
+        <Image
+          source={Images.WELCOMEIMAGE}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
 
-      <Button title="Get Started" />
+        <Text style={styles.kidzText}>KidzVoice</Text>
 
-      <Input
-        placeholder="Enter Text"
-        icon={<FontAwesome name="user" size={20} color={colors.ebonyClays} />}
-      />
-    </View>
+        <Text style={styles.growText}>Grow Smarter, Kinder, Happier.</Text>
+        <Button title="Get Started" />
+      </View>
+    </StatusBarWrapper>
   );
 }
