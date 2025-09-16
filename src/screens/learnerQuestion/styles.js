@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         color: '#222',
     },
     btnStyle: {
-        marginBottom: 25,
+        marginBottom: height(4),
     },
     subtitle: {
         fontFamily: fonts.light,

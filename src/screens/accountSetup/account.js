@@ -26,7 +26,7 @@ const AccountSetupScreen = () => {
             setIsConnectedModal(false)
             navigation.navigate(ScreensName.LEARNER_QUESTIONAIR)
 
-        }, 4000);
+        }, 2000);
     };
 
     return (

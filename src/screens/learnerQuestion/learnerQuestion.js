@@ -32,9 +32,9 @@ const LearnerQuestionScreen = () => {
         setIsConnectedModal(true)
         setTimeout(() => {
             setIsConnectedModal(false)
-            navigation.navigate(ScreensName.ACCOUNT)
+            navigation.navigate(ScreensName.MAGICBACKPACK)
 
-        }, 4000);
+        }, 2000);
     };
     return (
         <StatusBarWrapper>
