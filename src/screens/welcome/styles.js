@@ -4,11 +4,14 @@ import colors from "../../utils/AppColors";
 import { fonts } from "../../utils/fonts";
 
 const styles = StyleSheet.create({
+  parentView: {
+    justifyContent: "space-around",
+  },
   imageStyle: {
-    width: width(85),
-    height: height(20),
+    width: width(80),
+    height: height(25),
     // backgroundColor: "red",
-    marginBottom: height(2),
+    // marginBottom: height(2),
   },
   kidzText: {
     color: colors.dodgerBlue,
@@ -18,7 +21,8 @@ const styles = StyleSheet.create({
   growText: {
     color: colors.emperor,
     fontFamily: fonts.medium,
-    fontSize: 16,
+    fontSize: 14,
+    // marginBottom: height(10),
   },
 });
 
