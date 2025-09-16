@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 import { fonts } from "../../utils/fonts";
+import colors from "../../utils/AppColors";
+import { height } from "../../utils/Dimensions";
 
 
 export const styles = StyleSheet.create({
@@ -15,7 +17,22 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
         fontFamily: fonts.bold
     },
+    micContainer: {
+        width: 100, height: 100, borderRadius: 100, backgroundColor: colors.dodgerBlue, justifyContent: 'center', alignItems: 'center'
+    },
+    micImg: {
+        width: 40,
+        height: 40,
+        resizeMode: 'contain'
+    },
+    userImg: {
+        width: 36,
+        height: 36,
+        borderRadius: 18,
+        marginRight: 8,
+    },
     questionRow: {
+        padding: 10,
         flexDirection: "row",
         alignItems: "center",
     },
@@ -44,15 +61,19 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.regular
     },
     bottomBox: {
-        padding: 50,
+        paddingVertical: 50,
+        paddingHorizontal: 16,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         overflow: "hidden",
         backgroundColor: "#fff",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     actionRow: {
         flexDirection: "row",
-        alignItems: "center",
+        // alignItems: "center",
         justifyContent: "space-between",
     },
     micWrapper: {
@@ -74,10 +95,12 @@ export const styles = StyleSheet.create({
         borderRadius: 12,
         paddingHorizontal: 12,
         paddingVertical: 6,
+        flex: 1
     },
     textInput: {
         flex: 1,
         fontSize: 16,
+        fontFamily: fonts.regular,
         color: "#000",
     },
     sendBtn: {
