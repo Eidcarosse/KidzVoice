@@ -1,6 +1,7 @@
 import { View, Text, TextInput } from "react-native";
 import React from "react";
 import styles from "./styles";
+import colors from "../../utils/AppColors";
 
 export default function Input({ icon, placeholder, state, setState }) {
   return (
@@ -11,6 +12,7 @@ export default function Input({ icon, placeholder, state, setState }) {
         value={state}
         onChangeText={setState}
         style={styles.input}
+        placeholderTextColor={colors.nobel}
       />
     </View>
   );

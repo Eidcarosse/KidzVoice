@@ -5,6 +5,11 @@ const colors = {
   alto: "#D1D1D1",
   dodgerBlue: "#1B84F8",
   emperor: "#545454",
+  grayChateau: "#A1A3A6",
+  mineShaft: "#282727",
+  boulder: "#7C7979",
+  nobel: "#B4AEAE",
+  black: "#000000",
 };
 
 export default colors;
