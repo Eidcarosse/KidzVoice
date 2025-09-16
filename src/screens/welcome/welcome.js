@@ -5,12 +5,15 @@ import { fonts } from "../../utils/fonts";
 import { Button, Input } from "../../components";
 import FontAwesome from "@react-native-vector-icons/fontawesome";
 import colors from "../../utils/AppColors";
+import { useNavigation } from "@react-navigation/native";
+import ScreensName from "../../routes/routes";
 import StatusBarWrapper from "../../components/customStatusbar";
 import Images from "../../assets/images";
 import styles from "./styles";
 import { height } from "../../utils/Dimensions";
 
 export default function Welcome() {
+  const navigation = useNavigation()
   return (
     <StatusBarWrapper>
       <View style={[commonStyles.parentView, styles.parentView]}>
@@ -28,13 +31,15 @@ export default function Welcome() {
             resizeMode="contain"
           />
 
+
           <Text style={styles.kidzText}>KidzVoice</Text>
 
           <Text style={styles.growText}>Grow Smarter, Kinder, Happier.</Text>
+        <Button title="Get Started" onPress={() => navigation.navigate(ScreensName.ACCOUNT)} />
+
         </View>
-        {/* <View style={{ flex: 1, justifyContent: "center" }}> */}
-        <Button title="Get Started" />
-        {/* </View> */}
+
+
       </View>
     </StatusBarWrapper>
   );
