@@ -10,6 +10,7 @@ export default function Input({ icon, placeholder, state, setState }) {
         placeholder={placeholder}
         value={state}
         onChangeText={setState}
+        style={styles.input}
       />
     </View>
   );

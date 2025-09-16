@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './styles';
-
+import * as ImagePicker from 'expo-image-picker';
 const PhotoUploader = () => {
     const [image, setImage] = useState(null);
     const handleUpload = async () => {

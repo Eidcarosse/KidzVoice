@@ -3,7 +3,8 @@ import { fonts } from '../../utils/fonts';
 
 const styles = StyleSheet.create({
     inputContainer: {
-        marginBottom: 18,
+        marginHorizontal: 16,
+        marginVertical: 12,
     },
     label: {
         fontSize: 16,

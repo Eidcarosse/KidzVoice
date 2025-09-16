@@ -1,10 +1,15 @@
 import { StyleSheet } from 'react-native';
 import { fonts } from '../../utils/fonts';
+import { height } from '../../utils/Dimensions';
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20,
+        flex: 1,
         backgroundColor: '#fff',
+        marginTop: height(2)
+    },
+    itemView: {
+        marginHorizontal: 16
     },
     title: {
         fontSize: 22,
