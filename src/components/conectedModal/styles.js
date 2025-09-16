@@ -1,12 +1,16 @@
 import { StyleSheet } from "react-native";
 import { fonts } from "../../utils/fonts";
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     iconWrapper: {
         backgroundColor: '#007bff',
         padding: 20,
         borderRadius: 50,
         marginBottom: 20,
+    },
+    loaderView: {
+        padding: 40,
+
     },
     title: {
         fontSize: 20,

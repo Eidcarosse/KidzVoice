@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView, Pressable, TextInput } from 'react-native';
 import styles from './styles';
 import PhotoUploader from '../../components/photoUploader/photoUploader';
 import StatusBarWrapper from '../../components/customStatusbar';
 import { Button } from '../../components';
+import ConnectedModal from '../../components/conectedModal/connectedModal';
+import ScreensName from '../../routes/routes';
+import { useNavigation } from '@react-navigation/native';
 
 const InputField = ({ label, placeholder, required = false }) => {
     return (
@@ -22,6 +25,17 @@ const InputField = ({ label, placeholder, required = false }) => {
 
 
 const LearnerQuestionScreen = () => {
+    const navigation = useNavigation()
+    const [isConnectedModal, setIsConnectedModal] = useState(false)
+
+    const handleContinue = () => {
+        setIsConnectedModal(true)
+        setTimeout(() => {
+            setIsConnectedModal(false)
+            navigation.navigate(ScreensName.ACCOUNT)
+
+        }, 4000);
+    };
     return (
         <StatusBarWrapper>
             <ScrollView contentContainerStyle={styles.container}>
@@ -36,8 +50,10 @@ const LearnerQuestionScreen = () => {
                 </View>
                 <PhotoUploader />
 
-                <Button title={'Continue'} />
             </ScrollView>
+            <Button title={'Continue'} onPress={handleContinue} btnStyle={styles.btnStyle} />
+
+            <ConnectedModal isLoader={true} visible={isConnectedModal} onClose={() => setIsConnectedModal(false)} />
         </StatusBarWrapper>
     );
 };

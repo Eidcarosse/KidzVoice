@@ -9,19 +9,24 @@ import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import ScreensName from '../../routes/routes';
 import StatusBarWrapper from '../../components/customStatusbar';
+import ConnectedModal from '../../components/conectedModal/connectedModal';
 
 const AccountSetupScreen = () => {
     const navigation = useNavigation()
     const [code, setCode] = useState('CD65 I');
     const [name, setName] = useState('');
-
+    const [isConnectedModal, setIsConnectedModal] = useState(false)
     const handlePhotoUpload = () => {
         // open file/image picker
     };
 
     const handleContinue = () => {
-        // form validation or navigation
-        navigation.navigate(ScreensName.LEARNER_QUESTIONAIR)
+        setIsConnectedModal(true)
+        setTimeout(() => {
+            setIsConnectedModal(false)
+            navigation.navigate(ScreensName.LEARNER_QUESTIONAIR)
+
+        }, 4000);
     };
 
     return (
@@ -50,6 +55,7 @@ const AccountSetupScreen = () => {
                 <Text style={styles.buttonText}>Continue</Text>
             </Pressable> */}
             <Button title={"Continue"} onPress={handleContinue} />
+            <ConnectedModal visible={isConnectedModal} onClose={() => setIsConnectedModal(false)} />
         </StatusBarWrapper>
     );
 };

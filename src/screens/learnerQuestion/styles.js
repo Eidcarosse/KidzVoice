@@ -17,11 +17,14 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         color: '#222',
     },
+    btnStyle: {
+        marginBottom: 25,
+    },
     subtitle: {
         fontFamily: fonts.light,
         fontSize: 13,
         color: '#888',
-        marginBottom: 20,
+        marginBottom: 25,
     },
     inputContainer: {
         marginBottom: 18,
