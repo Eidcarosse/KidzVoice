@@ -8,6 +8,8 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 const CustomHeader = ({
   title,
   titleColor,
+  isBack,
+  onGoBack,
   rightIcon,
   onPressRightIcon,
 }) => {
@@ -18,7 +20,7 @@ const CustomHeader = ({
       <TouchableOpacity
         activeOpacity={0.7}
         style={styles.iconButton}
-        onPress={() => navigation.goBack()}
+        onPress={() => { isBack ? onGoBack() : navigation.goBack() }}
         hitSlop={{ top: 10, left: 10, bottom: 10, right: 10 }}
       >
         <AntDesign name="left" size={20} color="black" />

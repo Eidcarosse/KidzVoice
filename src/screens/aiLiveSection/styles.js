@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import colors from "../../utils/AppColors";
-import { height } from "../../utils/Dimensions";
+import { height, width } from "../../utils/Dimensions";
 import { fonts } from "../../utils/fonts";
 
 export const styles = StyleSheet.create({
@@ -27,16 +27,17 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.bold
     },
     optionsContainer: {
-        width: '100%',
+        width: '90%',
+        alignSelf: 'center',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         flexWrap: 'wrap',
         marginTop: 20,
     },
     optionBox: {
-        width: '44%',
+        width: width(38),
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         padding: 15,
         marginBottom: 15,
         backgroundColor: '#f5f5f5',

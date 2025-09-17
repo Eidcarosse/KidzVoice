@@ -5,11 +5,12 @@ import { styles } from './styles'
 import Images from '../../assets/images'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import FeelingResult from './component/feelingResult'
+import { useNavigation } from '@react-navigation/native'
 
 export default function AiLiveSection() {
     const insets = useSafeAreaInsets();
+    const navigation = useNavigation()
     const [selectedFeeling, setSelectedFeeling] = useState(null);
-
     const feelings = [
         { emoji: '😊', label: 'Happy', message: "Awesome! Let's keep that smile going 😊", img: Images.HAPPYIMG },
         { emoji: '😢', label: 'Sad', message: "It's okay to feel sad sometimes 💙", img: Images.SADIMG },
@@ -19,11 +20,19 @@ export default function AiLiveSection() {
 
     const selected = feelings.find(f => f.label === selectedFeeling);
 
+    const handleBack = () => {
+        if (selectedFeeling) {
+            setSelectedFeeling(null);
+        } else {
+            navigation.goBack();
+        }
+    };
+
     return (
         <View style={[styles.container, { paddingTop: insets.top || 5 }]}>
-            <CustomHeader title={'Ai Live Section'} />
+            <CustomHeader isBack={true} onGoBack={handleBack} title={'Ai Live Section'} />
 
-            {!selected ? (
+            {!(selected) ? (
                 <>
                     <Image source={Images.AIICON} style={styles.img} />
 
