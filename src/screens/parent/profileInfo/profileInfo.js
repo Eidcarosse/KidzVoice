@@ -7,11 +7,12 @@ import { Button, DropDown, DropDownList, Input } from "../../../components";
 import FontAwesome from "@react-native-vector-icons/fontawesome";
 import colors from "../../../utils/AppColors";
 import { Bell } from "lucide-react-native";
-import { Feather, FontAwesome6 } from "@expo/vector-icons";
+import { Feather, AntDesign } from "@expo/vector-icons";
 import { relationships } from "../../../utils/Data";
 import { height } from "../../../utils/Dimensions";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { User, Users, Phone } from "lucide-react-native";
 
 export default function ProfileInfo() {
   const navigation = useNavigation();
@@ -50,7 +51,7 @@ export default function ProfileInfo() {
         state={name}
         setState={setName}
         placeholder="Enter your name here"
-        icon={<FontAwesome name="user" size={20} color={colors.ebonyClay} />}
+        icon={<User size={20} color={colors.ebonyClay} />}
       />
 
       <DropDown
@@ -59,7 +60,7 @@ export default function ProfileInfo() {
         onPress={toggleRelationList}
         isDisplayRelationList={isDisplayRelationList}
         placeholder={"Relationship with child"}
-        icon={<Feather name="users" size={20} color={colors.ebonyClay} />}
+        icon={<Users size={20} color={colors.ebonyClay} />}
       />
       {isDisplayRelationList && (
         <DropDownList
@@ -74,7 +75,7 @@ export default function ProfileInfo() {
         state={phone}
         setState={setPhone}
         placeholder="0300 0404040"
-        icon={<Bell size={24} color={colors.ebonyClay} strokeWidth={2} />}
+        icon={<Phone size={20} color={colors.ebonyClay} />}
       />
 
       <Button

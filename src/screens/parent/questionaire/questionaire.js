@@ -7,32 +7,77 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
-import { Button } from "../../../components";
+import {
+  Button,
+  ChildHistory,
+  CurrentStrugle,
+  FamilyContext,
+} from "../../../components";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import styles from "./styles";
 import colors from "../../../utils/AppColors";
 import { diagnosesOptions, servicesOptions } from "../../../utils/Data";
+import { height } from "../../../utils/Dimensions";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useNavigation } from "@react-navigation/native";
+import ScreensName from "../../../routes/routes";
 
 export default function ParentQuestionaire() {
+  const navigation = useNavigation();
   const [childHistory, setChildHistory] = useState("Pending");
   const [currentStrugles, setCurrentStrugles] = useState("Remaining");
   const [familyContext, setFamilyContext] = useState("Remaining");
 
+  const [activeQuetionaire, setActiveQuestionaire] = useState("Child History");
+
   const [diagnoses, setDiagnoses] = useState([]);
   const [services, setServices] = useState([]);
   const [history, setHistory] = useState("");
+  const [report, setReport] = useState();
 
-  const toggleSelection = (list, setList, value) => {
-    if (list.includes(value)) {
-      setList(list.filter((item) => item !== value));
+  const [strugglingArea, setStrugglingArea] = useState([]);
+  const [struggleEffect, setStruggleEffect] = useState([]);
+
+  const [maxLiveTime, setMaxLiveTime] = useState([]);
+  const [siblings, setSiblings] = useState("");
+  const [contactPerson, setContactPerson] = useState("");
+
+  const handleNext = () => {
+    console.log("Diagnoses", diagnoses);
+    console.log("Services", services);
+    console.log("History", history);
+
+    if (activeQuetionaire === "Child History") {
+      if (diagnoses && services && history) {
+        setChildHistory("Completed");
+        setActiveQuestionaire("Current Strugle");
+        setCurrentStrugles("Pending");
+      }
+    } else if (activeQuetionaire === "Current Strugle") {
+      if (strugglingArea && struggleEffect) {
+        setChildHistory("Completed");
+
+        setCurrentStrugles("Completed");
+        setActiveQuestionaire("Family Context");
+        setFamilyContext("Pending");
+      }
     } else {
-      setList([...list, value]);
+      if (maxLiveTime && siblings && contactPerson) {
+        setChildHistory("Completed");
+        setCurrentStrugles("Completed");
+        setFamilyContext("Completed");
+
+        navigation.navigate(ScreensName.GENERATECHILD);
+      }
     }
   };
 
   return (
     <StatusBarWrapper>
-      <ScrollView>
+      <KeyboardAwareScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: height(10) }}
+      >
         <View style={styles.progressContainer}>
           <Ionicons
             name={
@@ -77,77 +122,43 @@ export default function ParentQuestionaire() {
           />
         </View>
 
-        <Text style={styles.title}>Child History</Text>
-        <Text style={styles.subtitle}>
-          Purpose: Quick background about Max.
-        </Text>
-
-        <Text style={styles.question}>
-          1 Has Max received any previous diagnoses?
-        </Text>
-
-        {diagnosesOptions.map((option) => (
-          <TouchableOpacity
-            key={option}
-            style={styles.option}
-            onPress={() => toggleSelection(diagnoses, setDiagnoses, option)}
-          >
-            <Ionicons
-              name={diagnoses.includes(option) ? "checkbox" : "square-outline"}
-              size={20}
-              color={
-                diagnoses.includes(option) ? colors.blueRibbon : colors.alto
-              }
+        <View style={{ flex: 1, marginBottom: height(8) }}>
+          {activeQuetionaire === "Child History" && (
+            <ChildHistory
+              diagnoses={diagnoses}
+              setDiagnoses={setDiagnoses}
+              services={services}
+              setServices={setServices}
+              history={history}
+              setHistory={setHistory}
+              report={report}
+              setReport={setReport}
             />
-            <Text style={styles.optionText}>{option}</Text>
-          </TouchableOpacity>
-        ))}
+          )}
 
-        {/* Question 2 */}
-        <Text style={styles.question}>
-          2 Has Max ever received support services?
-        </Text>
-        {servicesOptions.map((option) => (
-          <TouchableOpacity
-            key={option}
-            style={styles.option}
-            onPress={() => toggleSelection(services, setServices, option)}
-          >
-            <Ionicons
-              name={services.includes(option) ? "checkbox" : "square-outline"}
-              size={20}
-              color={
-                services.includes(option) ? colors.blueRibbon : colors.alto
-              }
+          {activeQuetionaire === "Current Strugle" && (
+            <CurrentStrugle
+              strugglingArea={strugglingArea}
+              setStrugglingArea={setStrugglingArea}
+              struggleEffect={struggleEffect}
+              setStruggleEffect={setStruggleEffect}
             />
-            <Text style={styles.optionText}>{option}</Text>
-          </TouchableOpacity>
-        ))}
+          )}
 
-        <Text style={styles.question}>
-          3 Briefly describe any important medical/educational history
-        </Text>
-        <TextInput
-          style={styles.textArea}
-          placeholder="Write here..."
-          multiline
-          numberOfLines={4}
-          value={history}
-          onChangeText={setHistory}
-        />
+          {activeQuetionaire === "Family Context" && (
+            <FamilyContext
+              maxLiveTime={maxLiveTime}
+              setMaxLiveTime={setMaxLiveTime}
+              siblings={siblings}
+              setSiblings={setSiblings}
+              contactPerson={contactPerson}
+              setContactPerson={setContactPerson}
+            />
+          )}
+        </View>
 
-        {/* Upload Reports Button */}
-        <TouchableOpacity style={styles.uploadBtn}>
-          <Ionicons
-            name="document-text-outline"
-            size={18}
-            color={colors.blueRibbon}
-          />
-          <Text style={styles.uploadText}>Submit Reports</Text>
-        </TouchableOpacity>
-
-        <Button title={"Next"} />
-      </ScrollView>
+        <Button title={"Next"} onPress={handleNext} style={styles.nextBtn} />
+      </KeyboardAwareScrollView>
     </StatusBarWrapper>
   );
 }

@@ -6,6 +6,10 @@ import SocialLogin from "./socialLogin/socialLogin";
 import RoleSelection from "./roleSelection/roleSelection";
 import DropDown from "./dropDown/dropDown";
 import DropDownList from "./dropDownList/dropDownList";
+import ChildHistory from "./childHistory/childHistory";
+import QuestionOptions from "./questionOptions/questionOptions";
+import CurrentStrugle from "./currentStrugle/currentStrugle";
+import FamilyContext from "./familyContext/familyContext";
 
 export {
   PhotoUploader,
@@ -16,4 +20,8 @@ export {
   RoleSelection,
   DropDown,
   DropDownList,
+  ChildHistory,
+  QuestionOptions,
+  CurrentStrugle,
+  FamilyContext,
 };

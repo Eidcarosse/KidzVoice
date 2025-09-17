@@ -16,6 +16,7 @@ import { relationships } from "../../../utils/Data";
 import { height } from "../../../utils/Dimensions";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { User, Calendar, GraduationCap, Award } from "lucide-react-native";
 
 export default function CreateChildProfile() {
   const navigation = useNavigation();
@@ -57,20 +58,14 @@ export default function CreateChildProfile() {
           state={name}
           setState={setName}
           placeholder="Enter your name here"
-          icon={<FontAwesome name="user" size={20} color={colors.ebonyClay} />}
+          icon={<User size={20} color={colors.ebonyClay} />}
         />
 
         <Input
           state={date}
           setState={setDate}
           placeholder="day/moth/year"
-          icon={
-            <Ionicons
-              name="calendar-outline"
-              size={20}
-              color={colors.ebonyClay}
-            />
-          }
+          icon={<Calendar size={20} color={colors.ebonyClay} />}
         />
 
         <DropDown
@@ -79,9 +74,7 @@ export default function CreateChildProfile() {
           onPress={toggleGradeList}
           isDisplayRelationList={isDisplayGradeList}
           placeholder={"Grade"}
-          icon={
-            <MaterialIcons name="grade" size={20} color={colors.ebonyClay} />
-          }
+          icon={<Award size={20} color={colors.ebonyClay} />}
         />
 
         {isDisplayGradeList && (
@@ -99,13 +92,7 @@ export default function CreateChildProfile() {
           onPress={toggleSchoolList}
           isDisplayRelationList={isDisplaySchoolList}
           placeholder={"School"}
-          icon={
-            <FontAwesome6
-              name="user-graduate"
-              size={20}
-              color={colors.ebonyClay}
-            />
-          }
+          icon={<GraduationCap size={20} color={colors.ebonyClay} />}
         />
 
         {isDisplaySchoolList && (

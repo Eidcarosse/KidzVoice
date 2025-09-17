@@ -11,5 +11,6 @@ const ScreensName = {
   CREATECHILDPROFILE: "CreateChildProfile",
   STARTQUESTIONAIRE: "StartQuestionaire",
   PARENTQUESTIONAIRE: "ParentQuestionaire",
+  GENERATECHILD: "GenerateChild",
 };
 export default ScreensName;

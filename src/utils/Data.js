@@ -26,4 +26,33 @@ const servicesOptions = [
   "Other",
 ];
 
-export { roles, relationships, diagnosesOptions, servicesOptions };
+const strugglingAreaOptions = [
+  "Concentration/attention",
+  "Reading/writing",
+  "Math",
+  "Emotional regulation (anger, anxiety, sadness)",
+  "Social interactions (making/keeping friends)",
+  "Other",
+];
+
+const struggleEffectOptions = ["Rarely", "Sometimes", "Often", "Almost always"];
+
+const maxLiveTimeOptions = [
+  "Both parents",
+  "Single parent",
+  "Guardian",
+  "Other",
+];
+
+const siblingsOptions = ["Yes", "No"];
+
+export {
+  roles,
+  relationships,
+  diagnosesOptions,
+  servicesOptions,
+  strugglingAreaOptions,
+  struggleEffectOptions,
+  maxLiveTimeOptions,
+  siblingsOptions,
+};

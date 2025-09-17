@@ -6,6 +6,7 @@ import {
   AccountSetupScreen,
   AddChild,
   CreateChildProfile,
+  GenerateChild,
   Home,
   HomeScreen,
   LearnerQuestionScreen,
@@ -50,6 +51,11 @@ export default function Router() {
         <Stack.Screen
           name={ScreensName.PARENTQUESTIONAIRE}
           component={ParentQuestionaire}
+        />
+
+        <Stack.Screen
+          name={ScreensName.GENERATECHILD}
+          component={GenerateChild}
         />
         <Stack.Screen name={ScreensName.HOME} component={Home} />
         <Stack.Screen

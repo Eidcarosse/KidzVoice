@@ -11,6 +11,7 @@ export default function DropDown({
   setState,
   onPress,
   isDisplayRelationList,
+  rightIcon,
 }) {
   return (
     <TouchableOpacity
@@ -23,11 +24,22 @@ export default function DropDown({
       onPress={onPress}
     >
       {icon && <View style={styles.iconContainer}>{icon}</View>}
-      <Text style={styles.textStyle}>{state ? state : placeholder}</Text>
+      <Text
+        style={[
+          styles.textStyle,
+          { color: state ? colors.mineShaft : colors.nobel },
+        ]}
+      >
+        {state ? state : placeholder}
+      </Text>
 
-      <View style={styles.iconContainer}>
-        <FontAwesome name="angle-right" color={colors.ebonyClay} size={20} />
-      </View>
+      {rightIcon ? (
+        <View style={styles.iconContainer}>{rightIcon}</View>
+      ) : (
+        <View style={styles.iconContainer}>
+          <FontAwesome name="angle-right" color={colors.ebonyClay} size={20} />
+        </View>
+      )}
     </TouchableOpacity>
   );
 }

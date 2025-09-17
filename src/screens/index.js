@@ -10,6 +10,7 @@ import AddChild from "./parent/addChild/addChild";
 import CreateChildProfile from "./parent/createsChildProfile/createChildProfile";
 import StartQuestionaire from "./parent/startQuestionaire/startQuestionaire";
 import ParentQuestionaire from "./parent/questionaire/questionaire";
+import GenerateChild from "./parent/generateChild/generateChild";
 
 export {
   Questionnaire,
@@ -24,4 +25,5 @@ export {
   CreateChildProfile,
   StartQuestionaire,
   ParentQuestionaire,
+  GenerateChild,
 };

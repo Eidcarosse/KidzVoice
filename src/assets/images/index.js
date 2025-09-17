@@ -10,6 +10,7 @@ const Images = {
   PARENTPROFILEINFO: require("./profileInfo.png"),
   QUESTIONAIRE: require("./questionaire.png"),
   ADDCHILD: require("./addChild.png"),
+  GENERATECHILD: require("./generateChild.png"),
 };
 
 export default Images;
