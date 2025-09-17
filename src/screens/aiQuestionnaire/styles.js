@@ -18,7 +18,9 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.bold
     },
     micContainer: {
-        width: 100, height: 100, borderRadius: 100, backgroundColor: colors.dodgerBlue, justifyContent: 'center', alignItems: 'center'
+        width: 100, height: 100,
+        borderRadius: 100, backgroundColor: colors.dodgerBlue,
+        justifyContent: 'center', alignItems: 'center', alignSelf: 'center'
     },
     micImg: {
         width: 40,
@@ -72,6 +74,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     actionRow: {
+        flex: 1,
         flexDirection: "row",
         // alignItems: "center",
         justifyContent: "space-between",

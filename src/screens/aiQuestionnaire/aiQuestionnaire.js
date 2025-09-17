@@ -118,6 +118,11 @@ const Questionnaire = () => {
                             <TouchableOpacity style={styles.sendBtn} onPress={handleSubmit}>
                                 <Text style={styles.sendText}>Send</Text>
                             </TouchableOpacity>
+                            <TouchableOpacity onPress={() => setSections([
+                                { title: dummyQuestions[0], data: [] },
+                            ])}>
+                                <Ionicons name="close-circle-outline" size={36} color="#555" />
+                            </TouchableOpacity>
                         </View>
                     ) : (
                         <View style={styles.actionRow}>
@@ -129,14 +134,14 @@ const Questionnaire = () => {
                                 <Image source={Images.MIC} style={styles.micImg} />
                             </TouchableOpacity>
 
-
+                            <TouchableOpacity onPress={() => setSections([
+                                { title: dummyQuestions[0], data: [] },
+                            ])}>
+                                <Ionicons name="close-circle-outline" size={36} color="#555" />
+                            </TouchableOpacity>
                         </View>
                     )}
-                    <TouchableOpacity onPress={() => setSections([
-                        { title: dummyQuestions[0], data: [] },
-                    ])}>
-                        <Ionicons name="close-circle-outline" size={36} color="#555" />
-                    </TouchableOpacity>
+
                 </View>
             </KeyboardAvoidingView>
         </View>
