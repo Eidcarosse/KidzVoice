@@ -5,6 +5,7 @@ const colors = {
   alto: "#D1D1D1",
   dodgerBlue: "#1B84F8",
   emperor: "#545454",
+  bloader: '#F4F4F4'
 };
 
 export default colors;

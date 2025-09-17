@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { AccountSetupScreen, Home, HomeScreen, LearnerQuestionScreen, MagicBackpackScreen, Questionnaire, Welcome, WelcomeScreen } from "../screens";
+import { AccountSetupScreen, AiLiveSection, Home, HomeScreen, LearnerQuestionScreen, MagicBackpackScreen, Questionnaire, Welcome, WelcomeScreen } from "../screens";
 import ScreensName from "./routes";
 
 const Stack = createNativeStackNavigator();
@@ -17,6 +17,7 @@ export default function Router() {
         <Stack.Screen name={ScreensName.ACCOUNT} component={AccountSetupScreen} />
         <Stack.Screen name={ScreensName.MAGICBACKPACK} component={MagicBackpackScreen} />
         <Stack.Screen name={ScreensName.QUESTIONAIRE} component={Questionnaire} />
+        <Stack.Screen name={ScreensName.AILIVESECTION} component={AiLiveSection} />
       </Stack.Navigator>
     </NavigationContainer>
   );

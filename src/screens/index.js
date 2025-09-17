@@ -4,6 +4,7 @@ import LearnerQuestionScreen from "./learnerQuestion/learnerQuestion";
 import MagicBackpackScreen from "./magicBackpack/magicsBackpack";
 import Questionnaire from "./aiQuestionnaire/aiQuestionnaire";
 import Welcome from "./welcome/welcome";
+import AiLiveSection from "./aiLiveSection/aiLiveSection";
 
 
-export { Questionnaire, LearnerQuestionScreen, MagicBackpackScreen, Home, Welcome, AccountSetupScreen }
+export { Questionnaire, AiLiveSection, LearnerQuestionScreen, MagicBackpackScreen, Home, Welcome, AccountSetupScreen }

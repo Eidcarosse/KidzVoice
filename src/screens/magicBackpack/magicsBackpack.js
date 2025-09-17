@@ -20,7 +20,7 @@ const MagicBackpackScreen = () => {
     const navigation = useNavigation()
 
     const handleContinue = () => {
-        navigation.navigate(ScreensName.QUESTIONAIRE)
+        navigation.navigate(ScreensName.AILIVESECTION)
 
     };
     return (

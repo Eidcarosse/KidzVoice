@@ -4,6 +4,7 @@ const ScreensName = {
   LEARNER_QUESTIONAIR: "LearnerQuestionair",
   ACCOUNT: 'Account',
   MAGICBACKPACK: 'MagicBackpackScreen',
-  QUESTIONAIRE: 'Questionnaire'
+  QUESTIONAIRE: 'Questionnaire',
+  AILIVESECTION: 'AiLiveSession'
 };
 export default ScreensName;

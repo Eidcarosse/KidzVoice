@@ -27,5 +27,9 @@
     "react-native-screen-wrapper": "^1.0.4",
     "react-native-screens": "~4.16.0"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "~5.9.2",
+    "@types/react": "~19.1.10"
+  }
 }
