@@ -13,34 +13,32 @@ import styles from "./styles";
 import { height } from "../../utils/Dimensions";
 
 export default function Welcome() {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <StatusBarWrapper>
-      <View style={[commonStyles.parentView, styles.parentView]}>
-        <View
-          style={{
-            alignItems: "center",
-            height: height(50),
-            justifyContent: "center",
-            // backgroundColor: "red",
-          }}
-        >
-          <Image
-            source={Images.WELCOMEIMAGE}
-            style={styles.imageStyle}
-            resizeMode="contain"
-          />
+      <View
+        style={{
+          alignItems: "center",
+          height: height(80),
+          justifyContent: "center",
+          // backgroundColor: "red",
+        }}
+      >
+        <Image
+          source={Images.WELCOMEIMAGE}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
 
+        <Text style={styles.kidzText}>KidzVoice</Text>
 
-          <Text style={styles.kidzText}>KidzVoice</Text>
-
-          <Text style={styles.growText}>Grow Smarter, Kinder, Happier.</Text>
-        <Button title="Get Started" onPress={() => navigation.navigate(ScreensName.ACCOUNT)} />
-
-        </View>
-
-
+        <Text style={styles.growText}>Grow Smarter, Kinder, Happier.</Text>
       </View>
+
+      <Button
+        title="Get Started"
+        onPress={() => navigation.navigate(ScreensName.SIGNIN)}
+      />
     </StatusBarWrapper>
   );
 }
