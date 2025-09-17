@@ -108,10 +108,13 @@ export const styles = StyleSheet.create({
     },
     sendBtn: {
         marginLeft: 10,
-        backgroundColor: "#007AFF",
         borderRadius: 8,
         paddingVertical: 8,
         paddingHorizontal: 16,
+    },
+    sendImg: {
+        width: 50,
+        height: 50,
     },
     sendText: {
         color: "#fff",
