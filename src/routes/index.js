@@ -58,6 +58,10 @@ export default function Router() {
           component={GenerateChild}
         />
         <Stack.Screen name={ScreensName.HOME} component={Home} />
+        <Stack.Screen name={ScreensName.ACCOUNT} component={AccountSetupScreen} />
+        <Stack.Screen name={ScreensName.MAGICBACKPACK} component={MagicBackpackScreen} />
+        <Stack.Screen name={ScreensName.QUESTIONAIRE} component={Questionnaire} />
+        <Stack.Screen name={ScreensName.AILIVESECTION} component={AiLiveSection} />
         <Stack.Screen
           name={ScreensName.LEARNER_QUESTIONAIR}
           component={LearnerQuestionScreen}

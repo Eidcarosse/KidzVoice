@@ -4,6 +4,10 @@ import LearnerQuestionScreen from "./learnerQuestion/learnerQuestion";
 import MagicBackpackScreen from "./magicBackpack/magicsBackpack";
 import Questionnaire from "./aiQuestionnaire/aiQuestionnaire";
 import Welcome from "./welcome/welcome";
+import AiLiveSection from "./aiLiveSection/aiLiveSection";
+
+
+export { Questionnaire, AiLiveSection, LearnerQuestionScreen, MagicBackpackScreen, Home, Welcome, AccountSetupScreen }
 import SignIn from "./signIn/signIn";
 import ProfileInfo from "./parent/profileInfo/profileInfo";
 import AddChild from "./parent/addChild/addChild";

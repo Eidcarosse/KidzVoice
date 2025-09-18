@@ -4,9 +4,10 @@ const ScreensName = {
   SIGNIN: "SignIn",
   PARENTPROFILENFO: "ParentProfileInfo",
   LEARNER_QUESTIONAIR: "LearnerQuestionair",
-  ACCOUNT: "Account",
-  MAGICBACKPACK: "MagicBackpackScreen",
-  QUESTIONAIRE: "Questionnaire",
+  ACCOUNT: 'Account',
+  MAGICBACKPACK: 'MagicBackpackScreen',
+  QUESTIONAIRE: 'Questionnaire',
+  AILIVESECTION: 'AiLiveSession'
   ADDCHILD: "AddChild",
   CREATECHILDPROFILE: "CreateChildProfile",
   STARTQUESTIONAIRE: "StartQuestionaire",
