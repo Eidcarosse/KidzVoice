@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import {
   AccountSetupScreen,
   AddChild,
+  AiLiveSection,
   CreateChildProfile,
   GenerateChild,
   Home,
@@ -66,18 +67,9 @@ export default function Router() {
           name={ScreensName.LEARNER_QUESTIONAIR}
           component={LearnerQuestionScreen}
         />
-        <Stack.Screen
-          name={ScreensName.ACCOUNT}
-          component={AccountSetupScreen}
-        />
-        <Stack.Screen
-          name={ScreensName.MAGICBACKPACK}
-          component={MagicBackpackScreen}
-        />
-        <Stack.Screen
-          name={ScreensName.QUESTIONAIRE}
-          component={Questionnaire}
-        />
+
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );

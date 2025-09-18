@@ -7,7 +7,7 @@ const ScreensName = {
   ACCOUNT: 'Account',
   MAGICBACKPACK: 'MagicBackpackScreen',
   QUESTIONAIRE: 'Questionnaire',
-  AILIVESECTION: 'AiLiveSession'
+  AILIVESECTION: 'AiLiveSession',
   ADDCHILD: "AddChild",
   CREATECHILDPROFILE: "CreateChildProfile",
   STARTQUESTIONAIRE: "StartQuestionaire",
