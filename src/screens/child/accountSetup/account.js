@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { Button, Input, PhotoUploader } from '../../components';
+import { Button, Input, PhotoUploader } from '../../../components';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import colors from '../../utils/AppColors';
-import Images from '../../assets/images';
-import { fonts } from '../../utils/fonts';
+import colors from '../../../utils/AppColors';
+import Images from '../../../assets/images';
+import { fonts } from '../../../utils/fonts';
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
-import ScreensName from '../../routes/routes';
-import StatusBarWrapper from '../../components/customStatusbar';
-import ConnectedModal from '../../components/conectedModal/connectedModal';
+import ScreensName from '../../../routes/routes';
+import StatusBarWrapper from '../../../components/customStatusbar';
+import ConnectedModal from '../../../components/conectedModal/connectedModal';
 
 const AccountSetupScreen = () => {
     const navigation = useNavigation()

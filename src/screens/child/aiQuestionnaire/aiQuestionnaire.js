@@ -13,16 +13,16 @@ import {
 } from "react-native";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import Images from "../../assets/images";
+import Images from "../../../assets/images";
 import { styles } from "./styles";
-import StatusBarWrapper from "../../components/customStatusbar";
-import { AiCustomHeader } from "../../components";
+import StatusBarWrapper from "../../../components/customStatusbar";
+import { AiCustomHeader } from "../../../components";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import colors from "../../utils/AppColors";
-import { requestAudioPermissions } from "../../utils/helper";
-import VoiceMessageModal from "../../components/voice/modal";
-import VoiceMessage from "../../components/voice";
-import AudioNote from "../../components/voice";
+import colors from "../../../utils/AppColors";
+import { requestAudioPermissions } from "../../../utils/helper";
+import VoiceMessageModal from "../../../components/voice/modal";
+import VoiceMessage from "../../../components/voice";
+import AudioNote from "../../../components/voice";
 
 const dummyQuestions = [
     "Who are you?",

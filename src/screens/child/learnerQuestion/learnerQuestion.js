@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, Pressable, TextInput } from 'react-native';
 import styles from './styles';
-import PhotoUploader from '../../components/photoUploader/photoUploader';
-import StatusBarWrapper from '../../components/customStatusbar';
-import { Button } from '../../components';
-import ConnectedModal from '../../components/conectedModal/connectedModal';
-import ScreensName from '../../routes/routes';
+import PhotoUploader from '../../../components/photoUploader/photoUploader';
+import StatusBarWrapper from '../../../components/customStatusbar';
+import { Button } from '../../../components';
+import ConnectedModal from '../../../components/conectedModal/connectedModal';
+import ScreensName from '../../../routes/routes';
 import { useNavigation } from '@react-navigation/native';
 
 const InputField = ({ label, placeholder, required = false }) => {
