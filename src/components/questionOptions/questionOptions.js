@@ -8,7 +8,7 @@ export default function QuestionOptions({
   options,
   state,
   setState,
-  multiple = true,
+  multiple = false,
 }) {
   const isSelected = (value) =>
     multiple ? state.includes(value) : state === value;

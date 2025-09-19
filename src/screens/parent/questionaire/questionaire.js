@@ -30,15 +30,15 @@ export default function ParentQuestionaire() {
 
   const [activeQuetionaire, setActiveQuestionaire] = useState("Child History");
 
-  const [diagnoses, setDiagnoses] = useState([]);
-  const [services, setServices] = useState([]);
+  const [diagnoses, setDiagnoses] = useState();
+  const [services, setServices] = useState();
   const [history, setHistory] = useState("");
   const [report, setReport] = useState(null);
 
-  const [strugglingArea, setStrugglingArea] = useState([]);
-  const [struggleEffect, setStruggleEffect] = useState([]);
+  const [strugglingArea, setStrugglingArea] = useState();
+  const [struggleEffect, setStruggleEffect] = useState();
 
-  const [maxLiveTime, setMaxLiveTime] = useState([]);
+  const [maxLiveTime, setMaxLiveTime] = useState();
   const [siblings, setSiblings] = useState("");
   const [contactPerson, setContactPerson] = useState("");
 
