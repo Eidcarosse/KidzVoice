@@ -22,7 +22,8 @@ const MagicBackpackScreen = () => {
     const handleContinue = () => {
         // navigation.navigate(ScreensName.QUESTIONAIRE)
         // navigation.navigate(ScreensName.AILIVESECTION)
-        navigation.navigate(ScreensName.AILIVEVEDIOSECTION)
+        // navigation.navigate(ScreensName.AILIVEVEDIOSECTION)
+        navigation.navigate(ScreensName.AILIVEEXAMPLE)
 
     };
     return (

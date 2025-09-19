@@ -5,6 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import {
   AccountSetupScreen,
   AddChild,
+  AiLiveExample,
+  AiLiveQuestion,
   AiLiveSection,
   AiLiveVedio,
   CreateChildProfile,
@@ -22,6 +24,7 @@ import {
   WelcomeScreen,
 } from "../screens";
 import ScreensName from "./routes";
+import AiGame from "../screens/child/aiGame/aiGame";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +64,18 @@ export default function Router() {
         <Stack.Screen
           name={ScreensName.GENERATECHILD}
           component={GenerateChild}
+        />
+        <Stack.Screen
+          name={ScreensName.AILIVEQUESTIONAIR}
+          component={AiLiveQuestion}
+        />
+        <Stack.Screen
+          name={ScreensName.AIGAME}
+          component={AiGame}
+        />
+        <Stack.Screen
+          name={ScreensName.AILIVEEXAMPLE}
+          component={AiLiveExample}
         />
         <Stack.Screen name={ScreensName.HOME} component={Home} />
         <Stack.Screen name={ScreensName.ACCOUNT} component={AccountSetupScreen} />

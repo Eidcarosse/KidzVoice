@@ -36,22 +36,12 @@ export default function VideoPlayer({ videoSource, setModalVisible = () => { } }
     });
 
     const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
-    useEvent(player, 'timeUpdate', (event) => {
-        if (!event) return; // safeguard
+    useEvent(player, 'playToEnd', () => {
+        console.log('✅ Video finished playing');
+        setHasEnded(true);
 
-        const { currentTime, duration } = event;
-
-        if (
-            !hasEnded &&
-            duration && duration > 0 && // make sure duration is valid
-            currentTime >= duration
-        ) {
-            console.log('✅ Video fully finished');
-            setHasEnded(true);
-
-            // run setModalVisible inside a microtask so it’s not inside render
-            setTimeout(() => setModalVisible(true), 0);
-        }
+        // wait 10 seconds before opening modal
+        setTimeout(() => setModalVisible(true), 10000);
     });
     return (
         <View style={styles.contentContainer}>

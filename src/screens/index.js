@@ -13,8 +13,11 @@ import StartQuestionaire from "./parent/startQuestionaire/startQuestionaire";
 import ParentQuestionaire from "./parent/questionaire/questionaire";
 import GenerateChild from "./parent/generateChild/generateChild";
 import AiLiveVedio from "./child/aiLiveVedioSection/aiLiveVedio";
+import AiLiveQuestion from "./child/aiLiveQuestion/aiLiveQuestion";
+import AiLiveExample from "./child/aiLiveExample/aiLiveExample";
 
 export {
+  AiLiveQuestion,
   Questionnaire,
   AiLiveSection,
   LearnerQuestionScreen,
@@ -23,6 +26,7 @@ export {
   Welcome,
   AccountSetupScreen,
   SignIn,
+  AiLiveExample,
   ProfileInfo,
   AddChild,
   CreateChildProfile,

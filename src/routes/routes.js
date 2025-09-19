@@ -13,6 +13,9 @@ const ScreensName = {
   STARTQUESTIONAIRE: "StartQuestionaire",
   PARENTQUESTIONAIRE: "ParentQuestionaire",
   GENERATECHILD: "GenerateChild",
-  AILIVEVEDIOSECTION: "AiLiveVedio"
+  AILIVEVEDIOSECTION: "AiLiveVedio",
+  AILIVEQUESTIONAIR: 'AiLiveQuestion',
+  AILIVEEXAMPLE: "AiLiveExample",
+  AIGAME: 'AIGAME'
 };
 export default ScreensName;
