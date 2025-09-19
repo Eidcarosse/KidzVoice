@@ -26,8 +26,10 @@ export default function AiLiveVedio() {
             </View>
             <VideoPlayer videoSource={"https://www.w3schools.com/html/mov_bbb.mp4"} setModalVisible={setModalVisible} />
             <SuccessModal
+                title={"Great job"}
+                subtitle={" Max! You just trained your focus, just like a football player before a big match."}
                 visible={modalVisible}
-                onClose={() => setModalVisible(false)} />
+                onClose={() => setModalVisible(false)} questionOf={"AiLiveVedio"} />
         </View>
     )
 }

@@ -2,8 +2,20 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Button from '../button/button';
 import BaseModal from '../modal/modal';
+import { useNavigation } from '@react-navigation/native';
+import ScreensName from '../../routes/routes';
 
-const SuccessModal = ({ visible, onClose }) => {
+const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
+    const navigation = useNavigation()
+    const handlePress = () => {
+        if (questionOf === "AiLiveVedio") {
+            navigation.navigate(ScreensName.AILIVEQUESTIONAIR)
+        } else if (questionOf === "AiExample") {
+            navigation.navigate(ScreensName.AIGAME)
+        } else if (questionOf === "AiGame") {
+
+        }
+    }
     return (
         <BaseModal visible={visible} onClose={onClose}>
             <View style={styles.container}>
@@ -11,16 +23,16 @@ const SuccessModal = ({ visible, onClose }) => {
                 <Text style={styles.emoji}>😊</Text>
 
                 {/* Title */}
-                <Text style={styles.title}>Great job</Text>
+                <Text style={styles.title}>{title}</Text>
 
                 {/* Subtitle */}
                 <Text style={styles.subtitle}>
-                    Max! You just trained your focus, just like a football player before a big match.
-                </Text>
+                    {subtitle}</Text>
 
                 <Button
-                    title="Next"
-                    onPress={onClose}
+
+                    title={`${"AiGame"}`}
+                    onPress={handlePress}
                     btnStyle={styles.button}
                     textStyle={styles.buttonText}
                 />
