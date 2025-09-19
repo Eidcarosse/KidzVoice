@@ -5,6 +5,7 @@ import { diagnosesOptions, servicesOptions } from "../../utils/Data";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import colors from "../../utils/AppColors";
 import QuestionOptions from "../questionOptions/questionOptions";
+import * as DocumentPicker from "expo-document-picker";
 
 export default function ChildHistory({
   diagnoses,
@@ -16,6 +17,29 @@ export default function ChildHistory({
   report,
   setReport,
 }) {
+  const pickDocument = async () => {
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        type: "application/pdf", // Specify PDF files only
+        copyToCacheDirectory: true, // Optional: copy the file to cache for easier access
+      });
+
+      if (result.canceled) {
+        console.log("Document picking cancelled");
+        return null;
+      }
+
+      // Document picked successfully
+      const { uri, name, size, mimeType } = result.assets[0]; // Access the first asset in the array
+      console.log("Picked document:", { uri, name, size, mimeType });
+
+      setReport({ uri, name, size, mimeType });
+      return { uri, name, size, mimeType };
+    } catch (err) {
+      console.error("Error picking document:", err);
+      return null;
+    }
+  };
   return (
     <View style={styles.parentView}>
       <Text style={styles.title}>Child History</Text>
@@ -54,13 +78,15 @@ export default function ChildHistory({
       />
 
       {/* Upload Reports Button */}
-      <TouchableOpacity style={styles.uploadBtn}>
+      <TouchableOpacity style={styles.uploadBtn} onPress={pickDocument}>
         <Ionicons
           name="document-text-outline"
           size={18}
           color={colors.blueRibbon}
         />
-        <Text style={styles.uploadText}>Submit Reports</Text>
+        <Text style={styles.uploadText}>
+          {report ? report?.name : "Submit Reports"}
+        </Text>
       </TouchableOpacity>
     </View>
   );

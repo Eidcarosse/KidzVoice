@@ -33,7 +33,7 @@ export default function ParentQuestionaire() {
   const [diagnoses, setDiagnoses] = useState([]);
   const [services, setServices] = useState([]);
   const [history, setHistory] = useState("");
-  const [report, setReport] = useState();
+  const [report, setReport] = useState(null);
 
   const [strugglingArea, setStrugglingArea] = useState([]);
   const [struggleEffect, setStruggleEffect] = useState([]);
@@ -46,6 +46,7 @@ export default function ParentQuestionaire() {
     console.log("Diagnoses", diagnoses);
     console.log("Services", services);
     console.log("History", history);
+    console.log("Report ", report);
 
     if (activeQuetionaire === "Child History") {
       if (diagnoses && services && history) {
