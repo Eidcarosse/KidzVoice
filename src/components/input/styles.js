@@ -1,33 +1,24 @@
 import { StyleSheet } from "react-native";
-import { fontSizes, height, width } from "../../utils/Dimensions";
+import { height, width } from "../../utils/Dimensions";
 import colors from "../../utils/AppColors";
-import { fonts } from "../../utils/fonts";
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: width(90),
+    height: height(6),
+    borderRadius: 16,
+    paddingHorizontal: width(5),
+    alignItems: "center",
+    flexDirection: "row",
     backgroundColor: colors.white,
-    borderRadius: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 14,
-    marginVertical: 8,
+    marginVertical: height(1),
     borderWidth: 1,
-    borderColor: '#E0E0E0',
+    borderColor: colors.alto,
+    alignSelf: "center",
   },
   iconContainer: {
-    marginRight: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    color: '#333',
-    paddingVertical: 0,
+    marginRight: width(3),
   },
 });
-
 
 export default styles;

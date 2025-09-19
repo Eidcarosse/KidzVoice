@@ -5,10 +5,11 @@ import { fonts } from "../../utils/fonts";
 
 const styles = StyleSheet.create({
   buttonView: {
-    marginHorizontal: 16,
-    paddingVertical: height(2),
+    width: width(90),
+    height: height(6),
     borderRadius: 16,
     alignItems: "center",
+    alignSelf: "center",
     marginVertical: height(1),
     paddingLeft: width(2),
     paddingRight: width(2),

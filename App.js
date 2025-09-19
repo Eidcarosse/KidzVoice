@@ -1,9 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { LogBox, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Router from "./src/routes";
 import { useLoadFonts } from "./src/utils/fonts";
-
-LogBox.ignoreAllLogs(true);
 
 export default function App() {
   const [fontsLoaded] = useLoadFonts();
