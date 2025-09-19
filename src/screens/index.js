@@ -1,10 +1,10 @@
-import AccountSetupScreen from "./accountSetup/account";
+import AccountSetupScreen from "./child/accountSetup/account";
 import Home from "./home/home";
-import LearnerQuestionScreen from "./learnerQuestion/learnerQuestion";
-import MagicBackpackScreen from "./magicBackpack/magicsBackpack";
-import Questionnaire from "./aiQuestionnaire/aiQuestionnaire";
+import LearnerQuestionScreen from "./child/learnerQuestion/learnerQuestion";
+import MagicBackpackScreen from "./child/magicBackpack/magicsBackpack";
+import Questionnaire from "./child/aiQuestionnaire/aiQuestionnaire";
 import Welcome from "./welcome/welcome";
-import AiLiveSection from "./aiLiveSection/aiLiveSection";
+import AiLiveSection from "./child/aiLiveSection/aiLiveSection";
 import SignIn from "./signIn/signIn";
 import ProfileInfo from "./parent/profileInfo/profileInfo";
 import AddChild from "./parent/addChild/addChild";
@@ -12,6 +12,7 @@ import CreateChildProfile from "./parent/createsChildProfile/createChildProfile"
 import StartQuestionaire from "./parent/startQuestionaire/startQuestionaire";
 import ParentQuestionaire from "./parent/questionaire/questionaire";
 import GenerateChild from "./parent/generateChild/generateChild";
+import AiLiveVedio from "./child/aiLiveVedioSection/aiLiveVedio";
 
 export {
   Questionnaire,
@@ -28,4 +29,5 @@ export {
   StartQuestionaire,
   ParentQuestionaire,
   GenerateChild,
+  AiLiveVedio
 };

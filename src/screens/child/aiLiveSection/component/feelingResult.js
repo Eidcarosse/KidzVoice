@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { height, width } from '../../../utils/Dimensions';
-import { fonts } from '../../../utils/fonts';
+import { height, width } from '../../../../utils/Dimensions';
+import { fonts } from '../../../../utils/fonts';
 
 export default function FeelingResult({ image, text }) {
     return (

@@ -8,20 +8,22 @@ import {
     Alert,
     Image
 } from 'react-native';
-import StatusBarWrapper from '../../components/customStatusbar';
-import { height } from '../../utils/Dimensions';
+import StatusBarWrapper from '../../../components/customStatusbar';
+import { height } from '../../../utils/Dimensions';
 import { styles } from './styles';
-import Images from '../../assets/images';
-import { Button } from '../../components';
+import Images from '../../../assets/images';
+import { Button } from '../../../components';
 import { useNavigation } from '@react-navigation/native';
-import ScreensName from '../../routes/routes';
+import ScreensName from '../../../routes/routes';
 
 const MagicBackpackScreen = () => {
     const navigation = useNavigation()
 
     const handleContinue = () => {
-        navigation.navigate(ScreensName.QUESTIONAIRE)
-        navigation.navigate(ScreensName.AILIVESECTION)
+        // navigation.navigate(ScreensName.QUESTIONAIRE)
+        // navigation.navigate(ScreensName.AILIVESECTION)
+        navigation.navigate(ScreensName.AILIVEVEDIOSECTION)
+
     };
     return (
         <StatusBarWrapper>

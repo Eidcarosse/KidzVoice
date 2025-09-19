@@ -6,6 +6,7 @@ import {
   AccountSetupScreen,
   AddChild,
   AiLiveSection,
+  AiLiveVedio,
   CreateChildProfile,
   GenerateChild,
   Home,
@@ -53,7 +54,10 @@ export default function Router() {
           name={ScreensName.PARENTQUESTIONAIRE}
           component={ParentQuestionaire}
         />
-
+        <Stack.Screen
+          name={ScreensName.AILIVEVEDIOSECTION}
+          component={AiLiveVedio}
+        />
         <Stack.Screen
           name={ScreensName.GENERATECHILD}
           component={GenerateChild}
