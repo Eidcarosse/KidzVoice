@@ -27,13 +27,13 @@ const AccountSetupScreen = () => {
     console.log("Stored Child Id", childId);
     console.log("Code", code);
 
-    if (childId === code) {
-      setIsConnectedModal(true);
-      setTimeout(() => {
-        setIsConnectedModal(false);
-        navigation.navigate(ScreensName.LEARNER_QUESTIONAIR);
-      }, 3000);
-    }
+    // if (childId === code) {
+    setIsConnectedModal(true);
+    setTimeout(() => {
+      setIsConnectedModal(false);
+      navigation.navigate(ScreensName.LEARNER_QUESTIONAIR);
+    }, 3000);
+    // }
   };
 
   return (
