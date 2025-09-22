@@ -10,6 +10,7 @@ import {
     Platform,
     Image,
     SectionList,
+    Alert,
 } from "react-native";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -23,21 +24,28 @@ import { requestAudioPermissions } from "../../../utils/helper";
 import VoiceMessageModal from "../../../components/voice/modal";
 import VoiceMessage from "../../../components/voice";
 import AudioNote from "../../../components/voice";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import ScreensName from "../../../routes/routes";
 
 const dummyQuestions = [
     "Who are you?",
     "What’s your favorite color?",
-    "Where are you from?",
-    "What do you like to do in your free time?",
-    "Who inspires you the most?",
-    "What’s your dream job?",
-    "If you could visit anywhere, where would it be?",
-    "What’s your favorite movie?",
-    "What skill do you want to learn?",
-    "What makes you happy?",
+    // "Where are you from?",
+    // "What do you like to do in your free time?",
+    // "Who inspires you the most?",
+    // "What’s your dream job?",
+    // "If you could visit anywhere, where would it be?",
+    // "What’s your favorite movie?",
+    // "What skill do you want to learn?",
+    // "What makes you happy?",
 ];
 
 const Questionnaire = () => {
+    const route = useRoute()
+    const questionOf = route?.params?.questionOf || ""
+    console.log("question of", questionOf);
+
+    const navigation = useNavigation()
     const [currentIndex, setCurrentIndex] = useState(0);
     const [text, setText] = useState("");
     const [isTyping, setIsTyping] = useState(false);
@@ -73,8 +81,19 @@ const Questionnaire = () => {
         setText("");
 
         if (nextIndex >= dummyQuestions.length) {
-            alert("✅ All questions completed!");
+            Alert.alert(
+                "✅ All questions completed!",
+                "Click OK to go to Live Section.",
+                [
+                    {
+                        text: "OK",
+                        onPress: () => navigation.navigate(ScreensName.AILIVESECTION),
+                    },
+                ]
+            );
+            return; // stop here so it doesn’t set index past last question
         }
+
     };
 
 

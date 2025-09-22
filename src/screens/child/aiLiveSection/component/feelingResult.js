@@ -3,12 +3,14 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { height, width } from "../../../../utils/Dimensions";
 import { fonts } from "../../../../utils/fonts";
 import SuccessModal from "../../../../components/successModal/success";
+import { Button } from "../../../../components";
 
-export default function FeelingResult({ image, text }) {
+export default function FeelingResult({ isBtn, onPress, image, text }) {
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
+      {isBtn && <Button title={"Next"} onPress={onPress} btnStyle={{ width: width(90), marginTop: 12 }} />}
     </View>
   );
 }
