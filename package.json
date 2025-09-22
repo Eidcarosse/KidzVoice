@@ -37,7 +37,8 @@
     "react-native-screen-wrapper": "^1.0.4",
     "react-native-screens": "~4.16.0",
     "react-native-sound": "^0.12.0",
-    "expo-video": "~3.0.11"
+    "expo-video": "~3.0.11",
+    "expo-dev-client": "~6.0.12"
   },
   "private": true,
   "devDependencies": {
