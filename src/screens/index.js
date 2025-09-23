@@ -15,23 +15,25 @@ import GenerateChild from "./parent/generateChild/generateChild";
 import AiLiveVedio from "./child/aiLiveVedioSection/aiLiveVedio";
 import AiLiveQuestion from "./child/aiLiveQuestion/aiLiveQuestion";
 import AiLiveExample from "./child/aiLiveExample/aiLiveExample";
-
+import ChildDashboard from "./child/childDashboard/childDashboard";
+ChildDashboard
 export {
-  AiLiveQuestion,
-  Questionnaire,
-  AiLiveSection,
-  LearnerQuestionScreen,
-  MagicBackpackScreen,
-  Home,
-  Welcome,
-  AccountSetupScreen,
-  SignIn,
-  AiLiveExample,
-  ProfileInfo,
-  AddChild,
-  CreateChildProfile,
-  StartQuestionaire,
-  ParentQuestionaire,
-  GenerateChild,
-  AiLiveVedio
+    AiLiveQuestion,
+    Questionnaire,
+    AiLiveSection,
+    LearnerQuestionScreen,
+    MagicBackpackScreen,
+    Home,
+    Welcome,
+    AccountSetupScreen,
+    SignIn,
+    AiLiveExample,
+    ProfileInfo,
+    AddChild,
+    CreateChildProfile,
+    StartQuestionaire,
+    ParentQuestionaire,
+    GenerateChild,
+    AiLiveVedio,
+    ChildDashboard
 };

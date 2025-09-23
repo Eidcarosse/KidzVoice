@@ -54,7 +54,7 @@ const Questionnaire = () => {
         // "What skill do you want to learn?",
         // "What makes you happy?",
     ];
-   
+
     const [sections, setSections] = useState([
         { title: dummyQuestions[0], data: [] },
     ]);
@@ -89,7 +89,7 @@ const Questionnaire = () => {
                 [
                     {
                         text: "OK",
-                        onPress: () => navigation.navigate(ScreensName.AILIVESECTION),
+                        onPress: () => navigation.navigate(ScreensName.ChildDashboard),
                     },
                 ]
             );
