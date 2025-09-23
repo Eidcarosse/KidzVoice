@@ -27,18 +27,7 @@ import AudioNote from "../../../components/voice";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 
-const dummyQuestions = [
-    "Who are you?",
-    "What’s your favorite color?",
-    // "Where are you from?",
-    // "What do you like to do in your free time?",
-    // "Who inspires you the most?",
-    // "What’s your dream job?",
-    // "If you could visit anywhere, where would it be?",
-    // "What’s your favorite movie?",
-    // "What skill do you want to learn?",
-    // "What makes you happy?",
-];
+
 
 const Questionnaire = () => {
     const route = useRoute()
@@ -53,6 +42,19 @@ const Questionnaire = () => {
         useState(false);
 
 
+    const dummyQuestions = [
+        "Who are you?",
+        "What’s your favorite color?",
+        // "Where are you from?",
+        // "What do you like to do in your free time?",
+        // "Who inspires you the most?",
+        // "What’s your dream job?",
+        // "If you could visit anywhere, where would it be?",
+        // "What’s your favorite movie?",
+        // "What skill do you want to learn?",
+        // "What makes you happy?",
+    ];
+   
     const [sections, setSections] = useState([
         { title: dummyQuestions[0], data: [] },
     ]);
