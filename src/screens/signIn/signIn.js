@@ -42,7 +42,7 @@ export default function SignIn() {
       } else if (selectedRole?.title === "Learner") {
         navigation.navigate(ScreensName.ACCOUNT);
       } else {
-        navigation.navigate(ScreensName.HOME);
+        navigation.navigate(ScreensName.COACHACCOUNT);
       }
     }
   };

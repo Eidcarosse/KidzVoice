@@ -1,16 +1,24 @@
 const colors = {
   blueRibbon: "#0961F5",
+  lightBlueRibbon: "#0961F533",
   white: "#FFFFFF",
   ebonyClay: "#28303F",
   alto: "#D1D1D1",
   dodgerBlue: "#1B84F8",
   emperor: "#545454",
-  bloader: '#F4F4F4',
+  bloader: "#F4F4F4",
   grayChateau: "#A1A3A6",
   mineShaft: "#282727",
   boulder: "#7C7979",
   nobel: "#B4AEAE",
   black: "#000000",
+  lightDodgerBlue: "#0961F51A",
+  catSkillWhite: "#E8ECF4",
+  pomegranate: "#F22E2E",
+  malachite: "#00D134",
+  denim: "#154EDD",
+  boulder: "#7B7979",
+  tundora: "#494949",
 };
 
 export default colors;

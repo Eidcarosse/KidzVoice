@@ -10,6 +10,12 @@ const relationships = [
   { id: 3, label: "other", title: "Other Guardian" },
 ];
 
+const currencyList = [
+  { id: 1, label: "usd", title: "USD" },
+  { id: 2, label: "pkr", title: "PKR" },
+  { id: 3, label: "other", title: "Other" },
+];
+
 const diagnosesOptions = [
   "ADHD",
   "Autism Spectrum Disorder",
@@ -55,4 +61,5 @@ export {
   struggleEffectOptions,
   maxLiveTimeOptions,
   siblingsOptions,
+  currencyList,
 };

@@ -14,6 +14,7 @@ const Images = {
   QUESTIONAIRE: require("./questionaire.png"),
   ADDCHILD: require("./addChild.png"),
   GENERATECHILD: require("./generateChild.png"),
+  COACHPROFILE: require("./coachProfile.png"),
 };
 
 export default Images;

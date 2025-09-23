@@ -15,6 +15,11 @@ import GenerateChild from "./parent/generateChild/generateChild";
 import AiLiveVedio from "./child/aiLiveVedioSection/aiLiveVedio";
 import AiLiveQuestion from "./child/aiLiveQuestion/aiLiveQuestion";
 import AiLiveExample from "./child/aiLiveExample/aiLiveExample";
+import CoachAccount from "./coach/account/coachAccount";
+import ApplicationStatus from "./coach/applicationStatus/applicationStatus";
+import DigitalContract from "./coach/digitalContract/digitalContract";
+import PayoutSetup from "./coach/payoutSetup/payoutSetup";
+import Training from "./coach/training/training";
 
 export {
   AiLiveQuestion,
@@ -33,5 +38,10 @@ export {
   StartQuestionaire,
   ParentQuestionaire,
   GenerateChild,
-  AiLiveVedio
+  AiLiveVedio,
+  CoachAccount,
+  ApplicationStatus,
+  DigitalContract,
+  PayoutSetup,
+  Training,
 };

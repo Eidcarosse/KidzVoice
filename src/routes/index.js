@@ -9,17 +9,22 @@ import {
   AiLiveQuestion,
   AiLiveSection,
   AiLiveVedio,
+  ApplicationStatus,
+  CoachAccount,
   CreateChildProfile,
+  DigitalContract,
   GenerateChild,
   Home,
   HomeScreen,
   LearnerQuestionScreen,
   MagicBackpackScreen,
   ParentQuestionaire,
+  PayoutSetup,
   ProfileInfo,
   Questionnaire,
   SignIn,
   StartQuestionaire,
+  Training,
   Welcome,
   WelcomeScreen,
 } from "../screens";
@@ -69,26 +74,50 @@ export default function Router() {
           name={ScreensName.AILIVEQUESTIONAIR}
           component={AiLiveQuestion}
         />
-        <Stack.Screen
-          name={ScreensName.AIGAME}
-          component={AiGame}
-        />
+        <Stack.Screen name={ScreensName.AIGAME} component={AiGame} />
         <Stack.Screen
           name={ScreensName.AILIVEEXAMPLE}
           component={AiLiveExample}
         />
         <Stack.Screen name={ScreensName.HOME} component={Home} />
-        <Stack.Screen name={ScreensName.ACCOUNT} component={AccountSetupScreen} />
-        <Stack.Screen name={ScreensName.MAGICBACKPACK} component={MagicBackpackScreen} />
-        <Stack.Screen name={ScreensName.QUESTIONAIRE} component={Questionnaire} />
-        <Stack.Screen name={ScreensName.AILIVESECTION} component={AiLiveSection} />
+        <Stack.Screen
+          name={ScreensName.ACCOUNT}
+          component={AccountSetupScreen}
+        />
+        <Stack.Screen
+          name={ScreensName.MAGICBACKPACK}
+          component={MagicBackpackScreen}
+        />
+        <Stack.Screen
+          name={ScreensName.QUESTIONAIRE}
+          component={Questionnaire}
+        />
+        <Stack.Screen
+          name={ScreensName.AILIVESECTION}
+          component={AiLiveSection}
+        />
         <Stack.Screen
           name={ScreensName.LEARNER_QUESTIONAIR}
           component={LearnerQuestionScreen}
         />
 
+        <Stack.Screen
+          name={ScreensName.COACHACCOUNT}
+          component={CoachAccount}
+        />
 
+        <Stack.Screen
+          name={ScreensName.APPLICATIONSTATUS}
+          component={ApplicationStatus}
+        />
 
+        <Stack.Screen
+          name={ScreensName.DIGITALCONTRACT}
+          component={DigitalContract}
+        />
+
+        <Stack.Screen name={ScreensName.PAYOUTSETUP} component={PayoutSetup} />
+        <Stack.Screen name={ScreensName.TRAINING} component={Training} />
       </Stack.Navigator>
     </NavigationContainer>
   );
