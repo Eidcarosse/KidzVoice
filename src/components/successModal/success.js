@@ -32,7 +32,7 @@ const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
         <Text style={styles.subtitle}>{subtitle}</Text>
 
         <Button
-          title={`${"AiGame"}`}
+          title={`${'Next'}`}
           onPress={handlePress}
           btnStyle={styles.button}
           textStyle={styles.buttonText}

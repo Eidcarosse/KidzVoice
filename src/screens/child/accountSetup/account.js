@@ -31,7 +31,7 @@ const AccountSetupScreen = () => {
     setIsConnectedModal(true);
     setTimeout(() => {
       setIsConnectedModal(false);
-      navigation.navigate(ScreensName.LEARNER_QUESTIONAIR);
+      navigation.navigate(ScreensName.MAGICBACKPACK);
     }, 3000);
     // }
   };

@@ -27,6 +27,26 @@ import AudioNote from "../../../components/voice";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 
+const questionSets = {
+    LiveVedio: [
+        "What do you enjoy about live videos?",
+        "Have you ever streamed before?",
+        "What type of live content do you like?",
+        "Would you like to co-host with someone?",
+        "What’s your biggest challenge with live streaming?",
+    ],
+    Profile: [
+        "Who are you?",
+        "Where are you from?",
+        "What’s your favorite hobby?",
+        "What’s your dream job?",
+    ],
+    Default: [
+        "Who are you?",
+        "What’s your favorite color?",
+        "What inspires you?",
+    ],
+};
 
 
 const Questionnaire = () => {
@@ -42,19 +62,19 @@ const Questionnaire = () => {
         useState(false);
 
 
-    const dummyQuestions = [
-        "Who are you?",
-        "What’s your favorite color?",
-        // "Where are you from?",
-        // "What do you like to do in your free time?",
-        // "Who inspires you the most?",
-        // "What’s your dream job?",
-        // "If you could visit anywhere, where would it be?",
-        // "What’s your favorite movie?",
-        // "What skill do you want to learn?",
-        // "What makes you happy?",
-    ];
-
+    // const dummyQuestions = [
+    //     "Who are you?",
+    //     "What’s your favorite color?",
+    //     // "Where are you from?",
+    //     // "What do you like to do in your free time?",
+    //     // "Who inspires you the most?",
+    //     // "What’s your dream job?",
+    //     // "If you could visit anywhere, where would it be?",
+    //     // "What’s your favorite movie?",
+    //     // "What skill do you want to learn?",
+    //     // "What makes you happy?",
+    // ];
+    const dummyQuestions = questionSets[questionOf] || questionSets.Default;
     const [sections, setSections] = useState([
         { title: dummyQuestions[0], data: [] },
     ]);
@@ -89,7 +109,14 @@ const Questionnaire = () => {
                 [
                     {
                         text: "OK",
-                        onPress: () => navigation.navigate(ScreensName.ChildDashboard),
+                        onPress: () => {
+                            if (questionOf === "LiveVedio") {
+                                navigation.navigate(ScreensName.AILIVEEXAMPLE)
+                            } else {
+
+                                navigation.navigate(ScreensName.ChildDashboard)
+                            }
+                        }
                     },
                 ]
             );

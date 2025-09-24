@@ -1,6 +1,7 @@
 import { Rotate3D } from "lucide-react-native";
 import { StyleSheet } from "react-native";
 import { fonts } from "../../../utils/fonts";
+import { height, width } from "../../../utils/Dimensions";
 
 const styles = StyleSheet.create({
     container: {
@@ -21,9 +22,9 @@ const styles = StyleSheet.create({
         padding: 6,
     },
     settingIcon: {
-        borderRadius: 10,
-        backgroundColor: "#fff",
-        padding: 6,
+        padding: 8,
+        borderRadius: 8,
+        backgroundColor: '#fff'
     },
 
     header: {
@@ -59,7 +60,6 @@ const styles = StyleSheet.create({
     },
     liveText: {
         color: "#fff",
-        fontWeight: "600",
         fontSize: 13,
         fontFamily: fonts.bold
     },
@@ -68,8 +68,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         borderBottomWidth: 0.5,
         borderColor: "lightgray",
-        paddingBottom: 12,
-        marginHorizontal: 12,
+        gap: 10,
+        paddingBottom: 16,
+        backgroundColor: '#fff'
     },
     badge: {
         marginLeft: 12,
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 16,
-        fontWeight: "bold",
         marginTop: 12,
         fontFamily: fonts.bold
     },
@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
     },
     progressText: {
         fontSize: 16,
-        fontWeight: "500",
         color: "#333",
+        fontFamily: fonts.regular
     },
     progressBar: {
         width: "100%",
@@ -137,15 +137,19 @@ const styles = StyleSheet.create({
         color: "gray",
     },
     row: {
+        width: '90%',
         flexDirection: "row",
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
         marginTop: 20,
+        alignItems: 'center',
+        alignSelf: 'center'
+
     },
     card: {
         backgroundColor: "#fff",
         padding: 16,
         borderRadius: 12,
-        margin: 8,
+        width: '48%',
     },
     iconWrapper: {
         width: 40,
@@ -158,22 +162,20 @@ const styles = StyleSheet.create({
     },
     cardText: {
         fontSize: 14,
-        fontWeight: "bold",
         marginTop: 6,
         fontFamily: fonts.bold
     },
     cardSub: {
         fontSize: 12,
         color: "gray",
-        textAlign: "center",
+        // textAlign: "center",
     },
 
     titleStyle: {
         fontSize: 16,
-        fontWeight: "bold",
-        marginTop: 25,
-        marginLeft: 12,
-        fontFamily: fonts.bold
+        marginTop: height(2),
+        marginLeft: 16,
+        fontFamily: fonts.medium
     },
     growContainer: {
         marginHorizontal: 12,
@@ -186,16 +188,16 @@ const styles = StyleSheet.create({
     },
     growthTitle: {
         fontSize: 14,
-        fontWeight: "bold",
-        fontFamily: fonts.bold
+        fontFamily: fonts.medium
     },
     growthSub: {
         fontSize: 12,
         color: "gray",
     },
     backgroundImageStyle: {
-        flex: 1,
-        height: "265%"
+        transform: [{ rotate: "180deg" }],
+        ...StyleSheet.absoluteFillObject,
+        resizeMode: 'cover',
     }
 });
 
