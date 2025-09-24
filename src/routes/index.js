@@ -22,8 +22,11 @@ import {
   PayoutSetup,
   ProfileInfo,
   Questionnaire,
+  Quiz,
   SignIn,
   StartQuestionaire,
+  StartQuiz,
+  StartTraining,
   Training,
   Welcome,
   WelcomeScreen,
@@ -118,6 +121,13 @@ export default function Router() {
 
         <Stack.Screen name={ScreensName.PAYOUTSETUP} component={PayoutSetup} />
         <Stack.Screen name={ScreensName.TRAINING} component={Training} />
+        <Stack.Screen
+          name={ScreensName.STARTTRAINING}
+          component={StartTraining}
+        />
+
+        <Stack.Screen name={ScreensName.STARTQUIZ} component={StartQuiz} />
+        <Stack.Screen name={ScreensName.QUIZ} component={Quiz} />
       </Stack.Navigator>
     </NavigationContainer>
   );

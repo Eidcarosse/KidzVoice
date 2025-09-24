@@ -19,6 +19,8 @@ const colors = {
   denim: "#154EDD",
   boulder: "#7B7979",
   tundora: "#494949",
+  doveGray: "#6F6F6F",
+  jewel: "#198038",
 };
 
 export default colors;

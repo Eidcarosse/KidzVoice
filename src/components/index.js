@@ -14,6 +14,8 @@ import UploadDocument from "./uploadDocument/uploadDocument";
 import SingleCheckBox from "./singleCheckBox/singleCheckBox";
 import Header from "./header/header";
 import DocumentVerification from "./documentVerification/documentVerification";
+import TrainingCard from "./trainingCard/trainingCard";
+import TaskCard from "./taskCard/taskCard";
 
 export {
   PhotoUploader,
@@ -32,4 +34,6 @@ export {
   SingleCheckBox,
   Header,
   DocumentVerification,
+  TrainingCard,
+  TaskCard,
 };

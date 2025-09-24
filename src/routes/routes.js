@@ -22,5 +22,8 @@ const ScreensName = {
   DIGITALCONTRACT: "DigitalContract",
   PAYOUTSETUP: "PayoutSetup",
   TRAINING: "Training",
+  STARTTRAINING: "StartTraining",
+  STARTQUIZ: "StartQuiz",
+  QUIZ: "Quiz",
 };
 export default ScreensName;

@@ -20,6 +20,9 @@ import ApplicationStatus from "./coach/applicationStatus/applicationStatus";
 import DigitalContract from "./coach/digitalContract/digitalContract";
 import PayoutSetup from "./coach/payoutSetup/payoutSetup";
 import Training from "./coach/training/training";
+import StartTraining from "./coach/startTraining/startTraining";
+import StartQuiz from "./coach/startQuiz/startQuiz";
+import Quiz from "./coach/quiz/quiz";
 
 export {
   AiLiveQuestion,
@@ -44,4 +47,7 @@ export {
   DigitalContract,
   PayoutSetup,
   Training,
+  StartTraining,
+  StartQuiz,
+  Quiz,
 };

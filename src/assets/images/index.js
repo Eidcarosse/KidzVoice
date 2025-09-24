@@ -15,6 +15,7 @@ const Images = {
   ADDCHILD: require("./addChild.png"),
   GENERATECHILD: require("./generateChild.png"),
   COACHPROFILE: require("./coachProfile.png"),
+  MODULEIMAGE: require("./modulueImage.png"),
 };
 
 export default Images;
