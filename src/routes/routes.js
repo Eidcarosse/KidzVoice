@@ -25,5 +25,7 @@ const ScreensName = {
   STARTTRAINING: "StartTraining",
   STARTQUIZ: "StartQuiz",
   QUIZ: "Quiz",
+  ASSIGNMENT: "Assignment",
+  CERTIFICATION: "Certification",
 };
 export default ScreensName;

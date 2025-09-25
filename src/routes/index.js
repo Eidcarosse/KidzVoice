@@ -10,6 +10,8 @@ import {
   AiLiveSection,
   AiLiveVedio,
   ApplicationStatus,
+  Assignment,
+  Certification,
   CoachAccount,
   CreateChildProfile,
   DigitalContract,
@@ -128,6 +130,11 @@ export default function Router() {
 
         <Stack.Screen name={ScreensName.STARTQUIZ} component={StartQuiz} />
         <Stack.Screen name={ScreensName.QUIZ} component={Quiz} />
+        <Stack.Screen name={ScreensName.ASSIGNMENT} component={Assignment} />
+        <Stack.Screen
+          name={ScreensName.CERTIFICATION}
+          component={Certification}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -23,6 +23,8 @@ import Training from "./coach/training/training";
 import StartTraining from "./coach/startTraining/startTraining";
 import StartQuiz from "./coach/startQuiz/startQuiz";
 import Quiz from "./coach/quiz/quiz";
+import Assignment from "./coach/assignment/assignment";
+import Certification from "./coach/certification/certification";
 
 export {
   AiLiveQuestion,
@@ -50,4 +52,6 @@ export {
   StartTraining,
   StartQuiz,
   Quiz,
+  Assignment,
+  Certification,
 };
