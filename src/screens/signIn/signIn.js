@@ -5,8 +5,8 @@ import { Button, RoleSelection, SocialLogin } from "../../components";
 import styles from "./styles";
 import Images from "../../assets/images";
 import { useNavigation } from "@react-navigation/native";
-import ScreensName from "../../routes/routes";
 import { setUserRole } from "../../utils/Methods";
+import ScreensName from "../../routes/routes";
 
 export default function SignIn() {
   const navigation = useNavigation();
