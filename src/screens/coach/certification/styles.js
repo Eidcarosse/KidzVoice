@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingHorizontal: 20,
+        paddingHorizontal: 16,
     },
 
     profileContainer: {
@@ -24,13 +24,14 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 18,
-        fontFamily: fonts.bold,
+        fontFamily: fonts.medium,
         color: '#000',
     },
     email: {
         fontSize: 14,
         color: 'gray',
         marginTop: 2,
+        fontFamily: fonts.regular,
     },
 
     certifiedContainer: {
@@ -62,14 +63,15 @@ const styles = StyleSheet.create({
     },
     certText: {
         fontSize: 16,
-        fontWeight: '600',
         marginRight: 5,
         color: '#000',
+        fontFamily: fonts.medium
     },
     levelText: {
         fontSize: 14,
         color: 'gray',
         marginTop: 2,
+        fontFamily: fonts.regular
     },
 
     downloadBtn: {
@@ -86,19 +88,20 @@ const styles = StyleSheet.create({
     downloadText: {
         color: '#fff',
         fontSize: 10,
-        fontWeight: '600',
+        fontFamily: fonts.medium
     },
 
     badgeLabel: {
         fontSize: 15,
         color: '#000',
         marginTop: 30,
-        fontFamily: fonts.bold,
+        fontFamily: fonts.medium,
     },
     shareContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 10,
+        gap: 10,
     },
     shareBtn: {
         flex: 1,
@@ -109,14 +112,13 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         paddingVertical: 15,
         justifyContent: 'center',
-        marginHorizontal: 5,
         backgroundColor: '#fff',
     },
     shareText: {
         marginLeft: 6,
         fontSize: 14,
-        fontWeight: '500',
         color: '#000',
+        fontFamily: fonts.light
     },
 });
 

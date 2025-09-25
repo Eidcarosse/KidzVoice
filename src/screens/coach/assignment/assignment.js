@@ -2,15 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // You can change the icon set based on your setup
 import styles from './styles';
-import { Header, UploadDocument } from '../../../components';
+import { Button, Header, UploadDocument } from '../../../components';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import ScreensName from '../../../routes/routes';
+import StatusBarWrapper from '../../../components/customStatusbar';
 
 const AssignmentScreen = () => {
   const navigation = useNavigation()
   return (
-    <SafeAreaView style={styles.container}>
+    <StatusBarWrapper>
+      {/* <SafeAreaView style={styles.container}> */}
       <Header title={"Assigment"} />
 
       <View style={styles.section}>
@@ -43,10 +45,10 @@ const AssignmentScreen = () => {
 
       <Text style={styles.reviewText}>Your submitted assignment is under review</Text>
 
-      <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate(ScreensName.CERTIFICATION)}>
-        <Text style={styles.nextButtonText}>Next</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+
+      <Button title={"next"} onPress={() => navigation.navigate(ScreensName.CERTIFICATION)} />
+      {/* </SafeAreaView> */}
+    </StatusBarWrapper>
   );
 };
 

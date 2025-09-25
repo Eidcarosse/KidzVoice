@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#007BFF',
         borderRadius: 20,
-        paddingVertical: 15,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
         gap: 8,
         backgroundColor: '#fff',
+        marginVertical: 6
     },
     uploadText: {
         color: '#007BFF',
@@ -79,9 +79,10 @@ const styles = StyleSheet.create({
 
     },
     reviewText: {
+        marginTop: 20,
+        marginBottom: 2,
         color: '#007BFF',
-        marginBottom: 20,
-        marginHorizontal: 12,
+        marginHorizontal: 16,
     },
     nextButton: {
         backgroundColor: '#007BFF',
