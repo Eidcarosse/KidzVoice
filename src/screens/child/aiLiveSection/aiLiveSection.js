@@ -1,11 +1,13 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomHeader from "../../../components/customHeader/header";
 import { styles } from "./styles";
 import Images from "../../../assets/images";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FeelingResult from "./component/feelingResult";
 import { useNavigation } from "@react-navigation/native";
+import SuccessModal from "../../../components/successModal/success";
+import ScreensName from "../../../routes/routes";
 
 export default function AiLiveSection() {
   const insets = useSafeAreaInsets();
@@ -13,10 +15,12 @@ export default function AiLiveSection() {
   const [selectedFeeling, setSelectedFeeling] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-  setTimeout(() => {
-    setModalVisible(true);
-  }, 10000);
-
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setModalVisible(true);
+  //   }, 10000);
+  //   return () => setModalVisible(false);
+  // }, [])
   const feelings = [
     {
       emoji: "😊",
@@ -101,7 +105,7 @@ export default function AiLiveSection() {
           </View>
         </>
       ) : (
-        <FeelingResult image={Images.AIICON} text={selected.message} />
+        <FeelingResult isBtn={true} onPress={() => navigation.navigate(ScreensName.AILIVEVEDIOSECTION)} image={Images.AIICON} text={selected.message} />
       )}
 
       <SuccessModal

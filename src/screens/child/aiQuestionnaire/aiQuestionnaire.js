@@ -10,6 +10,7 @@ import {
     Platform,
     Image,
     SectionList,
+    Alert,
 } from "react-native";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -23,28 +24,58 @@ import { requestAudioPermissions } from "../../../utils/helper";
 import VoiceMessageModal from "../../../components/voice/modal";
 import VoiceMessage from "../../../components/voice";
 import AudioNote from "../../../components/voice";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import ScreensName from "../../../routes/routes";
 
-const dummyQuestions = [
-    "Who are you?",
-    "What’s your favorite color?",
-    "Where are you from?",
-    "What do you like to do in your free time?",
-    "Who inspires you the most?",
-    "What’s your dream job?",
-    "If you could visit anywhere, where would it be?",
-    "What’s your favorite movie?",
-    "What skill do you want to learn?",
-    "What makes you happy?",
-];
+const questionSets = {
+    LiveVedio: [
+        "What do you enjoy about live videos?",
+        "Have you ever streamed before?",
+        "What type of live content do you like?",
+        "Would you like to co-host with someone?",
+        "What’s your biggest challenge with live streaming?",
+    ],
+    Profile: [
+        "Who are you?",
+        "Where are you from?",
+        "What’s your favorite hobby?",
+        "What’s your dream job?",
+    ],
+    Default: [
+        "Who are you?",
+        "What’s your favorite color?",
+        "What inspires you?",
+    ],
+};
+
 
 const Questionnaire = () => {
+    const route = useRoute()
+    const questionOf = route?.params?.questionOf || ""
+    console.log("question of", questionOf);
+
+    const navigation = useNavigation()
     const [currentIndex, setCurrentIndex] = useState(0);
     const [text, setText] = useState("");
     const [isTyping, setIsTyping] = useState(false);
     const [isVoiceModalVisible, setIsVoiceModalVisible] =
         useState(false);
 
+    const [aiTyping, setAiTyping] = useState(false);
 
+    // const dummyQuestions = [
+    //     "Who are you?",
+    //     "What’s your favorite color?",
+    //     // "Where are you from?",
+    //     // "What do you like to do in your free time?",
+    //     // "Who inspires you the most?",
+    //     // "What’s your dream job?",
+    //     // "If you could visit anywhere, where would it be?",
+    //     // "What’s your favorite movie?",
+    //     // "What skill do you want to learn?",
+    //     // "What makes you happy?",
+    // ];
+    const dummyQuestions = questionSets[questionOf] || questionSets.Default;
     const [sections, setSections] = useState([
         { title: dummyQuestions[0], data: [] },
     ]);
@@ -59,22 +90,43 @@ const Questionnaire = () => {
             ...updatedSections[currentIndex],
             data: [newAnswer],
         };
+        setAiTyping(true)
+        setTimeout(() => {
 
-        // Add next question if available
-        if (nextIndex < dummyQuestions.length) {
-            updatedSections.push({
-                title: dummyQuestions[nextIndex],
-                data: [],
-            });
-        }
+            setAiTyping(false)
+            if (nextIndex < dummyQuestions.length) {
+                updatedSections.push({
+                    title: dummyQuestions[nextIndex],
+                    data: [],
+                });
+            }
+        }, 1500)
 
         setSections(updatedSections);
         setCurrentIndex(nextIndex);
         setText("");
 
         if (nextIndex >= dummyQuestions.length) {
-            alert("✅ All questions completed!");
+            Alert.alert(
+                "✅ All questions completed!",
+                "Click OK to go to Live Section.",
+                [
+                    {
+                        text: "OK",
+                        onPress: () => {
+                            if (questionOf === "LiveVedio") {
+                                navigation.navigate(ScreensName.AILIVEEXAMPLE)
+                            } else {
+
+                                navigation.navigate(ScreensName.ChildDashboard)
+                            }
+                        }
+                    },
+                ]
+            );
+            return; // stop here so it doesn’t set index past last question
         }
+
     };
 
 
@@ -113,7 +165,7 @@ const Questionnaire = () => {
         <View style={[styles.container, { paddingTop: insert.top || 5 }]}>
             <KeyboardAvoidingView
                 style={styles.container}
-                behavior={Platform.OS === "ios" ? "padding" : undefined}
+                behavior={Platform.OS === "ios" ? "padding" : "padding"}
             >
                 <AiCustomHeader user={{ img: Images.AVATAR, name: 'Max' }} />
 

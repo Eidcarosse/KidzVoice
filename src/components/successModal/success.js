@@ -11,7 +11,7 @@ const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
     if (questionOf === "FeelingResult") {
       navigation.navigate(ScreensName.AILIVEVEDIOSECTION);
     } else if (questionOf === "AiLiveVedio") {
-      navigation.navigate(ScreensName.AILIVEQUESTIONAIR);
+      navigation.navigate(ScreensName.QUESTIONAIRE, { questionOf: "LiveVedio" });
     } else if (questionOf === "AiExample") {
       navigation.navigate(ScreensName.AIGAME);
     } else if (questionOf === "AiGame") {
@@ -32,7 +32,7 @@ const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
         <Text style={styles.subtitle}>{subtitle}</Text>
 
         <Button
-          title={`${"AiGame"}`}
+          title={`${'Next'}`}
           onPress={handlePress}
           btnStyle={styles.button}
           textStyle={styles.buttonText}

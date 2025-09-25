@@ -9,6 +9,7 @@ import {
   AiLiveQuestion,
   AiLiveSection,
   AiLiveVedio,
+  ChildDashboard,
   CreateChildProfile,
   GenerateChild,
   Home,
@@ -32,7 +33,7 @@ export default function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialState={ScreensName.LEARNER_QUESTIONAIR}
+        initialState={ScreensName.WELCOME}
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name={ScreensName.WELCOME} component={Welcome} />
@@ -82,10 +83,11 @@ export default function Router() {
         <Stack.Screen name={ScreensName.MAGICBACKPACK} component={MagicBackpackScreen} />
         <Stack.Screen name={ScreensName.QUESTIONAIRE} component={Questionnaire} />
         <Stack.Screen name={ScreensName.AILIVESECTION} component={AiLiveSection} />
-        <Stack.Screen
+        <Stack.Screen name={ScreensName.ChildDashboard} component={ChildDashboard} />
+        {/* <Stack.Screen
           name={ScreensName.LEARNER_QUESTIONAIR}
           component={LearnerQuestionScreen}
-        />
+        /> */}
 
 
 
