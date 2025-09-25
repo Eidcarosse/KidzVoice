@@ -61,6 +61,7 @@ const Questionnaire = () => {
     const [isVoiceModalVisible, setIsVoiceModalVisible] =
         useState(false);
 
+    const [aiTyping, setAiTyping] = useState(false);
 
     // const dummyQuestions = [
     //     "Who are you?",
@@ -89,14 +90,17 @@ const Questionnaire = () => {
             ...updatedSections[currentIndex],
             data: [newAnswer],
         };
+        setAiTyping(true)
+        setTimeout(() => {
 
-        // Add next question if available
-        if (nextIndex < dummyQuestions.length) {
-            updatedSections.push({
-                title: dummyQuestions[nextIndex],
-                data: [],
-            });
-        }
+            setAiTyping(false)
+            if (nextIndex < dummyQuestions.length) {
+                updatedSections.push({
+                    title: dummyQuestions[nextIndex],
+                    data: [],
+                });
+            }
+        }, 1500)
 
         setSections(updatedSections);
         setCurrentIndex(nextIndex);
@@ -161,7 +165,7 @@ const Questionnaire = () => {
         <View style={[styles.container, { paddingTop: insert.top || 5 }]}>
             <KeyboardAvoidingView
                 style={styles.container}
-                behavior={Platform.OS === "ios" ? "padding" : undefined}
+                behavior={Platform.OS === "ios" ? "padding" : "padding"}
             >
                 <AiCustomHeader user={{ img: Images.AVATAR, name: 'Max' }} />
 

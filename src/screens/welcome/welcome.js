@@ -30,7 +30,7 @@ export default function Welcome() {
           resizeMode="contain"
         />
 
-        <Text style={styles.kidzText}>KidzVoice</Text>
+        <Text style={styles.kidzText}>KidzLife</Text>
 
         <Text style={styles.growText}>Grow Smarter, Kinder, Happier.</Text>
       </View>
