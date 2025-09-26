@@ -10,17 +10,27 @@ import {
   AiLiveSection,
   AiLiveVedio,
   ChildDashboard,
+  ApplicationStatus,
+  Assignment,
+  Certification,
+  CoachAccount,
   CreateChildProfile,
+  DigitalContract,
   GenerateChild,
   Home,
   HomeScreen,
   LearnerQuestionScreen,
   MagicBackpackScreen,
   ParentQuestionaire,
+  PayoutSetup,
   ProfileInfo,
   Questionnaire,
+  Quiz,
   SignIn,
   StartQuestionaire,
+  StartQuiz,
+  StartTraining,
+  Training,
   Welcome,
   WelcomeScreen,
 } from "../screens";
@@ -70,10 +80,7 @@ export default function Router() {
           name={ScreensName.AILIVEQUESTIONAIR}
           component={AiLiveQuestion}
         />
-        <Stack.Screen
-          name={ScreensName.AIGAME}
-          component={AiGame}
-        />
+        <Stack.Screen name={ScreensName.AIGAME} component={AiGame} />
         <Stack.Screen
           name={ScreensName.AILIVEEXAMPLE}
           component={AiLiveExample}
@@ -85,13 +92,57 @@ export default function Router() {
         <Stack.Screen name={ScreensName.AILIVESECTION} component={AiLiveSection} />
         <Stack.Screen name={ScreensName.ChildDashboard} component={ChildDashboard} />
         {/* <Stack.Screen
+        <Stack.Screen
+          name={ScreensName.ACCOUNT}
+          component={AccountSetupScreen}
+        />
+        <Stack.Screen
+          name={ScreensName.MAGICBACKPACK}
+          component={MagicBackpackScreen}
+        />
+        <Stack.Screen
+          name={ScreensName.QUESTIONAIRE}
+          component={Questionnaire}
+        />
+        <Stack.Screen
+          name={ScreensName.AILIVESECTION}
+          component={AiLiveSection}
+        />
+        <Stack.Screen
           name={ScreensName.LEARNER_QUESTIONAIR}
           component={LearnerQuestionScreen}
         /> */}
 
+        <Stack.Screen
+          name={ScreensName.COACHACCOUNT}
+          component={CoachAccount}
+        />
 
+        <Stack.Screen
+          name={ScreensName.APPLICATIONSTATUS}
+          component={ApplicationStatus}
+        />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+        <Stack.Screen
+          name={ScreensName.DIGITALCONTRACT}
+          component={DigitalContract}
+        />
+
+        <Stack.Screen name={ScreensName.PAYOUTSETUP} component={PayoutSetup} />
+        <Stack.Screen name={ScreensName.TRAINING} component={Training} />
+        <Stack.Screen
+          name={ScreensName.STARTTRAINING}
+          component={StartTraining}
+        />
+
+        <Stack.Screen name={ScreensName.STARTQUIZ} component={StartQuiz} />
+        <Stack.Screen name={ScreensName.QUIZ} component={Quiz} />
+        <Stack.Screen name={ScreensName.ASSIGNMENT} component={Assignment} />
+        <Stack.Screen
+          name={ScreensName.CERTIFICATION}
+          component={Certification}
+        />
+      </Stack.Navigator >
+    </NavigationContainer >
   );
 }

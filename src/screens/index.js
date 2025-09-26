@@ -16,24 +16,48 @@ import AiLiveVedio from "./child/aiLiveVedioSection/aiLiveVedio";
 import AiLiveQuestion from "./child/aiLiveQuestion/aiLiveQuestion";
 import AiLiveExample from "./child/aiLiveExample/aiLiveExample";
 import ChildDashboard from "./child/childDashboard/childDashboard";
-ChildDashboard
+
+import CoachAccount from "./coach/account/coachAccount";
+import ApplicationStatus from "./coach/applicationStatus/applicationStatus";
+import DigitalContract from "./coach/digitalContract/digitalContract";
+import PayoutSetup from "./coach/payoutSetup/payoutSetup";
+import Training from "./coach/training/training";
+import StartTraining from "./coach/startTraining/startTraining";
+import StartQuiz from "./coach/startQuiz/startQuiz";
+import Quiz from "./coach/quiz/quiz";
+import Assignment from "./coach/assignment/assignment";
+import Certification from "./coach/certification/certification";
+
 export {
-    AiLiveQuestion,
-    Questionnaire,
-    AiLiveSection,
-    LearnerQuestionScreen,
-    MagicBackpackScreen,
-    Home,
-    Welcome,
-    AccountSetupScreen,
-    SignIn,
-    AiLiveExample,
-    ProfileInfo,
-    AddChild,
-    CreateChildProfile,
-    StartQuestionaire,
-    ParentQuestionaire,
-    GenerateChild,
-    AiLiveVedio,
-    ChildDashboard
+  // Child + Parent
+  AiLiveQuestion,
+  Questionnaire,
+  AiLiveSection,
+  LearnerQuestionScreen,
+  MagicBackpackScreen,
+  Home,
+  Welcome,
+  AccountSetupScreen,
+  SignIn,
+  AiLiveExample,
+  ProfileInfo,
+  AddChild,
+  CreateChildProfile,
+  StartQuestionaire,
+  ParentQuestionaire,
+  GenerateChild,
+  AiLiveVedio,
+  ChildDashboard,
+
+  // Coach
+  CoachAccount,
+  ApplicationStatus,
+  DigitalContract,
+  PayoutSetup,
+  Training,
+  StartTraining,
+  StartQuiz,
+  Quiz,
+  Assignment,
+  Certification,
 };

@@ -10,6 +10,13 @@ import ChildHistory from "./childHistory/childHistory";
 import QuestionOptions from "./questionOptions/questionOptions";
 import CurrentStrugle from "./currentStrugle/currentStrugle";
 import FamilyContext from "./familyContext/familyContext";
+import UploadDocument from "./uploadDocument/uploadDocument";
+import SingleCheckBox from "./singleCheckBox/singleCheckBox";
+import Header from "./header/header";
+import DocumentVerification from "./documentVerification/documentVerification";
+import TrainingCard from "./trainingCard/trainingCard";
+import TaskCard from "./taskCard/taskCard";
+import QuestionCard from "./questionCard/questionCard";
 
 export {
   PhotoUploader,
@@ -24,4 +31,11 @@ export {
   QuestionOptions,
   CurrentStrugle,
   FamilyContext,
+  UploadDocument,
+  SingleCheckBox,
+  Header,
+  DocumentVerification,
+  TrainingCard,
+  TaskCard,
+  QuestionCard,
 };
