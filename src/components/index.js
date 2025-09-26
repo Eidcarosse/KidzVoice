@@ -16,6 +16,7 @@ import Header from "./header/header";
 import DocumentVerification from "./documentVerification/documentVerification";
 import TrainingCard from "./trainingCard/trainingCard";
 import TaskCard from "./taskCard/taskCard";
+import QuestionCard from "./questionCard/questionCard";
 
 export {
   PhotoUploader,
@@ -36,4 +37,5 @@ export {
   DocumentVerification,
   TrainingCard,
   TaskCard,
+  QuestionCard,
 };

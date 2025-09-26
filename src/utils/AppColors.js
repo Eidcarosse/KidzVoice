@@ -21,6 +21,7 @@ const colors = {
   tundora: "#494949",
   doveGray: "#6F6F6F",
   jewel: "#198038",
+  zumthor: "#EDF6FF",
 };
 
 export default colors;

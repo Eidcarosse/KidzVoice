@@ -18,7 +18,7 @@ export default function StartQuiz() {
       <Header title={"Start Quiz"} />
 
       <Image
-        source={Images.PARENTPROFILEINFO}
+        source={Images.STARTQUIZ}
         style={styles.imageStyle}
         resizeMode="contain"
       />

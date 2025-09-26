@@ -136,13 +136,6 @@ const tasks = [
     duration: "2:40",
     inProgress: false,
   },
-
-  {
-    id: 7,
-    title: "Emotions the hidden message ",
-    duration: "2:40",
-    inProgress: false,
-  },
 ];
 
 export {
