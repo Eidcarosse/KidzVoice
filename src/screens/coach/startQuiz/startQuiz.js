@@ -1,5 +1,5 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, { useRef } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import { Button, Header } from "../../../components";
 import styles from "./styles";

@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
     width: width(90),
     height: height(25),
     alignSelf: "center",
+    borderRadius: 10,
+    marginTop: height(2),
   },
   titleText: {
     marginHorizontal: 16,
