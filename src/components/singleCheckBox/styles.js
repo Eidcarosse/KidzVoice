@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import colors from "../../utils/AppColors";
 import { width } from "../../utils/Dimensions";
+import { fonts } from "../../utils/fonts";
 
 const styles = StyleSheet.create({
   parentView: {
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     fontSize: 16,
     color: colors.black,
+    fontFamily: fonts.regular,
     marginLeft: 10,
   },
 });

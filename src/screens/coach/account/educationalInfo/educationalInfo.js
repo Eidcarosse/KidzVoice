@@ -127,7 +127,7 @@ export default function EducationalInfo({
         />
 
         <Button
-          title={"Subit Application"}
+          title={"Submit Application"}
           onPress={onPress}
           btnStyle={styles.nextButton}
         />

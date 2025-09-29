@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
+    fontFamily: fonts.regular,
     color: '#333',
     paddingVertical: 0,
   },

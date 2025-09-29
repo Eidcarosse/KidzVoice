@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#007BFF',
-        fontWeight: '500',
+        fontFamily: fonts.regular,
+
     },
     uploadBox: {
         borderWidth: 1,
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     },
     uploadText: {
         color: '#007BFF',
-        fontWeight: '500',
+        fontFamily: fonts.regular,
 
     },
     reviewText: {
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
         marginBottom: 2,
         color: '#007BFF',
         marginHorizontal: 16,
+        fontFamily: fonts.regular
     },
     nextButton: {
         backgroundColor: '#007BFF',
@@ -94,7 +96,8 @@ const styles = StyleSheet.create({
     nextButtonText: {
         color: '#fff',
         fontSize: 16,
-        fontWeight: '500',
+        fontFamily: fonts.medium,
+
     },
     labelStyle: {
         color: colors.mineShaft,
