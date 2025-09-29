@@ -5,6 +5,8 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import { tasks } from "../../../utils/Data";
 import { Button, Header, QuestionCard, TaskCard } from "../../../components";
 import Images from "../../../assets/images";
+import { useNavigation } from "@react-navigation/native";
+import ScreensName from "../../../routes/routes";
 
 const options = [
   { id: "A", text: "Have no meaning" },
@@ -14,6 +16,9 @@ const options = [
 ];
 
 export default function Quiz() {
+  const navigation = useNavigation();
+
+
   const [answer, setAnswer] = useState();
   return (
     <StatusBarWrapper scrollType={"scroll"}>
@@ -48,8 +53,9 @@ export default function Quiz() {
           title={"Skip"}
           btnStyle={styles.skipButton}
           textStyle={styles.skipBtntext}
+          onPress={() => navigation.goBack()}
         />
-        <Button title={"Submit"} btnStyle={styles.submitButton} />
+        <Button title={"Submit"} btnStyle={styles.submitButton} onPress={() => navigation.navigate(ScreensName.ASSIGNMENT)} />
       </View>
 
       <Text style={styles.reportText}>Report a problem</Text>

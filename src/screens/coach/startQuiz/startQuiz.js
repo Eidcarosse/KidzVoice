@@ -11,7 +11,7 @@ export default function StartQuiz() {
   const navigation = useNavigation();
 
   const handleStartQuiz = () => {
-    navigation.navigate(ScreensName.ASSIGNMENT);
+    navigation.navigate(ScreensName.QUIZ);
   };
   return (
     <StatusBarWrapper>
