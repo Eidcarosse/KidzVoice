@@ -32,10 +32,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 10,
     paddingHorizontal: 12,
-    paddingVertical: 14,
     marginVertical: 8,
     borderWidth: 1,
     borderColor: colors.alto,
+    height: height(12),
+  },
+  signatureImage: {
+    width: "100%",
     height: height(12),
   },
   codeText: {

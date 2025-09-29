@@ -1,10 +1,19 @@
-import { View, Text, ScrollView } from "react-native";
-import React, { useState } from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  Modal,
+} from "react-native";
+import React, { useRef, useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import styles from "./styles";
 import { Button, SingleCheckBox } from "../../../components";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import SignatureCanvas from "react-native-signature-canvas";
+import BaseModal from "../../../components/modal/modal";
 
 export default function DigitalContract() {
   const navigation = useNavigation();
@@ -14,9 +23,28 @@ export default function DigitalContract() {
     useState(true);
   const [professionalConduct, setProfessionalConduct] = useState(true);
   const [eSignature, setESignature] = useState(null);
+  const [showPad, setShowPad] = useState(false);
+
+  const signatureRef = useRef();
 
   const handleNext = () => {
     navigation.navigate(ScreensName.PAYOUTSETUP);
+  };
+
+  const handleOK = (sig) => {
+    console.log("Signature (base64):", sig);
+    setESignature(sig);
+    setShowPad(false);
+  };
+
+  const handleEmpty = () => {
+    console.log("Empty signature");
+  };
+
+  const handleClear = () => {
+    signatureRef.current?.clearSignature();
+    setESignature(null);
+    setShowPad(false);
   };
 
   return (
@@ -52,7 +80,18 @@ export default function DigitalContract() {
 
         <Text style={styles.eSignatureText}>E-Signature Field</Text>
 
-        <View style={styles.eSignatureView}></View>
+        <TouchableOpacity
+          style={styles.eSignatureView}
+          onPress={() => setShowPad(true)}
+        >
+          {eSignature && (
+            <Image
+              source={{ uri: eSignature }}
+              style={styles.signatureImage}
+              resizeMode="contain"
+            />
+          )}
+        </TouchableOpacity>
 
         <Text style={styles.codeText}>Code of Conduct</Text>
 
@@ -74,6 +113,22 @@ export default function DigitalContract() {
 
         <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleNext} />
       </ScrollView>
+
+      <Modal visible={showPad} animationType="slide">
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
+          <SignatureCanvas
+            ref={signatureRef}
+            onOK={handleOK}
+            onEmpty={() => console.log("Empty signature")}
+            onClear={handleClear}
+            descriptionText="Sign here"
+            clearText="Clear"
+            confirmText="Save"
+          />
+        </View>
+      </Modal>
     </StatusBarWrapper>
   );
 }
