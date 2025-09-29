@@ -14,8 +14,8 @@ export default function PersonalInfo({
   onPress,
 }) {
   return (
-    <KeyboardAwareScrollView>
-      {/* <View> */}
+    // <KeyboardAwareScrollView>
+    <View>
       <Text style={styles.personalText}>Personal info</Text>
 
       <Text style={styles.titleText}>Name</Text>
@@ -25,7 +25,7 @@ export default function PersonalInfo({
       <Text style={styles.titleText}>Date of birth</Text>
 
       <Input
-        placeholder={"Acceptance and Commitment Therapy (ACT)"}
+        placeholder={"Acceptance and Commitment Therapy"}
         state={dob}
         setState={setDob}
       />
@@ -33,13 +33,13 @@ export default function PersonalInfo({
       <Text style={styles.titleText}>Contact</Text>
 
       <Input
-        placeholder={"Acceptance and Commitment Therapy (ACT)"}
+        placeholder={"Acceptance and Commitment Therapy"}
         state={contact}
         setState={setContact}
       />
 
       <Button title={"Next"} onPress={onPress} btnStyle={styles.nextButton} />
-      {/* </View> */}
-    </KeyboardAwareScrollView>
+    </View>
+    // </KeyboardAwareScrollView>
   );
 }

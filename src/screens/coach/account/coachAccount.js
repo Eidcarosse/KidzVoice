@@ -62,8 +62,14 @@ export default function CoachAccount() {
       </View>
 
       <Text style={styles.accountText}>Account Setup</Text>
-
-      <KeyboardAwareScrollView contentContainerStyle={{ flex: 1 }}>
+      <KeyboardAwareScrollView
+        // contentContainerStyle={{ flex: 1 }}
+        enableOnAndroid
+        extraHeight={120}
+        // extraScrollHeight={50} // scroll up extra space when keyboard appears
+        keyboardShouldPersistTaps="handled"
+        // contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
+      >
         {activeInfo === "Personal" && (
           <PersonalInfo
             name={name}
