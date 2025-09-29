@@ -27,6 +27,7 @@ import StartQuiz from "./coach/startQuiz/startQuiz";
 import Quiz from "./coach/quiz/quiz";
 import Assignment from "./coach/assignment/assignment";
 import Certification from "./coach/certification/certification";
+import AiLiveVedioView from "./child/aiLiveVedioView/aiLiveVedioView";
 
 export {
   // Child + Parent
@@ -48,7 +49,7 @@ export {
   GenerateChild,
   AiLiveVedio,
   ChildDashboard,
-
+  AiLiveVedioView,
   // Coach
   CoachAccount,
   ApplicationStatus,

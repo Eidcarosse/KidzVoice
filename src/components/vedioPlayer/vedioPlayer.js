@@ -28,7 +28,7 @@ const PlayPauseButton = ({ isPlaying, player }) => {
 
 
 
-export default function VideoPlayer({ videoSource, setModalVisible = () => { } }) {
+export default function VideoPlayer({ fullScreen, videoSource, setModalVisible = () => { } }) {
     const [hasEnded, setHasEnded] = useState(false);
     const player = useVideoPlayer(videoSource, player => {
         player.loop = false;
@@ -45,7 +45,16 @@ export default function VideoPlayer({ videoSource, setModalVisible = () => { } }
     });
     return (
         <View style={styles.contentContainer}>
-            <VideoView style={styles.video} player={player} allowsPictureInPicture />
+
+            <VideoView
+                style={[
+                    styles.video,
+                    fullScreen ? { flex: 1 } : { aspectRatio: 16 / 9 }
+                ]}
+                player={player}
+                allowsPictureInPicture
+            />
+
             {/* <View style={styles.controlsContainer}>
                 <PlayPauseButton player={player} isPlaying={isPlaying} />
             </View> */}
@@ -61,7 +70,6 @@ const styles = StyleSheet.create({
     },
     video: {
         width: '100%',
-        aspectRatio: 16 / 9
 
     },
     controlsContainer: {

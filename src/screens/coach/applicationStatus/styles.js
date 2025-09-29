@@ -28,11 +28,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: fonts.regular,
     marginHorizontal: 16,
+
   },
   youText: {
     marginHorizontal: 16,
     fontSize: 12,
     color: colors.boulder,
+    fontFamily: fonts.regular,
   },
   getBtn: {
     backgroundColor: colors.lightBlueRibbon,

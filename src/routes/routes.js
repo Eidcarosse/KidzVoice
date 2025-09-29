@@ -28,5 +28,6 @@ const ScreensName = {
   QUIZ: "Quiz",
   ASSIGNMENT: "Assignment",
   CERTIFICATION: "Certification",
+  VIDEOVIEW: "VedioView"
 };
 export default ScreensName;

@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
         marginTop: height(4),
     },
     textBox: {
+        marginTop: 20,
         marginVertical: 16,
         paddingHorizontal: 20,
     },

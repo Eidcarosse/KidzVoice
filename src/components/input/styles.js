@@ -24,7 +24,10 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: "#333",
+
+    fontFamily: fonts.regular,
+    color: '#333',
+
     paddingVertical: 0,
     paddingHorizontal: 1,
   },
