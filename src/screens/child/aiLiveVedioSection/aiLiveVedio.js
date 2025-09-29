@@ -7,10 +7,12 @@ import Images from '../../../assets/images';
 import { styles } from './styles';
 import VideoPlayer from '../../../components/vedioPlayer/vedioPlayer';
 import SuccessModal from '../../../components/successModal/success';
+import { Button } from '../../../components';
+import ScreensName from '../../../routes/routes';
 
 export default function AiLiveVedio() {
     const insets = useSafeAreaInsets();
-
+    const navigation = useNavigation();
     return (
         <View style={[styles.container, { paddingTop: insets.top || 5 }]}>
             <CustomHeader
@@ -23,7 +25,7 @@ export default function AiLiveVedio() {
                     Let’s start with a breathing game. Imagine this ball is your breath. When it gets big, you breathe in. When it gets small, you breathe out. Ready?
                 </Text>
             </View>
-
+            <Button title={'play Video'} onPress={() => navigation.navigate(ScreensName.VIDEOVIEW)} />
         </View>
     )
 }

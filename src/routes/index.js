@@ -33,6 +33,7 @@ import {
   Training,
   Welcome,
   WelcomeScreen,
+  AiLiveVedioView,
 } from "../screens";
 import ScreensName from "./routes";
 import AiGame from "../screens/child/aiGame/aiGame";
@@ -64,6 +65,10 @@ export default function Router() {
           component={StartQuestionaire}
         />
 
+        <Stack.Screen
+          name={ScreensName.VIDEOVIEW}
+          component={AiLiveVedioView}
+        />
         <Stack.Screen
           name={ScreensName.PARENTQUESTIONAIRE}
           component={ParentQuestionaire}

@@ -46,7 +46,15 @@ export default function VideoPlayer({ fullScreen, videoSource, setModalVisible =
     return (
         <View style={styles.contentContainer}>
 
-            <VideoView style={[styles.video, ...(fullScreen ? { flex: 1 } : { aspectRatio: 16 / 9 })]} player={player} allowsPictureInPicture />
+            <VideoView
+                style={[
+                    styles.video,
+                    fullScreen ? { flex: 1 } : { aspectRatio: 16 / 9 }
+                ]}
+                player={player}
+                allowsPictureInPicture
+            />
+
             {/* <View style={styles.controlsContainer}>
                 <PlayPauseButton player={player} isPlaying={isPlaying} />
             </View> */}
