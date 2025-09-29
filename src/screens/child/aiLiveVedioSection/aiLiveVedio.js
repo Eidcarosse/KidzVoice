@@ -10,8 +10,7 @@ import SuccessModal from '../../../components/successModal/success';
 
 export default function AiLiveVedio() {
     const insets = useSafeAreaInsets();
-    const navigation = useNavigation()
-    const [modalVisible, setModalVisible] = useState()
+
     return (
         <View style={[styles.container, { paddingTop: insets.top || 5 }]}>
             <CustomHeader
@@ -24,12 +23,7 @@ export default function AiLiveVedio() {
                     Let’s start with a breathing game. Imagine this ball is your breath. When it gets big, you breathe in. When it gets small, you breathe out. Ready?
                 </Text>
             </View>
-            <VideoPlayer videoSource={"https://www.w3schools.com/html/mov_bbb.mp4"} setModalVisible={setModalVisible} />
-            <SuccessModal
-                title={"Great job"}
-                subtitle={" Max! You just trained your focus, just like a football player before a big match."}
-                visible={modalVisible}
-                onClose={() => setModalVisible(false)} questionOf={"AiLiveVedio"} />
+
         </View>
     )
 }
