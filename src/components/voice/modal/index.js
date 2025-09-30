@@ -34,6 +34,7 @@ const VoiceMessageModal = ({ isVisible = false, onClose, onSend }) => {
   const [recordTime, setRecordTime] = useState("00:00:00");
   const [audioUri, setAudioUri] = useState(null);
   const [stopped, setStopped] = useState(false);
+  const [durationMs, setDurationMs] = useState(0); // New state for duration
 
   const timerRef = useRef(null);
 
@@ -64,10 +65,13 @@ const VoiceMessageModal = ({ isVisible = false, onClose, onSend }) => {
       setStopped(false);
       setAudioUri(null);
       setRecordTime("00:00:00");
+      setDurationMs(0); // Reset duration
 
       const start = Date.now();
       timerRef.current = setInterval(() => {
-        setRecordTime(formatTime(Date.now() - start));
+        const currentDuration = Date.now() - start;
+        setRecordTime(formatTime(currentDuration));
+        setDurationMs(currentDuration); // Update duration
       }, 500);
     } catch (e) {
       console.log("Recording error:", e);
@@ -93,11 +97,16 @@ const VoiceMessageModal = ({ isVisible = false, onClose, onSend }) => {
     setAudioUri(null);
     setStopped(false);
     setRecordTime("00:00:00");
+    setDurationMs(0); // Reset duration
     startRecord();
   };
 
   const handleSend = () => {
-    if (audioUri) onSend(audioUri);
+    if (audioUri) {
+      const duration = durationMs / 1000; // Convert milliseconds to seconds
+      console.log("Sending audio:", { uri: audioUri, duration }); // Debug log
+      onSend(audioUri, duration);
+    }
     onClose();
   };
 

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import {
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    KeyboardAvoidingView,
-    FlatList,
-    StyleSheet,
-    Platform,
-    Image,
-    SectionList,
-    Alert,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  FlatList,
+  StyleSheet,
+  Platform,
+  Image,
+  SectionList,
+  Alert,
 } from "react-native";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -28,229 +28,271 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 
 const questionSets = {
-    LiveVedio: [
-        "What do you enjoy about live videos?",
-        "Have you ever streamed before?",
-        "What type of live content do you like?",
-        "Would you like to co-host with someone?",
-        "What’s your biggest challenge with live streaming?",
-    ],
-    Profile: [
-        "Who are you?",
-        "Where are you from?",
-        "What’s your favorite hobby?",
-        "What’s your dream job?",
-    ],
-    Default: [
-        "Who are you?",
-        "What’s your favorite color?",
-        "What inspires you?",
-    ],
+  LiveVedio: [
+    "What do you enjoy about live videos?",
+    "Have you ever streamed before?",
+    "What type of live content do you like?",
+    "Would you like to co-host with someone?",
+    "What’s your biggest challenge with live streaming?",
+  ],
+  Profile: [
+    "Who are you?",
+    "Where are you from?",
+    "What’s your favorite hobby?",
+    "What’s your dream job?",
+  ],
+  Default: [
+    "Who are you?",
+    "What’s your favorite color?",
+    "What inspires you?",
+  ],
 };
 
-
 const Questionnaire = () => {
-    const route = useRoute()
-    const questionOf = route?.params?.questionOf || ""
-    console.log("question of", questionOf);
+  const route = useRoute();
+  const questionOf = route?.params?.questionOf || "";
+  console.log("question of", questionOf);
 
-    const navigation = useNavigation()
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [text, setText] = useState("");
-    const [isTyping, setIsTyping] = useState(false);
-    const [isVoiceModalVisible, setIsVoiceModalVisible] =
-        useState(false);
+  const navigation = useNavigation();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [isVoiceModalVisible, setIsVoiceModalVisible] = useState(false);
 
-    const [aiTyping, setAiTyping] = useState(false);
+  const [aiTyping, setAiTyping] = useState(false);
 
-    // const dummyQuestions = [
-    //     "Who are you?",
-    //     "What’s your favorite color?",
-    //     // "Where are you from?",
-    //     // "What do you like to do in your free time?",
-    //     // "Who inspires you the most?",
-    //     // "What’s your dream job?",
-    //     // "If you could visit anywhere, where would it be?",
-    //     // "What’s your favorite movie?",
-    //     // "What skill do you want to learn?",
-    //     // "What makes you happy?",
-    // ];
-    const dummyQuestions = questionSets[questionOf] || questionSets.Default;
-    const [sections, setSections] = useState([
-        { title: dummyQuestions[0], data: [] },
-    ]);
-    const handleSubmit = () => {
-        if (!text.trim()) return;
+  // const dummyQuestions = [
+  //     "Who are you?",
+  //     "What’s your favorite color?",
+  //     // "Where are you from?",
+  //     // "What do you like to do in your free time?",
+  //     // "Who inspires you the most?",
+  //     // "What’s your dream job?",
+  //     // "If you could visit anywhere, where would it be?",
+  //     // "What’s your favorite movie?",
+  //     // "What skill do you want to learn?",
+  //     // "What makes you happy?",
+  // ];
+  const dummyQuestions = questionSets[questionOf] || questionSets.Default;
+  const [sections, setSections] = useState([
+    { title: dummyQuestions[0], data: [] },
+  ]);
+  const handleSubmit = () => {
+    if (!text.trim()) return;
 
-        const newAnswer = text.trim();
-        const nextIndex = currentIndex + 1;
+    const newAnswer = text.trim();
+    const nextIndex = currentIndex + 1;
 
-        const updatedSections = [...sections];
-        updatedSections[currentIndex] = {
-            ...updatedSections[currentIndex],
-            data: [newAnswer],
-        };
-        setAiTyping(true)
-        setTimeout(() => {
+    const updatedSections = [...sections];
+    updatedSections[currentIndex] = {
+      ...updatedSections[currentIndex],
+      data: [newAnswer],
+    };
+    setAiTyping(true);
+    setTimeout(() => {
+      setAiTyping(false);
+      if (nextIndex < dummyQuestions.length) {
+        updatedSections.push({
+          title: dummyQuestions[nextIndex],
+          data: [],
+        });
+      }
+    }, 1500);
 
-            setAiTyping(false)
-            if (nextIndex < dummyQuestions.length) {
-                updatedSections.push({
-                    title: dummyQuestions[nextIndex],
-                    data: [],
-                });
-            }
-        }, 1500)
+    setSections(updatedSections);
+    setCurrentIndex(nextIndex);
+    setText("");
 
-        setSections(updatedSections);
-        setCurrentIndex(nextIndex);
-        setText("");
+    if (nextIndex >= dummyQuestions.length) {
+      Alert.alert(
+        "✅ All questions completed!",
+        "Click OK to go to Live Section.",
+        [
+          {
+            text: "OK",
+            onPress: () => {
+              if (questionOf === "LiveVedio") {
+                navigation.navigate(ScreensName.AILIVEEXAMPLE);
+              } else {
+                navigation.navigate(ScreensName.ChildDashboard);
+              }
+            },
+          },
+        ]
+      );
+      return; // stop here so it doesn’t set index past last question
+    }
+  };
 
-        if (nextIndex >= dummyQuestions.length) {
-            Alert.alert(
-                "✅ All questions completed!",
-                "Click OK to go to Live Section.",
-                [
-                    {
-                        text: "OK",
-                        onPress: () => {
-                            if (questionOf === "LiveVedio") {
-                                navigation.navigate(ScreensName.AILIVEEXAMPLE)
-                            } else {
+  //   const handleSendVoiceMessage = (audioUri) => {
+  //     if (!audioUri) return;
 
-                                navigation.navigate(ScreensName.ChildDashboard)
-                            }
-                        }
-                    },
-                ]
-            );
-            return; // stop here so it doesn’t set index past last question
-        }
+  //     const nextIndex = currentIndex + 1;
 
+  //     const updatedSections = [...sections];
+  //     updatedSections[currentIndex] = {
+  //       ...updatedSections[currentIndex],
+  //       data: [
+  //         ...updatedSections[currentIndex].data,
+  //         { type: "voice", uri: audioUri },
+  //       ],
+  //     };
+
+  //     if (nextIndex < dummyQuestions.length) {
+  //       updatedSections.push({
+  //         title: dummyQuestions[nextIndex],
+  //         data: [],
+  //       });
+  //     }
+
+  //     setSections(updatedSections);
+  //     setCurrentIndex(nextIndex);
+
+  //     if (nextIndex >= dummyQuestions.length) {
+  //       alert("✅ All questions completed!");
+  //     }
+  //   };
+
+  const handleSendVoiceMessage = (audioUri, duration) => {
+    console.log("Saving Audio", audioUri, duration); // Your log
+
+    if (!audioUri) return;
+
+    const nextIndex = currentIndex + 1;
+
+    const updatedSections = [...sections];
+    updatedSections[currentIndex] = {
+      ...updatedSections[currentIndex],
+      data: [
+        ...updatedSections[currentIndex].data,
+        { type: "voice", uri: audioUri, duration: duration || 0 }, // Fallback to 0
+      ],
     };
 
+    if (nextIndex < dummyQuestions.length) {
+      updatedSections.push({
+        title: dummyQuestions[nextIndex],
+        data: [],
+      });
+    }
 
-    const handleSendVoiceMessage = (audioUri) => {
-        if (!audioUri) return;
+    console.log("Updated sections:", JSON.stringify(updatedSections, null, 2)); // Debug log
+    setSections(updatedSections);
+    setCurrentIndex(nextIndex);
 
-        const nextIndex = currentIndex + 1;
+    if (nextIndex >= dummyQuestions.length) {
+      Alert.alert(
+        "✅ All questions completed!",
+        "Click OK to go to Live Section.",
+        [
+          {
+            text: "OK",
+            onPress: () => {
+              if (questionOf === "LiveVedio") {
+                navigation.navigate(ScreensName.AILIVEEXAMPLE);
+              } else {
+                navigation.navigate(ScreensName.ChildDashboard);
+              }
+            },
+          },
+        ]
+      );
+      return; // stop here so it doesn’t set index past last question
+    }
+  };
 
-        const updatedSections = [...sections];
-        updatedSections[currentIndex] = {
-            ...updatedSections[currentIndex],
-            data: [
-                ...updatedSections[currentIndex].data,
-                { type: "voice", uri: audioUri },
-            ],
-        };
+  const insert = useSafeAreaInsets();
+  return (
+    <View style={[styles.container, { paddingTop: insert.top || 5 }]}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : "padding"}
+      >
+        <AiCustomHeader user={{ img: Images.AVATAR, name: "Max" }} />
 
-        if (nextIndex < dummyQuestions.length) {
-            updatedSections.push({
-                title: dummyQuestions[nextIndex],
-                data: [],
-            });
-        }
+        <SectionList
+          sections={sections}
+          keyExtractor={(item, index) => index.toString()}
+          renderSectionHeader={({ section }) => (
+            <View style={styles.questionRow}>
+              <Image source={Images.AIICON} style={styles.aiImg} />
+              <Text style={styles.questionText}>{section.title}</Text>
+            </View>
+          )}
+          renderItem={({ item }) => (
+            <View style={styles.answerBubble}>
+              <Image source={Images.AVATAR} style={styles.userImg} />
+              {typeof item === "string" ? (
+                <Text style={styles.answerText}>{item}</Text>
+              ) : item.type === "voice" ? (
+                <AudioNote uri={item.uri} duration={item?.duration} />
+              ) : null}
+            </View>
+          )}
+          contentContainerStyle={{ padding: 16, paddingBottom: 80 }}
+        />
+        <View style={styles.bottomBox}>
+          <Image source={Images.AIBLUISHBG} style={StyleSheet.absoluteFill} />
+          {isTyping ? (
+            <View style={styles.inputRow}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Type your answer..."
+                value={text}
+                onChangeText={setText}
+              />
+              <TouchableOpacity style={styles.sendBtn} onPress={handleSubmit}>
+                <Image source={Images.SEND_ICON} style={styles.sendImg} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  setSections([{ title: dummyQuestions[0], data: [] }])
+                }
+              >
+                <Ionicons name="close-circle-outline" size={36} color="#555" />
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <View style={styles.actionRow}>
+              <TouchableOpacity onPress={() => setIsTyping(true)}>
+                <Ionicons name="text-outline" size={36} color="#555" />
+              </TouchableOpacity>
 
-        setSections(updatedSections);
-        setCurrentIndex(nextIndex);
+              <TouchableOpacity
+                style={styles.micContainer}
+                onPress={async () => {
+                  // const hasPermission = await requestAudioPermissions();
+                  // if (!hasPermission) return;
 
-        if (nextIndex >= dummyQuestions.length) {
-            alert("✅ All questions completed!");
-        }
-    };
+                  setIsVoiceModalVisible(true);
+                }}
+              >
+                <Image source={Images.MIC} style={styles.micImg} />
+              </TouchableOpacity>
 
-
-    const insert = useSafeAreaInsets()
-    return (
-        <View style={[styles.container, { paddingTop: insert.top || 5 }]}>
-            <KeyboardAvoidingView
-                style={styles.container}
-                behavior={Platform.OS === "ios" ? "padding" : "padding"}
-            >
-                <AiCustomHeader user={{ img: Images.AVATAR, name: 'Max' }} />
-
-                <SectionList
-                    sections={sections}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderSectionHeader={({ section }) => (
-                        <View style={styles.questionRow}>
-                            <Image source={Images.AIICON} style={styles.aiImg} />
-                            <Text style={styles.questionText}>{section.title}</Text>
-                        </View>
-                    )}
-                    renderItem={({ item }) => (
-                        <View style={styles.answerBubble}>
-                            <Image source={Images.AVATAR} style={styles.userImg} />
-                            {typeof item === "string" ? (
-                                <Text style={styles.answerText}>{item}</Text>
-                            ) : item.type === "voice" ? (
-                                <AudioNote uri={item.uri} />
-
-                            ) : null}
-                        </View>
-                    )}
-                    contentContainerStyle={{ padding: 16, paddingBottom: 80 }}
-                />
-                <View
-                    style={styles.bottomBox}
-                >
-                    <Image source={Images.AIBLUISHBG} style={StyleSheet.absoluteFill} />
-                    {isTyping ? (
-                        <View style={styles.inputRow}>
-                            <TextInput
-                                style={styles.textInput}
-                                placeholder="Type your answer..."
-                                value={text}
-                                onChangeText={setText}
-                            />
-                            <TouchableOpacity style={styles.sendBtn} onPress={handleSubmit}>
-                                <Image source={Images.SEND_ICON} style={styles.sendImg} />
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => setSections([
-                                { title: dummyQuestions[0], data: [] },
-                            ])}>
-                                <Ionicons name="close-circle-outline" size={36} color="#555" />
-                            </TouchableOpacity>
-                        </View>
-                    ) : (
-                        <View style={styles.actionRow}>
-                            <TouchableOpacity onPress={() => setIsTyping(true)}>
-                                <Ionicons name="text-outline" size={36} color="#555" />
-                            </TouchableOpacity>
-
-                            <TouchableOpacity style={styles.micContainer} onPress={async () => {
-                                // const hasPermission = await requestAudioPermissions();
-                                // if (!hasPermission) return;
-
-                                setIsVoiceModalVisible(true);
-                            }}>
-                                <Image source={Images.MIC} style={styles.micImg} />
-                            </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => setSections([
-                                { title: dummyQuestions[0], data: [] },
-                            ])}>
-                                <Ionicons name="close-circle-outline" size={36} color="#555" />
-                            </TouchableOpacity>
-                        </View>
-                    )}
-
-                </View>
-            </KeyboardAvoidingView>
-            {isVoiceModalVisible && (
-                <VoiceMessageModal
-                    isVisible={isVoiceModalVisible}
-                    onClose={() => setIsVoiceModalVisible(false)}
-                    onSend={audioUri => {
-                        handleSendVoiceMessage(audioUri);
-                        setIsVoiceModalVisible(false);
-                    }}
-                />
-            )}
+              <TouchableOpacity
+                onPress={() =>
+                  setSections([{ title: dummyQuestions[0], data: [] }])
+                }
+              >
+                <Ionicons name="close-circle-outline" size={36} color="#555" />
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
-    );
+      </KeyboardAvoidingView>
+      {isVoiceModalVisible && (
+        <VoiceMessageModal
+          isVisible={isVoiceModalVisible}
+          onClose={() => setIsVoiceModalVisible(false)}
+          onSend={(audioUri, duration) => {
+            handleSendVoiceMessage(audioUri, duration);
+            setIsVoiceModalVisible(false);
+          }}
+        />
+      )}
+    </View>
+  );
 };
 
 export default Questionnaire;
-
-

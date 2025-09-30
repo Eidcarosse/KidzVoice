@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { View, Pressable, StyleSheet, Text } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { useAudioPlayer } from "expo-audio";
+import { useAudioPlayer, AudioModule } from "expo-audio";
 import colors from "../../utils/AppColors";
 import { fontSizes, width } from "../../utils/Dimensions";
 import { fonts } from "../../utils/fonts";
@@ -12,50 +12,126 @@ const formatTime = (sec) => {
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 };
 
-export default function AudioNote({ uri }) {
+export default function AudioNote({ uri, duration: initialDuration }) {
   const player = useAudioPlayer(uri);
   const [isPlaying, setIsPlaying] = useState(false);
   const [position, setPosition] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState(initialDuration || 0);
+  const playerRef = useRef(player); // Store player instance
 
-  // fake timer to update progress (since we’re not using status)
+  console.log("Voice Note", uri, "  Duration", initialDuration);
+
+  // Update playerRef when player changes
+  useEffect(() => {
+    playerRef.current = player;
+  }, [player]);
+
+  // Fetch duration from metadata if initialDuration is undefined
+  useEffect(() => {
+    const loadDuration = async () => {
+      if (!uri || initialDuration) return;
+      try {
+        const { durationMillis } = await AudioModule.getInfoAsync(uri);
+        console.log("Fetched duration from metadata:", durationMillis / 1000);
+        if (durationMillis) {
+          setDuration(durationMillis / 1000);
+        } else {
+          setDuration(0);
+        }
+      } catch (e) {
+        console.log("Error fetching audio duration:", e);
+        setDuration(0);
+      }
+    };
+    loadDuration();
+  }, [uri, initialDuration]);
+
+  // Set initial duration when component mounts or uri changes
+  useEffect(() => {
+    setDuration(initialDuration || 0);
+    setPosition(0);
+  }, [uri, initialDuration]);
+
+  // Timer to update progress
   useEffect(() => {
     let interval;
     if (isPlaying) {
-      interval = setInterval(() => {
-        setPosition((prev) => {
-          if (prev + 1 >= duration) {
-            clearInterval(interval);
-            setIsPlaying(false);
-            return duration;
-          }
-          return prev + 1;
-        });
-      }, 1000);
+      // interval = setInterval(async () => {
+      setPosition((prev) => {
+        if (prev + 1 >= duration && duration > 0) {
+          clearInterval(interval);
+          setIsPlaying(false);
+          setPosition(0);
+          // Reset player to start
+          playerRef.current
+            .seekTo(0)
+            .catch((e) => console.log("Seek error on completion:", e));
+          return 0;
+        }
+        return prev + 1;
+      });
+      // }, 1000);
     }
     return () => clearInterval(interval);
   }, [isPlaying, duration]);
 
-  const handlePlayPause = () => {
-    if (isPlaying) {
-      player.pause();
-      setIsPlaying(false);
-    } else {
-      player.play();
-      setIsPlaying(true);
-      if (duration === 0) {
-        // try to load duration from metadata if available
-        setDuration(60); // fallback duration if unknown
+  const handlePlayPause = async () => {
+    try {
+      if (isPlaying) {
+        console.log("Pausing audio");
+        await playerRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        console.log(
+          "Attempting to play audio, position:",
+          position,
+          "duration:",
+          duration
+        );
+        if (position >= duration && duration > 0) {
+          console.log("Resetting to start before play");
+          await playerRef.current.seekTo(0);
+          setPosition(0);
+        }
+        await playerRef.current.play();
+        setIsPlaying(true);
+      }
+    } catch (e) {
+      console.log("Play/pause error:", e);
+      // Fallback: Try reloading the player
+      try {
+        console.log("Reloading player due to error");
+        const newPlayer = useAudioPlayer(uri);
+        playerRef.current = newPlayer;
+        await newPlayer.seekTo(0);
+        await newPlayer.play();
+        setIsPlaying(true);
+      } catch (reloadError) {
+        console.log("Reload error:", reloadError);
       }
     }
   };
 
-  const handleStop = () => {
-    player.seekTo(0);
-    player.pause();
-    setIsPlaying(false);
-    setPosition(0);
+  const handleStop = async () => {
+    try {
+      console.log("Stopping audio");
+      await playerRef.current.seekTo(0);
+      await playerRef.current.pause();
+      setIsPlaying(false);
+      setPosition(0);
+    } catch (e) {
+      console.log("Stop error:", e);
+    }
   };
+
+  // Cleanup player on unmount
+  useEffect(() => {
+    return () => {
+      playerRef.current
+        .pause()
+        .catch((e) => console.log("Cleanup pause error:", e));
+    };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -78,7 +154,7 @@ export default function AudioNote({ uri }) {
         <View
           style={[
             styles.progressFill,
-            { width: `${(position / duration) * 100 || 0}%` },
+            { width: duration > 0 ? `${(position / duration) * 100}%` : "0%" },
           ]}
         />
       </View>
