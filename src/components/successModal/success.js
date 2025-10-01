@@ -15,7 +15,7 @@ const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
     } else if (questionOf === "AiExample") {
       navigation.navigate(ScreensName.AIGAME);
     } else if (questionOf === "AiGame") {
-      navigation.navigate(ScreensName.ACCOUNT);
+      navigation.navigate(ScreensName.ChildDashboard, { isSectionTaken: true });
     }
     onClose();
   };
