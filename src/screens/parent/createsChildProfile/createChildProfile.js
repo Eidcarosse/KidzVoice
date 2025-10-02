@@ -12,11 +12,12 @@ import {
   MaterialIcons,
   FontAwesome6,
 } from "@expo/vector-icons";
-import { relationships } from "../../../utils/Data";
+import { gradesList, relationships, schoolsList } from "../../../utils/Data";
 import { height } from "../../../utils/Dimensions";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { User, Calendar, GraduationCap, Award } from "lucide-react-native";
+import { storeValue } from "../../../utils/Methods";
 
 export default function CreateChildProfile() {
   const navigation = useNavigation();
@@ -36,7 +37,23 @@ export default function CreateChildProfile() {
     setIsDisplaySchoolList(!isDisplaySchoolList);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    console.log("Child Name", name);
+    console.log("Date of birth", date);
+    console.log("Grade", grade);
+    console.log("School", school);
+
+    const childData = {
+      name: name,
+      dob: date,
+      grade: grade,
+      school: school,
+    };
+
+    console.log("Child Data", childData);
+
+    const res = await storeValue("childData", childData);
+
     navigation.navigate(ScreensName.STARTQUESTIONAIRE);
   };
   return (
@@ -79,7 +96,7 @@ export default function CreateChildProfile() {
 
         {isDisplayGradeList && (
           <DropDownList
-            lst={relationships}
+            lst={gradesList}
             selectedRelation={grade}
             setSelectedRelation={setGrade}
             setDropDownVisible={setIsDisplayGradeList}
@@ -97,10 +114,10 @@ export default function CreateChildProfile() {
 
         {isDisplaySchoolList && (
           <DropDownList
-            lst={relationships}
+            lst={schoolsList}
             selectedRelation={school}
             setSelectedRelation={setSchool}
-            //   setDropDownVisible={setIsDisplaySchoolList}
+            setDropDownVisible={setIsDisplaySchoolList}
           />
         )}
 
