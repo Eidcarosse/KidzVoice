@@ -38,7 +38,9 @@ export default function DropDownList({
             <Text style={[styles.textStyle]}>{item.title}</Text>
             <Ionicons
               name={
-                selected === item.id ? "radio-button-on" : "radio-button-off"
+                selectedRelation === item.title
+                  ? "radio-button-on"
+                  : "radio-button-off"
               }
               size={18}
               color={colors.dodgerBlue}

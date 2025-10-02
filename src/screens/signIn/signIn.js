@@ -1,16 +1,31 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StatusBarWrapper from "../../components/customStatusbar";
 import { Button, RoleSelection, SocialLogin } from "../../components";
 import styles from "./styles";
 import Images from "../../assets/images";
 import { useNavigation } from "@react-navigation/native";
-import { setUserRole } from "../../utils/Methods";
+import { getStoredValue, setUserRole, storeValue } from "../../utils/Methods";
 import ScreensName from "../../routes/routes";
 
 export default function SignIn() {
   const navigation = useNavigation();
   const [selectedRole, setSelectedRole] = useState(null);
+
+  const [childData, setChildData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const getChildData = async () => {
+    const childDataRes = await getStoredValue("childData");
+    console.log("Child Data Response", childDataRes);
+
+    setChildData(childDataRes);
+  };
+
+  useEffect(() => {
+    getChildData();
+    setLoading(false);
+  }, []);
 
   const onSelectRole = (role) => {
     setSelectedRole(role);
@@ -38,7 +53,11 @@ export default function SignIn() {
     const res = await setUserRole(selectedRole?.title);
     if (selectedRole?.title) {
       if (selectedRole?.title === "Parent") {
-        navigation.navigate(ScreensName.PARENTPROFILENFO);
+        if (childData?.id) {
+          navigation.navigate(ScreensName.CHILDPROGRESS);
+        } else {
+          navigation.navigate(ScreensName.PARENTPROFILENFO);
+        }
       } else if (selectedRole?.title === "Learner") {
         navigation.navigate(ScreensName.ACCOUNT);
       } else {

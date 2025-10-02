@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, Image, TouchableOpacity, ImageBackground } from "react-native";
+import React, { useEffect, useState }, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -9,9 +15,10 @@ import CustomHeader from "../../../components/customHeader/header";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getStoredValue } from "../../../utils/Methods";
 
 export default function ChildDashboard() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
     const route = useRoute()
     const isSectionTaken = route?.params?.isSectionTaken || false
     const insets = useSafeAreaInsets()
@@ -74,32 +81,44 @@ export default function ChildDashboard() {
             .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     };
 
-    return (
-        // <StatusBarWrapper>
-        <View style={[styles.container, { paddingTop: insets.top }]}>
-            <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
+  const [childData, setChildData] = useState();
+  const [loading, setLoading] = useState(true);
 
-            <View style={styles.topRow}>
-                {/* <CustomHeader
-                    isBack={false}
-                    onGoBack={() => navigation.goBack()}
-                /> */}
-                <TouchableOpacity
-                    onPress={() => alert("Settings pressed")}
-                    style={styles.settingIcon}
-                >
-                    <Ionicons name="settings-outline" size={28} color="black" />
-                </TouchableOpacity>
-            </View>
-            <View style={styles.header}>
-                <Image
-                    source={{ uri: "https://randomuser.me/api/portraits/men/32.jpg" }}
-                    style={styles.avatar}
-                />
-                <View style={styles.userInfo}>
-                    <Text style={styles.name}>Max</Text>
-                    <Text style={styles.email}>max@mail.com</Text>
-                </View>
+  const getChildData = async () => {
+    const childDataRes = await getStoredValue("childData");
+    console.log("Child Data Response", childDataRes);
+
+    setChildData(childDataRes);
+  };
+
+  useEffect(() => {
+    getChildData();
+    setLoading(false);
+  }, []);
+
+  return (
+    <StatusBarWrapper>
+      <View style={styles.container}>
+        <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
+
+        <View style={styles.topRow}>
+          <CustomHeader isBack={true} onGoBack={() => navigation.goBack()} />
+          <TouchableOpacity
+            onPress={() => alert("Settings pressed")}
+            style={styles.settingIcon}
+          >
+            <Ionicons name="settings-outline" size={28} color="black" />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.header}>
+          <Image
+            source={{ uri: "https://randomuser.me/api/portraits/men/32.jpg" }}
+            style={styles.avatar}
+          />
+          <View style={styles.userInfo}>
+            <Text style={styles.name}>{childData?.name}</Text>
+            <Text style={styles.email}>max@mail.com</Text>
+          </View>
 
                 <TouchableOpacity
                     style={[

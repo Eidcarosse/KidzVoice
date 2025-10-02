@@ -16,8 +16,8 @@ const ScreensName = {
   AILIVEVEDIOSECTION: "AiLiveVedio",
   AILIVEQUESTIONAIR: "AiLiveQuestion",
   AILIVEEXAMPLE: "AiLiveExample",
-  AIGAME: 'AIGAME',
-  ChildDashboard: 'ChildDashboard',
+  AIGAME: "AIGAME",
+  ChildDashboard: "ChildDashboard",
   COACHACCOUNT: "CoachAccount",
   APPLICATIONSTATUS: "ApplicationStatus",
   DIGITALCONTRACT: "DigitalContract",
@@ -28,6 +28,7 @@ const ScreensName = {
   QUIZ: "Quiz",
   ASSIGNMENT: "Assignment",
   CERTIFICATION: "Certification",
-  VIDEOVIEW: "VedioView"
+  VIDEOVIEW: "VedioView",
+  CHILDPROGRESS: "ChildProgress",
 };
 export default ScreensName;

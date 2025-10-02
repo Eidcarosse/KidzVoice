@@ -9,7 +9,7 @@ import colors from "../../../utils/AppColors";
 import ConnectedModal from "../../../components/conectedModal/connectedModal";
 import * as Clipboard from "expo-clipboard";
 import { User, Copy, FileText, ClipboardList } from "lucide-react-native";
-import { storeValue } from "../../../utils/Methods";
+import { getStoredValue, storeValue } from "../../../utils/Methods";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 
@@ -19,18 +19,29 @@ export default function GenerateChild() {
   const [childId, setChild] = useState("");
 
   const generateChildId = async () => {
+    const childData = await getStoredValue("childData");
+
+    console.log("ChildData", childData);
+
     // Random 2-digit number
     const randomNum1 = Math.floor(10 + Math.random() * 90);
 
     // Random 8-digit number
     const randomNum2 = Math.floor(10000000 + Math.random() * 90000000);
 
-    const res = await storeValue("ChildId", `CD${randomNum1}ID${randomNum2}`);
+    const childDataWithId = {
+      ...childData,
+      id: `CD${randomNum1}ID${randomNum2}`,
+    };
+
+    console.log("Child Data with id", childDataWithId);
+
+    const res = await storeValue("childData", childDataWithId);
     return `CD${randomNum1}ID${randomNum2}`;
   };
 
   const handleViewSummary = () => {
-    navigation.navigate(ScreensName.SIGNIN);
+    navigation.navigate(ScreensName.CHILDPROGRESS);
   };
 
   const copyToClipboard = async () => {

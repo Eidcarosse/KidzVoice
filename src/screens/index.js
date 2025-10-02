@@ -28,6 +28,7 @@ import Quiz from "./coach/quiz/quiz";
 import Assignment from "./coach/assignment/assignment";
 import Certification from "./coach/certification/certification";
 import AiLiveVedioView from "./child/aiLiveVedioView/aiLiveVedioView";
+import ChildProgress from "./parent/childProgress/childProgress";
 
 export {
   // Child + Parent
@@ -61,4 +62,5 @@ export {
   Quiz,
   Assignment,
   Certification,
+  ChildProgress,
 };
