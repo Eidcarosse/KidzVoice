@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
 
     topRow: {
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         paddingHorizontal: 16,
-        paddingVertical: 10,
+
     },
     backIcon: {
         borderRadius: 10,
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         padding: 20,
-        marginTop: 30,
     },
     avatar: {
         width: 60,
@@ -195,6 +194,8 @@ const styles = StyleSheet.create({
         color: "gray",
     },
     backgroundImageStyle: {
+        alignSelf: 'center',
+        width: '100%',
         transform: [{ rotate: "180deg" }],
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'cover',
