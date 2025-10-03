@@ -181,7 +181,7 @@ const Questionnaire = () => {
       ...updatedSections[currentIndex],
       data: [
         ...updatedSections[currentIndex].data,
-        { type: "voice", uri: audioUri, duration: duration || 0 }, // Fallback to 0
+        { type: "voice", uri: audioUri, duration: duration || 0 },
       ],
     };
 
@@ -192,7 +192,7 @@ const Questionnaire = () => {
       });
     }
 
-    console.log("Updated sections:", JSON.stringify(updatedSections, null, 2)); // Debug log
+    console.log("Updated sections:", JSON.stringify(updatedSections, null, 2));
     setSections(updatedSections);
     setCurrentIndex(nextIndex);
 
@@ -213,7 +213,7 @@ const Questionnaire = () => {
           },
         ]
       );
-      return; // stop here so it doesn’t set index past last question
+      return;
     }
   };
 
@@ -248,7 +248,7 @@ const Questionnaire = () => {
           contentContainerStyle={{ padding: 16, paddingBottom: 80 }}
         />
         <View style={styles.bottomBox}>
-          <Image source={Images.AIBLUISHBG} style={StyleSheet.absoluteFill} />
+          <Image source={Images.AIBLUISHBG} style={{ width: '100%', alignSelf: 'center', ...StyleSheet.absoluteFillObject }} />
           {isTyping ? (
             <View style={styles.inputRow}>
               <TextInput

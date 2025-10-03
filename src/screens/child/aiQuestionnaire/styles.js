@@ -63,18 +63,19 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.regular
     },
     bottomBox: {
+        // width: '100%',
         paddingVertical: 50,
-        paddingHorizontal: 16,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        overflow: "hidden",
-        backgroundColor: "#fff",
+        // borderTopLeftRadius: 20,
+        // borderTopRightRadius: 20,
+        // overflow: "hidden",
+        // backgroundColor: "#fff",
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
     actionRow: {
         flex: 1,
+        paddingHorizontal: 20,
         flexDirection: "row",
         // alignItems: "center",
         justifyContent: "space-between",
