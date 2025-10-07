@@ -170,6 +170,24 @@ const childProgreeData = [
   { value: 23, max: 30, color: colors.grandis, title: "Activities" }, // Activities
 ];
 
+const youtubeVideosList = [
+  {
+    id: "eal4-A89IWY",
+    title: "Psychology Preview",
+    thumbnail: "https://img.youtube.com/vi/vo4pMVb0R6M/hqdefault.jpg",
+  },
+  {
+    id: "vo4pMVb0R6M",
+    title: "Intro to Psychology",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+  },
+  {
+    id: "hFV71QPvX2I",
+    title: "Psychological Research",
+    thumbnail: "https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg",
+  },
+];
+
 export {
   roles,
   relationships,
@@ -185,4 +203,5 @@ export {
   childProgreeData,
   gradesList,
   schoolsList,
+  youtubeVideosList,
 };
