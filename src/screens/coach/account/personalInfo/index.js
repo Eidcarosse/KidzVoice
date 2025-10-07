@@ -20,7 +20,7 @@ export default function PersonalInfo({
 
       <Text style={styles.titleText}>Name</Text>
 
-      <Input placeholder={"Usman Khan"} state={name} setState={setName} />
+      <Input placeholder={"Nadine Zimat"} state={name} setState={setName} />
 
       <Text style={styles.titleText}>Date of birth</Text>
 

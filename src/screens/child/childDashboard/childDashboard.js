@@ -111,7 +111,7 @@ export default function ChildDashboard() {
                 >
                     <Text style={styles.liveText}>
                         {isLocked && remainingTime
-                            ? `Come back in ${formatTime(remainingTime)}`
+                            ? `Next Session in ${formatTime(remainingTime)}`
                             : "AI Live Session"}
                     </Text>
                 </TouchableOpacity>
