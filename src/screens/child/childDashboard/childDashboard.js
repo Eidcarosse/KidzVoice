@@ -18,7 +18,6 @@ import CustomHeader from "../../../components/customHeader/header";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { getStoredValue } from "../../../utils/Methods";
 
 export default function ChildDashboard() {
   const navigation = useNavigation();

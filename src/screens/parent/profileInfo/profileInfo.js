@@ -74,7 +74,7 @@ export default function ProfileInfo() {
       <Input
         state={phone}
         setState={setPhone}
-        placeholder="0300 0404040"
+        placeholder="+41 XXXXXXXXX"
         icon={<Phone size={20} color={colors.ebonyClay} />}
       />
 

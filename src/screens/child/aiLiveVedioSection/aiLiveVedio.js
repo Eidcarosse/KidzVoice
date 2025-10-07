@@ -25,7 +25,7 @@ export default function AiLiveVedio() {
                     Let’s start with a breathing game. Imagine this ball is your breath. When it gets big, you breathe in. When it gets small, you breathe out. Ready?
                 </Text>
             </View>
-            <Button title={'play Video'} onPress={() => navigation.navigate(ScreensName.VIDEOVIEW)} />
+            <Button title={'Play Video'} onPress={() => navigation.navigate(ScreensName.VIDEOVIEW)} />
         </View>
     )
 }
