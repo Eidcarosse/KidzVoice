@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -26,6 +26,7 @@ import VoiceMessage from "../../../components/voice";
 import AudioNote from "../../../components/voice";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { getStoredValue } from "../../../utils/Methods";
 
 const questionSets = {
   LiveVedio: [
@@ -60,6 +61,21 @@ const Questionnaire = () => {
   const [isVoiceModalVisible, setIsVoiceModalVisible] = useState(false);
 
   const [aiTyping, setAiTyping] = useState(false);
+
+  const [childData, setChildData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const getChildData = async () => {
+    const childDataRes = await getStoredValue("childData");
+    console.log("Child Data Response", childDataRes);
+
+    setChildData(childDataRes);
+  };
+
+  useEffect(() => {
+    getChildData();
+    setLoading(false);
+  }, []);
 
   // const dummyQuestions = [
   //     "Who are you?",
@@ -165,7 +181,7 @@ const Questionnaire = () => {
       ...updatedSections[currentIndex],
       data: [
         ...updatedSections[currentIndex].data,
-        { type: "voice", uri: audioUri, duration: duration || 0 }, // Fallback to 0
+        { type: "voice", uri: audioUri, duration: duration || 0 },
       ],
     };
 
@@ -176,7 +192,7 @@ const Questionnaire = () => {
       });
     }
 
-    console.log("Updated sections:", JSON.stringify(updatedSections, null, 2)); // Debug log
+    console.log("Updated sections:", JSON.stringify(updatedSections, null, 2));
     setSections(updatedSections);
     setCurrentIndex(nextIndex);
 
@@ -197,7 +213,7 @@ const Questionnaire = () => {
           },
         ]
       );
-      return; // stop here so it doesn’t set index past last question
+      return;
     }
   };
 
@@ -208,7 +224,7 @@ const Questionnaire = () => {
         style={styles.container}
         behavior={Platform.OS === "ios" ? "padding" : "padding"}
       >
-        <AiCustomHeader user={{ img: Images.AVATAR, name: "Max" }} />
+        <AiCustomHeader user={{ img: Images.AVATAR, name: childData?.name }} />
 
         <SectionList
           sections={sections}
@@ -225,14 +241,14 @@ const Questionnaire = () => {
               {typeof item === "string" ? (
                 <Text style={styles.answerText}>{item}</Text>
               ) : item.type === "voice" ? (
-                <AudioNote uri={item.uri} duration={item?.duration} />
+                <AudioNote uri={item?.uri} duration={item?.duration} />
               ) : null}
             </View>
           )}
           contentContainerStyle={{ padding: 16, paddingBottom: 80 }}
         />
         <View style={styles.bottomBox}>
-          <Image source={Images.AIBLUISHBG} style={StyleSheet.absoluteFill} />
+          <Image source={Images.AIBLUISHBG} style={{ width: '100%', alignSelf: 'center', ...StyleSheet.absoluteFillObject }} />
           {isTyping ? (
             <View style={styles.inputRow}>
               <TextInput

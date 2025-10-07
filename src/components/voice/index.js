@@ -13,7 +13,7 @@ const formatTime = (sec) => {
 };
 
 export default function AudioNote({ uri, duration: initialDuration }) {
-  const player = useAudioPlayer(uri);
+  const player = useAudioPlayer(uri || "");
   const [isPlaying, setIsPlaying] = useState(false);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(initialDuration || 0);
@@ -56,21 +56,18 @@ export default function AudioNote({ uri, duration: initialDuration }) {
   useEffect(() => {
     let interval;
     if (isPlaying) {
-      // interval = setInterval(async () => {
-      setPosition((prev) => {
-        if (prev + 1 >= duration && duration > 0) {
-          clearInterval(interval);
-          setIsPlaying(false);
-          setPosition(0);
-          // Reset player to start
-          playerRef.current
-            .seekTo(0)
-            .catch((e) => console.log("Seek error on completion:", e));
-          return 0;
-        }
-        return prev + 1;
-      });
-      // }, 1000);
+      interval = setInterval(() => {
+        setPosition((prev) => {
+          if (prev + 1 >= duration) {
+            console.log("Playback completed, resetting...");
+            playerRef.current.seekTo(0);
+            playerRef.current.pause();
+            setIsPlaying(false);
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isPlaying, duration]);
@@ -81,6 +78,8 @@ export default function AudioNote({ uri, duration: initialDuration }) {
         console.log("Pausing audio");
         await playerRef.current.pause();
         setIsPlaying(false);
+        await playerRef.current.seekTo(0);
+        setPosition(0);
       } else {
         console.log(
           "Attempting to play audio, position:",

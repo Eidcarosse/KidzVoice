@@ -10,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import ConnectedModal from "../../../components/conectedModal/connectedModal";
-import { getStoredValue } from "../../../utils/Methods";
+import { errorToastMessage, getStoredValue } from "../../../utils/Methods";
 
 const AccountSetupScreen = () => {
   const navigation = useNavigation();
@@ -22,18 +22,28 @@ const AccountSetupScreen = () => {
   };
 
   const handleContinue = async () => {
-    const childId = await getStoredValue("ChildId");
+    const childData = await getStoredValue("childData");
 
-    console.log("Stored Child Id", childId);
+    console.log("Stored Child Id", childData);
     console.log("Code", code);
 
-    // if (childId === code) {
-    setIsConnectedModal(true);
-    setTimeout(() => {
-      setIsConnectedModal(false);
-      navigation.navigate(ScreensName.MAGICBACKPACK);
-    }, 3000);
-    // }
+    if (code) {
+      console.log("Code Given", childData);
+
+      if (childData?.id === code) {
+        setIsConnectedModal(true);
+        setTimeout(() => {
+          setIsConnectedModal(false);
+          navigation.navigate(ScreensName.MAGICBACKPACK);
+        }, 3000);
+      } else {
+        errorToastMessage("Child Id", "Wrong Child Id");
+      }
+    } else {
+      console.log("Code Not Given");
+
+      errorToastMessage("Filed", "Fields are missing");
+    }
   };
 
   return (

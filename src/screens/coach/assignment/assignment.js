@@ -21,7 +21,7 @@ const AssignmentScreen = () => {
           <TextInput
             multiline
             style={styles.input}
-            placeholder="Usman khan"
+            placeholder="Nadine Zimat"
             placeholderTextColor="#ccc"
           />
         </View>

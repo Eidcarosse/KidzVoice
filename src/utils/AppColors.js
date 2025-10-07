@@ -22,6 +22,11 @@ const colors = {
   doveGray: "#6F6F6F",
   jewel: "#198038",
   zumthor: "#EDF6FF",
+  anakiwa: "#AEE6FF",
+  sunDown: "#FFB2B2",
+  grandis: "#FFD18B",
+  outerSpace: "#303437",
+  jumbo: "#89898A",
 };
 
 export default colors;

@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles";
 import {
   diagnosesOptions,
@@ -10,6 +10,7 @@ import {
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import colors from "../../utils/AppColors";
 import QuestionOptions from "../questionOptions/questionOptions";
+import { getStoredValue } from "../../utils/Methods";
 
 export default function FamilyContext({
   maxLiveTime,
@@ -19,6 +20,20 @@ export default function FamilyContext({
   contactPerson,
   setContactPerson,
 }) {
+  const [childData, setChildData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const getChildData = async () => {
+    const childDataRes = await getStoredValue("childData");
+    console.log("Child Data Response", childDataRes);
+
+    setChildData(childDataRes);
+  };
+
+  useEffect(() => {
+    getChildData();
+    setLoading(false);
+  }, []);
   return (
     <View style={styles.parentView}>
       <Text style={styles.title}>Family Context</Text>
@@ -27,16 +42,19 @@ export default function FamilyContext({
       </Text>
 
       <Text style={styles.question}>
-        1 Who does Max live with most of the time?
+        1 Who does {childData?.name} live with most of the time?
       </Text>
 
       <QuestionOptions
         options={maxLiveTimeOptions}
         state={maxLiveTime}
         setState={setMaxLiveTime}
+        multiple={true}
       />
 
-      <Text style={styles.question}>2 Does Max have siblings?</Text>
+      <Text style={styles.question}>
+        2 Does {childData?.name} have siblings?
+      </Text>
 
       <QuestionOptions
         options={siblingsOptions}
@@ -46,7 +64,7 @@ export default function FamilyContext({
       />
 
       <Text style={styles.question}>
-        3 Who is Max’s primary caregiver/contact person?
+        3 Who is {childData?.name}’s primary caregiver/contact person?
       </Text>
       <TextInput
         style={styles.textArea}

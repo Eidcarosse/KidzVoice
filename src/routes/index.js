@@ -34,6 +34,7 @@ import {
   Welcome,
   WelcomeScreen,
   AiLiveVedioView,
+  ChildProgress,
 } from "../screens";
 import ScreensName from "./routes";
 import AiGame from "../screens/child/aiGame/aiGame";
@@ -90,11 +91,27 @@ export default function Router() {
           name={ScreensName.AILIVEEXAMPLE}
           component={AiLiveExample}
         />
-        <Stack.Screen name={ScreensName.ACCOUNT} component={AccountSetupScreen} />
-        <Stack.Screen name={ScreensName.MAGICBACKPACK} component={MagicBackpackScreen} />
-        <Stack.Screen name={ScreensName.QUESTIONAIRE} component={Questionnaire} />
-        <Stack.Screen name={ScreensName.AILIVESECTION} component={AiLiveSection} />
-        <Stack.Screen name={ScreensName.ChildDashboard} component={ChildDashboard} />
+        <Stack.Screen name={ScreensName.HOME} component={Home} />
+        <Stack.Screen
+          name={ScreensName.ACCOUNT}
+          component={AccountSetupScreen}
+        />
+        <Stack.Screen
+          name={ScreensName.MAGICBACKPACK}
+          component={MagicBackpackScreen}
+        />
+        <Stack.Screen
+          name={ScreensName.QUESTIONAIRE}
+          component={Questionnaire}
+        />
+        <Stack.Screen
+          name={ScreensName.AILIVESECTION}
+          component={AiLiveSection}
+        />
+        <Stack.Screen
+          name={ScreensName.ChildDashboard}
+          component={ChildDashboard}
+        />
         {/* <Stack.Screen
         <Stack.Screen
           name={ScreensName.ACCOUNT}
@@ -146,7 +163,12 @@ export default function Router() {
           name={ScreensName.CERTIFICATION}
           component={Certification}
         />
-      </Stack.Navigator >
-    </NavigationContainer >
+
+        <Stack.Screen
+          name={ScreensName.CHILDPROGRESS}
+          component={ChildProgress}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
