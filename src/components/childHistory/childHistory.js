@@ -1,11 +1,12 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles";
 import { diagnosesOptions, servicesOptions } from "../../utils/Data";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import colors from "../../utils/AppColors";
 import QuestionOptions from "../questionOptions/questionOptions";
 import * as DocumentPicker from "expo-document-picker";
+import { getStoredValue } from "../../utils/Methods";
 
 export default function ChildHistory({
   diagnoses,
@@ -17,6 +18,20 @@ export default function ChildHistory({
   report,
   setReport,
 }) {
+  const [childData, setChildData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const getChildData = async () => {
+    const childDataRes = await getStoredValue("childData");
+    console.log("Child Data Response", childDataRes);
+
+    setChildData(childDataRes);
+  };
+
+  useEffect(() => {
+    getChildData();
+    setLoading(false);
+  }, []);
   const pickDocument = async () => {
     try {
       const result = await DocumentPicker.getDocumentAsync({
@@ -43,26 +58,30 @@ export default function ChildHistory({
   return (
     <View style={styles.parentView}>
       <Text style={styles.title}>Child History</Text>
-      <Text style={styles.subtitle}>Purpose: Quick background about Max.</Text>
+      <Text style={styles.subtitle}>
+        Purpose: Quick background about {childData?.name}.
+      </Text>
 
       <Text style={styles.question}>
-        1 Has Max received any previous diagnoses?
+        1 Has {childData?.name} received any previous diagnoses?
       </Text>
 
       <QuestionOptions
         options={diagnosesOptions}
         state={diagnoses}
         setState={setDiagnoses}
+        multiple={true}
       />
 
       <Text style={styles.question}>
-        2 Has Max ever received support services?
+        2 Has {childData?.name} ever received support services?
       </Text>
 
       <QuestionOptions
         options={servicesOptions}
         state={services}
         setState={setServices}
+        multiple={true}
       />
 
       <Text style={styles.question}>

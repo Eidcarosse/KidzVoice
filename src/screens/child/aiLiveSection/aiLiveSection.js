@@ -8,12 +8,28 @@ import FeelingResult from "./component/feelingResult";
 import { useNavigation } from "@react-navigation/native";
 import SuccessModal from "../../../components/successModal/success";
 import ScreensName from "../../../routes/routes";
+import { getStoredValue } from "../../../utils/Methods";
 
 export default function AiLiveSection() {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const [selectedFeeling, setSelectedFeeling] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const [childData, setChildData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const getChildData = async () => {
+    const childDataRes = await getStoredValue("childData");
+    console.log("Child Data Response", childDataRes);
+
+    setChildData(childDataRes);
+  };
+
+  useEffect(() => {
+    getChildData();
+    setLoading(false);
+  }, []);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -72,8 +88,8 @@ export default function AiLiveSection() {
 
           <View style={styles.textBox}>
             <Text style={styles.questionText}>
-              Hi Max! I’m happy to see you again. Before we start, tell me, how
-              do you feel today?
+              Hi {childData?.name}! I’m happy to see you again. Before we start,
+              tell me, how do you feel today?
             </Text>
           </View>
 
@@ -105,11 +121,16 @@ export default function AiLiveSection() {
           </View>
         </>
       ) : (
-        <FeelingResult isBtn={true} onPress={() => navigation.navigate(ScreensName.AILIVEVEDIOSECTION)} image={Images.AIICON} text={selected.message} />
+        <FeelingResult
+          isBtn={true}
+          onPress={() => navigation.navigate(ScreensName.AILIVEVEDIOSECTION)}
+          image={Images.AIICON}
+          text={selected.message}
+        />
       )}
 
       <SuccessModal
-        title={"Max earns: ⭐ x10 + 💎 x1"}
+        title={`${childData?.name} earns: ⭐ x10 + 💎 x1`}
         subtitle={
           "Amazing work, Ali! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
         }

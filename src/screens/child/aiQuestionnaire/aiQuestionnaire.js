@@ -241,7 +241,7 @@ const Questionnaire = () => {
               {typeof item === "string" ? (
                 <Text style={styles.answerText}>{item}</Text>
               ) : item.type === "voice" ? (
-                <AudioNote uri={item.uri} duration={item?.duration} />
+                <AudioNote uri={item?.uri} duration={item?.duration} />
               ) : null}
             </View>
           )}
