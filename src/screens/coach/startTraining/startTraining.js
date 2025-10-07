@@ -1,21 +1,36 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import styles from "./styles";
-import { Header, TaskCard } from "../../../components";
+import { Button, Header, TaskCard } from "../../../components";
 import Images from "../../../assets/images";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Ionicons, MaterialIcons, Feather } from "@expo/vector-icons";
-import { tasks } from "../../../utils/Data";
+import { tasks, youtubeVideosList } from "../../../utils/Data";
 import YoutubePlayer from "react-native-youtube-iframe";
+import ScreensName from "../../../routes/routes";
 
 export default function StartTraining() {
+  const navigation = useNavigation();
   const routes = useRoute();
   const playerRef = useRef(null);
 
   const [selectedModule, setSelectedModule] = useState();
+  const [selectedVideoId, setSelectedVideoId] = useState("eal4-A89IWY");
 
   console.log("Module", routes.params?.module);
+
+  const handleVideoSelect = (videoId) => {
+    setSelectedVideoId(videoId);
+    playerRef.current?.seekTo(0, true); // Reset video to start
+  };
+
+  const getThumbnailUrl = (videoId) =>
+    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+  const handelStartQuiz = () => {
+    navigation.navigate(ScreensName.STARTQUIZ);
+  };
 
   useEffect(() => {
     setSelectedModule(routes.params?.module);
@@ -30,7 +45,7 @@ export default function StartTraining() {
           ref={playerRef}
           height={220}
           play={true}
-          videoId={"vo4pMVb0R6M"} // Replace with your YouTube video ID
+          videoId={selectedVideoId}
         />
       </View>
 
@@ -58,10 +73,35 @@ export default function StartTraining() {
       <View style={styles.lineView} />
 
       <FlatList
+        data={youtubeVideosList}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => handleVideoSelect(item.id)}
+            style={styles.thumbnailContainer}
+          >
+            <Image
+              source={{ uri: getThumbnailUrl(item.id) }}
+              style={styles.thumbnail}
+              onError={() =>
+                console.log(`Failed to load thumbnail for ${item.id}`)
+              }
+            />
+            <Text style={styles.thumbnailTitle} numberOfLines={2}>
+              {item.title}
+            </Text>
+          </TouchableOpacity>
+        )}
+        keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
+      />
+
+      <Button title={"Start Quiz"} onPress={handelStartQuiz} />
+
+      {/* <FlatList
         data={tasks}
         renderItem={({ item }) => <TaskCard task={item} />}
         keyExtractor={({ index }) => index?.toString()}
-      />
+      /> */}
     </StatusBarWrapper>
   );
 }

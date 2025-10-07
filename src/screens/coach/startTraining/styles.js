@@ -43,6 +43,31 @@ const styles = StyleSheet.create({
     backgroundColor: colors.alto,
     marginBottom: height(1),
   },
+
+  thumbnailContainer: {
+    flexDirection: "row",
+    marginVertical: height(1),
+    // marginHorizontal: 16,
+    alignItems: "center",
+    borderWidth: 1,
+    padding: 5,
+    borderRadius: 15,
+    borderColor: colors.alto,
+    width: width(90),
+    alignSelf: "center",
+  },
+  thumbnail: {
+    width: 120,
+    height: 90,
+    borderRadius: 8,
+  },
+  thumbnailTitle: {
+    fontSize: 16,
+    color: colors.mineShaft,
+    fontFamily: fonts.medium,
+    marginLeft: 5,
+    flex: 1,
+  },
 });
 
 export default styles;
