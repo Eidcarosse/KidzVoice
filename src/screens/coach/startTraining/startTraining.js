@@ -127,7 +127,7 @@ export default function StartTraining() {
   const [selectedVideoId, setSelectedVideoId] = useState("eal4-A89IWY");
   const [completedVideos, setCompletedVideos] = useState([]);
   const [currentPlayableIndex, setCurrentPlayableIndex] = useState(0);
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState('Psychology Preview')
   useEffect(() => {
     setSelectedModule(routes.params?.module);
   }, [routes.params?.module]);
