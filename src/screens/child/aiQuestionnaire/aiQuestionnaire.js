@@ -260,13 +260,13 @@ const Questionnaire = () => {
               <TouchableOpacity style={styles.sendBtn} onPress={handleSubmit}>
                 <Image source={Images.SEND_ICON} style={styles.sendImg} />
               </TouchableOpacity>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={() =>
                   setSections([{ title: dummyQuestions[0], data: [] }])
                 }
               >
                 <Ionicons name="close-circle-outline" size={36} color="#555" />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           ) : (
             <View style={styles.actionRow}>
