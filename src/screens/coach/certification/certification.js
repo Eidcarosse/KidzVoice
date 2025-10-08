@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -7,27 +6,31 @@ import {
   Image,
   TouchableOpacity,
   Linking,
-} from 'react-native';
-import styles from './styles';
-import { Header } from '../../../components';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import StatusBarWrapper from '../../../components/customStatusbar';
-
+} from "react-native";
+import styles from "./styles";
+import { Header } from "../../../components";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import StatusBarWrapper from "../../../components/customStatusbar";
+import { infoToastMessage } from "../../../utils/Methods";
 
 export default function Certification() {
   const handleDownload = () => {
     // Download logic here
-    alert('Downloading certificate...');
+    // alert('Downloading certificate...');
+
+    infoToastMessage("Download", "Download Certificate coming soon");
   };
 
   const shareOnLinkedIn = () => {
     // Replace with real share URL logic
-    Linking.openURL('https://www.linkedin.com/');
+    Linking.openURL("https://www.linkedin.com/");
   };
 
   const shareOnEmail = () => {
-    Linking.openURL('mailto:?subject=My Certification&body=Check out my certificate!');
+    Linking.openURL(
+      "mailto:?subject=My Certification&body=Check out my certificate!"
+    );
   };
 
   return (
@@ -37,7 +40,7 @@ export default function Certification() {
 
         <View style={styles.profileContainer}>
           <Image
-            source={require('./../../../assets/images/coachProfile.png')}
+            source={require("./../../../assets/images/coachProfile.png")}
             style={styles.profileImage}
           />
           <View style={styles.profileStyle}>
@@ -57,9 +60,7 @@ export default function Certification() {
               </View>
 
               <Text style={styles.levelText}>Level 1</Text>
-
             </View>
-
           </View>
 
           <TouchableOpacity style={styles.downloadBtn} onPress={handleDownload}>
@@ -79,9 +80,7 @@ export default function Certification() {
             <Text style={styles.shareText}>on Email</Text>
           </TouchableOpacity>
         </View>
-      </View >
-
+      </View>
     </StatusBarWrapper>
   );
 }
-

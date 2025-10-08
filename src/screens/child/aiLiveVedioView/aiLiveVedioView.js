@@ -9,9 +9,6 @@ export default function AiLiveVedioView() {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
 
-
-
-
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
