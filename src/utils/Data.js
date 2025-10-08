@@ -186,6 +186,32 @@ const youtubeVideosList = [
     title: "Psychological Research",
     thumbnail: "https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg",
   },
+  {
+    id: "W4N-7AlzK7s",
+    title: "The Chemical Mind:",
+    thumbnail: "https://img.youtube.com/vi/vo4pMVb0R6M/hqdefault.jpg",
+  },
+  {
+    id: "vHrmiy4W9C0",
+    title: "Meet Your Master - Getting to Know Your Brain",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+  },
+  {
+    id: "unWnZvXJH2o",
+    title: "Sensation and Perception",
+    thumbnail: "https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg",
+  },
+
+  {
+    id: "fxZWtc0mYpQ",
+    title: "Homunculus",
+    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+  },
+  {
+    id: "n46umYA_4dM",
+    title: "Perceiving is Believing",
+    thumbnail: "https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg",
+  },
 ];
 
 export {

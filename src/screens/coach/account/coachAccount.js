@@ -18,7 +18,7 @@ export default function CoachAccount() {
 
   const [name, setName] = useState();
   const [dob, setDob] = useState();
-  const [contact, setContact] = useState();
+  const [contact, setContact] = useState("+41");
 
   const [qualification, setQualification] = useState(null);
   const [degree, setDegree] = useState(null);
@@ -68,7 +68,7 @@ export default function CoachAccount() {
         extraHeight={120}
         // extraScrollHeight={50} // scroll up extra space when keyboard appears
         keyboardShouldPersistTaps="handled"
-        // contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
+      // contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
       >
         {activeInfo === "Personal" && (
           <PersonalInfo

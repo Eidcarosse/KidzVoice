@@ -60,7 +60,7 @@ export default function PersonalInfo({
       <Text style={styles.titleText}>Contact</Text>
 
       <Input
-        placeholder={"Acceptance and Commitment Therapy"}
+        placeholder={"+41 XXXXXXXXX"}
         state={contact}
         setState={setContact}
       />
