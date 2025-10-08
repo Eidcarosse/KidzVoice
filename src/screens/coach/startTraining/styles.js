@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   btnStyle: {
-    marginBottom: 40
+    marginBottom: 15
   },
   iconTextParentView: {
     marginHorizontal: 16,

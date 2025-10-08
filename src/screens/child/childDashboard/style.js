@@ -9,7 +9,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#f4f4f4",
 
     },
-
+    btnStyle: {
+        flex: 1,
+        marginTop: 40,
+        alignSelf: 'flex-end',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end'
+    },
     topRow: {
         flexDirection: "row",
         justifyContent: "flex-end",

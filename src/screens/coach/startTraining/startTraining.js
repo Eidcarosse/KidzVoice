@@ -37,7 +37,7 @@ export default function StartTraining() {
   }, [routes.params?.module]);
 
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper edges={["bottom", "top"]}>
       <Header title={"KidzVoice"} />
 
       <View style={styles.moduleImage}>

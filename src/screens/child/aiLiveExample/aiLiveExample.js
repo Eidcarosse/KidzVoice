@@ -1,5 +1,5 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomHeader from "../../../components/customHeader/header";
 import Images from "../../../assets/images";
 import { useNavigation } from "@react-navigation/native";
@@ -73,11 +73,11 @@ export default function AiLiveExample() {
             style={[
               styles.optionButton,
               selected === option &&
-                option === correctAnswer &&
-                styles.correctOption,
+              option === correctAnswer &&
+              styles.correctOption,
               selected === option &&
-                option !== correctAnswer &&
-                styles.incorrectOption,
+              option !== correctAnswer &&
+              styles.incorrectOption,
             ]}
             onPress={() => handleSelect(option)}
           >

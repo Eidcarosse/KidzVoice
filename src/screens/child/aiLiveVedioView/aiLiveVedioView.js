@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VideoPlayer from "../../../components/vedioPlayer/vedioPlayer";
 import SuccessModal from "../../../components/successModal/success";
 import { useNavigation } from "@react-navigation/native";
