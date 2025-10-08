@@ -90,7 +90,6 @@ export default function Router() {
           name={ScreensName.AILIVEEXAMPLE}
           component={AiLiveExample}
         />
-        <Stack.Screen name={ScreensName.HOME} component={Home} />
         <Stack.Screen name={ScreensName.ACCOUNT} component={AccountSetupScreen} />
         <Stack.Screen name={ScreensName.MAGICBACKPACK} component={MagicBackpackScreen} />
         <Stack.Screen name={ScreensName.QUESTIONAIRE} component={Questionnaire} />

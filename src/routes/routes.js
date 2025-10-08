@@ -1,5 +1,5 @@
 const ScreensName = {
-  HOME: "Home",
+
   WELCOME: "Welcome",
   SIGNIN: "SignIn",
   PARENTPROFILENFO: "ParentProfileInfo",

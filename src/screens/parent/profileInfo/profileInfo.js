@@ -1,13 +1,11 @@
-import { View, Text, Image } from "react-native";
+
+import { View, Text, Image, TextInput } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import styles from "./styles";
 import { Button, DropDown, DropDownList, Input } from "../../../components";
-import FontAwesome from "@react-native-vector-icons/fontawesome";
 import colors from "../../../utils/AppColors";
-import { Bell } from "lucide-react-native";
-import { Feather, AntDesign } from "@expo/vector-icons";
 import { relationships } from "../../../utils/Data";
 import { height } from "../../../utils/Dimensions";
 import { useNavigation } from "@react-navigation/native";
@@ -18,7 +16,7 @@ export default function ProfileInfo() {
   const navigation = useNavigation();
   const [name, setName] = useState("");
   const [relationship, setRelationship] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(""); // Only store digits after +41
   const [isDisplayRelationList, setIsDisplayRelationList] = useState(false);
 
   const toggleRelationList = () => {
@@ -27,12 +25,23 @@ export default function ProfileInfo() {
 
   const handleSave = () => {
     console.log("Name:", name);
-
     console.log("Selected Relation:", relationship);
-    console.log("Phone:", phone);
-
+    console.log("Full Phone:", "+41" + phone);
     navigation.navigate(ScreensName.ADDCHILD);
   };
+
+  const prefix = "+41 ";
+
+  const handlePhoneChange = (text) => {
+    // Remove prefix if user tries to type it
+    const cleanText = text.replace(prefix, "");
+    // Allow only numbers
+    const onlyNumbers = cleanText.replace(/[^0-9]/g, "");
+    setPhone(onlyNumbers);
+  };
+
+  const displayedPhone = prefix + phone;
+
   return (
     <StatusBarWrapper>
       <Image
@@ -47,7 +56,7 @@ export default function ProfileInfo() {
         Please fill in your basic details below to complete your profile setup.
       </Text>
 
-
+      {/* Name Input */}
       <Input
         state={name}
         setState={setName}
@@ -55,14 +64,7 @@ export default function ProfileInfo() {
         icon={<User size={20} color={colors.ebonyClay} />}
       />
 
-      {/* <DropDown
-        state={relationship}
-        setState={setRelationship}
-        onPress={toggleRelationList}
-        isDisplayRelationList={isDisplayRelationList}
-        placeholder={"Relationship with child"}
-        icon={<Users size={20} color={colors.ebonyClay} />}
-      /> */}
+      {/* Relationship Dropdown (optional) */}
       {isDisplayRelationList && (
         <DropDownList
           lst={relationships}
@@ -72,12 +74,25 @@ export default function ProfileInfo() {
         />
       )}
 
-      <Input
-        state={phone}
-        setState={setPhone}
-        placeholder="0300 0404040"
-        icon={<Phone size={20} color={colors.ebonyClay} />}
-      />
+      {/* ✅ Custom Phone Input */}
+      <View
+        style={
+          styles.textContainer}
+      >
+        <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
+        <TextInput
+          style={styles.textStyle}
+          value={displayedPhone}
+          onChangeText={handlePhoneChange}
+          placeholder="+41 XXXXXXXX"
+          keyboardType="numeric"
+          maxLength={12}
+          selection={{
+            start: displayedPhone.length,
+            end: displayedPhone.length,
+          }} // keep cursor at end
+        />
+      </View>
 
       <Button
         title="Save"

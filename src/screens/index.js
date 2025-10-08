@@ -1,5 +1,5 @@
 import AccountSetupScreen from "./child/accountSetup/account";
-import Home from "./home/home";
+
 import LearnerQuestionScreen from "./child/learnerQuestion/learnerQuestion";
 import MagicBackpackScreen from "./child/magicBackpack/magicsBackpack";
 import Questionnaire from "./child/aiQuestionnaire/aiQuestionnaire";
@@ -36,7 +36,7 @@ export {
   AiLiveSection,
   LearnerQuestionScreen,
   MagicBackpackScreen,
-  Home,
+
   Welcome,
   AccountSetupScreen,
   SignIn,
@@ -61,4 +61,5 @@ export {
   Quiz,
   Assignment,
   Certification,
+
 };
