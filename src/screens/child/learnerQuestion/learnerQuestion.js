@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Pressable, TextInput } from 'react-native';
+import { View, Text, ScrollView, Pressable, TextInput, Platform, KeyboardAvoidingView } from 'react-native';
 import styles from './styles';
 import PhotoUploader from '../../../components/photoUploader/photoUploader';
 import StatusBarWrapper from '../../../components/customStatusbar';
@@ -38,6 +38,10 @@ const LearnerQuestionScreen = () => {
     };
     return (
         <StatusBarWrapper>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"} // iOS اور Android دونوں کے لیے
+                style={styles.container}
+            ></KeyboardAvoidingView>
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.itemView}>
                     <Text style={styles.title}>Backpack Questionnaire</Text>

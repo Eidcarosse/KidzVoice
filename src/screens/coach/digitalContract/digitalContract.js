@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   Image,
   Modal,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import React, { useRef, useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
@@ -49,28 +51,29 @@ export default function DigitalContract() {
 
   return (
     <StatusBarWrapper scrollType={"scroll"}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"} // iOS اور Android دونوں کے لیے
+        style={styles.container}
+      />
       <ScrollView>
         <Text style={styles.digitalText}>Digital Contract</Text>
 
         <Text style={styles.contractText}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. Lorem Ipsum is simply dummy text of
-          the printing and typesetting industry. Lorem Ipsum has been the
-          industry's standard dummy text ever since the 1500s, when an unknown
-          printer took a galley of type and scrambled it to make a type specimen
-          book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged. Lorem
-          Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s, when an unknown printer took a galley of type and scrambled it
-          to make a type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting, remaining essentially
-          unchanged.
+          This Digital Contract outlines the agreement between the security personnel
+          and the company. By signing below, you confirm that you have read, understood,
+          and agreed to all terms and conditions mentioned herein.
+
+          You agree to maintain professional behavior while on duty,
+          to safeguard company property, and to respect confidentiality at all times.
+          You also acknowledge that any violation of the company’s code of conduct
+          or data protection guidelines may result in disciplinary action,
+          including termination of service.
+
+          This contract serves as a binding acknowledgment that you will perform
+          your duties responsibly, ethically, and in accordance with
+          company policies and regulations.
         </Text>
+
 
         <SingleCheckBox
           label={"I agree to safeguarding policies"}

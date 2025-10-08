@@ -55,7 +55,7 @@ export default function Quiz() {
           textStyle={styles.skipBtntext}
           onPress={() => navigation.goBack()}
         />
-        <Button title={"Submit"} btnStyle={styles.submitButton} onPress={() => navigation.navigate(ScreensName.ASSIGNMENT)} />
+        <Button title={"Submit"} btnStyle={styles.submitButton} onPress={() => navigation.navigate(ScreensName.CERTIFICATION)} />
       </View>
 
       <Text style={styles.reportText}>Report a problem</Text>

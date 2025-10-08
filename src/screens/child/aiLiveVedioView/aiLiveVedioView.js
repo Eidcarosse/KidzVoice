@@ -11,7 +11,7 @@ export default function AiLiveVedioView() {
     return (
         <View style={styles.container}>
             <VideoPlayer
-                videoSource={"https://www.w3schools.com/html/mov_bbb.mp4"}
+                videoSource={"https://www.pexels.com/download/video/2932301/"}
                 setModalVisible={setModalVisible}
                 fullScreen={true}
             />

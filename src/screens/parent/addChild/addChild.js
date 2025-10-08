@@ -23,8 +23,9 @@ export default function AddChild() {
       <Text style={styles.addText}>Add Child</Text>
 
       <Text style={styles.loremText}>
-        Lorem Ipsum is simply dummy text of the printing
+        Add your child's information to start creating their profile.
       </Text>
+
 
       <Button title={"Add child"} onPress={handleAddChild} />
     </StatusBarWrapper>

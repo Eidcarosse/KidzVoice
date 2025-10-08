@@ -97,8 +97,8 @@ export default function ParentQuestionaire() {
               currentStrugles == "Remaining"
                 ? "ellipse-outline"
                 : currentStrugles == "Pending"
-                ? "radio-button-on"
-                : "checkmark-circle-sharp"
+                  ? "radio-button-on"
+                  : "checkmark-circle-sharp"
             }
             size={25}
             color={
@@ -113,8 +113,8 @@ export default function ParentQuestionaire() {
               familyContext == "Remaining"
                 ? "ellipse-outline"
                 : familyContext == "Pending"
-                ? "radio-button-on"
-                : "checkmark-circle-sharp"
+                  ? "radio-button-on"
+                  : "checkmark-circle-sharp"
             }
             size={25}
             color={

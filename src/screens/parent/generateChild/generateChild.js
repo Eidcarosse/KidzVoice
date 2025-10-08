@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import { Button, DropDown } from "../../../components";
@@ -30,7 +30,7 @@ export default function GenerateChild() {
   };
 
   const handleViewSummary = () => {
-    navigation.navigate(ScreensName.SIGNIN);
+    navigation.navigate(ScreensName.SUMMAR);
   };
 
   const copyToClipboard = async () => {
@@ -70,15 +70,26 @@ export default function GenerateChild() {
       />
       <Text style={styles.secureText}>Secure link between accounts</Text>
 
-      <DropDown
-        state={childId}
-        placeholder={"Generate child ID"}
-        icon={<User size={20} color={colors.ebonyClay} />}
-        rightIcon={
-          <Ionicons name="copy-outline" size={20} color={colors.ebonyClay} />
-        }
-        onPress={copyToClipboard}
-      />
+      <View style={{ position: "relative" }}>
+        <DropDown
+          state={childId}
+          placeholder={"Generate child ID"}
+          icon={<User size={20} color={colors.ebonyClay} />}
+          rightIcon={
+            <TouchableOpacity
+              onPress={copyToClipboard}
+              style={styles.copyTextContainer}
+            >
+              <Text style={styles.copyText}>
+                Copy
+              </Text>
+            </TouchableOpacity>
+          }
+        // ❌ remove this — it causes whole dropdown to be pressable
+        // onPress={copyToClipboard}
+        />
+      </View>
+
 
       <Button
         title={"Generate Child ID"}

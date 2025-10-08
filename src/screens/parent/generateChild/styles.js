@@ -31,6 +31,21 @@ const styles = StyleSheet.create({
   generateBtnStyle: {
     marginTop: height(15),
   },
+  copyTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    left: 20
+
+  },
+  copyText: {
+    fontSize: 14,
+    color: colors.white,
+    marginRight: 5,
+    backgroundColor: "blue",
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 2
+  }
 });
 
 export default styles;

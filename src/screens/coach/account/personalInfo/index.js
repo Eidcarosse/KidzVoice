@@ -15,6 +15,7 @@ export default function PersonalInfo({
 }) {
   return (
     // <KeyboardAwareScrollView>
+
     <View>
       <Text style={styles.personalText}>Personal info</Text>
 

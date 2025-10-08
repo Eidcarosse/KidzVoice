@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   loremText: {
     color: colors.boulder,
     textAlign: "center",
+    fontSize: 13,
     marginBottom: height(10),
   },
 });

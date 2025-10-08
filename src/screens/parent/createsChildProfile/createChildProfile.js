@@ -1,10 +1,11 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import { Button, DropDown, DropDownList, Input } from "../../../components";
 import FontAwesome from "@react-native-vector-icons/fontawesome";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import colors from "../../../utils/AppColors";
 import {
   Ionicons,
@@ -24,6 +25,9 @@ export default function CreateChildProfile() {
   const [date, setDate] = useState("");
   const [grade, setGrade] = useState("");
   const [isDisplayGradeList, setIsDisplayGradeList] = useState(false);
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+
 
   const [school, setSchool] = useState("");
   const [isDisplaySchoolList, setIsDisplaySchoolList] = useState(false);
@@ -39,8 +43,26 @@ export default function CreateChildProfile() {
   const handleSave = () => {
     navigation.navigate(ScreensName.STARTQUESTIONAIRE);
   };
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (selectedDate) => {
+    const formattedDate = selectedDate.toLocaleDateString("en-GB"); // DD/MM/YYYY format
+    setDate(formattedDate);
+    hideDatePicker();
+  };
   return (
     <StatusBarWrapper>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
+      ></KeyboardAvoidingView>
       <ScrollView>
         <Image
           source={Images.ADDCHILD}
@@ -51,8 +73,9 @@ export default function CreateChildProfile() {
         <Text style={styles.createText}>Creates Child profile.</Text>
 
         <Text style={styles.loremText}>
-          Lorem Ipsum is simply dummy text of the printing
+          Enter your child’s basic details to create their profile.
         </Text>
+
 
         <Input
           state={name}
@@ -61,13 +84,22 @@ export default function CreateChildProfile() {
           icon={<User size={20} color={colors.ebonyClay} />}
         />
 
-        <Input
-          state={date}
-          setState={setDate}
-          placeholder="day/moth/year"
-          icon={<Calendar size={20} color={colors.ebonyClay} />}
-        />
+        <TouchableOpacity onPress={showDatePicker}>
+          <Input
+            state={date}
+            setState={setDate}
+            placeholder="day/month/year"
+            editable={false}
+            icon={<Calendar size={20} color={colors.ebonyClay} />}
+          />
+        </TouchableOpacity>
 
+        <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+        />
         <DropDown
           state={grade}
           setState={setGrade}
@@ -100,7 +132,7 @@ export default function CreateChildProfile() {
             lst={relationships}
             selectedRelation={school}
             setSelectedRelation={setSchool}
-            //   setDropDownVisible={setIsDisplaySchoolList}
+          //   setDropDownVisible={setIsDisplaySchoolList}
           />
         )}
 

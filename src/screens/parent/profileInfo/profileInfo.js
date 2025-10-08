@@ -44,8 +44,9 @@ export default function ProfileInfo() {
       <Text style={styles.basicText}>Enter basic profile info</Text>
 
       <Text style={styles.loremText}>
-        Lorem Ipsum is simply dummy text of the printing
+        Please fill in your basic details below to complete your profile setup.
       </Text>
+
 
       <Input
         state={name}
@@ -54,14 +55,14 @@ export default function ProfileInfo() {
         icon={<User size={20} color={colors.ebonyClay} />}
       />
 
-      <DropDown
+      {/* <DropDown
         state={relationship}
         setState={setRelationship}
         onPress={toggleRelationList}
         isDisplayRelationList={isDisplayRelationList}
         placeholder={"Relationship with child"}
         icon={<Users size={20} color={colors.ebonyClay} />}
-      />
+      /> */}
       {isDisplayRelationList && (
         <DropDownList
           lst={relationships}

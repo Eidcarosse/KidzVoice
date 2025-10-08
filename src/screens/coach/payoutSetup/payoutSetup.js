@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import {
@@ -31,6 +31,10 @@ export default function PayoutSetup() {
   };
   return (
     <StatusBarWrapper>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"} // iOS اور Android دونوں کے لیے
+        style={styles.container}
+      />
       <ScrollView>
         <Header title={"Payout Setup"} />
 
@@ -71,7 +75,7 @@ export default function PayoutSetup() {
           onPress={toggleCurrencyListList}
           isDisplayRelationList={isCurrencyListDisplay}
           placeholder={"Relationship with child"}
-          // icon={<Users size={20} color={colors.ebonyClay} />}
+        // icon={<Users size={20} color={colors.ebonyClay} />}
         />
 
         {isCurrencyListDisplay && (

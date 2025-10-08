@@ -16,21 +16,64 @@ export default function SignIn() {
     setSelectedRole(role);
   };
 
-  const handleGoogleLogIn = () => {
+  const handleGoogleLogIn = async () => {
     console.log("Google Login");
+
+    const res = await setUserRole(selectedRole?.title);
+    if (selectedRole?.title) {
+      if (selectedRole?.title === "Parent") {
+        navigation.navigate(ScreensName.PARENTPROFILENFO);
+      } else if (selectedRole?.title === "Learner") {
+        navigation.navigate(ScreensName.ACCOUNT);
+      } else {
+        navigation.navigate(ScreensName.COACHACCOUNT);
+      }
+    }
   };
 
-  const handleFacebookLogIn = () => {
+  const handleFacebookLogIn = async () => {
     console.log("Facebook Login");
+
+    const res = await setUserRole(selectedRole?.title);
+    if (selectedRole?.title) {
+      if (selectedRole?.title === "Parent") {
+        navigation.navigate(ScreensName.PARENTPROFILENFO);
+      } else if (selectedRole?.title === "Learner") {
+        navigation.navigate(ScreensName.ACCOUNT);
+      } else {
+        navigation.navigate(ScreensName.COACHACCOUNT);
+      }
+    }
   };
 
-  const handleAppeLogIn = () => {
+  const handleAppeLogIn = async () => {
     console.log("Apple Login");
+
+    const res = await setUserRole(selectedRole?.title);
+    if (selectedRole?.title) {
+      if (selectedRole?.title === "Parent") {
+        navigation.navigate(ScreensName.PARENTPROFILENFO);
+      } else if (selectedRole?.title === "Learner") {
+        navigation.navigate(ScreensName.ACCOUNT);
+      } else {
+        navigation.navigate(ScreensName.COACHACCOUNT);
+      }
+    }
   };
 
   const handleXLogIn = async () => {
     console.log("Simple Sign In", selectedRole);
 
+    const res = await setUserRole(selectedRole?.title);
+    if (selectedRole?.title) {
+      if (selectedRole?.title === "Parent") {
+        navigation.navigate(ScreensName.PARENTPROFILENFO);
+      } else if (selectedRole?.title === "Learner") {
+        navigation.navigate(ScreensName.ACCOUNT);
+      } else {
+        navigation.navigate(ScreensName.COACHACCOUNT);
+      }
+    }
 
   };
 
