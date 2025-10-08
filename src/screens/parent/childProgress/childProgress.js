@@ -16,6 +16,8 @@ import colors from "../../../utils/AppColors";
 import { getStoredValue, infoToastMessage } from "../../../utils/Methods";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Button } from "../../../components";
 
 export default function ChildProgress() {
   const navigation = useNavigation();
@@ -83,7 +85,7 @@ export default function ChildProgress() {
     );
   }
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper edges={["bottom", "top"]}>
       <View style={styles.header}>
         <Image
           source={{ uri: "https://randomuser.me/api/portraits/men/41.jpg" }}
@@ -170,6 +172,23 @@ export default function ChildProgress() {
           <Ionicons name="list-outline" size={20} color={colors.jumbo} />
           <Text style={styles.optionText}>Other tasks</Text>
         </TouchableOpacity>
+
+
+      </View>
+      <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 10 }}>
+        <Button
+          title="Logout"
+          onPress={async () => {
+            try {
+              await AsyncStorage.removeItem('childData');
+              await AsyncStorage.removeItem('LOCK_KEY');
+              console.log('✅ Async data cleared successfully');
+              navigation.navigate(ScreensName.WELCOME);
+            } catch (error) {
+              console.error('❌ Error clearing AsyncStorage:', error);
+            }
+          }}
+        />
       </View>
     </StatusBarWrapper>
   );

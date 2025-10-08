@@ -50,9 +50,9 @@ export default function DigitalContract() {
   };
 
   return (
-    <StatusBarWrapper scrollType={"scroll"}>
+    <StatusBarWrapper scrollType={"scroll"} edges={["bottom", "top"]}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"} // iOS اور Android دونوں کے لیے
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       />
       <ScrollView>

@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./styles";
 import colors from "../../utils/AppColors";
 
-export default function Input({ icon, placeholder, state, setState }) {
+export default function Input({ icon, editable, placeholder, state, setState }) {
   return (
     <View style={styles.inputContainer}>
       {icon && <View style={styles.iconContainer}>{icon}</View>}
@@ -12,6 +12,7 @@ export default function Input({ icon, placeholder, state, setState }) {
         value={state}
         onChangeText={setState}
         style={styles.input}
+        editable={editable}
         placeholderTextColor={colors.nobel}
       />
     </View>

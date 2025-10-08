@@ -104,7 +104,7 @@ export default function CreateChildProfile() {
         <TouchableOpacity onPress={showDatePicker}>
           <Input
             state={date}
-            setState={setDate}
+            setState={showDatePicker}
             placeholder="day/month/year"
             editable={false}
             icon={<Calendar size={20} color={colors.ebonyClay} />}

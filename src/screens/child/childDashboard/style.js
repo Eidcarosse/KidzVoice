@@ -9,57 +9,31 @@ const styles = StyleSheet.create({
     backgroundColor: "#f4f4f4",
   },
 
-  topRow: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    paddingHorizontal: 16,
-  },
-  backIcon: {
-    borderRadius: 10,
-    backgroundColor: "#fff",
-    padding: 6,
-  },
-  settingIcon: {
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: "#fff",
-  },
+    },
+    btnStyle: {
+        flex: 1,
+        marginTop: 40,
+        alignSelf: 'flex-end',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end'
+    },
+    topRow: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        paddingHorizontal: 16,
 
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 20,
-  },
-  avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-  },
-  userInfo: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  name: {
-    fontSize: 18,
-    fontFamily: fonts.bold,
-  },
-  email: {
-    fontSize: 14,
-    color: "gray",
-    fontFamily: fonts.bold,
-  },
-
-  liveButton: {
-    backgroundColor: "#1976d2",
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    borderRadius: 25,
-  },
-  liveText: {
-    color: "#fff",
-    fontSize: 13,
-    fontFamily: fonts.bold,
-  },
+    },
+    backIcon: {
+        borderRadius: 10,
+        backgroundColor: "#fff",
+        padding: 6,
+    },
+    settingIcon: {
+        padding: 8,
+        marginTop: 4,
+        borderRadius: 8,
+        backgroundColor: '#fff'
+    },
 
   badges: {
     flexDirection: "row",

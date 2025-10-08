@@ -19,6 +19,8 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { infoToastMessage } from "../../../utils/Methods";
+import { Button } from "../../../components";
+import { getStoredValue } from "../../../utils/Methods";
 
 export default function ChildDashboard() {
   const navigation = useNavigation();
@@ -94,7 +96,6 @@ export default function ChildDashboard() {
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
     console.log("Child Data Response", childDataRes);
-
     setChildData(childDataRes);
   };
 
@@ -102,7 +103,6 @@ export default function ChildDashboard() {
     getChildData();
     setLoading(false);
   }, []);
-
   return (
     <StatusBarWrapper>
       <View style={styles.container}>
@@ -117,93 +117,98 @@ export default function ChildDashboard() {
             <Ionicons name="settings-outline" size={28} color="black" />
           </TouchableOpacity>
         </View>
-        <View style={styles.header}>
-          <Image
-            source={{ uri: "https://randomuser.me/api/portraits/men/32.jpg" }}
-            style={styles.avatar}
-          />
-          <View style={styles.userInfo}>
-            <Text style={styles.name}>{childData?.name}</Text>
-            <Text style={styles.email}>max@mail.com</Text>
-          </View>
 
-          <TouchableOpacity
-            style={[
-              styles.liveButton,
-              (isLocked || isSectionTaken) && { backgroundColor: "#99dae3ff" },
-            ]}
-            disabled={isLocked || isSectionTaken}
-            onPress={handlePress}
-          >
-            <Text style={styles.liveText}>
-              {isLocked && remainingTime
-                ? `Come back in ${formatTime(remainingTime)}`
-                : "AI Live Session"}
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.badges}>
-          <Text style={styles.badge}>⭐ Homework Hero</Text>
-          <Text style={styles.badge}>🏆 Friendly Star</Text>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Challenges</Text>
-          <Text style={styles.subtitle}>
-            Focus in class, Reading struggles, Making friends
+        <TouchableOpacity
+          style={[
+            styles.liveButton,
+            (isLocked || isSectionTaken) && { backgroundColor: "#99dae3ff" },
+          ]}
+          disabled={isLocked || isSectionTaken}
+          onPress={handlePress}
+        >
+          <Text style={styles.liveText}>
+            {isLocked && remainingTime
+              ? `Come back in ${formatTime(remainingTime)}`
+              : "AI Live Session"}
           </Text>
-        </View>
+        </TouchableOpacity>
+      </View>
 
-        {/* 🔹 Progress Section */}
-        <View style={styles.sectionContainer}>
-          <Text style={styles.textStyle}>Level 1</Text>
-          <View style={styles.progressContainer}>
-            <MaterialIcons name="check-circle" size={38} color="green" />
-            <View style={styles.progressHeader}>
-              <Text style={styles.progressText}>
-                100% <Text style={styles.completeStyle}>Completed</Text>
-              </Text>
-              <View style={styles.progressBar}>
-                <View style={styles.progressFill} />
-              </View>
-            </View>
-          </View>
-        </View>
+      <View style={styles.badges}>
+        <Text style={styles.badge}>⭐ Homework Hero</Text>
+        <Text style={styles.badge}>🏆 Friendly Star</Text>
+      </View>
 
-        {/* 🔹 Cards Row */}
-        <View style={styles.row}>
-          <View style={styles.card}>
-            <View style={styles.iconWrapper}>
-              <Ionicons name="book-outline" size={20} color="#1976d2" />
-            </View>
-            <Text style={styles.cardText}>Assignment</Text>
-            <Text style={styles.cardSub}>2 complete out of 10</Text>
-          </View>
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Challenges</Text>
+        <Text style={styles.subtitle}>
+          Focus in class, Reading struggles, Making friends
+        </Text>
+      </View>
 
-          <View style={styles.card}>
-            <View style={styles.iconWrapper}>
-              <Ionicons name="bicycle-outline" size={20} color="#1976d2" />
-            </View>
-            <Text style={styles.cardText}>Activities</Text>
-            <Text style={styles.cardSub}>2 complete out of 10</Text>
-          </View>
-        </View>
-
-        {/* 🔹 Growth Journey */}
-        <Text style={styles.titleStyle}>Your Personal Growth Journey</Text>
-        <View style={styles.growContainer}>
-          <View style={styles.growthCard}>
-            <Text style={styles.growthTitle}>
-              Learning and Friendship Workshop
+      {/* 🔹 Progress Section */}
+      <View style={styles.sectionContainer}>
+        <Text style={styles.textStyle}>Level 1</Text>
+        <View style={styles.progressContainer}>
+          <MaterialIcons name="check-circle" size={38} color="green" />
+          <View style={styles.progressHeader}>
+            <Text style={styles.progressText}>
+              100% <Text style={styles.completeStyle}>Completed</Text>
             </Text>
-            <Text style={styles.growthSub}>
-              CBT | Cognitive Behavioral Therapy
-            </Text>
+            <View style={styles.progressBar}>
+              <View style={styles.progressFill} />
+            </View>
           </View>
         </View>
       </View>
-      //{" "}
-    </StatusBarWrapper>
+
+      {/* 🔹 Cards Row */}
+      <View style={styles.row}>
+        <View style={styles.card}>
+          <View style={styles.iconWrapper}>
+            <Ionicons name="book-outline" size={20} color="#1976d2" />
+          </View>
+          <Text style={styles.cardText}>Assignment</Text>
+          <Text style={styles.cardSub}>2 complete out of 10</Text>
+        </View>
+
+        <View style={styles.card}>
+          <View style={styles.iconWrapper}>
+            <Ionicons name="bicycle-outline" size={20} color="#1976d2" />
+          </View>
+          <Text style={styles.cardText}>Activities</Text>
+          <Text style={styles.cardSub}>2 complete out of 10</Text>
+        </View>
+      </View>
+
+      {/* 🔹 Growth Journey */}
+      <Text style={styles.titleStyle}>Your Personal Growth Journey</Text>
+      <View style={styles.growContainer}>
+        <View style={styles.growthCard}>
+          <Text style={styles.growthTitle}>
+            Learning and Friendship Workshop
+          </Text>
+          <Text style={styles.growthSub}>
+            CBT | Cognitive Behavioral Therapy
+          </Text>
+        </View>
+      </View>
+      <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 10 }}>
+        <Button
+          title="Logout"
+          onPress={async () => {
+            try {
+              await AsyncStorage.removeItem('childData');
+              await AsyncStorage.removeItem('LOCK_KEY');
+              console.log('✅ Async data cleared successfully');
+              navigation.navigate(ScreensName.WELCOME);
+            } catch (error) {
+              console.error('❌ Error clearing AsyncStorage:', error);
+            }
+          }}
+        />
+      </View>
+    </View>
+    // </StatusBarWrapper>
   );
 }

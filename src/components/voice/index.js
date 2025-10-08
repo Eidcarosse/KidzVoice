@@ -92,7 +92,7 @@ export default function AudioNote({ uri, duration: initialDuration }) {
           await playerRef.current.seekTo(0);
           setPosition(0);
         }
-        await playerRef.current.play();
+        playerRef.current.play();
         setIsPlaying(true);
       }
     } catch (e) {
@@ -103,7 +103,7 @@ export default function AudioNote({ uri, duration: initialDuration }) {
         const newPlayer = useAudioPlayer(uri);
         playerRef.current = newPlayer;
         await newPlayer.seekTo(0);
-        await newPlayer.play();
+        newPlayer.play();
         setIsPlaying(true);
       } catch (reloadError) {
         console.log("Reload error:", reloadError);

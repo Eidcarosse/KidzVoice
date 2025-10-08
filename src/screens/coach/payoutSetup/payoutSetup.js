@@ -30,65 +30,66 @@ export default function PayoutSetup() {
     navigation.navigate(ScreensName.TRAINING);
   };
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper edges={["bottom", "top"]}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"} // iOS اور Android دونوں کے لیے
-        style={styles.container}
-      />
-      <ScrollView>
-        <Header title={"Payout Setup"} />
+        behavior={Platform.OS === "ios" ? "padding" : "padding"}
+        style={{ flex: 1 }}
+      >
+        <ScrollView>
+          <Header title={"Payout Setup"} />
 
-        <Text style={styles.labelText}>Account Holder Name</Text>
-        <Input
-          placeholder={"Enter Account Holder Name"}
-          state={accountHolder}
-          setState={setAccountHolder}
-        />
-
-        <Text style={styles.labelText}>Bank Name</Text>
-        <Input
-          placeholder={"Enter Bank Name"}
-          state={bankName}
-          setState={setBankName}
-        />
-
-        <Text style={styles.labelText}>Account Number / IBAN</Text>
-        <Input
-          placeholder={"Enter Account Number / IBAN"}
-          state={accountNum}
-          setState={setAccountNum}
-        />
-
-        <Text style={styles.labelText}>Sort Code / SWIFT Code</Text>
-        <Input
-          placeholder={"Enter Sort Code / SWIFT Code"}
-          state={shortCode}
-          setState={setShortCode}
-        />
-
-        <Text style={styles.labelText}>Currency</Text>
-        {/* <Input placeholder={"Currency"} state={currency} setState={setCurrency} /> */}
-
-        <DropDown
-          state={currency}
-          setState={setCurrency}
-          onPress={toggleCurrencyListList}
-          isDisplayRelationList={isCurrencyListDisplay}
-          placeholder={"Relationship with child"}
-        // icon={<Users size={20} color={colors.ebonyClay} />}
-        />
-
-        {isCurrencyListDisplay && (
-          <DropDownList
-            lst={currencyList}
-            selectedRelation={currency}
-            setSelectedRelation={setCurrency}
-            setDropDownVisible={setIsCurrencyListDisplay}
+          <Text style={styles.labelText}>Account Holder Name</Text>
+          <Input
+            placeholder={"Enter Account Holder Name"}
+            state={accountHolder}
+            setState={setAccountHolder}
           />
-        )}
 
-        <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleSave} />
-      </ScrollView>
+          <Text style={styles.labelText}>Bank Name</Text>
+          <Input
+            placeholder={"Enter Bank Name"}
+            state={bankName}
+            setState={setBankName}
+          />
+
+          <Text style={styles.labelText}>Account Number / IBAN</Text>
+          <Input
+            placeholder={"Enter Account Number / IBAN"}
+            state={accountNum}
+            setState={setAccountNum}
+          />
+
+          <Text style={styles.labelText}>Sort Code / SWIFT Code</Text>
+          <Input
+            placeholder={"Enter Sort Code / SWIFT Code"}
+            state={shortCode}
+            setState={setShortCode}
+          />
+
+          <Text style={styles.labelText}>Currency</Text>
+          {/* <Input placeholder={"Currency"} state={currency} setState={setCurrency} /> */}
+
+          <DropDown
+            state={currency}
+            setState={setCurrency}
+            onPress={toggleCurrencyListList}
+            isDisplayRelationList={isCurrencyListDisplay}
+            placeholder={"Relationship with child"}
+          // icon={<Users size={20} color={colors.ebonyClay} />}
+          />
+
+          {isCurrencyListDisplay && (
+            <DropDownList
+              lst={currencyList}
+              selectedRelation={currency}
+              setSelectedRelation={setCurrency}
+              setDropDownVisible={setIsCurrencyListDisplay}
+            />
+          )}
+
+          <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleSave} />
+        </ScrollView>
+      </KeyboardAvoidingView>
     </StatusBarWrapper>
   );
 }

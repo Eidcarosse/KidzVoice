@@ -37,7 +37,7 @@ export default function StartTraining() {
   }, [routes.params?.module]);
 
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper edges={["bottom", "top"]}>
       <Header title={"KidzVoice"} />
 
       <View style={styles.moduleImage}>
@@ -95,7 +95,7 @@ export default function StartTraining() {
         showsHorizontalScrollIndicator={false}
       />
 
-      <Button title={"Start Quiz"} onPress={handelStartQuiz} />
+      <Button title={"Start Quiz"} btnStyle={styles.btnStyle} onPress={handelStartQuiz} />
 
       {/* <FlatList
         data={tasks}
