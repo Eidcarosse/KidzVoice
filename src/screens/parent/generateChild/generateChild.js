@@ -41,7 +41,7 @@ export default function GenerateChild() {
   };
 
   const handleViewSummary = () => {
-    navigation.navigate(ScreensName.SUMMAR);
+    navigation.navigate(ScreensName.CHILDPROGRESS);
   };
 
   const copyToClipboard = async () => {
@@ -91,16 +91,13 @@ export default function GenerateChild() {
               onPress={copyToClipboard}
               style={styles.copyTextContainer}
             >
-              <Text style={styles.copyText}>
-                Copy
-              </Text>
+              <Text style={styles.copyText}>Copy</Text>
             </TouchableOpacity>
           }
-        // ❌ remove this — it causes whole dropdown to be pressable
-        // onPress={copyToClipboard}
+          // ❌ remove this — it causes whole dropdown to be pressable
+          // onPress={copyToClipboard}
         />
       </View>
-
 
       <Button
         title={"Generate Child ID"}

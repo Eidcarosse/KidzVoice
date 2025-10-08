@@ -89,9 +89,7 @@ export default function SignIn() {
         navigation.navigate(ScreensName.COACHACCOUNT);
       }
     }
-
   };
-
 
   const handleSignIn = async () => {
     console.log("Simple Sign In", selectedRole);
@@ -100,6 +98,7 @@ export default function SignIn() {
     if (selectedRole?.title) {
       if (selectedRole?.title === "Parent") {
         if (childData?.id) {
+          // const res = await storeValue("childData", {});
           navigation.navigate(ScreensName.CHILDPROGRESS);
         } else {
           navigation.navigate(ScreensName.PARENTPROFILENFO);
@@ -124,24 +123,24 @@ export default function SignIn() {
       <SocialLogin
         title="Continue with google"
         image={Images.GOOGLE}
-        onPress={handleGoogleLogIn}
+        onPress={handleSignIn}
       />
       <SocialLogin
         title="Continue with Facebook"
         image={Images.FACEBOOK}
-        onPress={handleFacebookLogIn}
+        onPress={handleSignIn}
       />
 
       <SocialLogin
         title="Continue with Apple"
         image={Images.APPLE}
-        onPress={handleAppeLogIn}
+        onPress={handleSignIn}
       />
 
       <SocialLogin
         title="Continue with X"
         image={Images.X}
-        onPress={handleXLogIn}
+        onPress={handleSignIn}
       />
 
       <Text style={styles.alreadyText}>Already User?</Text>
