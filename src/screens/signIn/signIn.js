@@ -28,9 +28,12 @@ export default function SignIn() {
     console.log("Apple Login");
   };
 
-  const handleXLogIn = () => {
-    console.log("X Login");
+  const handleXLogIn = async () => {
+    console.log("Simple Sign In", selectedRole);
+
+
   };
+
 
   const handleSignIn = async () => {
     console.log("Simple Sign In", selectedRole);
