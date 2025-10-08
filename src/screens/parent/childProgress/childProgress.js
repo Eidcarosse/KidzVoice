@@ -13,7 +13,7 @@ import styles from "./styles";
 import { childProgreeData } from "../../../utils/Data";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import colors from "../../../utils/AppColors";
-import { getStoredValue } from "../../../utils/Methods";
+import { getStoredValue, infoToastMessage } from "../../../utils/Methods";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -27,6 +27,31 @@ export default function ChildProgress() {
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
     setChildData(childDataRes);
+  };
+
+  const handleSearchTeacher = () => {
+    console.log("Guest Mode");
+    infoToastMessage("Teacher", "Teacher Search Coming Soon");
+  };
+
+  const handleStudentActivities = () => {
+    console.log("Guest Mode");
+    infoToastMessage("Student Activities", "Student Activities Coming Soon");
+  };
+
+  const handleTeacherChat = () => {
+    console.log("Guest Mode");
+    infoToastMessage("Teacher Chat", "Teacher Chat Coming Soon");
+  };
+
+  const handleAssignment = () => {
+    console.log("Guest Mode");
+    infoToastMessage("Assignment", "Assignment Coming Soon");
+  };
+
+  const handleOtherTasks = () => {
+    console.log("Guest Mode");
+    infoToastMessage("Other Tasks", "Other Tasks Coming Soon");
   };
 
   useEffect(() => {
@@ -106,7 +131,10 @@ export default function ChildProgress() {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.teacherCard}>
+      <TouchableOpacity
+        style={styles.teacherCard}
+        onPress={handleSearchTeacher}
+      >
         <Ionicons name="musical-notes" size={26} color={colors.white} />
         <View>
           <Text style={styles.teacherTitle}>Teachers</Text>
@@ -121,15 +149,18 @@ export default function ChildProgress() {
       </Text>
 
       <View style={styles.optionGrid}>
-        <TouchableOpacity style={styles.optionBtn}>
+        <TouchableOpacity
+          style={styles.optionBtn}
+          onPress={handleStudentActivities}
+        >
           <Ionicons name="bulb-outline" size={20} color={colors.jumbo} />
           <Text style={styles.optionText}>Activities for student</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionBtn}>
+        <TouchableOpacity style={styles.optionBtn} onPress={handleTeacherChat}>
           <MaterialIcons name="chat" size={20} color={colors.jumbo} />
           <Text style={styles.optionText}>Chat teacher</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionBtn}>
+        <TouchableOpacity style={styles.optionBtn} onPress={handleAssignment}>
           <Ionicons
             name="document-text-outline"
             size={20}
@@ -137,7 +168,7 @@ export default function ChildProgress() {
           />
           <Text style={styles.optionText}>Assignment</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionBtn}>
+        <TouchableOpacity style={styles.optionBtn} onPress={handleOtherTasks}>
           <Ionicons name="list-outline" size={20} color={colors.jumbo} />
           <Text style={styles.optionText}>Other tasks</Text>
         </TouchableOpacity>

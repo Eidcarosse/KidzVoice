@@ -5,7 +5,12 @@ import { Button, RoleSelection, SocialLogin } from "../../components";
 import styles from "./styles";
 import Images from "../../assets/images";
 import { useNavigation } from "@react-navigation/native";
-import { getStoredValue, setUserRole, storeValue } from "../../utils/Methods";
+import {
+  getStoredValue,
+  infoToastMessage,
+  setUserRole,
+  storeValue,
+} from "../../utils/Methods";
 import ScreensName from "../../routes/routes";
 
 export default function SignIn() {
@@ -113,6 +118,7 @@ export default function SignIn() {
 
   const handleGuest = () => {
     console.log("Guest Mode");
+    infoToastMessage("Guest Mode", "Guest Mode Coming Soon");
   };
   return (
     <StatusBarWrapper>
