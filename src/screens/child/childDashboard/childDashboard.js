@@ -208,7 +208,6 @@ export default function ChildDashboard() {
           }}
         />
       </View>
-    </View>
-    // </StatusBarWrapper>
+    </StatusBarWrapper>
   );
 }

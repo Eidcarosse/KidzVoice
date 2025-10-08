@@ -116,6 +116,7 @@ import YoutubePlayer from "react-native-youtube-iframe";
 import ScreensName from "../../../routes/routes";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import colors from "../../../utils/AppColors";
+import { Notebook } from "lucide-react-native";
 
 export default function StartTraining() {
   const navigation = useNavigation();
@@ -126,7 +127,7 @@ export default function StartTraining() {
   const [selectedVideoId, setSelectedVideoId] = useState("eal4-A89IWY");
   const [completedVideos, setCompletedVideos] = useState([]);
   const [currentPlayableIndex, setCurrentPlayableIndex] = useState(0);
-
+  const [title, setTitle] = useState('')
   useEffect(() => {
     setSelectedModule(routes.params?.module);
   }, [routes.params?.module]);
@@ -166,7 +167,8 @@ export default function StartTraining() {
 
   return (
     <StatusBarWrapper edges={["bottom", "top"]}>
-      <Header title={"KidzVoice"} />
+      <Header title={"KidzLife"} />
+      <Text style={styles.titleText}>{selectedModule?.title}</Text>
 
       {/* Active Player */}
       <View style={styles.moduleImage}>
@@ -181,7 +183,7 @@ export default function StartTraining() {
         />
       </View>
 
-      <Text style={styles.titleText}>{selectedModule?.title}</Text>
+      <Text style={styles.subTitleText}>Title: {title}</Text>
 
       <View style={styles.iconTextParentView}>
         <View style={styles.iconTextView}>
@@ -212,7 +214,7 @@ export default function StartTraining() {
 
           return (
             <TouchableOpacity
-              onPress={() => handleVideoSelect(item.id, index)}
+              onPress={() => { setTitle(item.title), handleVideoSelect(item.id, index) }}
               disabled={!isUnlocked}
               style={[
                 styles.thumbnailContainer,
@@ -253,11 +255,26 @@ export default function StartTraining() {
 
       {/* Show Quiz button only after all videos completed */}
       {completedVideos.length === youtubeVideosList.length && (
-        <Button
-          title={"Start Quiz"}
-          btnStyle={styles.btnStyle}
+
+        <TouchableOpacity
           onPress={handelStartQuiz}
-        />
+          // disabled={completedVideos.length !== youtubeVideosList.length}
+          style={[
+            styles.thumbnailContainer,
+          ]}
+        >
+
+          <Notebook size={25} color={colors.blueRibbon} />
+          <Text
+            style={[
+              styles.thumbnailTitle,
+            ]}
+            numberOfLines={2}
+          >
+            Accessment 1
+          </Text>
+
+        </TouchableOpacity>
       )}
     </StatusBarWrapper>
   );

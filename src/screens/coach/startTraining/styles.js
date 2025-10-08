@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: height(2),
   },
+  subTitleText: {
+    marginHorizontal: 16,
+    marginVertical: height(1),
+    color: colors.mineShaft,
+    fontFamily: fonts.regular,
+    fontSize: 16,
+  },
   titleText: {
     marginHorizontal: 16,
     marginTop: height(1),
