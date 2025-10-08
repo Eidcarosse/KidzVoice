@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
@@ -46,30 +47,48 @@ export default function ParentQuestionaire() {
     console.log("Diagnoses", diagnoses);
     console.log("Services", services);
     console.log("History", history);
-    console.log("Report ", report);
+    console.log("Report", report);
 
     if (activeQuetionaire === "Child History") {
-      if (diagnoses && services && history) {
-        setChildHistory("Completed");
-        setActiveQuestionaire("Current Strugle");
-        setCurrentStrugles("Pending");
+      if (!diagnoses || !services || !history) {
+        Alert.alert(
+          "Incomplete Information",
+          "Please fill out Diagnoses, Services, and History before continuing."
+        );
+        return;
       }
+
+      setChildHistory("Completed");
+      setActiveQuestionaire("Current Strugle");
+      setCurrentStrugles("Pending");
+
     } else if (activeQuetionaire === "Current Strugle") {
-      if (strugglingArea && struggleEffect) {
-        setChildHistory("Completed");
-
-        setCurrentStrugles("Completed");
-        setActiveQuestionaire("Family Context");
-        setFamilyContext("Pending");
+      if (!strugglingArea || !struggleEffect) {
+        Alert.alert(
+          "Incomplete Information",
+          "Please complete Struggling Area and Struggle Effect fields before continuing."
+        );
+        return;
       }
+
+      setChildHistory("Completed");
+      setCurrentStrugles("Completed");
+      setActiveQuestionaire("Family Context");
+      setFamilyContext("Pending");
+
     } else {
-      if (maxLiveTime && siblings && contactPerson) {
-        setChildHistory("Completed");
-        setCurrentStrugles("Completed");
-        setFamilyContext("Completed");
-
-        navigation.navigate(ScreensName.GENERATECHILD);
+      if (!maxLiveTime || !siblings || !contactPerson) {
+        Alert.alert(
+          "Incomplete Information",
+          "Please provide Maximum Live Time, Siblings, and Contact Person details before continuing."
+        );
+        return;
       }
+
+      setChildHistory("Completed");
+      setCurrentStrugles("Completed");
+      setFamilyContext("Completed");
+      navigation.navigate(ScreensName.GENERATECHILD);
     }
   };
 

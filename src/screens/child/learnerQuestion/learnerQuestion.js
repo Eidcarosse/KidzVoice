@@ -39,24 +39,24 @@ const LearnerQuestionScreen = () => {
     return (
         <StatusBarWrapper>
             <KeyboardAvoidingView
-                behavior={Platform.OS === "ios" ? "padding" : "height"} // iOS اور Android دونوں کے لیے
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
                 style={styles.container}
-            ></KeyboardAvoidingView>
-            <ScrollView contentContainerStyle={styles.container}>
-                <View style={styles.itemView}>
-                    <Text style={styles.title}>Backpack Questionnaire</Text>
-                    <Text style={styles.subtitle}>Packing your backpack for the journey</Text>
+            >
+                <ScrollView contentContainerStyle={styles.container}>
+                    <View style={styles.itemView}>
+                        <Text style={styles.title}>Backpack Questionnaire</Text>
+                        <Text style={styles.subtitle}>Packing your backpack for the journey</Text>
 
-                    <InputField label="Who are you" placeholder="e.g. student, gamer, artist" required />
-                    <InputField label="What do you wish for?" placeholder="e.g. make friends, do well in school" />
-                    <InputField label="What’s your problem?" placeholder="e.g. schoolwork, friends, emotions" />
-                    <InputField label="What are your dreams?" placeholder="e.g. astronaut, doctor, artist" />
-                </View>
-                <PhotoUploader />
+                        <InputField label="Who are you" placeholder="e.g. student, gamer, artist" required />
+                        <InputField label="What do you wish for?" placeholder="e.g. make friends, do well in school" />
+                        <InputField label="What’s your problem?" placeholder="e.g. schoolwork, friends, emotions" />
+                        <InputField label="What are your dreams?" placeholder="e.g. astronaut, doctor, artist" />
+                    </View>
+                    <PhotoUploader />
 
-            </ScrollView>
-            <Button title={'Continue'} onPress={handleContinue} btnStyle={styles.btnStyle} />
-
+                </ScrollView>
+                <Button title={'Continue'} onPress={handleContinue} btnStyle={styles.btnStyle} />
+            </KeyboardAvoidingView>
             <ConnectedModal isLoader={true} visible={isConnectedModal} onClose={() => setIsConnectedModal(false)} />
         </StatusBarWrapper>
     );

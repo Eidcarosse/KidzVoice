@@ -11,6 +11,7 @@ import ScreensName from "../../../routes/routes";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import ConnectedModal from "../../../components/conectedModal/connectedModal";
 import { errorToastMessage, getStoredValue } from "../../../utils/Methods";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const AccountSetupScreen = () => {
   const navigation = useNavigation();
@@ -48,37 +49,46 @@ const AccountSetupScreen = () => {
 
   return (
     <StatusBarWrapper>
-      <Image source={Images.ACCOUNTIMAGE} style={styles.illustration} />
+      <KeyboardAwareScrollView
+        contentContainerStyle={{ flexGrow: 1, }}
+        showsVerticalScrollIndicator={false}
+        enableOnAndroid={true}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={{ flex: 1, }}>
+          <Image source={Images.ACCOUNTIMAGE} style={styles.illustration} />
 
-      <Text style={styles.title}>Account Setup</Text>
-      <Text style={styles.subtitle}>Enters the unique code from Sara</Text>
-      <Input
-        placeholder="Enter code"
-        value={code}
-        // onChangeText={setCode}
-        setState={setCode}
-        icon={<AntDesign name="user-add" size={18} color={colors.ebonyClays} />}
-      />
+          <Text style={styles.title}>Account Setup</Text>
+          <Text style={styles.subtitle}>
+            Enter the unique code from Sara
+          </Text>
 
-      <Input
-        placeholder="Enter your name here"
-        value={name}
-        // onChangeText={setName}
-        setState={setName}
-        icon={<AntDesign name="user" size={18} color={colors.ebonyClays} />}
-      />
-      <PhotoUploader />
+          <Input
+            placeholder="Enter code"
+            value={code}
+            setState={setCode}
+            icon={<AntDesign name="user-add" size={18} color={colors.ebonyClays} />}
+          />
 
-      {/* <Pressable style={styles.button} onPress={handleContinue}>
-                <Text style={styles.buttonText}>Continue</Text>
-            </Pressable> */}
-      <Button title={"Continue"} onPress={handleContinue} />
-      <ConnectedModal
-        visible={isConnectedModal}
-        onClose={() => setIsConnectedModal(false)}
-      />
+          <Input
+            placeholder="Enter your name here"
+            value={name}
+            setState={setName}
+            icon={<AntDesign name="user" size={18} color={colors.ebonyClays} />}
+          />
+
+          <PhotoUploader />
+
+          <Button title="Continue" onPress={handleContinue} />
+
+          <ConnectedModal
+            visible={isConnectedModal}
+            onClose={() => setIsConnectedModal(false)}
+          />
+        </View>
+      </KeyboardAwareScrollView>
     </StatusBarWrapper>
-  );
+  )
 };
 
 export default AccountSetupScreen;

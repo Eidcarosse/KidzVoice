@@ -18,6 +18,7 @@ import CustomHeader from "../../../components/customHeader/header";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Button } from "../../../components";
 
 export default function ChildDashboard() {
   const navigation = useNavigation();
@@ -104,7 +105,7 @@ export default function ChildDashboard() {
         <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
 
         <View style={styles.topRow}>
-          <CustomHeader isBack={true} onGoBack={() => navigation.goBack()} />
+          {/* <CustomHeader isBack={true} onGoBack={() => navigation.goBack()} /> */}
           <TouchableOpacity
             onPress={() => alert("Settings pressed")}
             style={styles.settingIcon}
@@ -198,7 +199,7 @@ export default function ChildDashboard() {
           </View>
         </View>
       </View>
-      //{" "}
+      <Button title={"Logout"} styles={{ marginBottom: 25 }} onPress={() => navigation.navigate(ScreensName.WELCOME)} />
     </StatusBarWrapper>
   );
 }

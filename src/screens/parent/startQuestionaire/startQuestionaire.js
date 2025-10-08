@@ -35,7 +35,7 @@ export default function StartQuestionaire() {
       <Text style={styles.startText}>Start Questionnaire</Text>
 
       <Text style={styles.hisText}>
-        his helps us understand {childData?.name}’s needs. It only takes about 5
+        This helps us understand {childData?.name}’s needs. It only takes about 5
         minutes. You can pause and return anytime.
       </Text>
 

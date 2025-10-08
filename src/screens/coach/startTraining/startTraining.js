@@ -95,7 +95,7 @@ export default function StartTraining() {
         showsHorizontalScrollIndicator={false}
       />
 
-      <Button title={"Start Quiz"} onPress={handelStartQuiz} />
+      <Button title={"Start Quiz"} btnStyle={styles.btnStyle} onPress={handelStartQuiz} />
 
       {/* <FlatList
         data={tasks}

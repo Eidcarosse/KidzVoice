@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     fontFamily: fonts.medium,
     fontSize: 22,
   },
+  btnStyle: {
+    marginBottom: 40
+  },
   iconTextParentView: {
     marginHorizontal: 16,
     flexDirection: "row",

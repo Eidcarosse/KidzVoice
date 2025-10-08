@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     },
     settingIcon: {
         padding: 8,
+        marginTop: 4,
         borderRadius: 8,
         backgroundColor: '#fff'
     },
