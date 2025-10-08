@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     btnStyle: {
-        marginBottom: height(8),
+        marginBottom: height(2),
     },
     title: {
         marginTop: height(1),

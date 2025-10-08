@@ -98,8 +98,9 @@ export const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 12,
         paddingHorizontal: 12,
-        paddingVertical: 6,
-        flex: 1
+        // paddingVertical: 6,
+        flex: 1,
+        marginHorizontal: 16
     },
     textInput: {
         flex: 1,

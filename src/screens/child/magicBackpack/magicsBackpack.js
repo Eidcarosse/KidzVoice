@@ -42,7 +42,7 @@ const MagicBackpackScreen = () => {
     // navigation.navigate(ScreensName.AILIVEEXAMPLE)
   };
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper edges={["bottom", "top"]}>
       <View style={styles.container}>
         <Text style={styles.title}>For {childData?.name}</Text>
 

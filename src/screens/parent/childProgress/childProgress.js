@@ -60,7 +60,7 @@ export default function ChildProgress() {
     );
   }
   return (
-    <StatusBarWrapper edges={["bottom"]}>
+    <StatusBarWrapper edges={["bottom", "top"]}>
       <View style={styles.header}>
         <Image
           source={{ uri: "https://randomuser.me/api/portraits/men/41.jpg" }}
