@@ -18,6 +18,7 @@ import CustomHeader from "../../../components/customHeader/header";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { infoToastMessage } from "../../../utils/Methods";
 
 export default function ChildDashboard() {
   const navigation = useNavigation();
@@ -83,6 +84,10 @@ export default function ChildDashboard() {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
+  const handlePressSetting = () => {
+    infoToastMessage("Settings", "Settings coming soon");
+  };
+
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -106,7 +111,7 @@ export default function ChildDashboard() {
         <View style={styles.topRow}>
           <CustomHeader isBack={true} onGoBack={() => navigation.goBack()} />
           <TouchableOpacity
-            onPress={() => alert("Settings pressed")}
+            onPress={handlePressSetting}
             style={styles.settingIcon}
           >
             <Ionicons name="settings-outline" size={28} color="black" />

@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VideoPlayer from "../../../components/vedioPlayer/vedioPlayer";
 import SuccessModal from "../../../components/successModal/success";
 import { useNavigation } from "@react-navigation/native";
@@ -8,9 +8,6 @@ import { getStoredValue } from "../../../utils/Methods";
 export default function AiLiveVedioView() {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
-
-
-
 
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
