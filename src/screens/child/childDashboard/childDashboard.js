@@ -18,7 +18,6 @@ import CustomHeader from "../../../components/customHeader/header";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { infoToastMessage } from "../../../utils/Methods";
 import { Button } from "../../../components";
 import { getStoredValue } from "../../../utils/Methods";
 
@@ -68,7 +67,9 @@ export default function ChildDashboard() {
 
     return () => clearInterval(interval);
   }, [isLocked, remainingTime]);
-
+  const handlePressSetting = () => {
+    infoToastMessage("Settings", "Settings coming soon");
+  };
   const handlePress = async () => {
     await AsyncStorage.setItem("LOCK_KEY", Date.now().toString());
     setIsLocked(true);
@@ -86,10 +87,6 @@ export default function ChildDashboard() {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
-  const handlePressSetting = () => {
-    infoToastMessage("Settings", "Settings coming soon");
-  };
-
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -104,18 +101,26 @@ export default function ChildDashboard() {
     setLoading(false);
   }, []);
   return (
-    <StatusBarWrapper>
-      <View style={styles.container}>
-        <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
+    // <StatusBarWrapper>
+    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+      <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
 
-        <View style={styles.topRow}>
-          <CustomHeader isBack={true} onGoBack={() => navigation.goBack()} />
-          <TouchableOpacity
-            onPress={handlePressSetting}
-            style={styles.settingIcon}
-          >
-            <Ionicons name="settings-outline" size={28} color="black" />
-          </TouchableOpacity>
+      <View style={styles.topRow}>
+        <TouchableOpacity
+          onPress={handlePressSetting}
+          style={styles.settingIcon}
+        >
+          <Ionicons name="settings-outline" size={28} color="black" />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.header}>
+        <Image
+          source={{ uri: "https://randomuser.me/api/portraits/men/32.jpg" }}
+          style={styles.avatar}
+        />
+        <View style={styles.userInfo}>
+          <Text style={styles.name}>{childData?.name}</Text>
+          <Text style={styles.email}>{childData?.name}@gmail.com</Text>
         </View>
 
         <TouchableOpacity
@@ -208,6 +213,7 @@ export default function ChildDashboard() {
           }}
         />
       </View>
-    </StatusBarWrapper>
+    </View>
+    // </StatusBarWrapper>
   );
 }
