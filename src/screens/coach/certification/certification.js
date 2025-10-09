@@ -67,7 +67,7 @@ export default function Certification() {
             <Text style={styles.downloadText}>Download Certificate</Text>
           </TouchableOpacity>
         </View>
-        <Text style={styles.badgeLabel}>Badge share options</Text>
+        {/* <Text style={styles.badgeLabel}>Badge share options</Text>
 
         <View style={styles.shareContainer}>
           <TouchableOpacity style={styles.shareBtn} onPress={shareOnLinkedIn}>
@@ -79,7 +79,7 @@ export default function Certification() {
             <Icon name="email" size={20} color="gray" />
             <Text style={styles.shareText}>on Email</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     </StatusBarWrapper>
   );

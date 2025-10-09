@@ -19,7 +19,7 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../../../components";
-import { getStoredValue } from "../../../utils/Methods";
+import { getStoredValue, infoToastMessage } from "../../../utils/Methods";
 
 export default function ChildDashboard() {
   const navigation = useNavigation();

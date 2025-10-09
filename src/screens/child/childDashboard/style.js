@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#f4f4f4",
+
     },
     btnStyle: {
         flex: 1,
@@ -33,18 +34,54 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
 
+    header: {
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 20,
+    },
+    avatar: {
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+    },
+    userInfo: {
+        flex: 1,
+        marginLeft: 12,
+    },
+    name: {
+        fontSize: 18,
+        fontFamily: fonts.bold
+    },
+    email: {
+        fontSize: 14,
+        color: "gray",
+        fontFamily: fonts.bold
+    },
+
+    liveButton: {
+        backgroundColor: "#1976d2",
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+        borderRadius: 25,
+    },
+    liveText: {
+        color: "#fff",
+        fontSize: 13,
+        fontFamily: fonts.bold
+    },
+
     badges: {
         flexDirection: "row",
         borderBottomWidth: 0.5,
         borderColor: "lightgray",
         gap: 10,
         paddingBottom: 16,
-        backgroundColor: "#fff",
+        backgroundColor: '#fff'
     },
     badge: {
         marginLeft: 12,
         fontSize: 12,
-        color: "gray",
+        color: 'gray'
     },
 
     section: {
@@ -61,7 +98,7 @@ const styles = StyleSheet.create({
     sectionTitle: {
         fontSize: 16,
         marginTop: 12,
-        fontFamily: fonts.bold,
+        fontFamily: fonts.bold
     },
     subtitle: {
         fontSize: 13,
@@ -81,7 +118,7 @@ const styles = StyleSheet.create({
     progressText: {
         fontSize: 16,
         color: "#333",
-        fontFamily: fonts.regular,
+        fontFamily: fonts.regular
     },
     progressBar: {
         width: "100%",
@@ -99,25 +136,26 @@ const styles = StyleSheet.create({
     textStyle: {
         fontSize: 13,
         color: "gray",
-        fontFamily: fonts.bold,
+        fontFamily: fonts.bold
     },
     completeStyle: {
         fontSize: 13,
         color: "gray",
     },
     row: {
-        width: "90%",
+        width: '90%',
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: 20,
-        alignItems: "center",
-        alignSelf: "center",
+        alignItems: 'center',
+        alignSelf: 'center'
+
     },
     card: {
         backgroundColor: "#fff",
         padding: 16,
         borderRadius: 12,
-        width: "48%",
+        width: '48%',
     },
     iconWrapper: {
         width: 40,
@@ -131,18 +169,19 @@ const styles = StyleSheet.create({
     cardText: {
         fontSize: 14,
         marginTop: 6,
-        fontFamily: fonts.bold,
+        fontFamily: fonts.bold
     },
     cardSub: {
         fontSize: 12,
         color: "gray",
         // textAlign: "center",
     },
+
     titleStyle: {
         fontSize: 16,
         marginTop: height(2),
         marginLeft: 16,
-        fontFamily: fonts.medium,
+        fontFamily: fonts.medium
     },
     growContainer: {
         marginHorizontal: 12,
@@ -155,19 +194,19 @@ const styles = StyleSheet.create({
     },
     growthTitle: {
         fontSize: 14,
-        fontFamily: fonts.medium,
+        fontFamily: fonts.medium
     },
     growthSub: {
         fontSize: 12,
         color: "gray",
     },
     backgroundImageStyle: {
-        alignSelf: "center",
-        width: "100%",
+        alignSelf: 'center',
+        width: '100%',
         transform: [{ rotate: "180deg" }],
         ...StyleSheet.absoluteFillObject,
-        resizeMode: "cover",
-    },
+        resizeMode: 'cover',
+    }
 });
 
 export default styles;
