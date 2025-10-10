@@ -55,7 +55,7 @@ export default function AiLiveExample() {
       <FeelingResult
         image={Images.AIICON}
         text={
-          "Ali, let’s try this together. Look at this math problem. Imagine your own magic ball is holding all the distractions. Focus only on the numbers. Can you solve it?"
+          "let’s try this together. Look at this math problem. Imagine your own magic ball is holding all the distractions. Focus only on the numbers. Can you solve it?"
         }
       />
       <View style={styles.questionContainer}>
@@ -98,7 +98,7 @@ export default function AiLiveExample() {
         <SuccessModal
           title={`${childData?.name} earns: ⭐ x10 + 💎 x1`}
           subtitle={
-            "Amazing work, Ali! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
+            "Amazing work, You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
           }
           visible={modalVisible}
           onClose={() => setModalVisible(false)}

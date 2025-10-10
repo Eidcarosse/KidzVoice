@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import React, { useState } from "react";
 import { Button, Input } from "../../../../components";
 import styles from "./styles";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { Calendar } from "lucide-react-native";
+import { Calendar, Phone } from "lucide-react-native";
 import colors from "../../../../utils/AppColors";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 export default function PersonalInfo({
@@ -31,6 +31,15 @@ export default function PersonalInfo({
     setDob(formattedDate);
     hideDatePicker();
   };
+  const prefix = "+41 ";
+
+  const handlePhoneChange = (text) => {
+    const cleanText = text.replace(prefix, "");
+    const onlyNumbers = cleanText.replace(/[^0-9]/g, "");
+    setContact(onlyNumbers);
+  };
+
+  const displayedPhone = prefix + contact;
   return (
     // <KeyboardAwareScrollView>
 
@@ -39,7 +48,7 @@ export default function PersonalInfo({
 
       <Text style={styles.titleText}>Name</Text>
 
-      <Input placeholder={"Nadine Zimat"} state={name} setState={setName} />
+      <Input placeholder={"Your Name"} state={name} setState={setName} />
 
       <Text style={styles.titleText}>Date of birth</Text>
 
@@ -59,11 +68,24 @@ export default function PersonalInfo({
       </TouchableOpacity>
       <Text style={styles.titleText}>Contact</Text>
 
-      <Input
-        placeholder={"+41 XXXXXXXXX"}
-        state={contact}
-        setState={setContact}
-      />
+      <View
+        style={
+          styles.textContainer}
+      >
+        <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
+        <TextInput
+          style={styles.textStyle}
+          value={displayedPhone}
+          onChangeText={handlePhoneChange}
+          placeholder="+41 XXXXXXXX"
+          keyboardType="numeric"
+          maxLength={12}
+          selection={{
+            start: displayedPhone.length,
+            end: displayedPhone.length,
+          }}
+        />
+      </View>
 
       <Button title={"Next"} onPress={onPress} btnStyle={styles.nextButton} />
       <DateTimePickerModal

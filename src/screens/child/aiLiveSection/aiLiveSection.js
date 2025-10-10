@@ -132,7 +132,7 @@ export default function AiLiveSection() {
       <SuccessModal
         title={`${childData?.name} earns: ⭐ x10 + 💎 x1`}
         subtitle={
-          "Amazing work, Ali! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
+          "Amazing work, You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
         }
         visible={modalVisible}
         onClose={() => setModalVisible(false)}

@@ -60,7 +60,7 @@ const AccountSetupScreen = () => {
 
           <Text style={styles.title}>Account Setup</Text>
           <Text style={styles.subtitle}>
-            Enter the unique code from Sara
+            Enter the unique code from Parent
           </Text>
 
           <Input

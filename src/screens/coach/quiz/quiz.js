@@ -27,7 +27,7 @@ export default function Quiz() {
         <Image source={Images.COACHAVATAR} style={styles.imageStyle} />
         <View style={styles.titleView}>
           <Text style={styles.moduleText}>Module 1</Text>
-          <Text style={styles.moduleText}>Safeguarding</Text>
+          <Text style={styles.moduleText}>Psychology</Text>
         </View>
       </View>
 

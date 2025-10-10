@@ -2,12 +2,16 @@ import { View, Text, FlatList } from "react-native";
 import React from "react";
 import styles from "./styles";
 import StatusBarWrapper from "../../../components/customStatusbar";
-import { Header, TrainingCard } from "../../../components";
+import { Button, Header, TrainingCard } from "../../../components";
 import { modules } from "../../../utils/Data";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import ScreensName from "../../../routes/routes";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Training() {
+  const navigation = useNavigation()
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper >
       <Header title={"Training"} />
 
       <Text style={styles.modulesText}>Modules</Text>
@@ -16,6 +20,19 @@ export default function Training() {
         data={modules}
         renderItem={({ item }) => <TrainingCard module={item} />}
         keyExtractor={({ index }) => index?.toString()}
+      />
+      <Button
+        title="Logout"
+        onPress={async () => {
+          try {
+            await AsyncStorage.removeItem('childData');
+            await AsyncStorage.removeItem('LOCK_KEY');
+            console.log('✅ Async data cleared successfully');
+            navigation.navigate(ScreensName.WELCOME);
+          } catch (error) {
+            console.error('❌ Error clearing AsyncStorage:', error);
+          }
+        }}
       />
     </StatusBarWrapper>
   );

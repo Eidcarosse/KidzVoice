@@ -121,25 +121,25 @@ export default function CreateChildProfile() {
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
           />
-          <DropDown
+          {/* <DropDown
             state={grade}
             setState={setGrade}
             onPress={toggleGradeList}
             isDisplayRelationList={isDisplayGradeList}
             placeholder={"Grade"}
             icon={<Award size={20} color={colors.ebonyClay} />}
-          />
+          /> */}
 
-          {isDisplayGradeList && (
+          {/* {isDisplayGradeList && (
             <DropDownList
               lst={gradesList}
               selectedRelation={grade}
               setSelectedRelation={setGrade}
               setDropDownVisible={setIsDisplayGradeList}
             />
-          )}
+          )} */}
 
-          <DropDown
+          {/* <DropDown
             state={school}
             setState={setSchool}
             onPress={toggleSchoolList}
@@ -155,7 +155,7 @@ export default function CreateChildProfile() {
               setSelectedRelation={setSchool}
               setDropDownVisible={setIsDisplaySchoolList}
             />
-          )}
+          )} */}
 
           <Button
             title={"Save"}

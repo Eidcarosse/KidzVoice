@@ -18,7 +18,7 @@ export default function CoachAccount() {
 
   const [name, setName] = useState();
   const [dob, setDob] = useState();
-  const [contact, setContact] = useState("+41");
+  const [contact, setContact] = useState("");
 
   const [qualification, setQualification] = useState(null);
   const [degree, setDegree] = useState(null);

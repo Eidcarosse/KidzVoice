@@ -6,7 +6,7 @@ import { ScreenWrapper } from "react-native-screen-wrapper";
 
 const StatusBarWrapper = ({
   children,
-  edges = ['top'],
+  edges = ['top', 'bottom'],
   scrollType,
 }) => {
   if (Platform.OS === "ios") {

@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   ImageBackground,
+  Pressable,
 } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import {
@@ -67,8 +68,8 @@ export default function ChildDashboard() {
 
     return () => clearInterval(interval);
   }, [isLocked, remainingTime]);
-  const handlePressSetting = () => {
-    infoToastMessage("Settings", "Settings coming soon");
+  const handlePressSetting = (text) => {
+    infoToastMessage(`${text}, "${text} coming soon"`);
   };
   const handlePress = async () => {
     await AsyncStorage.setItem("LOCK_KEY", Date.now().toString());
@@ -107,7 +108,7 @@ export default function ChildDashboard() {
 
       <View style={styles.topRow}>
         <TouchableOpacity
-          onPress={handlePressSetting}
+          onPress={() => handlePressSetting("Setting")}
           style={styles.settingIcon}
         >
           <Ionicons name="settings-outline" size={28} color="black" />
@@ -169,21 +170,20 @@ export default function ChildDashboard() {
 
       {/* 🔹 Cards Row */}
       <View style={styles.row}>
-        <View style={styles.card}>
+        <Pressable style={styles.card} onPress={() => handlePressSetting("Assignment")} >
           <View style={styles.iconWrapper}>
             <Ionicons name="book-outline" size={20} color="#1976d2" />
           </View>
           <Text style={styles.cardText}>Assignment</Text>
           <Text style={styles.cardSub}>2 complete out of 10</Text>
-        </View>
-
-        <View style={styles.card}>
+        </Pressable>
+        <Pressable style={styles.card} onPress={() => handlePressSetting("Activities")} >
           <View style={styles.iconWrapper}>
             <Ionicons name="bicycle-outline" size={20} color="#1976d2" />
           </View>
           <Text style={styles.cardText}>Activities</Text>
           <Text style={styles.cardSub}>2 complete out of 10</Text>
-        </View>
+        </Pressable>
       </View>
 
       {/* 🔹 Growth Journey */}
@@ -199,18 +199,7 @@ export default function ChildDashboard() {
         </View>
       </View>
       <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 10 }}>
-        <Button
-          title="Setup Child"
-          onPress={async () => {
-            try {
-              navigation.goBack();
-            } catch (error) {
-              console.error('❌ Error clearing AsyncStorage:', error);
-            }
-          }}
-          textStyle={styles.textStyle}
-          btnStyle={styles.btnStyleView}
-        />
+
         <Button
           title="Logout"
           onPress={async () => {

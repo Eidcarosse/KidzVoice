@@ -133,11 +133,7 @@ const styles = StyleSheet.create({
         backgroundColor: "green",
         borderRadius: 10,
     },
-    textStyle: {
-        fontSize: 13,
-        color: "gray",
-        fontFamily: fonts.bold
-    },
+
     completeStyle: {
         fontSize: 13,
         color: "gray",
@@ -200,11 +196,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "gray",
     },
-    btnStyleView: {
-        backgroundColor: 'transparent',
-        borderWidth: 0.5,
-        borderColor: 'blue'
-    },
+
 
     backgroundImageStyle: {
         alignSelf: 'center',

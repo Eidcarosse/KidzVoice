@@ -15,6 +15,16 @@ const styles = StyleSheet.create({
     height: 46,
     borderRadius: 23,
   },
+  textStyle: {
+    fontSize: 13,
+    color: "gray",
+    fontFamily: fonts.bold
+  },
+  btnStyleView: {
+    backgroundColor: 'transparent',
+    borderWidth: 0.5,
+    borderColor: 'blue'
+  },
   userName: {
     fontSize: 18,
     fontWeight: "600",

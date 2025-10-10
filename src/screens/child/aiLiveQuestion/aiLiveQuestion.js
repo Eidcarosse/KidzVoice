@@ -20,7 +20,7 @@ export default function AiLiveQuestion() {
     return (
         <View style={[styles.container, { paddingTop: insets.top || 5 }]}>
             <CustomHeader isBack={true} onGoBack={handleBack} title={'Ai Live Section'} />
-            <FeelingResult image={Images.AIICON} text={"Max, what did you notice in Sami’s story? Why was the magic ball helpful?"} />
+            <FeelingResult image={Images.AIICON} text={"What did you notice in story? Why was the magic ball helpful?"} />
         </View>
     )
 }

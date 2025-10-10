@@ -91,7 +91,7 @@ export default function ProfileInfo() {
           selection={{
             start: displayedPhone.length,
             end: displayedPhone.length,
-          }} // keep cursor at end
+          }}
         />
       </View>
 

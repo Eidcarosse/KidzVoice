@@ -81,7 +81,7 @@ const siblingsOptions = ["Yes", "No"];
 const modules = [
   {
     id: 1,
-    title: "Module 1: Safeguarding",
+    title: "Module 1: Introduction to Psychology",
     subTitle: "CBT | Diagnosis | Crisis Care.......",
     language: "English",
     time: "1h 20m",

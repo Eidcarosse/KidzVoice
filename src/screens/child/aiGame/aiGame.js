@@ -21,7 +21,7 @@ export default function AiGame() {
     return (
         <View style={[styles.container, { paddingTop: insets.top || 5 }]}>
             <CustomHeader isBack={true} onGoBack={handleBack} title={'Ai Live Section'} />
-            <FeelingResult image={Images.AIICON} text={"Tell me, Max, what helped you most today: the breathing game or the magic ball?"} />
+            <FeelingResult image={Images.AIICON} text={"Tell me, what helped you most today: the breathing game or the magic ball?"} />
             <View style={styles.textContainer} >
                 <TouchableOpacity style={styles.btnContainer} onPress={() => setModalVisible(true)}>
                     <Text style={styles.text}>🔮 Magic Ball</Text>
