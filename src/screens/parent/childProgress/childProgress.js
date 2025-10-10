@@ -13,7 +13,11 @@ import styles from "./styles";
 import { childProgreeData } from "../../../utils/Data";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import colors from "../../../utils/AppColors";
-import { getStoredValue, infoToastMessage } from "../../../utils/Methods";
+import {
+  getStoredValue,
+  infoToastMessage,
+  storeValue,
+} from "../../../utils/Methods";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -172,20 +176,30 @@ export default function ChildProgress() {
           <Ionicons name="list-outline" size={20} color={colors.jumbo} />
           <Text style={styles.optionText}>Other tasks</Text>
         </TouchableOpacity>
-
-
       </View>
-      <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 10 }}>
+      <View style={{ flex: 1, justifyContent: "flex-end", paddingBottom: 10 }}>
         <Button
           title="Logout"
           onPress={async () => {
             try {
-              await AsyncStorage.removeItem('childData');
-              await AsyncStorage.removeItem('LOCK_KEY');
-              console.log('✅ Async data cleared successfully');
+              const parentData = await getStoredValue("parentData");
+
+              console.log("Parent Data", parentData);
+
+              const updatedData = {
+                ...parentData,
+                isLogin: false,
+              };
+
+              console.log("Updated Parent Data", updatedData);
+
+              await storeValue("parentData", updatedData);
+              // await AsyncStorage.removeItem('childData');
+              await AsyncStorage.removeItem("LOCK_KEY");
+              console.log("✅ Async data cleared successfully");
               navigation.navigate(ScreensName.WELCOME);
             } catch (error) {
-              console.error('❌ Error clearing AsyncStorage:', error);
+              console.error("❌ Error clearing AsyncStorage:", error);
             }
           }}
         />

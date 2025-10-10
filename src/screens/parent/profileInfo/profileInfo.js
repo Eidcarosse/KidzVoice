@@ -1,4 +1,3 @@
-
 import { View, Text, Image, TextInput } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
@@ -11,6 +10,7 @@ import { height } from "../../../utils/Dimensions";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { User, Users, Phone } from "lucide-react-native";
+import { storeValue } from "../../../utils/Methods";
 
 export default function ProfileInfo() {
   const navigation = useNavigation();
@@ -23,10 +23,14 @@ export default function ProfileInfo() {
     setIsDisplayRelationList(!isDisplayRelationList);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     console.log("Name:", name);
     console.log("Selected Relation:", relationship);
     console.log("Full Phone:", "+41" + phone);
+    await storeValue("parentData", {
+      name: name,
+      isLogin: true,
+    });
     navigation.navigate(ScreensName.ADDCHILD);
   };
 
@@ -75,10 +79,7 @@ export default function ProfileInfo() {
       )}
 
       {/* ✅ Custom Phone Input */}
-      <View
-        style={
-          styles.textContainer}
-      >
+      <View style={styles.textContainer}>
         <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
         <TextInput
           style={styles.textStyle}

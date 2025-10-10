@@ -18,13 +18,22 @@ export default function SignIn() {
   const [selectedRole, setSelectedRole] = useState(null);
 
   const [childData, setChildData] = useState();
+  const [parentData, setParentData] = useState();
+
   const [loading, setLoading] = useState(true);
 
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
-    console.log("Child Data Response", childDataRes);
+    const parentRes = await getStoredValue("parentData");
+    console.log(
+      "Child Data Response",
+      childDataRes,
+      "   Parent Data",
+      parentRes
+    );
 
     setChildData(childDataRes);
+    setParentData(parentRes);
   };
 
   useEffect(() => {
@@ -102,8 +111,7 @@ export default function SignIn() {
     const res = await setUserRole(selectedRole?.title);
     if (selectedRole?.title) {
       if (selectedRole?.title === "Parent") {
-        if (childData?.id) {
-          // const res = await storeValue("childData", {});
+        if (childData?.id && parentData?.isLogin) {
           navigation.navigate(ScreensName.CHILDPROGRESS);
         } else {
           navigation.navigate(ScreensName.PARENTPROFILENFO);

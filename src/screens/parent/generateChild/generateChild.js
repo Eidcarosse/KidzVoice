@@ -105,6 +105,10 @@ export default function GenerateChild() {
         onPress={handleGenerateChildId}
       />
 
+      <Text style={styles.useText}>
+        Please use your generated Child ID to log in.
+      </Text>
+
       <ConnectedModal
         isLoader={true}
         visible={isConnectedModal}

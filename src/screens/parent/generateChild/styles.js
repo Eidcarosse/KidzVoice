@@ -34,8 +34,7 @@ const styles = StyleSheet.create({
   copyTextContainer: {
     flexDirection: "row",
     alignItems: "center",
-    left: 20
-
+    left: 20,
   },
   copyText: {
     fontSize: 14,
@@ -44,8 +43,15 @@ const styles = StyleSheet.create({
     backgroundColor: "blue",
     borderRadius: 12,
     paddingHorizontal: 12,
-    paddingVertical: 2
-  }
+    paddingVertical: 2,
+  },
+  useText: {
+    fontSize: 14,
+    fontFamily: fonts.regular,
+    color: colors.mineShaft,
+    marginHorizontal: 16,
+    textAlign: "center",
+  },
 });
 
 export default styles;
