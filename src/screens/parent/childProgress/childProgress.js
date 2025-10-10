@@ -182,7 +182,7 @@ export default function ChildProgress() {
           title="Setup Child"
           onPress={async () => {
             try {
-              navigation.goBack();
+              navigation.navigate(ScreensName.SIGNIN)
             } catch (error) {
               console.error('❌ Error clearing AsyncStorage:', error);
             }
