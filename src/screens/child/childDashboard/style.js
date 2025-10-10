@@ -200,6 +200,12 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "gray",
     },
+    btnStyleView: {
+        backgroundColor: 'transparent',
+        borderWidth: 0.5,
+        borderColor: 'blue'
+    },
+
     backgroundImageStyle: {
         alignSelf: 'center',
         width: '100%',

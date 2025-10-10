@@ -200,6 +200,18 @@ export default function ChildDashboard() {
       </View>
       <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 10 }}>
         <Button
+          title="Setup Child"
+          onPress={async () => {
+            try {
+              navigation.goBack();
+            } catch (error) {
+              console.error('❌ Error clearing AsyncStorage:', error);
+            }
+          }}
+          textStyle={styles.textStyle}
+          btnStyle={styles.btnStyleView}
+        />
+        <Button
           title="Logout"
           onPress={async () => {
             try {

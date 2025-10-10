@@ -75,93 +75,99 @@ export default function CreateChildProfile() {
     hideDatePicker();
   };
   return (
-    <StatusBarWrapper>
+    <StatusBarWrapper edges={["bottom"]}>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
-      ></KeyboardAvoidingView>
-      <ScrollView>
-        <Image
-          source={Images.ADDCHILD}
-          style={styles.imageStyle}
-          resizeMode="contain"
-        />
+      >
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: height(5) }}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          <Image
+            source={Images.ADDCHILD}
+            style={styles.imageStyle}
+            resizeMode="contain"
+          />
 
-        <Text style={styles.createText}>Creates Child profile.</Text>
+          <Text style={styles.createText}>Creates Child profile.</Text>
 
-        <Text style={styles.loremText}>
-          Enter your child’s basic details to create their profile.
-        </Text>
+          <Text style={styles.loremText}>
+            Enter your child’s basic details to create their profile.
+          </Text>
 
 
-        <Input
-          state={name}
-          setState={setName}
-          placeholder="Enter your name here"
-          icon={<User size={20} color={colors.ebonyClay} />}
-        />
-
-        <TouchableOpacity onPress={showDatePicker}>
           <Input
-            state={date}
-            setState={showDatePicker}
-            placeholder="day/month/year"
-            editable={false}
-            icon={<Calendar size={20} color={colors.ebonyClay} />}
+            state={name}
+            setState={setName}
+            placeholder="Enter your name here"
+            icon={<User size={20} color={colors.ebonyClay} />}
           />
-        </TouchableOpacity>
 
-        <DateTimePickerModal
-          isVisible={isDatePickerVisible}
-          mode="date"
-          onConfirm={handleConfirm}
-          onCancel={hideDatePicker}
-        />
-        <DropDown
-          state={grade}
-          setState={setGrade}
-          onPress={toggleGradeList}
-          isDisplayRelationList={isDisplayGradeList}
-          placeholder={"Grade"}
-          icon={<Award size={20} color={colors.ebonyClay} />}
-        />
+          <TouchableOpacity onPress={showDatePicker}>
+            <Input
+              state={date}
+              setState={showDatePicker}
+              placeholder="day/month/year"
+              editable={false}
+              icon={<Calendar size={20} color={colors.ebonyClay} />}
+            />
+          </TouchableOpacity>
 
-        {isDisplayGradeList && (
-          <DropDownList
-            lst={gradesList}
-            selectedRelation={grade}
-            setSelectedRelation={setGrade}
-            setDropDownVisible={setIsDisplayGradeList}
+          <DateTimePickerModal
+            isVisible={isDatePickerVisible}
+            mode="date"
+            onConfirm={handleConfirm}
+            onCancel={hideDatePicker}
           />
-        )}
-
-        <DropDown
-          state={school}
-          setState={setSchool}
-          onPress={toggleSchoolList}
-          isDisplayRelationList={isDisplaySchoolList}
-          placeholder={"School"}
-          icon={<GraduationCap size={20} color={colors.ebonyClay} />}
-        />
-
-        {isDisplaySchoolList && (
-          <DropDownList
-            lst={schoolsList}
-            selectedRelation={school}
-            setSelectedRelation={setSchool}
-            setDropDownVisible={setIsDisplaySchoolList}
+          <DropDown
+            state={grade}
+            setState={setGrade}
+            onPress={toggleGradeList}
+            isDisplayRelationList={isDisplayGradeList}
+            placeholder={"Grade"}
+            icon={<Award size={20} color={colors.ebonyClay} />}
           />
-        )}
 
-        <Button
-          title={"Save"}
-          onPress={handleSave}
-          btnStyle={{
-            marginTop:
-              isDisplayGradeList || isDisplaySchoolList ? height(2) : height(7),
-          }}
-        />
-      </ScrollView>
+          {isDisplayGradeList && (
+            <DropDownList
+              lst={gradesList}
+              selectedRelation={grade}
+              setSelectedRelation={setGrade}
+              setDropDownVisible={setIsDisplayGradeList}
+            />
+          )}
+
+          <DropDown
+            state={school}
+            setState={setSchool}
+            onPress={toggleSchoolList}
+            isDisplayRelationList={isDisplaySchoolList}
+            placeholder={"School"}
+            icon={<GraduationCap size={20} color={colors.ebonyClay} />}
+          />
+
+          {isDisplaySchoolList && (
+            <DropDownList
+              lst={schoolsList}
+              selectedRelation={school}
+              setSelectedRelation={setSchool}
+              setDropDownVisible={setIsDisplaySchoolList}
+            />
+          )}
+
+          <Button
+            title={"Save"}
+            onPress={handleSave}
+            btnStyle={{
+              marginTop:
+                isDisplayGradeList || isDisplaySchoolList ? height(2) : height(7),
+            }}
+          />
+        </ScrollView>
+
+      </KeyboardAvoidingView>
     </StatusBarWrapper>
   );
 }
