@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
+import { View, Text, Image, ScrollView, TouchableOpacity, Platform } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 import StatusBarWrapper from "../../../components/customStatusbar";
@@ -19,6 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { User, Calendar, GraduationCap, Award } from "lucide-react-native";
 import { storeValue } from "../../../utils/Methods";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function CreateChildProfile() {
   const navigation = useNavigation();
@@ -75,53 +76,54 @@ export default function CreateChildProfile() {
     hideDatePicker();
   };
   return (
-    <StatusBarWrapper edges={["bottom"]}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.container}
+    <StatusBarWrapper >
+      <KeyboardAwareScrollView
+        enableOnAndroid
+        extraScrollHeight={80}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
       >
-        <ScrollView
-          contentContainerStyle={{ paddingBottom: height(5) }}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
-          <Image
-            source={Images.ADDCHILD}
-            style={styles.imageStyle}
-            resizeMode="contain"
-          />
+        <Image
+          source={Images.ADDCHILD}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
 
-          <Text style={styles.createText}>Creates Child profile.</Text>
+        <Text style={styles.createText}>Creates Child profile.</Text>
 
-          <Text style={styles.loremText}>
-            Enter your child’s basic details to create their profile.
-          </Text>
+        <Text style={styles.loremText}>
+          Enter your child’s basic details to create their profile.
+        </Text>
 
 
+        <Input
+          state={name}
+          setState={setName}
+          placeholder="Enter your name here"
+          icon={<User size={20} color={colors.ebonyClay} />}
+        />
+
+        <TouchableOpacity onPress={showDatePicker}>
           <Input
-            state={name}
-            setState={setName}
-            placeholder="Enter your name here"
-            icon={<User size={20} color={colors.ebonyClay} />}
+            state={date}
+            setState={showDatePicker}
+            placeholder="day/month/year"
+            editable={false}
+            icon={<Calendar size={20} color={colors.ebonyClay} />}
           />
+        </TouchableOpacity>
 
-          <TouchableOpacity onPress={showDatePicker}>
-            <Input
-              state={date}
-              setState={showDatePicker}
-              placeholder="day/month/year"
-              editable={false}
-              icon={<Calendar size={20} color={colors.ebonyClay} />}
-            />
-          </TouchableOpacity>
-
-          <DateTimePickerModal
-            isVisible={isDatePickerVisible}
-            mode="date"
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-          />
-          {/* <DropDown
+        <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+        />
+        {/* <DropDown
             state={grade}
             setState={setGrade}
             onPress={toggleGradeList}
@@ -130,7 +132,7 @@ export default function CreateChildProfile() {
             icon={<Award size={20} color={colors.ebonyClay} />}
           /> */}
 
-          {/* {isDisplayGradeList && (
+        {/* {isDisplayGradeList && (
             <DropDownList
               lst={gradesList}
               selectedRelation={grade}
@@ -139,7 +141,7 @@ export default function CreateChildProfile() {
             />
           )} */}
 
-          {/* <DropDown
+        {/* <DropDown
             state={school}
             setState={setSchool}
             onPress={toggleSchoolList}
@@ -157,17 +159,15 @@ export default function CreateChildProfile() {
             />
           )} */}
 
-          <Button
-            title={"Save"}
-            onPress={handleSave}
-            btnStyle={{
-              marginTop:
-                isDisplayGradeList || isDisplaySchoolList ? height(2) : height(7),
-            }}
-          />
-        </ScrollView>
-
-      </KeyboardAvoidingView>
+        <Button
+          title={"Save"}
+          onPress={handleSave}
+          btnStyle={{
+            marginTop:
+              isDisplayGradeList || isDisplaySchoolList ? height(2) : height(7),
+          }}
+        />
+      </KeyboardAwareScrollView>
     </StatusBarWrapper>
   );
 }

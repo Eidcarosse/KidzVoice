@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
   FlatList,
   StyleSheet,
   Platform,
@@ -27,6 +26,7 @@ import AudioNote from "../../../components/voice";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { getStoredValue } from "../../../utils/Methods";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const questionSets = {
   LiveVedio: [
@@ -220,9 +220,15 @@ const Questionnaire = () => {
   const insert = useSafeAreaInsets();
   return (
     <View style={[styles.container, { paddingTop: insert.top || 5 }]}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? "padding" : "padding"}
+      <KeyboardAwareScrollView
+        enableOnAndroid
+        extraScrollHeight={80}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
       >
         <AiCustomHeader user={{ img: Images.AVATAR, name: childData?.name }} />
 
@@ -296,7 +302,7 @@ const Questionnaire = () => {
             </View>
           )}
         </View>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
       {isVoiceModalVisible && (
         <VoiceMessageModal
           isVisible={isVoiceModalVisible}

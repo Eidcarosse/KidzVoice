@@ -95,8 +95,14 @@ export default function ParentQuestionaire() {
   return (
     <StatusBarWrapper>
       <KeyboardAwareScrollView
+        enableOnAndroid
+        extraScrollHeight={80}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: height(10) }}
       >
         <View style={styles.progressContainer}>
           <Ionicons

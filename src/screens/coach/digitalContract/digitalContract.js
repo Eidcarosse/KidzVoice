@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Image,
   Modal,
-  KeyboardAvoidingView,
   Platform,
 } from "react-native";
 import React, { useRef, useState } from "react";
@@ -16,6 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import SignatureCanvas from "react-native-signature-canvas";
 import BaseModal from "../../../components/modal/modal";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function DigitalContract() {
   const navigation = useNavigation();
@@ -51,11 +51,16 @@ export default function DigitalContract() {
 
   return (
     <StatusBarWrapper scrollType={"scroll"} edges={["bottom", "top"]}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.container}
-      />
-      <ScrollView>
+      <KeyboardAwareScrollView
+        enableOnAndroid
+        extraScrollHeight={80}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={styles.digitalText}>Digital Contract</Text>
 
         <Text style={styles.contractText}>
@@ -115,7 +120,7 @@ export default function DigitalContract() {
         />
 
         <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleNext} />
-      </ScrollView>
+      </KeyboardAwareScrollView>
 
       <Modal visible={showPad} animationType="slide">
         <View

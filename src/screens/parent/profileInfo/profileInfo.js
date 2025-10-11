@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { User, Users, Phone } from "lucide-react-native";
 import { storeValue } from "../../../utils/Methods";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function ProfileInfo() {
   const navigation = useNavigation();
@@ -48,58 +49,69 @@ export default function ProfileInfo() {
 
   return (
     <StatusBarWrapper>
-      <Image
-        source={Images.PARENTPROFILEINFO}
-        style={styles.imageStyle}
-        resizeMode="contain"
-      />
-
-      <Text style={styles.basicText}>Enter basic profile info</Text>
-
-      <Text style={styles.loremText}>
-        Please fill in your basic details below to complete your profile setup.
-      </Text>
-
-      {/* Name Input */}
-      <Input
-        state={name}
-        setState={setName}
-        placeholder="Enter your name here"
-        icon={<User size={20} color={colors.ebonyClay} />}
-      />
-
-      {/* Relationship Dropdown (optional) */}
-      {isDisplayRelationList && (
-        <DropDownList
-          lst={relationships}
-          selectedRelation={relationship}
-          setSelectedRelation={setRelationship}
-          setDropDownVisible={setIsDisplayRelationList}
+      <KeyboardAwareScrollView
+        enableOnAndroid
+        extraScrollHeight={80}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <Image
+          source={Images.PARENTPROFILEINFO}
+          style={styles.imageStyle}
+          resizeMode="contain"
         />
-      )}
 
-      {/* ✅ Custom Phone Input */}
-      <View style={styles.textContainer}>
-        <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
-        <TextInput
-          style={styles.textStyle}
-          value={displayedPhone}
-          onChangeText={handlePhoneChange}
-          placeholder="+41 XXXXXXXX"
-          keyboardType="numeric"
-          maxLength={12}
-          selection={{
-            start: displayedPhone.length,
-            end: displayedPhone.length,
-          }}
+        <Text style={styles.basicText}>Enter basic profile info</Text>
+
+        <Text style={styles.loremText}>
+          Please fill in your basic details below to complete your profile setup.
+        </Text>
+
+        {/* Name Input */}
+        <Input
+          state={name}
+          setState={setName}
+          placeholder="Enter your name here"
+          icon={<User size={20} color={colors.ebonyClay} />}
         />
-      </View>
 
-      <Button
-        title="Save"
-        onPress={handleSave}
-        btnStyle={{ marginTop: isDisplayRelationList ? height(5) : height(13) }}
-      />
+        {/* Relationship Dropdown */}
+        {isDisplayRelationList && (
+          <DropDownList
+            lst={relationships}
+            selectedRelation={relationship}
+            setSelectedRelation={setRelationship}
+            setDropDownVisible={setIsDisplayRelationList}
+          />
+        )}
+
+        {/* Phone Input */}
+        <View style={styles.textContainer}>
+          <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
+          <TextInput
+            style={styles.textStyle}
+            value={displayedPhone}
+            onChangeText={handlePhoneChange}
+            placeholder="+41 XXXXXXXX"
+            keyboardType="numeric"
+            maxLength={12}
+            selection={{
+              start: displayedPhone.length,
+              end: displayedPhone.length,
+            }}
+          />
+        </View>
+
+        <Button
+          title="Save"
+          onPress={handleSave}
+          btnStyle={{ marginTop: isDisplayRelationList ? height(5) : height(13) }}
+        />
+      </KeyboardAwareScrollView>
     </StatusBarWrapper>
   );
 }

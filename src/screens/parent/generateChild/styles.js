@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
   },
   useText: {
     fontSize: 14,
-    fontFamily: fonts.regular,
-    color: colors.mineShaft,
+    fontFamily: fonts.medium,
+    color: 'red',
     marginHorizontal: 16,
     textAlign: "center",
   },

@@ -50,26 +50,28 @@ export default function CoachAccount() {
   };
   return (
     <StatusBarWrapper>
-      <View style={styles.prifileImageView}>
-        <Image
-          style={styles.profileImageStyle}
-          source={Images.COACHPROFILE}
-          resizeMode="contain"
-        />
-        <View style={styles.iconView}>
-          <AntDesign name="edit" size={20} />
-        </View>
-      </View>
-
-      <Text style={styles.accountText}>Account Setup</Text>
       <KeyboardAwareScrollView
-        // contentContainerStyle={{ flex: 1 }}
         enableOnAndroid
-        extraHeight={120}
-        // extraScrollHeight={50} // scroll up extra space when keyboard appears
+        extraScrollHeight={80}
         keyboardShouldPersistTaps="handled"
-      // contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
       >
+        <View style={styles.prifileImageView}>
+          <Image
+            style={styles.profileImageStyle}
+            source={Images.COACHPROFILE}
+            resizeMode="contain"
+          />
+          <View style={styles.iconView}>
+            <AntDesign name="edit" size={20} />
+          </View>
+        </View>
+
+        <Text style={styles.accountText}>Account Setup</Text>
         {activeInfo === "Personal" && (
           <PersonalInfo
             name={name}

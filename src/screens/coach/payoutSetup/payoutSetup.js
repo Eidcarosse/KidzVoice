@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
+import { View, Text, Platform } from "react-native";
 import React, { useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import {
@@ -12,6 +12,7 @@ import styles from "./styles";
 import { currencyList, relationships } from "../../../utils/Data";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function PayoutSetup() {
   const navigation = useNavigation();
@@ -30,66 +31,70 @@ export default function PayoutSetup() {
     navigation.navigate(ScreensName.TRAINING);
   };
   return (
-    <StatusBarWrapper edges={["bottom", "top"]}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "padding"}
-        style={{ flex: 1 }}
+    <StatusBarWrapper >
+      <KeyboardAwareScrollView
+        enableOnAndroid
+        extraScrollHeight={80}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+        showsVerticalScrollIndicator={false}
       >
-        <ScrollView>
-          <Header title={"Payout Setup"} />
+        <Header title={"Payout Setup"} />
 
-          <Text style={styles.labelText}>Account Holder Name</Text>
-          <Input
-            placeholder={"Enter Account Holder Name"}
-            state={accountHolder}
-            setState={setAccountHolder}
+        <Text style={styles.labelText}>Account Holder Name</Text>
+        <Input
+          placeholder={"Enter Account Holder Name"}
+          state={accountHolder}
+          setState={setAccountHolder}
+        />
+
+        <Text style={styles.labelText}>Bank Name</Text>
+        <Input
+          placeholder={"Enter Bank Name"}
+          state={bankName}
+          setState={setBankName}
+        />
+
+        <Text style={styles.labelText}>Account Number / IBAN</Text>
+        <Input
+          placeholder={"Enter Account Number / IBAN"}
+          state={accountNum}
+          setState={setAccountNum}
+        />
+
+        <Text style={styles.labelText}>Sort Code / SWIFT Code</Text>
+        <Input
+          placeholder={"Enter Sort Code / SWIFT Code"}
+          state={shortCode}
+          setState={setShortCode}
+        />
+
+        <Text style={styles.labelText}>Currency</Text>
+        {/* <Input placeholder={"Currency"} state={currency} setState={setCurrency} /> */}
+
+        <DropDown
+          state={currency}
+          setState={setCurrency}
+          onPress={toggleCurrencyListList}
+          isDisplayRelationList={isCurrencyListDisplay}
+          placeholder={"Relationship with child"}
+        // icon={<Users size={20} color={colors.ebonyClay} />}
+        />
+
+        {isCurrencyListDisplay && (
+          <DropDownList
+            lst={currencyList}
+            selectedRelation={currency}
+            setSelectedRelation={setCurrency}
+            setDropDownVisible={setIsCurrencyListDisplay}
           />
+        )}
 
-          <Text style={styles.labelText}>Bank Name</Text>
-          <Input
-            placeholder={"Enter Bank Name"}
-            state={bankName}
-            setState={setBankName}
-          />
-
-          <Text style={styles.labelText}>Account Number / IBAN</Text>
-          <Input
-            placeholder={"Enter Account Number / IBAN"}
-            state={accountNum}
-            setState={setAccountNum}
-          />
-
-          <Text style={styles.labelText}>Sort Code / SWIFT Code</Text>
-          <Input
-            placeholder={"Enter Sort Code / SWIFT Code"}
-            state={shortCode}
-            setState={setShortCode}
-          />
-
-          <Text style={styles.labelText}>Currency</Text>
-          {/* <Input placeholder={"Currency"} state={currency} setState={setCurrency} /> */}
-
-          <DropDown
-            state={currency}
-            setState={setCurrency}
-            onPress={toggleCurrencyListList}
-            isDisplayRelationList={isCurrencyListDisplay}
-            placeholder={"Relationship with child"}
-          // icon={<Users size={20} color={colors.ebonyClay} />}
-          />
-
-          {isCurrencyListDisplay && (
-            <DropDownList
-              lst={currencyList}
-              selectedRelation={currency}
-              setSelectedRelation={setCurrency}
-              setDropDownVisible={setIsCurrencyListDisplay}
-            />
-          )}
-
-          <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleSave} />
-        </ScrollView>
-      </KeyboardAvoidingView>
+        <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleSave} />
+      </KeyboardAwareScrollView>
     </StatusBarWrapper>
   );
 }
