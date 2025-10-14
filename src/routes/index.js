@@ -35,9 +35,12 @@ import {
   WelcomeScreen,
   AiLiveVedioView,
   ChildProgress,
+  Requests,
+  ChildProfile,
 } from "../screens";
 import ScreensName from "./routes";
 import AiGame from "../screens/child/aiGame/aiGame";
+import CoachBottomTabs from "./bottom";
 
 const Stack = createNativeStackNavigator();
 
@@ -166,6 +169,18 @@ export default function Router() {
         <Stack.Screen
           name={ScreensName.CHILDPROGRESS}
           component={ChildProgress}
+        />
+
+        <Stack.Screen
+          name={ScreensName.COACHDASHBOARDTABS}
+          component={CoachBottomTabs}
+        />
+
+        <Stack.Screen name={ScreensName.REQUESTS} component={Requests} />
+
+        <Stack.Screen
+          name={ScreensName.CHILDPROFILE}
+          component={ChildProfile}
         />
       </Stack.Navigator>
     </NavigationContainer>

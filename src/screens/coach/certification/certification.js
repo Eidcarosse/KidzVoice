@@ -13,13 +13,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import { infoToastMessage } from "../../../utils/Methods";
+import { useNavigation } from "@react-navigation/native";
+import ScreensName from "../../../routes/routes";
 
 export default function Certification() {
+  const navigation = useNavigation();
   const handleDownload = () => {
     // Download logic here
     // alert('Downloading certificate...');
 
-    infoToastMessage("Download", "Download Certificate coming soon");
+    // infoToastMessage("Download", "Download Certificate coming soon");
+
+    navigation.navigate(ScreensName.COACHDASHBOARDTABS);
   };
 
   const shareOnLinkedIn = () => {

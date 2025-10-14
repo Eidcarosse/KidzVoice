@@ -214,6 +214,37 @@ const youtubeVideosList = [
   },
 ];
 
+const studentMeetings = [
+  {
+    id: 1,
+    name: "Stephane Maarek",
+    role: "CBT | Diagnosis | Crisis Care | Research | Empathy",
+    classes: "15 Classes Done",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    id: 2,
+    name: "Sarah Parker",
+    role: "CBT | Diagnosis | Research | Empathy",
+    classes: "12 Classes Done",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    role: "Crisis Care | Empathy | Therapy | Research",
+    classes: "10 Classes Done",
+    image: "https://randomuser.me/api/portraits/men/60.jpg",
+  },
+  {
+    id: 4,
+    name: "Sarah Parker",
+    role: "CBT | Diagnosis | Research | Empathy",
+    classes: "12 Classes Done",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+];
+
 export {
   roles,
   relationships,
@@ -230,4 +261,5 @@ export {
   gradesList,
   schoolsList,
   youtubeVideosList,
+  studentMeetings,
 };

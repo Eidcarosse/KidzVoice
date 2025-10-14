@@ -29,6 +29,12 @@ import Assignment from "./coach/assignment/assignment";
 import Certification from "./coach/certification/certification";
 import AiLiveVedioView from "./child/aiLiveVedioView/aiLiveVedioView";
 import ChildProgress from "./parent/childProgress/childProgress";
+import CoachDashboard from "./coach/coachDashboard/coachDashboard";
+import Mentors from "./coach/mentors/mentors";
+import Resume from "./coach/resume/resume";
+import Profile from "./coach/profile/profile";
+import Requests from "./coach/requests/requests";
+import ChildProfile from "./coach/childProfile/childProfile";
 
 export {
   // Child + Parent
@@ -37,7 +43,6 @@ export {
   AiLiveSection,
   LearnerQuestionScreen,
   MagicBackpackScreen,
-
   Welcome,
   AccountSetupScreen,
   SignIn,
@@ -63,4 +68,10 @@ export {
   Assignment,
   Certification,
   ChildProgress,
+  CoachDashboard,
+  Mentors,
+  Resume,
+  Profile,
+  Requests,
+  ChildProfile,
 };
