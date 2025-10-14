@@ -27,6 +27,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { getStoredValue } from "../../../utils/Methods";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { height } from "../../../utils/Dimensions";
 
 const questionSets = {
   LiveVedio: [
@@ -219,14 +220,16 @@ const Questionnaire = () => {
 
   const insert = useSafeAreaInsets();
   return (
-    <View style={[styles.container, { paddingTop: insert.top || 5 }]}>
+    <View style={[styles.container, { paddingTop: insert.top || 5, paddingBottom: insert.bottom }]}>
       <KeyboardAwareScrollView
         enableOnAndroid
         extraScrollHeight={80}
         keyboardShouldPersistTaps="handled"
+        style={{ flex: 1, }}
         contentContainerStyle={{
           flexGrow: 1,
-          paddingBottom: 40,
+          paddingBottom: height(3)
+          // paddingBottom: height(10)
         }}
         showsVerticalScrollIndicator={false}
       >
