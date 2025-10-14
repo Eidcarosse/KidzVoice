@@ -35,14 +35,19 @@ import Resume from "./coach/resume/resume";
 import Profile from "./coach/profile/profile";
 import Requests from "./coach/requests/requests";
 import ChildProfile from "./coach/childProfile/childProfile";
+import TeacherScreen from "./child/teacherScreen/teacher";
+import ViewProfileScreen from "./teacher/teacherProfile/teacherProfile";
+
+
 
 export {
-  // Child + Parent
+  ViewProfileScreen,
   AiLiveQuestion,
   Questionnaire,
   AiLiveSection,
   LearnerQuestionScreen,
   MagicBackpackScreen,
+  TeacherScreen,
   Welcome,
   AccountSetupScreen,
   SignIn,
@@ -74,4 +79,5 @@ export {
   Profile,
   Requests,
   ChildProfile,
+
 };

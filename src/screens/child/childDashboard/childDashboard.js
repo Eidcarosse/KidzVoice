@@ -7,7 +7,7 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -21,7 +21,7 @@ import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../../../components";
 import { getStoredValue, infoToastMessage } from "../../../utils/Methods";
-
+import TeacherIcon from "./../../../assets/svg/training.svg"
 export default function ChildDashboard() {
   const navigation = useNavigation();
   const route = useRoute();
@@ -186,7 +186,20 @@ export default function ChildDashboard() {
         </Pressable>
       </View>
 
-      {/* 🔹 Growth Journey */}
+
+      <TouchableOpacity style={styles.teacherContainer} onPress={() => navigation.navigate(ScreensName.TEACHERSCREEN)}>
+        <View style={styles.iconContainer}>
+          <TeacherIcon width={30} height={30} />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>Techers</Text>
+          <Text style={styles.subtitle}>Up to 30 teachers are available.</Text>
+        </View>
+      </TouchableOpacity>
+
+
+
+
       <Text style={styles.titleStyle}>Your Personal Growth Journey</Text>
       <View style={styles.growContainer}>
         <View style={styles.growthCard}>

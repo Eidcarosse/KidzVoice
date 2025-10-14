@@ -213,7 +213,53 @@ const youtubeVideosList = [
     thumbnail: "https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg",
   },
 ];
-
+const teachers = [
+  {
+    id: "1",
+    name: "Stephane Maarek",
+    title: "CBT | Diagnosis | Crisis Care.......",
+    location: "Rawalpindi, Pakistan",
+    language: "English",
+    rating: 4.9,
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+  },
+  {
+    id: "2",
+    name: "Stephane Maarek",
+    title: "CBT | Diagnosis | Crisis Care.......",
+    location: "Rawalpindi, Pakistan",
+    language: "English",
+    rating: 4.9,
+    image: "https://randomuser.me/api/portraits/men/47.jpg",
+  },
+  {
+    id: "3",
+    name: "Sarah Johnson",
+    title: "Therapist | Stress Management | Self-Growth",
+    location: "Lahore, Pakistan",
+    language: "Urdu, English",
+    rating: 4.8,
+    image: "https://randomuser.me/api/portraits/women/65.jpg",
+  },
+  {
+    id: "4",
+    name: "Ahmed Raza",
+    title: "CBT | Anxiety | Emotional Healing",
+    location: "Karachi, Pakistan",
+    language: "Urdu, English",
+    rating: 4.7,
+    image: "https://randomuser.me/api/portraits/men/52.jpg",
+  },
+  {
+    id: "5",
+    name: "Emily Carter",
+    title: "Psychologist | Family Therapy | Life Coach",
+    location: "Islamabad, Pakistan",
+    language: "English",
+    rating: 4.9,
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
+  }
+]
 const studentMeetings = [
   {
     id: 1,
@@ -245,6 +291,7 @@ const studentMeetings = [
   },
 ];
 
+
 export {
   roles,
   relationships,
@@ -257,6 +304,7 @@ export {
   currencyList,
   modules,
   tasks,
+  teachers,
   childProgreeData,
   gradesList,
   schoolsList,

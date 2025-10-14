@@ -35,8 +35,13 @@ import {
   WelcomeScreen,
   AiLiveVedioView,
   ChildProgress,
+
   Requests,
   ChildProfile,
+
+  TeacherScreen,
+  ViewProfileScreen,
+
 } from "../screens";
 import ScreensName from "./routes";
 import AiGame from "../screens/child/aiGame/aiGame";
@@ -89,6 +94,7 @@ export default function Router() {
           name={ScreensName.AILIVEQUESTIONAIR}
           component={AiLiveQuestion}
         />
+        <Stack.Screen name={ScreensName.VIEWPROFILESCREEN} component={ViewProfileScreen} />
         <Stack.Screen name={ScreensName.AIGAME} component={AiGame} />
         <Stack.Screen
           name={ScreensName.AILIVEEXAMPLE}
@@ -171,6 +177,7 @@ export default function Router() {
           component={ChildProgress}
         />
 
+
         <Stack.Screen
           name={ScreensName.COACHDASHBOARDTABS}
           component={CoachBottomTabs}
@@ -181,6 +188,11 @@ export default function Router() {
         <Stack.Screen
           name={ScreensName.CHILDPROFILE}
           component={ChildProfile}
+        />
+        <Stack.Screen
+          name={ScreensName.TEACHERSCREEN}
+          component={TeacherScreen}
+
         />
       </Stack.Navigator>
     </NavigationContainer>

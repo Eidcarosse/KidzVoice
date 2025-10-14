@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { fontSizes, width } from '../../utils/Dimensions';
 import { fonts } from '../../utils/fonts';
-import AntDesign from '@expo/vector-icons/AntDesign';
+
 const CustomHeader = ({
   title,
-  titleColor,
-  isBack,
+  titleColor = '#000',
+  isBack = true,
   onGoBack,
   rightIcon,
   onPressRightIcon,
@@ -17,31 +17,36 @@ const CustomHeader = ({
 
   return (
     <View style={styles.headerContainer}>
+      {/* Left Icon */}
       <TouchableOpacity
         activeOpacity={0.7}
-        style={styles.iconButton}
-        onPress={() => { isBack ? onGoBack() : navigation.goBack() }}
+        style={styles.leftIcon}
+        onPress={() => (isBack ? onGoBack?.() ?? navigation.goBack() : null)}
         hitSlop={{ top: 10, left: 10, bottom: 10, right: 10 }}
       >
-        <AntDesign name="left" size={20} color="black" />
+        <AntDesign name="left" size={20} color="#000" />
       </TouchableOpacity>
 
-      <View style={styles.titleView}>
-        <Text style={[styles.title, { color: titleColor }]}>{title}</Text>
+      {/* Title */}
+      <View style={styles.titleContainer}>
+        <Text style={[styles.title, { color: titleColor }]} numberOfLines={1}>
+          {title}
+        </Text>
       </View>
 
-      {/* {rightIcon ? (
+      {/* Right Icon */}
+      {rightIcon ? (
         <TouchableOpacity
           activeOpacity={0.7}
-          style={styles.iconButton}
+          style={styles.rightIcon}
           onPress={onPressRightIcon}
           hitSlop={{ top: 10, left: 10, bottom: 10, right: 10 }}
         >
           {rightIcon}
         </TouchableOpacity>
       ) : (
-        <View style={styles.iconButton} />
-      )} */}
+        <View style={styles.rightIconPlaceholder} />
+      )}
     </View>
   );
 };
@@ -52,25 +57,30 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: width(4),
     marginBottom: width(2),
-    marginHorizontal: width(2),
   },
-  iconButton: {
+  leftIcon: {
     padding: 8,
     borderRadius: 8,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
-  titleView: {
-    position: 'absolute',
-    justifyContent: 'center',
+  titleContainer: {
+    flex: 1,
     alignItems: 'center',
-    alignContent: 'center',
-    // backgroundColor: 'red',
-    width: '100%',
   },
   title: {
-    textAlign: 'center',
     fontSize: fontSizes.xl,
     fontFamily: fonts.bold,
+    textAlign: 'center',
+  },
+  rightIcon: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+  },
+  rightIconPlaceholder: {
+    width: 36,
   },
 });

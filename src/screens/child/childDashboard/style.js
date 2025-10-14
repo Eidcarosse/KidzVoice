@@ -204,7 +204,40 @@ const styles = StyleSheet.create({
         transform: [{ rotate: "180deg" }],
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'cover',
-    }
+    },
+    teacherContainer: {
+        backgroundColor: '#007BFF',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 16,
+        marginHorizontal: 16,
+        marginTop: 10,
+        paddingVertical: 12,
+        borderRadius: 20,
+        alignSelf: 'center',
+
+    },
+    iconContainer: {
+        backgroundColor: '#fff',
+        padding: 16,
+        borderRadius: 50,
+        marginRight: 12,
+    },
+    textContainer: {
+        flex: 1,
+    },
+    title: {
+        color: '#fff',
+        fontSize: 16,
+        fontFamily: fonts.medium
+    },
+    subtitle: {
+        color: '#E0E0E0',
+        fontSize: 12,
+        marginTop: 2,
+        fontFamily: fonts.regular
+    },
+
 });
 
 export default styles;
