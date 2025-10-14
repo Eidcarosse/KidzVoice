@@ -1,5 +1,4 @@
 const ScreensName = {
-
   WELCOME: "Welcome",
   SIGNIN: "SignIn",
   PARENTPROFILENFO: "ParentProfileInfo",
@@ -30,5 +29,12 @@ const ScreensName = {
   CERTIFICATION: "Certification",
   VIDEOVIEW: "VedioView",
   CHILDPROGRESS: "ChildProgress",
+  COACHDASHBOARDTABS: "CoachDashboardTabs",
+  COACHDASHBOARD: "CoachDashboard",
+  MENTORS: "Mentors",
+  RESUME: "Resume",
+  PROFILE: "Profile",
+  REQUESTS: "Requests",
+  CHILDPROFILE: "ChildProfile",
 };
 export default ScreensName;

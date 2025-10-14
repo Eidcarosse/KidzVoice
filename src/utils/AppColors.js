@@ -27,6 +27,10 @@ const colors = {
   grandis: "#FFD18B",
   outerSpace: "#303437",
   jumbo: "#89898A",
+  gallery: "#F0F0F0",
+  scorpion: "#5D5C5C",
+  selectiveYellow: "#FBBB00",
+  purpleHeart: "#7C3DE3",
 };
 
 export default colors;
