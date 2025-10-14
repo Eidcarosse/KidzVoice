@@ -36,6 +36,7 @@ import {
   AiLiveVedioView,
   ChildProgress,
   TeacherScreen,
+  ViewProfileScreen,
 } from "../screens";
 import ScreensName from "./routes";
 import AiGame from "../screens/child/aiGame/aiGame";
@@ -87,6 +88,7 @@ export default function Router() {
           name={ScreensName.AILIVEQUESTIONAIR}
           component={AiLiveQuestion}
         />
+        <Stack.Screen name={ScreensName.VIEWPROFILESCREEN} component={ViewProfileScreen} />
         <Stack.Screen name={ScreensName.AIGAME} component={AiGame} />
         <Stack.Screen
           name={ScreensName.AILIVEEXAMPLE}

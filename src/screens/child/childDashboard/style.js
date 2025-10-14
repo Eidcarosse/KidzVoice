@@ -210,16 +210,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 16,
+        marginHorizontal: 16,
+        marginTop: 10,
         paddingVertical: 12,
         borderRadius: 20,
-        margin: 12,
         alignSelf: 'center',
 
     },
     iconContainer: {
-        backgroundColor: '#0066CC',
-        padding: 10,
-        borderRadius: 12,
+        backgroundColor: '#fff',
+        padding: 16,
+        borderRadius: 50,
         marginRight: 12,
     },
     textContainer: {
@@ -228,12 +229,13 @@ const styles = StyleSheet.create({
     title: {
         color: '#fff',
         fontSize: 16,
-        fontWeight: '600',
+        fontFamily: fonts.medium
     },
     subtitle: {
         color: '#E0E0E0',
         fontSize: 12,
         marginTop: 2,
+        fontFamily: fonts.regular
     },
 
 });

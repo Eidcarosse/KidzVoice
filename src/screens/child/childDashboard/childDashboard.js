@@ -21,7 +21,7 @@ import Images from "../../../assets/images";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../../../components";
 import { getStoredValue, infoToastMessage } from "../../../utils/Methods";
-
+import TeacherIcon from "./../../../assets/svg/training.svg"
 export default function ChildDashboard() {
   const navigation = useNavigation();
   const route = useRoute();
@@ -187,17 +187,14 @@ export default function ChildDashboard() {
       </View>
 
 
-      <TouchableOpacity onPress={() => navigation.navigate(ScreensName.TEACHERSCREEN)}>
-        <View style={styles.teacherContainer}>
-          <View style={styles.iconContainer}>
-            <FontAwesome5 name="chalkboard-teacher" size={20} color="#fff" />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>Techers</Text>
-            <Text style={styles.subtitle}>Up to 30 teachers are available.</Text>
-          </View>
+      <TouchableOpacity style={styles.teacherContainer} onPress={() => navigation.navigate(ScreensName.TEACHERSCREEN)}>
+        <View style={styles.iconContainer}>
+          <TeacherIcon width={30} height={30} />
         </View>
-
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>Techers</Text>
+          <Text style={styles.subtitle}>Up to 30 teachers are available.</Text>
+        </View>
       </TouchableOpacity>
 
 

@@ -31,5 +31,6 @@ const ScreensName = {
   VIDEOVIEW: "VedioView",
   CHILDPROGRESS: "ChildProgress",
   TEACHERSCREEN: "TeacherScreen",
+  VIEWPROFILESCREEN: "ViewProfileScreen"
 };
 export default ScreensName;

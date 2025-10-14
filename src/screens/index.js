@@ -30,10 +30,12 @@ import Certification from "./coach/certification/certification";
 import AiLiveVedioView from "./child/aiLiveVedioView/aiLiveVedioView";
 import ChildProgress from "./parent/childProgress/childProgress";
 import TeacherScreen from "./child/teacherScreen/teacher";
+import ViewProfileScreen from "./teacher/teacherProfile/teacherProfile";
+
 
 
 export {
-  // Child + Parent
+  ViewProfileScreen,
   AiLiveQuestion,
   Questionnaire,
   AiLiveSection,
