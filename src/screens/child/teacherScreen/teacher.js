@@ -43,7 +43,7 @@ export default function TeacherScreen() {
                 <FlatList
                     data={teachers}
                     keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => <TeacherCard item={item} />}
+                    renderItem={({ item }) => <TeacherCard item={item} isTeacher={false} />}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ paddingBottom: 30 }}
                 />

@@ -14,7 +14,8 @@ import { styles } from "./styles";
 
 const ViewProfileScreen = ({ navigation, route }) => {
     const inset = useSafeAreaInsets();
-    const { item } = route.params || {};
+    const { item, isTeacher } = route.params || {};
+
 
     return (
         <View style={[styles.container, { paddingTop: inset.top, paddingBottom: inset.bottom }]}>
@@ -78,7 +79,7 @@ const ViewProfileScreen = ({ navigation, route }) => {
 
             {/* Bottom Button */}
             <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnText}>Send Request</Text>
+                <Text style={styles.btnText}>{isTeacher ? "Accept Request" : "Send Request"}</Text>
             </TouchableOpacity>
         </View>
     );

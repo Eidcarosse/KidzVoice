@@ -5,7 +5,7 @@ import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import ScreensName from '../../routes/routes';
 
-const TeacherCard = ({ item }) => {
+const TeacherCard = ({ item, isTeacher }) => {
     const navigation = useNavigation()
     return (
         <View style={styles.card}>
@@ -33,7 +33,7 @@ const TeacherCard = ({ item }) => {
                 </View>
             </View>
 
-            <TouchableOpacity onPress={() => navigation.navigate(ScreensName.VIEWPROFILESCREEN, { item: item })} >
+            <TouchableOpacity onPress={() => navigation.navigate(ScreensName.VIEWPROFILESCREEN, { item: item, isTeacher })} >
                 <Text style={styles.link}>View Profile</Text>
             </TouchableOpacity>
         </View>
