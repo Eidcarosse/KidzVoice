@@ -30,5 +30,6 @@ const ScreensName = {
   CERTIFICATION: "Certification",
   VIDEOVIEW: "VedioView",
   CHILDPROGRESS: "ChildProgress",
+  TEACHERSCREEN: "TeacherScreen",
 };
 export default ScreensName;

@@ -7,7 +7,7 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -186,7 +186,23 @@ export default function ChildDashboard() {
         </Pressable>
       </View>
 
-      {/* 🔹 Growth Journey */}
+
+      <TouchableOpacity onPress={() => navigation.navigate(ScreensName.TEACHERSCREEN)}>
+        <View style={styles.teacherContainer}>
+          <View style={styles.iconContainer}>
+            <FontAwesome5 name="chalkboard-teacher" size={20} color="#fff" />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Techers</Text>
+            <Text style={styles.subtitle}>Up to 30 teachers are available.</Text>
+          </View>
+        </View>
+
+      </TouchableOpacity>
+
+
+
+
       <Text style={styles.titleStyle}>Your Personal Growth Journey</Text>
       <View style={styles.growContainer}>
         <View style={styles.growthCard}>

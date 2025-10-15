@@ -29,6 +29,8 @@ import Assignment from "./coach/assignment/assignment";
 import Certification from "./coach/certification/certification";
 import AiLiveVedioView from "./child/aiLiveVedioView/aiLiveVedioView";
 import ChildProgress from "./parent/childProgress/childProgress";
+import TeacherScreen from "./child/teacherScreen/teacher";
+
 
 export {
   // Child + Parent
@@ -37,7 +39,7 @@ export {
   AiLiveSection,
   LearnerQuestionScreen,
   MagicBackpackScreen,
-
+  TeacherScreen,
   Welcome,
   AccountSetupScreen,
   SignIn,
@@ -63,4 +65,5 @@ export {
   Assignment,
   Certification,
   ChildProgress,
+
 };
