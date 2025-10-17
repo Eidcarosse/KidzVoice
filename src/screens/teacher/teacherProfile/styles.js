@@ -89,18 +89,12 @@ export const styles = StyleSheet.create({
     sectionText: {
         fontSize: 14,
         color: "#444",
-        lineHeight: 19,
+        lineHeight: 20,
         fontFamily: fonts.regular
     },
     btn: {
-        position: "absolute",
-        bottom: 30,
-        alignSelf: "center",
-        backgroundColor: "#2563EB",
-        paddingVertical: 14,
-        paddingHorizontal: 70,
-        borderRadius: 30,
-        elevation: 3,
+        marginBottom: 30,
+
     },
     btnText: {
         color: "#fff",

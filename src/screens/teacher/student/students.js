@@ -4,13 +4,18 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import StudentCard from "../../../components/studentCard/studentCard";
 import CustomHeader from "../../../components/customHeader/header";
 import { Ionicons } from "@expo/vector-icons";
+import ScreensName from "../../../routes/routes";
+import { useNavigation } from "@react-navigation/native";
 // import { students } from "../../../utils/Data";
 
 export default function Students() {
     const [activeStudentId, setActiveStudentId] = useState(null);
+    const navigation = useNavigation()
 
-    const handleSelectStudent = (id) => {
-        setActiveStudentId(id);
+    const handleSelectStudent = (item) => {
+        setActiveStudentId(item.id);
+
+        navigation.navigate(ScreensName.STUDENTPROGRESSCHART, { item })
     };
     const students = [
         {
@@ -64,7 +69,7 @@ export default function Students() {
                     renderItem={({ item, index }) => (
                         <TouchableOpacity
                             activeOpacity={0.8}
-                            onPress={() => handleSelectStudent(item.id)}
+                            onPress={() => handleSelectStudent(item)}
                         >
                             <StudentCard
                                 index={index}

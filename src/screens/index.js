@@ -38,6 +38,7 @@ import ChildProfile from "./coach/childProfile/childProfile";
 import TeacherScreen from "./child/teacherScreen/teacher";
 import ViewProfileScreen from "./teacher/teacherProfile/teacherProfile";
 import Students from "./teacher/student/students";
+import StudentProgressChart from "./teacher/studentProgress";
 
 
 
@@ -45,6 +46,7 @@ export {
   Students,
   ViewProfileScreen,
   AiLiveQuestion,
+  StudentProgressChart,
   Questionnaire,
   AiLiveSection,
   LearnerQuestionScreen,
