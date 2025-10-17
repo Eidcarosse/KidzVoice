@@ -192,7 +192,7 @@ export default function ChildDashboard() {
           <TeacherIcon width={30} height={30} />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>Techers</Text>
+          <Text style={styles.title}>Teachers</Text>
           <Text style={styles.subtitle}>Up to 30 teachers are available.</Text>
         </View>
       </TouchableOpacity>

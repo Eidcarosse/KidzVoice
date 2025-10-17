@@ -271,7 +271,7 @@ export default function StartTraining() {
             ]}
             numberOfLines={2}
           >
-            Accessment 1
+            Assessment
           </Text>
 
         </TouchableOpacity>
