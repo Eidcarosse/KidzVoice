@@ -4,7 +4,7 @@ import StatusBarWrapper from "../../components/customStatusbar";
 import { Button, RoleSelection, SocialLogin } from "../../components";
 import styles from "./styles";
 import Images from "../../assets/images";
-import { useNavigation } from "@react-navigation/native";
+import { CommonActions, useNavigation } from "@react-navigation/native";
 import {
   getStoredValue,
   infoToastMessage,
@@ -112,7 +112,13 @@ export default function SignIn() {
     if (selectedRole?.title) {
       if (selectedRole?.title === "Parent") {
         if (childData?.id && parentData?.isLogin) {
-          navigation.navigate(ScreensName.CHILDPROGRESS);
+          // navigation.navigate(ScreensName.CHILDPROGRESS);
+          navigation.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [{ name: ScreensName.CHILDPROGRESS }],
+            })
+          );
         } else {
           navigation.navigate(ScreensName.PARENTPROFILENFO);
         }

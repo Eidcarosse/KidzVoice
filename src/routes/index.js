@@ -41,6 +41,7 @@ import {
 
   TeacherScreen,
   ViewProfileScreen,
+  Students,
 
 } from "../screens";
 import ScreensName from "./routes";
@@ -63,6 +64,7 @@ export default function Router() {
           component={ProfileInfo}
         />
 
+        <Stack.Screen name={ScreensName.STUDENTS} component={Students} />
         <Stack.Screen name={ScreensName.ADDCHILD} component={AddChild} />
         <Stack.Screen
           name={ScreensName.CREATECHILDPROFILE}

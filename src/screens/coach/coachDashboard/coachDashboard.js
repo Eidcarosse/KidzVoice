@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, Image, TouchableOpacity, FlatList, Pressable } from "react-native";
 import React from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import styles from "./styles";
@@ -7,6 +7,7 @@ import { studentMeetings } from "../../../utils/Data";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import colors from "../../../utils/AppColors";
+import { infoToastMessage } from "../../../utils/Methods";
 
 export default function CoachDashboard() {
   const navigation = useNavigation();
@@ -53,12 +54,12 @@ export default function CoachDashboard() {
             size={28}
             color={colors.purpleHeart}
           />
-          <View style={{ marginTop: 5, marginLeft: 10 }}>
+          <Pressable onPress={() => navigation.navigate(ScreensName.STUDENTS)} style={{ marginTop: 5, marginLeft: 10 }}>
             <Text style={styles.smallCardTitle}>Students</Text>
             <Text style={styles.smallCardSubtitle}>
               30 students in your class
             </Text>
-          </View>
+          </Pressable>
         </TouchableOpacity>
 
         <TouchableOpacity style={[styles.smallCard]}>
@@ -67,12 +68,12 @@ export default function CoachDashboard() {
             size={28}
             color={colors.selectiveYellow}
           />
-          <View style={{ marginTop: 5, marginLeft: 10 }}>
+          <Pressable onPress={() => infoToastMessage("Schedule", "Schedule is Coming soon!")} style={{ marginTop: 5, marginLeft: 10 }}>
             <Text style={styles.smallCardTitle}>Schedule</Text>
             <Text style={styles.smallCardSubtitle}>
               5 meeting have upcoming
             </Text>
-          </View>
+          </Pressable>
         </TouchableOpacity>
       </View>
 

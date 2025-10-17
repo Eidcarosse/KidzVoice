@@ -7,7 +7,7 @@ import {
   BackHandler,
   ScrollView,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import ProgressChart from "./progressChart";
 import styles from "./styles";
@@ -19,7 +19,7 @@ import {
   infoToastMessage,
   storeValue,
 } from "../../../utils/Methods";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../../../components";
@@ -64,23 +64,41 @@ export default function ChildProgress() {
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    const backAction = () => {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: ScreensName.SIGNIN }],
-      });
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
 
-      return true;
-    };
+        return true;
+      };
 
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
+      const subscription = BackHandler.addEventListener(
+        'hardwareBackPress',
+        onBackPress
+      );
 
-    return () => backHandler.remove(); // cleanup
-  }, []);
+      // Clean up when screen loses focus
+      return () => subscription.remove();
+    }, [])
+  );
+
+
+  // useEffect(() => {
+  //   const backAction = () => {
+  //     navigation.reset({
+  //       index: 0,
+  //       routes: [{ name: ScreensName.SIGNIN }],
+  //     });
+
+  //     return true;
+  //   };
+
+  //   const backHandler = BackHandler.addEventListener(
+  //     "hardwareBackPress",
+  //     backAction
+  //   );
+
+  //   return () => backHandler.remove(); // cleanup
+  // }, []);
 
   if (loading) {
     return (
@@ -184,7 +202,7 @@ export default function ChildProgress() {
             title="Setup Child"
             onPress={async () => {
               try {
-                navigation.navigate(ScreensName.SIGNIN)
+                navigation.navigate(ScreensName.ACCOUNT)
               } catch (error) {
                 console.error('❌ Error clearing AsyncStorage:', error);
               }

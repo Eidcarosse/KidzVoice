@@ -214,12 +214,61 @@ const youtubeVideosList = [
     thumbnail: "https://img.youtube.com/vi/3tmd-ClpJxA/hqdefault.jpg",
   },
 ];
+const students = [
+  {
+    id: "1",
+    name: "Lukas Müller",
+    title: "Struggling with anxiety and isolation after changing schools.",
+    location: "Berlin, Germany",
+    language: "German, English",
+    rating: 0,
+    image: "https://randomuser.me/api/portraits/men/21.jpg",
+  },
+  {
+    id: "2",
+    name: "Mia Schneider",
+    title: "Experiencing emotional distress after family conflict and needs crisis support.",
+    location: "Munich, Germany",
+    language: "German, English",
+    rating: 0,
+    image: "https://randomuser.me/api/portraits/women/20.jpg",
+  },
+  {
+    id: "3",
+    name: "Jonas Weber",
+    title: "Dealing with academic pressure, low self-esteem, and stress management challenges.",
+    location: "Frankfurt, Germany",
+    language: "German, English",
+    rating: 0,
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+  },
+  {
+    id: "4",
+    name: "Lea Fischer",
+    title: "Suffers from panic attacks before exams and social anxiety.",
+    location: "Hamburg, Germany",
+    language: "German, English",
+    rating: 0,
+    image: "https://randomuser.me/api/portraits/women/18.jpg",
+  },
+  {
+    id: "5",
+    name: "Noah Becker",
+    title: "Struggling with family communication and emotional disconnection at home.",
+    location: "Cologne, Germany",
+    language: "English, German",
+    rating: 0,
+    image: "https://randomuser.me/api/portraits/men/23.jpg",
+  },
+];
+
+
 const teachers = [
   {
     id: "1",
     name: "Stephane Maarek",
     title: "CBT | Diagnosis | Crisis Care.......",
-    location: "Rawalpindi, Pakistan",
+    location: "Berlin, Germany",
     language: "English",
     rating: 4.9,
     image: "https://randomuser.me/api/portraits/men/45.jpg",
@@ -228,7 +277,7 @@ const teachers = [
     id: "2",
     name: "Stephane Maarek",
     title: "CBT | Diagnosis | Crisis Care.......",
-    location: "Rawalpindi, Pakistan",
+    location: "Munich, Germany",
     language: "English",
     rating: 4.9,
     image: "https://randomuser.me/api/portraits/men/47.jpg",
@@ -237,8 +286,8 @@ const teachers = [
     id: "3",
     name: "Sarah Johnson",
     title: "Therapist | Stress Management | Self-Growth",
-    location: "Lahore, Pakistan",
-    language: "Urdu, English",
+    location: "Frankfurt, Germany",
+    language: "German, English",
     rating: 4.8,
     image: "https://randomuser.me/api/portraits/women/65.jpg",
   },
@@ -246,8 +295,8 @@ const teachers = [
     id: "4",
     name: "Ahmed Raza",
     title: "CBT | Anxiety | Emotional Healing",
-    location: "Karachi, Pakistan",
-    language: "Urdu, English",
+    location: "Hamburg, Germany",
+    language: "German, English",
     rating: 4.7,
     image: "https://randomuser.me/api/portraits/men/52.jpg",
   },
@@ -255,12 +304,13 @@ const teachers = [
     id: "5",
     name: "Emily Carter",
     title: "Psychologist | Family Therapy | Life Coach",
-    location: "Islamabad, Pakistan",
+    location: "Cologne, Germany",
     language: "English",
     rating: 4.9,
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-  }
-]
+  },
+];
+
 const studentMeetings = [
   {
     id: 1,
@@ -306,6 +356,7 @@ export {
   modules,
   tasks,
   teachers,
+  students,
   childProgreeData,
   gradesList,
   schoolsList,

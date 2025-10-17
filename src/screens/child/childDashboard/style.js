@@ -239,54 +239,66 @@ const styles = StyleSheet.create({
     },
     modalContainer: {
         flex: 1,
-        backgroundColor: "rgba(0,0,0,0.4)",
+        backgroundColor: "rgba(0,0,0,0.45)",
         justifyContent: "center",
         alignItems: "center",
+        paddingHorizontal: 20,
     },
     modalBox: {
         width: "90%",
+        maxWidth: 380,
         backgroundColor: "#fff",
-        borderRadius: 16,
-        paddingVertical: 25,
-        paddingHorizontal: 20,
+        borderRadius: 14,
+        paddingVertical: 20,
+        paddingHorizontal: 18,
         alignItems: "center",
-        justifyContent: 'space-between'
+        justifyContent: "space-between",
+        elevation: 6,
+        shadowColor: "#000",
+        shadowOpacity: 0.15,
+        shadowRadius: 8,
+        shadowOffset: { width: 0, height: 4 },
     },
     modalTitle: {
-        fontSize: 16,
+        fontSize: 18,
+        textAlign: "center",
+        color: "#000",
+        marginBottom: 8,
+        fontFamily: fonts.medium
+    },
+    modalRow: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        width: "100%",
+        marginTop: 10,
+    },
+    cancelButton: {
+        paddingVertical: 10,
+        paddingHorizontal: 23,
+        borderRadius: 8,
+        borderWidth: 0.4,
+    },
+    cancelText: {
+        color: "#1976d2",
+        fontSize: 14,
         fontFamily: fonts.regular,
-        marginBottom: 20,
     },
     logoutButton: {
         flexDirection: "row",
         alignItems: "center",
         backgroundColor: "#f44336",
         borderRadius: 10,
-        paddingHorizontal: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 18,
         justifyContent: "center",
     },
     logoutText: {
         color: "#fff",
         fontSize: 16,
-        marginLeft: 10,
-        fontFamily: fonts.regular
+        marginLeft: 8,
+        fontFamily: fonts.medium,
     },
-    cancelButton: {
-        padding: 10,
-        textAlign: "center"
-    },
-    cancelText: {
-        color: "#1976d2",
-        fontFamily: fonts.regular
-    },
-    modalRow: {
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        width: "100%",
-
-
-    }
-
 
 });
 

@@ -3,7 +3,7 @@ import React from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import { Header } from "../../../components";
 import styles from "./styles";
-import { teachers } from "../../../utils/Data";
+import { students, teachers } from "../../../utils/Data";
 import TeacherCard from "../../../components/teacherCard/teacherCard";
 
 export default function Requests() {
@@ -14,7 +14,7 @@ export default function Requests() {
       <Text style={styles.requestText}>15 new requests for availability</Text>
 
       <FlatList
-        data={teachers}
+        data={students}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TeacherCard item={item} isTeacher={true} />}
         showsVerticalScrollIndicator={false}

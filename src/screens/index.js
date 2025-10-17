@@ -37,10 +37,12 @@ import Requests from "./coach/requests/requests";
 import ChildProfile from "./coach/childProfile/childProfile";
 import TeacherScreen from "./child/teacherScreen/teacher";
 import ViewProfileScreen from "./teacher/teacherProfile/teacherProfile";
+import Students from "./teacher/student/students";
 
 
 
 export {
+  Students,
   ViewProfileScreen,
   AiLiveQuestion,
   Questionnaire,

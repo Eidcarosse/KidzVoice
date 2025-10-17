@@ -37,6 +37,7 @@ const ScreensName = {
   REQUESTS: "Requests",
   CHILDPROFILE: "ChildProfile",
   TEACHERSCREEN: "TeacherScreen",
-  VIEWPROFILESCREEN: "ViewProfileScreen"
+  VIEWPROFILESCREEN: "ViewProfileScreen",
+  STUDENTS: 'Students'
 };
 export default ScreensName;

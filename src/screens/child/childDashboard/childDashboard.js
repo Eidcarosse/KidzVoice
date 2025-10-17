@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -8,13 +8,14 @@ import {
   Pressable,
   ScrollView,
   Modal,
+  BackHandler,
 } from "react-native";
 import { FontAwesome5, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
 import styles from "./style";
 import ScreensName from "../../../routes/routes";
 import CustomHeader from "../../../components/customHeader/header";
@@ -100,7 +101,22 @@ export default function ChildDashboard() {
     console.log("Child Data Response", childDataRes);
     setChildData(childDataRes);
   };
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
 
+        return true;
+      };
+
+      const subscription = BackHandler.addEventListener(
+        'hardwareBackPress',
+        onBackPress
+      );
+
+      // Clean up when screen loses focus
+      return () => subscription.remove();
+    }, [])
+  );
   useEffect(() => {
     getChildData();
     setLoading(false);
@@ -108,17 +124,23 @@ export default function ChildDashboard() {
   return (
     // <StatusBarWrapper>
     <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
-      <ScrollView>
-        <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
+      <Image source={Images.AIBLUISHBG} style={styles.backgroundImageStyle} />
 
-        <View style={styles.topRow}>
-          <TouchableOpacity
-            onPress={() => setShowSettingsModal(true)}
-            style={styles.settingIcon}
-          >
-            <Ionicons name="settings-outline" size={28} color="black" />
-          </TouchableOpacity>
-        </View>
+
+      <View style={styles.topRow}>
+        <TouchableOpacity
+          onPress={() => setShowSettingsModal(true)}
+          style={styles.settingIcon}
+        >
+          <Ionicons name="settings-outline" size={28} color="black" />
+        </TouchableOpacity>
+      </View>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
+      >
+
         <View style={styles.header}>
           <Image
             source={{ uri: "https://randomuser.me/api/portraits/men/32.jpg" }}
@@ -216,24 +238,9 @@ export default function ChildDashboard() {
             </Text>
           </View>
         </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 10 }}>
-
-          <Button
-            title="Logout"
-            onPress={async () => {
-              try {
-                await AsyncStorage.removeItem('childData');
-                await AsyncStorage.removeItem('LOCK_KEY');
-                console.log('✅ Async data cleared successfully');
-                navigation.navigate(ScreensName.WELCOME);
-              } catch (error) {
-                console.error('❌ Error clearing AsyncStorage:', error);
-              }
-            }}
-          />
-        </View>
       </ScrollView>
-      {/* ⚙️ Settings Modal */}
+
+
       <Modal
         visible={showSettingsModal}
         transparent
@@ -242,24 +249,32 @@ export default function ChildDashboard() {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalBox}>
-            <Text style={styles.modalTitle}>Are you sure you want to logout?</Text>
+            <Text style={styles.modalTitle}>
+              Are you sure you want to logout?
+            </Text>
 
             <View style={styles.modalRow}>
-
-              <TouchableOpacity style={styles.cancelButton} onPress={() => setShowSettingsModal(false)}>
+              <TouchableOpacity
+                style={styles.cancelButton}
+                onPress={() => setShowSettingsModal(false)}
+                activeOpacity={0.8}
+              >
                 <Text style={styles.cancelText}>Cancel</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.logoutButton} onPress={async () => {
-                try {
-                  await AsyncStorage.removeItem("childData");
-                  await AsyncStorage.removeItem("LOCK_KEY");
-                  setShowSettingsModal(false);
-                  navigation.navigate(ScreensName.WELCOME);
-                } catch (error) {
-                  console.error("❌ Error during logout:", error);
-                }
-              }}>
-                <MaterialCommunityIcons name="logout" size={22} color="#fff" />
+
+              <TouchableOpacity
+                style={styles.logoutButton}
+                activeOpacity={0.8}
+                onPress={async () => {
+                  try {
+                    setShowSettingsModal(false);
+                    navigation.navigate(ScreensName.SIGNIN);
+                  } catch (error) {
+                    console.error("❌ Error during logout:", error);
+                  }
+                }}
+              >
+                <MaterialCommunityIcons name="logout" size={20} color="#fff" />
                 <Text style={styles.logoutText}>Logout</Text>
               </TouchableOpacity>
             </View>
