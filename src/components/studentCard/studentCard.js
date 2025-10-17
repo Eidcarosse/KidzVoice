@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet, Platform } from "react-native";
 import { fonts } from "../../utils/fonts";
 import colors from "../../utils/AppColors";
+import Images from "../../assets/images";
 
 export default function StudentCard({ index, name, title, level, image, highlighted }) {
     return (
@@ -20,7 +21,7 @@ export default function StudentCard({ index, name, title, level, image, highligh
             <View style={styles.levelContainer}>
                 <Text style={styles.levelText}>Level {level}</Text>
                 <Image
-                    source={{ uri: "https://cdn-icons-png.flaticon.com/512/616/616408.png" }}
+                    source={Images.MEDAL}
                     style={styles.badge}
                 />
             </View>

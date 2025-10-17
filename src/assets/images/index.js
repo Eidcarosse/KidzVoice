@@ -18,6 +18,7 @@ const Images = {
   MODULEIMAGE: require("./modulueImage.png"),
   STARTQUIZ: require("./startQuiz.png"),
   COACHAVATAR: require("./coachAvatar.png"),
+  MEDAL: require("./medal.png")
 };
 
 export default Images;

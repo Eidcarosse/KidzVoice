@@ -4,6 +4,7 @@ import {
     TextInput,
     FlatList,
     TouchableOpacity,
+    Text,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./style";
@@ -17,15 +18,24 @@ export default function TeacherScreen() {
     const [searchText, setSearchText] = useState("");
 
     const filteredTeachers = useMemo(() => {
-        const query = searchText.toLowerCase();
-        if (!query) return teachers;
+        const query = searchText?.toLowerCase().trim();
+        if (!query) return teachers?.filter(Boolean) || [];
 
-        return teachers.filter(
-            (teacher) =>
-                teacher.name.toLowerCase().includes(query) ||
-                teacher.title.toLowerCase().includes(query) ||
-                teacher.language.toLowerCase().includes(query) ||
-                teacher.location.toLowerCase().includes(query)
+        return (
+            teachers
+                ?.filter(Boolean) // removes null/undefined
+                ?.filter((teacher) => {
+                    const name = teacher?.name?.toLowerCase() || "";
+                    const title = teacher?.title?.toLowerCase() || "";
+                    const language = teacher?.language?.toLowerCase() || "";
+                    const location = teacher?.location?.toLowerCase() || "";
+                    return (
+                        name.includes(query) ||
+                        title.includes(query) ||
+                        language.includes(query) ||
+                        location.includes(query)
+                    );
+                }) || []
         );
     }, [searchText]);
 
@@ -59,11 +69,11 @@ export default function TeacherScreen() {
 
                 {/* 🔹 Teacher list */}
                 <FlatList
-                    data={filteredTeachers}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <TeacherCard item={item} isTeacher={true} />
-                    )}
+                    data={filteredTeachers || []}
+                    keyExtractor={(item, index) => item?.id?.toString() || index.toString()}
+                    renderItem={({ item }) =>
+                        item ? <TeacherCard item={item} isTeacher /> : null
+                    }
                     showsVerticalScrollIndicator={false}
                     ListEmptyComponent={
                         <View style={{ alignItems: "center", marginTop: 50 }}>
