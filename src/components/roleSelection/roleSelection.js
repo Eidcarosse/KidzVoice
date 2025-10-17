@@ -2,8 +2,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 import { roles } from "../../utils/Data";
+import { useTranslation } from "react-i18next";
 
 export default function RoleSelection({ selected, onSelection }) {
+  const { t } = useTranslation();
   const handleSelect = (role) => {
     onSelection?.(role); // pass selected role back to parent if needed
   };
@@ -24,7 +26,7 @@ export default function RoleSelection({ selected, onSelection }) {
               selected?.id === role.id && styles.selectedRoleText,
             ]}
           >
-            {role.title}
+            {t(`roleSelection.${role.label}`)}
           </Text>
         </TouchableOpacity>
       ))}

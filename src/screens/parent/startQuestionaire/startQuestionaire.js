@@ -7,9 +7,11 @@ import { Button } from "../../../components";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { getStoredValue } from "../../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function StartQuestionaire() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -32,14 +34,19 @@ export default function StartQuestionaire() {
     <StatusBarWrapper>
       <Image source={Images.QUESTIONAIRE} style={styles.imageStyle} />
 
-      <Text style={styles.startText}>Start Questionnaire</Text>
-
-      <Text style={styles.hisText}>
-        This helps us understand {childData?.name}’s needs. It only takes about 5
-        minutes. You can pause and return anytime.
+      <Text style={styles.startText}>
+        {t(`startQuestionaire.startQuestionaire`)}
       </Text>
 
-      <Button title={"Began"} onPress={handleBegan} />
+      <Text style={styles.hisText}>
+        {t(`startQuestionaire.underStand`)} {childData?.name}’s{" "}
+        {t(`startQuestionaire.childNeed`)}
+      </Text>
+
+      <Button
+        title={t(`startQuestionaire.beganButton`)}
+        onPress={handleBegan}
+      />
     </StatusBarWrapper>
   );
 }

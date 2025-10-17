@@ -24,11 +24,12 @@ const styles = StyleSheet.create({
     color: colors.boulder,
     textAlign: "center",
     marginBottom: height(6),
+    marginHorizontal: 16,
   },
   textStyle: {
     flex: 1,
     fontSize: 16,
-    color: colors.ebonyClay
+    color: colors.ebonyClay,
   },
   textContainer: {
     flexDirection: "row",
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     borderColor: "#E0E0E0",
     paddingHorizontal: 10,
     height: 50,
-    marginHorizontal: 15
-  }
+    marginHorizontal: 15,
+  },
 });
 
 export default styles;

@@ -8,6 +8,7 @@ import {
   strugglingAreaOptions,
 } from "../../utils/Data";
 import { getStoredValue } from "../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function CurrentStrugle({
   strugglingArea,
@@ -15,6 +16,7 @@ export default function CurrentStrugle({
   struggleEffect,
   setStruggleEffect,
 }) {
+  const { t } = useTranslation();
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -31,13 +33,16 @@ export default function CurrentStrugle({
   }, []);
   return (
     <View style={styles.parentView}>
-      <Text style={styles.title}>Current Struggles</Text>
+      <Text style={styles.title}>{t(`currentStrugle.currentStrugle`)}</Text>
       <Text style={styles.subtitle}>
-        Purpose: What {childData?.name} is facing right now.
+        {t(`currentStrugle.purpose`)} {childData?.name}{" "}
+        {t(`currentStrugle.facing`)}
       </Text>
 
       <Text style={styles.question}>
-        1 1 Which areas is {childData?.name} currently struggling with?
+        {t(`currentStrugle.question1p1`)} {childData?.name}{" "}
+        {t(`currentStrugle.question1p2`)}
+        with?
       </Text>
 
       <QuestionOptions
@@ -48,7 +53,8 @@ export default function CurrentStrugle({
       />
 
       <Text style={styles.question}>
-        2 How often do these struggles affect {childData?.name}’s daily life?
+        {t(`currentStrugle.question2p1`)} {childData?.name}’s{" "}
+        {t(`currentStrugle.question2p2`)}
       </Text>
 
       <QuestionOptions

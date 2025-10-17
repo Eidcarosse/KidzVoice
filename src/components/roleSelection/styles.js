@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginHorizontal: 16,
     marginBottom: height(4),
+    flexWrap: "wrap",
   },
   roleItem: {
     paddingVertical: 8,

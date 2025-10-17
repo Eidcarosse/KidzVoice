@@ -6,9 +6,11 @@ import Images from "../../../assets/images";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function AddChild() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   const handleAddChild = () => {
     navigation.navigate(ScreensName.CREATECHILDPROFILE);
@@ -20,14 +22,11 @@ export default function AddChild() {
         style={styles.imageStyle}
         resizeMode="contain"
       />
-      <Text style={styles.addText}>Add Child</Text>
+      <Text style={styles.addText}>{t(`addChild.addChild`)}</Text>
 
-      <Text style={styles.loremText}>
-        Add your child's information to start creating their profile.
-      </Text>
+      <Text style={styles.loremText}>{t(`addChild.childInfo`)}</Text>
 
-
-      <Button title={"Add child"} onPress={handleAddChild} />
+      <Button title={t(`addChild.addChild`)} onPress={handleAddChild} />
     </StatusBarWrapper>
   );
 }

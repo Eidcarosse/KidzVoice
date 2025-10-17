@@ -12,9 +12,11 @@ import ScreensName from "../../../routes/routes";
 import { User, Users, Phone } from "lucide-react-native";
 import { storeValue } from "../../../utils/Methods";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useTranslation } from "react-i18next";
 
 export default function ProfileInfo() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [relationship, setRelationship] = useState("");
   const [phone, setPhone] = useState(""); // Only store digits after +41
@@ -65,17 +67,17 @@ export default function ProfileInfo() {
           resizeMode="contain"
         />
 
-        <Text style={styles.basicText}>Enter basic profile info</Text>
+        <Text style={styles.basicText}>{t(`parentProfileInfo.basicInfo`)}</Text>
 
         <Text style={styles.loremText}>
-          Please fill in your basic details below to complete your profile setup.
+          {t(`parentProfileInfo.profileSetup`)}
         </Text>
 
         {/* Name Input */}
         <Input
           state={name}
           setState={setName}
-          placeholder="Enter your name here"
+          placeholder={t(`parentProfileInfo.enterName`)}
           icon={<User size={20} color={colors.ebonyClay} />}
         />
 
@@ -91,12 +93,16 @@ export default function ProfileInfo() {
 
         {/* Phone Input */}
         <View style={styles.textContainer}>
-          <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
+          <Phone
+            size={20}
+            color={colors.ebonyClay}
+            style={{ marginRight: 8 }}
+          />
           <TextInput
             style={styles.textStyle}
             value={displayedPhone}
             onChangeText={handlePhoneChange}
-            placeholder="+41 XXXXXXXX"
+            placeholder={t(`parentProfileInfo.phonePlaceholder`)}
             keyboardType="numeric"
             maxLength={12}
             selection={{
@@ -107,9 +113,11 @@ export default function ProfileInfo() {
         </View>
 
         <Button
-          title="Save"
+          title={t(`parentProfileInfo.saveButton`)}
           onPress={handleSave}
-          btnStyle={{ marginTop: isDisplayRelationList ? height(5) : height(13) }}
+          btnStyle={{
+            marginTop: isDisplayRelationList ? height(5) : height(13),
+          }}
         />
       </KeyboardAwareScrollView>
     </StatusBarWrapper>
