@@ -118,7 +118,11 @@ export default function SignIn() {
         }
       } else if (selectedRole?.title === "Learner") {
         navigation.navigate(ScreensName.ACCOUNT);
-      } else {
+      } else if (selectedRole?.title === "Teacher") {
+        navigation.navigate(ScreensName.COACHDASHBOARDTABS);
+      }
+
+      else {
         navigation.navigate(ScreensName.COACHACCOUNT);
       }
     }

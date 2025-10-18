@@ -237,6 +237,56 @@ const styles = StyleSheet.create({
         marginTop: 2,
         fontFamily: fonts.regular
     },
+    modalContainer: {
+        flex: 1,
+        backgroundColor: "rgba(0,0,0,0.4)",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    modalBox: {
+        width: "90%",
+        backgroundColor: "#fff",
+        borderRadius: 16,
+        paddingVertical: 25,
+        paddingHorizontal: 20,
+        alignItems: "center",
+        justifyContent: 'space-between'
+    },
+    modalTitle: {
+        fontSize: 16,
+        fontFamily: fonts.regular,
+        marginBottom: 20,
+    },
+    logoutButton: {
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: "#f44336",
+        borderRadius: 10,
+        paddingHorizontal: 15,
+        justifyContent: "center",
+    },
+    logoutText: {
+        color: "#fff",
+        fontSize: 16,
+        marginLeft: 10,
+        fontFamily: fonts.regular
+    },
+    cancelButton: {
+        padding: 10,
+        textAlign: "center"
+    },
+    cancelText: {
+        color: "#1976d2",
+        fontFamily: fonts.regular
+    },
+    modalRow: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        width: "100%",
+
+
+    }
+
 
 });
 

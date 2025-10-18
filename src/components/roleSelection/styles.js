@@ -8,11 +8,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginHorizontal: 16,
-    marginBottom: height(6),
+    marginBottom: height(4),
   },
   roleItem: {
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: colors.blueRibbon,
@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
     borderColor: colors.blueRibbon,
   },
   roleText: {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.emperor,
     fontFamily: fonts.regular,
   },
   selectedRoleText: {
     color: colors.white,
     fontFamily: fonts.regular,
-    fontSize: 16,
+    fontSize: 14,
   },
 });
 

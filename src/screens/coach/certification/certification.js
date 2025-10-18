@@ -20,11 +20,11 @@ export default function Certification() {
   const navigation = useNavigation();
   const handleDownload = () => {
     // Download logic here
-    // alert('Downloading certificate...');
+    //  alert('Downloading certificate...');
 
-    // infoToastMessage("Download", "Download Certificate coming soon");
+    infoToastMessage("Download", "Download Certificate coming soon");
 
-    navigation.navigate(ScreensName.COACHDASHBOARDTABS);
+
   };
 
   const shareOnLinkedIn = () => {

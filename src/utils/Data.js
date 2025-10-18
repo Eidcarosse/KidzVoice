@@ -4,6 +4,7 @@ const roles = [
   { id: 1, label: "parent", title: "Parent" },
   { id: 2, label: "coach", title: "Be a coach" },
   { id: 3, label: "learner", title: "Learner" },
+  { id: 4, label: "teacher", title: "Teacher" }
 ];
 
 const relationships = [
