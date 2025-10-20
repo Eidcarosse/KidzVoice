@@ -1,4 +1,11 @@
-import { View, Text, Image, TouchableOpacity, FlatList, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  Pressable,
+} from "react-native";
 import React from "react";
 import StatusBarWrapper from "../../../components/customStatusbar";
 import styles from "./styles";
@@ -8,9 +15,11 @@ import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import colors from "../../../utils/AppColors";
 import { infoToastMessage } from "../../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function CoachDashboard() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   const handleNewRequestsPress = () => {
     navigation.navigate(ScreensName.REQUESTS);
@@ -31,7 +40,7 @@ export default function CoachDashboard() {
       </View>
 
       <Text style={styles.sectionTitle}>
-        Suggested Students according to you
+        {t("coachDashboard.suggestedStudents")}
       </Text>
 
       <TouchableOpacity
@@ -40,9 +49,11 @@ export default function CoachDashboard() {
       >
         <Ionicons name="notifications" size={30} color={colors.white} />
         <View style={{ marginLeft: 10 }}>
-          <Text style={styles.newRequestTitle}>New requests</Text>
+          <Text style={styles.newRequestTitle}>
+            {t("coachDashboard.newRequests")}
+          </Text>
           <Text style={styles.newRequestSubtitle}>
-            upto 15 students request for your availability
+            {t("coachDashboard.upTo")} 15 {t("coachDashboard.studentsRequests")}
           </Text>
         </View>
       </TouchableOpacity>
@@ -54,10 +65,15 @@ export default function CoachDashboard() {
             size={28}
             color={colors.purpleHeart}
           />
-          <Pressable onPress={() => navigation.navigate(ScreensName.STUDENTS)} style={{ marginTop: 5, marginLeft: 10 }}>
-            <Text style={styles.smallCardTitle}>Students</Text>
+          <Pressable
+            onPress={() => navigation.navigate(ScreensName.STUDENTS)}
+            style={{ marginTop: 5, marginLeft: 10 }}
+          >
+            <Text style={styles.smallCardTitle}>
+              {t("coachDashboard.students")}
+            </Text>
             <Text style={styles.smallCardSubtitle}>
-              30 students in your class
+              30 {t("coachDashboard.studentsClass")}
             </Text>
           </Pressable>
         </TouchableOpacity>
@@ -68,16 +84,26 @@ export default function CoachDashboard() {
             size={28}
             color={colors.selectiveYellow}
           />
-          <Pressable onPress={() => infoToastMessage("Schedule", "Schedule is Coming soon!")} style={{ marginTop: 5, marginLeft: 10 }}>
-            <Text style={styles.smallCardTitle}>Schedule</Text>
+          <Pressable
+            onPress={() =>
+              infoToastMessage("Schedule", "Schedule is Coming soon!")
+            }
+            style={{ marginTop: 5, marginLeft: 10 }}
+          >
+            <Text style={styles.smallCardTitle}>
+              {t("coachDashboard.schedule")}
+            </Text>
             <Text style={styles.smallCardSubtitle}>
-              5 meeting have upcoming
+              5 {t("coachDashboard.comingMeetings")}
             </Text>
           </Pressable>
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.sectionTitle}>Recent students meeting</Text>
+      <Text style={styles.sectionTitle}>
+        {" "}
+        {t("coachDashboard.recentMeeting")}
+      </Text>
 
       <FlatList
         data={studentMeetings}

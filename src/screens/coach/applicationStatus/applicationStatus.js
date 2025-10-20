@@ -15,9 +15,11 @@ import {
 import { Entypo, AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function ApplicationStatus() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [idCheck, setIdCheck] = useState(true);
   const [backgroundCheck, setBackgroundCheck] = useState(true);
   const [licenseVerification, setLicenseVerification] = useState(false);
@@ -30,29 +32,31 @@ export default function ApplicationStatus() {
     <StatusBarWrapper>
       <Header title={"Application Status"} />
 
-      <Text style={styles.verificationText}>Verification Stages</Text>
+      <Text style={styles.verificationText}>
+        {t(`applicationStatus.verificationStages`)}
+      </Text>
 
       <DocumentVerification
-        title={"ID Check"}
+        title={t(`applicationStatus.idCheck`)}
         icon={<Contact strokeWidth={1.2} size={25} />}
         state={idCheck}
       />
 
       <DocumentVerification
-        title={"Background Check"}
+        title={t(`applicationStatus.backgroundCheck`)}
         icon={<Backpack strokeWidth={1.2} size={25} />}
         state={backgroundCheck}
       />
 
       <DocumentVerification
-        title={"License Verification"}
+        title={t(`applicationStatus.licenseVerification`)}
         icon={<LucideNotepadTextDashed strokeWidth={1.2} size={25} />}
         state={licenseVerification}
-        errorMessage={"Your license could not be verified."}
+        errorMessage={t(`applicationStatus.licenseError`)}
       />
 
       <DocumentVerification
-        title={"References"}
+        title={t(`applicationStatus.references`)}
         icon={<Entypo name="attachment" size={18} />}
         state={referenceVerification}
       />
@@ -60,18 +64,16 @@ export default function ApplicationStatus() {
       <View style={styles.lineView} />
 
       <Text style={styles.estimatedText}>
-        Estimated time remaining: 2–3 business days
+        {t(`applicationStatus.estimatedTime`)}
       </Text>
 
-      <Text style={styles.helpText}>help center.</Text>
+      <Text style={styles.helpText}>{t(`applicationStatus.helpCenter`)}</Text>
       <View style={{ flex: 1 }} />
 
-      <Text style={styles.youText}>
-        You will need to wait until the contract is approved.
-      </Text>
+      <Text style={styles.youText}>{t(`applicationStatus.youText`)}</Text>
 
       <Button
-        title={"Get Started"}
+        title={t(`applicationStatus.getBtn`)}
         btnStyle={styles.getBtn}
         onPress={handleGetStarted}
       />

@@ -16,9 +16,11 @@ import ScreensName from "../../../routes/routes";
 import SignatureCanvas from "react-native-signature-canvas";
 import BaseModal from "../../../components/modal/modal";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useTranslation } from "react-i18next";
 
 export default function DigitalContract() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [guardingPolicies, setGuardingPolicies] = useState(true);
   const [guardingGuideLines, setGuardingGuideLines] = useState(true);
   const [protectionResponsibilities, setProtectionResponsibilities] =
@@ -61,32 +63,23 @@ export default function DigitalContract() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.digitalText}>Digital Contract</Text>
-
-        <Text style={styles.contractText}>
-          This Digital Contract outlines the agreement between the security personnel
-          and the company. By signing below, you confirm that you have read, understood,
-          and agreed to all terms and conditions mentioned herein.
-
-          You agree to maintain professional behavior while on duty,
-          to safeguard company property, and to respect confidentiality at all times.
-          You also acknowledge that any violation of the company’s code of conduct
-          or data protection guidelines may result in disciplinary action,
-          including termination of service.
-
-          This contract serves as a binding acknowledgment that you will perform
-          your duties responsibly, ethically, and in accordance with
-          company policies and regulations.
+        <Text style={styles.digitalText}>
+          {t(`digitalContract.digitalContract`)}
         </Text>
 
+        <Text style={styles.contractText}>
+          {t(`digitalContract.contractText`)}
+        </Text>
 
         <SingleCheckBox
-          label={"I agree to safeguarding policies"}
+          label={t(`digitalContract.guardingPolicy`)}
           state={guardingPolicies}
           setState={setGuardingPolicies}
         />
 
-        <Text style={styles.eSignatureText}>E-Signature Field</Text>
+        <Text style={styles.eSignatureText}>
+          {t(`digitalContract.eSignature`)}
+        </Text>
 
         <TouchableOpacity
           style={styles.eSignatureView}
@@ -101,25 +94,29 @@ export default function DigitalContract() {
           )}
         </TouchableOpacity>
 
-        <Text style={styles.codeText}>Code of Conduct</Text>
+        <Text style={styles.codeText}>{t(`digitalContract.codeText`)}</Text>
 
         <SingleCheckBox
-          label={"I will follow safeguarding guidelines"}
+          label={t(`digitalContract.safeGaurdingGuidelines`)}
           state={guardingGuideLines}
           setState={setGuardingGuideLines}
         />
         <SingleCheckBox
-          label={"I understand data protection responsibilities"}
+          label={t(`digitalContract.dataProtection`)}
           state={protectionResponsibilities}
           setState={setProtectionResponsibilities}
         />
         <SingleCheckBox
-          label={"I commit to professional conduct"}
+          label={t(`digitalContract.professionalConduct`)}
           state={professionalConduct}
           setState={setProfessionalConduct}
         />
 
-        <Button title={"Save"} btnStyle={styles.saveBtn} onPress={handleNext} />
+        <Button
+          title={t(`digitalContract.save`)}
+          btnStyle={styles.saveBtn}
+          onPress={handleNext}
+        />
       </KeyboardAwareScrollView>
 
       <Modal visible={showPad} animationType="slide">
@@ -131,9 +128,9 @@ export default function DigitalContract() {
             onOK={handleOK}
             onEmpty={() => console.log("Empty signature")}
             onClear={handleClear}
-            descriptionText="Sign here"
-            clearText="Clear"
-            confirmText="Save"
+            descriptionText={t(`digitalContract.signHere`)}
+            clearText={t(`digitalContract.clear`)}
+            confirmText={t(`digitalContract.save`)}
           />
         </View>
       </Modal>

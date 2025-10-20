@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../../utils/AppColors";
+import { useTranslation } from "react-i18next";
 
 export default function DropDownList({
   lst,
@@ -10,6 +11,7 @@ export default function DropDownList({
   setSelectedRelation,
   setDropDownVisible,
 }) {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(null);
 
   const handleSelect = (item) => {
@@ -35,7 +37,9 @@ export default function DropDownList({
             ]}
             onPress={() => handleSelect(item)}
           >
-            <Text style={[styles.textStyle]}>{item.title}</Text>
+            <Text style={[styles.textStyle]}>
+              {t(`dropDownList.${item?.label}`)}
+            </Text>
             <Ionicons
               name={
                 selectedRelation === item.title

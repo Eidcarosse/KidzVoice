@@ -8,9 +8,11 @@ import colors from "../../utils/AppColors";
 import { Notebook } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function TaskCard({ task }) {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const progress = 0.4; // 40%
 
   const handlePress = () => {
@@ -30,7 +32,9 @@ export default function TaskCard({ task }) {
         )}
 
         <View style={styles.titleProgressView}>
-          <Text style={styles.titleText}>{task?.title}</Text>
+          <Text style={styles.titleText}>
+            {t(`taskCard.${task?.title?.trim()}`)}
+          </Text>
 
           {task?.inProgress && (
             <View style={styles.progressRow}>

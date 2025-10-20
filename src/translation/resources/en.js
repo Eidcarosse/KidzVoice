@@ -94,6 +94,142 @@ export default {
     accountSetup: "Account Setup",
   },
 
+  applicationStatus: {
+    verificationStages: "Verification Stages",
+    idCheck: "ID Check",
+    backgroundCheck: "Background Check",
+    licenseVerification: "License Verification",
+    licenseError: "Your license could not be verified.",
+    references: "References",
+    estimatedTime: "Estimated time remaining: 2–3 business days",
+    helpCenter: "Help center.",
+    youText: "You will need to wait until the contract is approved.",
+    getBtn: "Get Started",
+  },
+
+  digitalContract: {
+    digitalContract: "Digital Contract",
+    contractText: ` This Digital Contract outlines the agreement between the security personnel and the company. By signing below, you confirm that you have read, understood, and agreed to all terms and conditions mentioned herein. You agree to maintain professional behavior while on duty, to safeguard company property, and to respect confidentiality at all times. You also acknowledge that any violation of the company’s code of conduct or data protection guidelines may result in disciplinary action, including termination of service. This contract serves as a binding acknowledgment that you will perform your duties responsibly, ethically, and in accordance with company policies and regulations.`,
+    guardingPolicy: "I agree to safeguarding policies",
+    eSignature: "E-Signature Field",
+    codeText: "Code of Conduct",
+    safeGaurdingGuidelines: "I will follow safeguarding guidelines",
+    dataProtection: "I understand data protection responsibilities",
+    professionalConduct: "I commit to professional conduct",
+    signHere: "Sign Here",
+    clear: "Clear",
+    save: "Save",
+  },
+
+  payOutSetUp: {
+    payOutSetUp: "Payout Setup",
+    accountHolderName: "Account Holder Name",
+    enterHolderName: "Enter Account Holder Name",
+    bankName: "Bank Name",
+    enterBankName: "Enter Bank Name",
+    accountNumber: "Account Number / IBAN",
+    enterAccountNumber: "Enter Account Number / IBAN",
+    sortCode: "Sort Code / SWIFT Code",
+    enterSortCode: "Enter Sort Code / SWIFT Code",
+    currency: "Currency",
+    save: "Save",
+  },
+
+  training: {
+    training: "Traning",
+    modules: "Modules",
+    logout: "Logout",
+  },
+
+  startTraining: {
+    kidzLife: "KidzLife",
+    title: "Title:",
+    "Psychology Preview": "Psychology Preview",
+    save: "Save",
+    share: "Share",
+    transcript: "Transcript",
+    "Intro to Psychology": "Intro to Psychology",
+    "Psychological Research": "Psychological Research",
+    "The Chemical Mind:": "The Chemical Mind:",
+    "Meet Your Master - Getting to Know Your Brain":
+      "Meet Your Master - Getting to Know Your Brain",
+    "Sensation and Perception": "Sensation and Perception",
+    Homunculus: "Homunculus",
+    "Perceiving is Believing": "Perceiving is Believing",
+    assessment: "Assessment",
+  },
+
+  startQuiz: {
+    startQuiz: "Start Quiz",
+    readyText: "Ready to practice?",
+    okayText: "Okay, Show us what you can do!",
+  },
+
+  quiz: {
+    quiz: "Quiz",
+    module1: "Module 1",
+    psychology: "Psychology",
+    question: "1. Emotions are called hidden messages because they:",
+    relatedText: "Related content",
+    "Emotions the hidden message": "Emotions the hidden message",
+    skip: "Skip",
+    submit: "Submit",
+    reportText: "Report a problem",
+  },
+
+  certification: {
+    certification: "Certification",
+    certified: "Certified",
+    level: "Level 1",
+    downloadCertificate: "Download Certificate",
+  },
+
+  request: {
+    requests: "Requests",
+    newRequest: "new requests for availability",
+  },
+
+  profile: {
+    profile: "Profile",
+  },
+
+  childProfile: {},
+
+  coachDashboard: {
+    suggestedStudents: "Suggested Students according to you",
+    newRequests: "New requests",
+    upTo: "upto",
+    studentRequests: "students request for your availability",
+    students: "Students",
+    studentsClass: "students in your class",
+    schedule: "Schedule",
+    comingMeetings: "meeting have upcoming",
+    recentMeeting: "Recent students meeting",
+  },
+
+  mentors: {
+    mentor: "Mentor",
+  },
+
+  resume: {
+    resume: "Resume",
+  },
+
+  profile: {
+    profile: "Profile",
+  },
+
+  students: {
+    students: "Students",
+  },
+
+  teacherProfile: {
+    certified: "Certified (Level 1)",
+    acceptRequest: "Accept Request",
+    sendRequest: "Send Request",
+    rejectRequest: "Reject Request",
+  },
+
   //Components
   roleSelection: {
     parent: "Parent",
@@ -107,7 +243,6 @@ export default {
     purpose: "Purpose: Quick background about",
     question1p1: "1 Has",
     question1p2: "received any previous diagnoses?",
-
     question2p1: "2 Has",
     question2p2: "ever received support services?",
     question3: "3 Briefly describe any important medical/educational history",
@@ -141,7 +276,6 @@ export default {
     "Learning Disability": "Learning Disability",
     None: "None",
     Other: "Other",
-
     "Speech therapy": "Speech therapy",
     "Occupational therapy": "Occupational therapy",
     "Counseling/psychology": "Counseling/psychology",
@@ -172,5 +306,90 @@ export default {
     contact: "Contact",
     contactPlaceholder: "+41 XXXXXXXX",
     next: "Next",
+  },
+
+  coacEducationalInfo: {
+    education: "Education",
+    highestQualification: "Highest Qualification",
+    uploadDegree: "Upload Degree",
+    professionalLicense: "Professional license",
+    licenseNo: "license no (Optional)",
+    uploadProof: "upload proof",
+    experience: "Experience",
+    shortCV: "Short CV",
+    motivation: "Motivation",
+    documentUpload: "Document Upload",
+    uploadId: "Upload Id",
+    uploadCertificate: "Upload Certificate",
+    uploadReference: "Upload Reference",
+    guardingPolicy: "I agree to safeguarding policies",
+    dataPolicy: "I agree to the data policy",
+    submitApplication: "Submit Application",
+  },
+
+  dropDownList: {
+    usd: "USD",
+    pkr: "PKR",
+    other: "Other",
+  },
+
+  trainingCard: {
+    "Module 1: Introduction to Psychology":
+      "Module 1: Introduction to Psychology",
+    "Module 2: Safeguarding": "Module 2: Safeguarding",
+    "Final Project": "Final Project",
+    "CBT | Diagnosis | Crisis Care.......":
+      "CBT | Diagnosis | Crisis Care.......",
+    "lic. phil. & Dipl. Psych., licensed psychotherapist Depth psychology, cognitive behavioral therapy,":
+      "lic. phil. & Dipl. Psych., licensed psychotherapist Depth psychology, cognitive behavioral therapy,",
+
+    English: "English",
+    Videos: "Videos",
+    Quiz: "Quiz",
+    true: "true",
+    false: "false",
+    "1h 20m": "1h 20m",
+    completed: "Completed",
+    startTraining: "Start Training",
+  },
+
+  questionCard: {
+    "Have no meaning": "Have no meaning",
+    "Are random": "Are random",
+    "Should be ignored": "Should be ignored",
+  },
+
+  taskCard: {
+    "Emotions the hidden message": "Emotions the hidden message",
+  },
+
+  teacherCard: {
+    "Lukas Müller": "Lukas Müller",
+    "Struggling with anxiety and isolation after changing schools.":
+      "Struggling with anxiety and isolation after changing schools.",
+    "Berlin, Germany": "Berlin, Germany",
+    "German, English": "German, English",
+    "Mia Schneider": "Mia Schneider",
+    "Experiencing emotional distress after family conflict and needs crisis support.":
+      "Experiencing emotional distress after family conflict and needs crisis support.",
+    "Munich, Germany": "Munich, Germany",
+    "Jonas Weber": "Jonas Weber",
+    "Dealing with academic pressure, low self-esteem, and stress management challenges.":
+      "Dealing with academic pressure, low self-esteem, and stress management challenges.",
+    "Frankfurt, Germany": "Frankfurt, Germany",
+    "Lea Fischer": "Lea Fischer",
+    "Suffers from panic attacks before exams and social anxiety.":
+      "Suffers from panic attacks before exams and social anxiety.",
+    "Hamburg, Germany": "Hamburg, Germany",
+    "Noah Becker": "Noah Becker",
+    "Struggling with family communication and emotional disconnection at home.":
+      "Struggling with family communication and emotional disconnection at home.",
+    "Cologne, Germany": "Cologne, Germany",
+    "English, German": "English, German",
+    viewProfile: "View Profile",
+  },
+
+  studentCard: {
+    level: "Level",
   },
 };

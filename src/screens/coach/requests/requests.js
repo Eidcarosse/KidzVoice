@@ -5,13 +5,15 @@ import { Header } from "../../../components";
 import styles from "./styles";
 import { students, teachers } from "../../../utils/Data";
 import TeacherCard from "../../../components/teacherCard/teacherCard";
+import { useTranslation } from "react-i18next";
 
 export default function Requests() {
+  const { t } = useTranslation();
   return (
     <StatusBarWrapper>
-      <Header title="Requests" />
+      <Header title={t(`request.requests`)} />
 
-      <Text style={styles.requestText}>15 new requests for availability</Text>
+      <Text style={styles.requestText}>15 {t(`request.newRequest`)} </Text>
 
       <FlatList
         data={students}

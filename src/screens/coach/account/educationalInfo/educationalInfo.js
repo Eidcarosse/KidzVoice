@@ -8,6 +8,7 @@ import {
   UploadDocument,
 } from "../../../../components";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useTranslation } from "react-i18next";
 
 export default function EducationalInfo({
   qualification,
@@ -37,15 +38,20 @@ export default function EducationalInfo({
   dataPolicy,
   setDataPolicy,
 }) {
+  const { t } = useTranslation();
   return (
     <KeyboardAwareScrollView>
       <View style={styles.parentView}>
-        <Text style={styles.educationalText}>Education</Text>
+        <Text style={styles.educationalText}>
+          {t(`coacEducationalInfo.education`)}
+        </Text>
 
-        <Text style={styles.titleText}>Highest Qualification</Text>
+        <Text style={styles.titleText}>
+          {t(`coacEducationalInfo.highestQualification`)}
+        </Text>
 
         <Input
-          placeholder={"Highest Qualification"}
+          placeholder={t(`coacEducationalInfo.highestQualification`)}
           state={qualification}
           setState={setQualification}
         />
@@ -53,61 +59,75 @@ export default function EducationalInfo({
         <UploadDocument
           state={degree}
           setState={setDegree}
-          title={"Upload Degree"}
+          title={t(`coacEducationalInfo.uploadDegree`)}
         />
 
         <View style={styles.lineView} />
 
-        <Text style={styles.educationalText}>Professional license</Text>
+        <Text style={styles.educationalText}>
+          {t(`coacEducationalInfo.professionalLicense`)}
+        </Text>
 
-        <Text style={styles.titleText}>license no (Optional)</Text>
+        <Text style={styles.titleText}>
+          {t(`coacEducationalInfo.licenseNo`)}
+        </Text>
 
         <Input
-          placeholder={"Professional license"}
+          placeholder={t(`coacEducationalInfo.professionalLicense`)}
           state={licenseNum}
           setState={setLicenseNum}
         />
 
         <UploadDocument
-          title={"upload proof"}
+          title={t(`coacEducationalInfo.uploadProof`)}
           state={license}
           setState={setLicense}
         />
 
         <View style={styles.lineView} />
 
-        <Text style={styles.educationalText}>Experience</Text>
+        <Text style={styles.educationalText}>
+          {t(`coacEducationalInfo.experience`)}
+        </Text>
 
-        <Text style={styles.titleText}>Short CV</Text>
-        <Input placeholder={"Short CV"} state={shortCv} setState={setShortCV} />
-
-        <Text style={styles.titleText}>Motivation</Text>
+        <Text style={styles.titleText}>{t(`coacEducationalInfo.shortCV`)}</Text>
         <Input
-          placeholder={"Motivation"}
+          placeholder={t(`coacEducationalInfo.shortCV`)}
+          state={shortCv}
+          setState={setShortCV}
+        />
+
+        <Text style={styles.titleText}>
+          {t(`coacEducationalInfo.motivation`)}
+        </Text>
+        <Input
+          placeholder={t(`coacEducationalInfo.motivation`)}
           state={motivation}
           setState={setMotivation}
         />
 
         <View style={styles.lineView} />
 
-        <Text style={styles.educationalText}>Document Upload</Text>
+        <Text style={styles.educationalText}>
+          {t(`coacEducationalInfo.documentUpload`)}
+        </Text>
 
         <UploadDocument
-          title={"Upload Id"}
+          title={t(`coacEducationalInfo.uploadId`)}
           viewStyle={styles.uploadIdView}
           textStyle={styles.uploadIdText}
           state={id}
           setState={setId}
         />
         <UploadDocument
-          title={"Upload Certificates"}
+          title={t(`coacEducationalInfo.uploadCertificate`)}
           viewStyle={styles.uploadIdView}
           textStyle={styles.uploadIdText}
           state={certificate}
           setState={setCertificate}
         />
         <UploadDocument
-          title={"Upload References"}
+          title={t(`coacEducationalInfo.uploadReference`)}
           viewStyle={styles.uploadIdView}
           textStyle={styles.uploadIdText}
           state={reference}
@@ -115,19 +135,19 @@ export default function EducationalInfo({
         />
 
         <SingleCheckBox
-          label={"I agree to safeguarding policies"}
+          label={t(`coacEducationalInfo.guardingPolicy`)}
           state={guardingPolicy}
           setState={setGuardingPolicy}
         />
 
         <SingleCheckBox
-          label={"I agree to the data policy"}
+          label={t(`coacEducationalInfo.dataPolicy`)}
           state={dataPolicy}
           setState={setDataPolicy}
         />
 
         <Button
-          title={"Submit Application"}
+          title={t(`coacEducationalInfo.submitApplication`)}
           onPress={onPress}
           btnStyle={styles.nextButton}
         />
