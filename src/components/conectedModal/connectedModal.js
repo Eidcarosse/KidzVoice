@@ -4,10 +4,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import BaseModal from '../modal/modal';
 import { styles } from './styles';
 import colors from '../../utils/AppColors';
+import { useTranslation } from 'react-i18next'; // 🟢 import translation hook
 
 const ConnectedModal = ({ visible, onClose, isLoader }) => {
     const spinValue = useRef(new Animated.Value(0)).current;
     const animationRef = useRef(null);
+    const { t } = useTranslation(); // 🟢 initialize translation
 
     const startSpin = () => {
         animationRef.current = Animated.loop(
@@ -67,8 +69,8 @@ const ConnectedModal = ({ visible, onClose, isLoader }) => {
                     <View style={styles.iconWrapper}>
                         <MaterialCommunityIcons name="account-sync" size={40} color="white" />
                     </View>
-                    <Text style={styles.title}>Connected</Text>
-                    <Text style={styles.subtitle}>You’re now linked with your parent!</Text>
+                    <Text style={styles.title}>{t('connectedModal.title')}</Text>
+                    <Text style={styles.subtitle}>{t('connectedModal.subtitle')}</Text>
                 </>
             )}
         </BaseModal>

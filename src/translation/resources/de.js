@@ -60,6 +60,22 @@ export default {
     familyContext: "Familiärer Kontext",
     next: "Weiter",
   },
+  "aiLiveVedio": {
+    "title": "KI-Live-Bereich",
+    "description": "Lass uns mit einem Atemspiel beginnen. Stell dir vor, dieser Ball ist dein Atem. Wenn er groß wird, atmest du ein. Wenn er klein wird, atmest du aus. Bereit?",
+    "playButton": "Video abspielen",
+    "title": "Großartige Arbeit",
+    "subtitle": "{{name}}! Du hast gerade deine Konzentration trainiert – genau wie ein Fußballspieler vor einem großen Spiel."
+
+  },
+  "aiLiveExample": {
+    "header": "KI Live-Bereich",
+    "description": "Lass es uns gemeinsam versuchen. Sieh dir dieses Matheproblem an. Stell dir vor, deine magische Kugel hält alle Ablenkungen fest. Konzentriere dich nur auf die Zahlen. Kannst du es lösen?",
+    "correct": "🎉 Ja! Du hast es geschafft. Genau wie Sami hast du deine magische Kugel benutzt.",
+    "incorrect": "❌ Versuch es noch einmal!",
+    "modalTitle": "{{name}} erhält: ⭐ x10 + 💎 x1",
+    "modalSubtitle": "Großartige Arbeit! Du bist einen Schritt näher daran, ein Fokus-Held zu werden. Sammle weiterhin Sterne, um dein nächstes Abenteuer freizuschalten."
+  },
 
   generateChild: {
     generateChild: "Kinder-ID generieren",
@@ -75,7 +91,16 @@ export default {
     copied: "Kopiert!",
     copy: "Kopieren",
   },
-
+  "assignment": {
+    "title": "Aufgabe",
+    "writtenExam": "Schriftliche Prüfung",
+    "practicalExam": "Praktische Prüfung",
+    "scheduleLiveSession": "Live beaufsichtigte Sitzung planen",
+    "portfolioSubmission": "Portfolio-Einreichung",
+    "uploadCaseReports": "Fallberichte hochladen",
+    "underReview": "Deine eingereichte Aufgabe wird überprüft",
+    "placeholderName": "Nadine Zimat"
+  },
   childProgress: {
     progressBar: "Fortschrittsbalken",
     viewDetailsReport: "Detailbericht ansehen",
@@ -230,8 +255,112 @@ export default {
     sendRequest: "Anfrage senden",
     rejectRequest: "Anfrage ablehnen",
   },
+  //lerner
+  account: {
+    "accountSetup": "Konto einrichten",
+    "enterCode": "Geben Sie den einzigartigen Code des Elternteils ein",
+    enterUserCode: "Code eingeben",
+    enterName: "Geben Sie hier Ihren Namen ein",
+    continue: "Fortsetzen"
+  },
+  magicBackpack: {
+    title: "Lass uns anfangen",
+    description: "Das ist dein magischer Rucksack.\nLass uns ihn mit deinen Träumen und Geheimnissen füllen, damit ich dich besser kennenlernen kann!",
+    forChild: "Für {{name}}",
+  },
+  aiQuestionair: {
+    liveVideo: {
+      q1: "Was gefällt dir an Live-Videos?",
+      q2: "Hast du schon einmal gestreamt?",
+      q3: "Welche Art von Live-Inhalten magst du?",
+      q4: "Möchtest du mit jemandem gemeinsam hosten?",
+      q5: "Was ist deine größte Herausforderung beim Livestreaming?",
+    },
+    profile: {
+      q1: "Wer bist du?",
+      q2: "Woher kommst du?",
+      q3: "Was ist dein Lieblingshobby?",
+      q4: "Was ist dein Traumberuf?",
+    },
+    default: {
+      q1: "Wer bist du?",
+      q2: "Was ist deine Lieblingsfarbe?",
+      q3: "Was inspiriert dich?",
+    },
+    typeAnswer: "Schreibe deine Antwort...",
+    greeting: "Hallo {{name}}",
+    questionTitle: "Frage",
+    alertTitle: "✅ Alle Fragen abgeschlossen!",
+    alertMessage: "Klicke auf OK, um zum Live-Bereich zu gehen.",
+    okButton: "OK",
+  },
+  childDashboard: {
+    title: "Kinder-Dashboard",
+    liveSession: "KI-Live-Sitzung",
+    comeBackIn: "Komme zurück in {{time}}",
+    homeworkHero: "⭐ Hausaufgaben-Held",
+    friendlyStar: "🏆 Freundlicher Stern",
+    challengesTitle: "Herausforderungen",
+    challengesSub: "Konzentration im Unterricht, Leseschwierigkeiten, Freunde finden",
+    level: "Stufe {{level}}",
+    completed: "Abgeschlossen",
+    assignment: "Aufgaben",
+    assignmentSub: "{{done}} abgeschlossen von {{total}}",
+    activities: "Aktivitäten",
+    activitiesSub: "{{done}} abgeschlossen von {{total}}",
+    teachersTitle: "Lehrer",
+    teachersSub: "Bis zu 30 Lehrer sind verfügbar.",
+    growthJourneyTitle: "Deine persönliche Wachstumsreise",
+    growthCardTitle: "Workshop für Lernen und Freundschaft",
+    growthCardSub: "KVT | Kognitive Verhaltenstherapie",
+    modalTitle: "Möchtest du dich wirklich abmelden?",
+    cancel: "Abbrechen",
+    logout: "Abmelden",
+    comingSoon: "{{feature}} kommt bald",
+    liveSession: "KI-Live-Sitzung",
+    comeBackIn: "Komme zurück in {{time}}",
+  }
+  ,
+  aiLiveSection: {
+    title: "KI-Live-Bereich",
+    question: "Hallo! Schön, dich wiederzusehen. Bevor wir anfangen, sag mir, wie fühlst du dich heute?",
 
+    feelings: {
+      happy: {
+        label: "Glücklich",
+        message: "Großartig! Lass uns dieses Lächeln beibehalten 😊",
+      },
+      sad: {
+        label: "Traurig",
+        message: "Es ist in Ordnung, sich manchmal traurig zu fühlen 💙",
+      },
+      okay: {
+        label: "Okay",
+        message: "Verstanden, du fühlst dich heute einfach okay.",
+      },
+      angry: {
+        label: "Wütend",
+        message: "Atme tief durch… wir beruhigen uns gemeinsam 😌",
+      },
+    },
+    "title": "KI Live Abschnitt",
+    "magicBalls": "Zauberball",
+    "breathingGame": "Atemspiel",
+    "successSubtitle": "Perfekt! Ich werde es mir merken. Wir werden den Zauberball öfter in deinem Training verwenden.",
+    successTitle: "{{name}} verdient: ⭐ x10 + 💎 x1",
+    successSubtitle: "Tolle Arbeit! Du bist deinem Ziel, ein Fokus-Held zu werden, einen Schritt näher. Sammle weiter Sterne, um dein nächstes Abenteuer freizuschalten.",
+  }
+  ,
   //Components
+
+  "connectedModal": {
+    "title": "Connected",
+    "subtitle": "You’re now linked with your parent!"
+  },
+  photoUpload: {
+    uploadCreative: "Kreatives Material hochladen (optional)",
+    uploadPhoto: "Laden Sie Ihr Foto hoch",
+  },
   roleSelection: {
     parent: "Elternteil",
     learner: "Lernender",

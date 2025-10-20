@@ -2,16 +2,20 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { fonts } from "../../utils/fonts";
+import { useTranslation } from "react-i18next";
 
 const AiCustomHeader = ({ user }) => {
+    const { t } = useTranslation();
     return (
         <View style={styles.header}>
             <View style={styles.left}>
                 <Image source={user.img} style={styles.userImg} />
-                <Text style={styles.greeting}>Hi {user.name}</Text>
+                <Text style={styles.greeting}>
+                    {t('aiQuestionair.greeting', { name: user.name })}
+                </Text>
             </View>
 
-            <Text style={styles.title}>Question</Text>
+            <Text style={styles.title}>{t('aiQuestionair.questionTitle')}</Text>
 
             <TouchableOpacity>
                 <Ionicons name="time-outline" size={22} color="#222" />

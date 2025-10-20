@@ -7,50 +7,57 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import ScreensName from '../../../routes/routes';
 import StatusBarWrapper from '../../../components/customStatusbar';
+import { useTranslation } from 'react-i18next';
 
 const AssignmentScreen = () => {
+  const { t } = useTranslation()
   const navigation = useNavigation()
   return (
     <StatusBarWrapper>
-      {/* <SafeAreaView style={styles.container}> */}
-      <Header title={"Assigment"} />
+      <Header title={t("assignment.title")} />
 
       <View style={styles.section}>
-        <Text style={styles.label}>Written Exam</Text>
+        <Text style={styles.label}>{t("assignment.writtenExam")}</Text>
         <View style={styles.inputBox}>
           <TextInput
             multiline
             style={styles.input}
-            placeholder="Nadine Zimat"
+            placeholder={t("assignment.placeholderName")}
             placeholderTextColor="#ccc"
           />
         </View>
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.label}>Practical Exam</Text>
+        <Text style={styles.label}>{t("assignment.practicalExam")}</Text>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Schedule Live Observed Session</Text>
+          <Text style={styles.buttonText}>
+            {t("assignment.scheduleLiveSession")}
+          </Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.labelStyle}>Portfolio Submission</Text>
+        <Text style={styles.labelStyle}>{t("assignment.portfolioSubmission")}</Text>
       </View>
+
       <UploadDocument
         viewStyle={styles.uploadBox}
         textStyle={styles.uploadText}
-        title={"Upload case reports"}
+        title={t("assignment.uploadCaseReports")}
       />
 
-      <Text style={styles.reviewText}>Your submitted assignment is under review</Text>
+      <Text style={styles.reviewText}>
+        {t("assignment.underReview")}
+      </Text>
 
-
-      <Button title={"next"} onPress={() => navigation.navigate(ScreensName.CERTIFICATION)} />
-      {/* </SafeAreaView> */}
+      <Button
+        title={t("parentQuestionaire.next")}
+        onPress={() => navigation.navigate(ScreensName.CERTIFICATION)}
+      />
     </StatusBarWrapper>
   );
-};
+}
 
 
 export default AssignmentScreen;

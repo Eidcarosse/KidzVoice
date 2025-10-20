@@ -3,7 +3,9 @@ import { View, Text, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './styles';
 import * as ImagePicker from 'expo-image-picker';
+import { useTranslation } from 'react-i18next';
 const PhotoUploader = () => {
+    const { t } = useTranslation();
     const [image, setImage] = useState(null);
     const handleUpload = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -22,10 +24,11 @@ const PhotoUploader = () => {
 
     return (
         <View style={styles.inputContainer}>
-            <Text style={styles.label}>Upload Creative Stuff (Optional)</Text>
+            <Text style={styles.label}>{t('photoUpload.uploadCreative')}</Text>
             <Pressable style={styles.uploadBox} onPress={handleUpload}>
                 <Ionicons name="cloud-upload-outline" size={24} color="#007bff" />
-                <Text style={styles.uploadText}>Upload your photo</Text>
+                <Text style={styles.uploadText}>{t('photoUpload.uploadPhoto')}</Text>
+
             </Pressable>
         </View>
     );

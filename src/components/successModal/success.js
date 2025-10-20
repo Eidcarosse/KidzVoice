@@ -4,9 +4,11 @@ import Button from "../button/button";
 import BaseModal from "../modal/modal";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
   const navigation = useNavigation();
+  const { t } = useTranslation()
   const handlePress = () => {
     if (questionOf === "FeelingResult") {
       navigation.navigate(ScreensName.AILIVEVEDIOSECTION);
@@ -32,7 +34,8 @@ const SuccessModal = ({ visible, onClose, questionOf, title, subtitle }) => {
         <Text style={styles.subtitle}>{subtitle}</Text>
 
         <Button
-          title={`${'Next'}`}
+          title={t('parentQuestionaire.next')}
+
           onPress={handlePress}
           btnStyle={styles.button}
           textStyle={styles.buttonText}

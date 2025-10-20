@@ -140,7 +140,10 @@ export default {
     modules: "Modules",
     logout: "Logout",
   },
-
+  "connectedModal": {
+    "title": "Verbunden",
+    "subtitle": "Du bist jetzt mit deinem Elternteil verbunden!"
+  },
   startTraining: {
     kidzLife: "KidzLife",
     title: "Title:",
@@ -230,7 +233,132 @@ export default {
     rejectRequest: "Reject Request",
   },
 
+  //learner
+  account: {
+    accountSetup: "Account Setup",
+    enterCode: "Enter the unique code from Parent",
+    enterUserCode: "Enter code",
+    enterName: "Enter your name here",
+    continue: "Continue",
+  },
+  aiQuestionair: {
+    liveVideo: {
+      q1: "What do you enjoy about live videos?",
+      q2: "Have you ever streamed before?",
+      q3: "What type of live content do you like?",
+      q4: "Would you like to co-host with someone?",
+      q5: "What’s your biggest challenge with live streaming?",
+    },
+    profile: {
+      q1: "Who are you?",
+      q2: "Where are you from?",
+      q3: "What’s your favorite hobby?",
+      q4: "What’s your dream job?",
+    },
+    default: {
+      q1: "Who are you?",
+      q2: "What’s your favorite color?",
+      q3: "What inspires you?",
+    },
+    typeAnswer: "Type your answer...",
+    greeting: "Hi {{name}}",
+    questionTitle: "Question",
+    alertTitle: "✅ All questions completed!",
+    alertMessage: "Click OK to go to Live Section.",
+    okButton: "OK",
+  },
+  childDashboard: {
+    title: "Child Dashboard",
+    liveSession: "AI Live Session",
+    comeBackIn: "Come back in {{time}}",
+    homeworkHero: "⭐ Homework Hero",
+    friendlyStar: "🏆 Friendly Star",
+    challengesTitle: "Challenges",
+    challengesSub: "Focus in class, Reading struggles, Making friends",
+    level: "Level {{level}}",
+    completed: "Completed",
+    assignment: "Assignment",
+    assignmentSub: "{{done}} complete out of {{total}}",
+    activities: "Activities",
+    activitiesSub: "{{done}} complete out of {{total}}",
+    teachersTitle: "Teachers",
+    teachersSub: "Up to 30 teachers are available.",
+    growthJourneyTitle: "Your Personal Growth Journey",
+    growthCardTitle: "Learning and Friendship Workshop",
+    growthCardSub: "CBT | Cognitive Behavioral Therapy",
+    modalTitle: "Are you sure you want to logout?",
+    cancel: "Cancel",
+    logout: "Logout",
+    comingSoon: "{{feature}} coming soon",
+    liveSession: "AI Live Session",
+    comeBackIn: "Come back in {{time}}",
+  },
+  "aiLiveVedio": {
+    "title": "AI Live Section",
+    "description": "Let’s start with a breathing game. Imagine this ball is your breath. When it gets big, you breathe in. When it gets small, you breathe out. Ready?",
+    "playButton": "Play Video",
+    "title": "Great job",
+    "subtitle": "{{name}}! You just trained your focus, just like a football player before a big match."
+
+  },
+
+  "aiLiveExample": {
+    "header": "AI Live Section",
+    "description": "Let’s try this together. Look at this math problem. Imagine your magic ball is holding all distractions. Focus only on the numbers. Can you solve it?",
+    "correct": "🎉 Yes! You did it. Just like Sami, you used your magic ball.",
+    "incorrect": "❌ Try again!",
+    "modalTitle": "{{name}} earns: ⭐ x10 + 💎 x1",
+    "modalSubtitle": "Amazing work! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
+  },
+  aiLiveSection: {
+    title: "AI Live Section",
+    question: "Hi! I’m happy to see you again. Before we start, tell me, how do you feel today?",
+
+    feelings: {
+      happy: {
+        label: "Happy",
+        message: "Awesome! Let's keep that smile going 😊",
+      },
+      sad: {
+        label: "Sad",
+        message: "It's okay to feel sad sometimes 💙",
+      },
+      okay: {
+        label: "Okay",
+        message: "Got it, you’re feeling just okay today.",
+      },
+      angry: {
+        label: "Angry",
+        message: "Take a deep breath… we’ll calm things down together 😌",
+      },
+    },
+    "magicBalls": "Magic Ball",
+    successTitle: "{{name}} earns: ⭐ x10 + 💎 x1",
+    successSubtitle: "Amazing work! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure.",
+  }
+  ,
+
+  "assignment": {
+    "title": "Assignment",
+    "writtenExam": "Written Exam",
+    "practicalExam": "Practical Exam",
+    "scheduleLiveSession": "Schedule Live Observed Session",
+    "portfolioSubmission": "Portfolio Submission",
+    "uploadCaseReports": "Upload case reports",
+    "underReview": "Your submitted assignment is under review",
+    "placeholderName": "Nadine Zimat"
+  },
+  magicBackpack: {
+    title: "Let's Started",
+    description: "This is your magic backpack.\nLet's pack it with your dreams and secrets so I can know you better!",
+    forChild: "For {{name}}",
+  },
   //Components
+  photoUpload: {
+    uploadCreative: "Upload Creative Stuff (Optional)",
+    uploadPhoto: "Upload your photo",
+  },
+
   roleSelection: {
     parent: "Parent",
     learner: "Learner",

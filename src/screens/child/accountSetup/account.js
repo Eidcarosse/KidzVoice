@@ -12,12 +12,14 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import ConnectedModal from "../../../components/conectedModal/connectedModal";
 import { errorToastMessage, getStoredValue } from "../../../utils/Methods";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useTranslation } from "react-i18next";
 
 const AccountSetupScreen = () => {
   const navigation = useNavigation();
   const [code, setCode] = useState("");
   const [name, setName] = useState("");
   const [isConnectedModal, setIsConnectedModal] = useState(false);
+  const { t } = useTranslation();
   const handlePhotoUpload = () => {
     // open file/image picker
   };
@@ -58,20 +60,21 @@ const AccountSetupScreen = () => {
         <View style={{ flex: 1, }}>
           <Image source={Images.ACCOUNTIMAGE} style={styles.illustration} />
 
-          <Text style={styles.title}>Account Setup</Text>
+          <Text style={styles.title}>{t('account.accountSetup')}</Text>
           <Text style={styles.subtitle}>
-            Enter the unique code from Parent
+            {t('account.enterCode')}
           </Text>
 
+
           <Input
-            placeholder="Enter code"
+            placeholder={t('account.enterUserCode')}
             value={code}
             setState={setCode}
             icon={<AntDesign name="user-add" size={18} color={colors.ebonyClays} />}
           />
 
           <Input
-            placeholder="Enter your name here"
+            placeholder={t('account.enterName')}
             value={name}
             setState={setName}
             icon={<AntDesign name="user" size={18} color={colors.ebonyClays} />}
@@ -79,7 +82,7 @@ const AccountSetupScreen = () => {
 
           <PhotoUploader />
 
-          <Button title="Continue" onPress={handleContinue} />
+          <Button title={t('account.continue')} onPress={handleContinue} />
 
           <ConnectedModal
             visible={isConnectedModal}
