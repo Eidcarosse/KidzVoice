@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, Platform } from "react-native";
 import { fonts } from "../../utils/fonts";
 import colors from "../../utils/AppColors";
 import Images from "../../assets/images";
+import { useTranslation } from "react-i18next";
 
 export default function StudentCard({
   index,
@@ -12,6 +13,7 @@ export default function StudentCard({
   image,
   highlighted,
 }) {
+  const { t } = useTranslation()
   return (
     <View style={[styles.card, highlighted && styles.highlighted]}>
       <Text style={styles.index}>{index + 1}</Text>

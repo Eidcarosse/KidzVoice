@@ -82,7 +82,7 @@ const siblingsOptions = ["Yes", "No"];
 const modules = [
   {
     id: 1,
-    title: "Module 1: Introduction to Psychology",
+    title: "M1",
     subTitle: "CBT | Diagnosis | Crisis Care.......",
     language: "English",
     time: "1h 20m",
@@ -207,7 +207,7 @@ const youtubeVideosList = [
   },
   {
     id: "W4N-7AlzK7s",
-    title: "The Chemical Mind:",
+    title: "The Chemical Mind",
     thumbnail: "https://img.youtube.com/vi/vo4pMVb0R6M/hqdefault.jpg",
   },
   {

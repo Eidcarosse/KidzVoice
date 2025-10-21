@@ -172,7 +172,7 @@ export default {
     transcript: "Transcript",
     "Intro to Psychology": "Intro to Psychology",
     "Psychological Research": "Psychological Research",
-    "The Chemical Mind:": "The Chemical Mind:",
+    "The Chemical Mind": "The Chemical Mind",
     "Meet Your Master - Getting to Know Your Brain":
       "Meet Your Master - Getting to Know Your Brain",
     "Sensation and Perception": "Sensation and Perception",
@@ -227,6 +227,7 @@ export default {
     schedule: "Schedule",
     comingMeetings: "meeting have upcoming",
     recentMeeting: "Recent students meeting",
+    comingSoon: "Schedule is Coming soon!"
   },
 
   mentors: {
@@ -250,6 +251,8 @@ export default {
     acceptRequest: "Accept Request",
     sendRequest: "Send Request",
     rejectRequest: "Reject Request",
+    searchPlaceholder: "Search by name, course, or location",
+
   },
 
   //learner
@@ -485,8 +488,7 @@ export default {
   },
 
   trainingCard: {
-    "Module 1: Introduction to Psychology":
-      "Module 1: Introduction to Psychology",
+    "M1": "M1",
     "Module 2: Safeguarding": "Module 2: Safeguarding",
     "Final Project": "Final Project",
     "CBT | Diagnosis | Crisis Care.......":

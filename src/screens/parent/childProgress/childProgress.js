@@ -37,11 +37,13 @@ export default function ChildProgress() {
   };
 
   const handleSearchTeacher = () => {
-    console.log("Guest Mode");
-    infoToastMessage(
-      t(`childProgress.teacher`),
-      t(`childProgress.teacherSearch`)
-    );
+    console.log("Guest Mode ww");
+    // infoToastMessage(
+    //   t(`childProgress.teacher`),
+    //   t(`childProgress.teacherSearch`)
+    // );
+    navigation.navigate(ScreensName.TEACHERSCREEN)
+
   };
 
   const handleStudentActivities = () => {

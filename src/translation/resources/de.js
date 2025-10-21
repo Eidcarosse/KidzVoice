@@ -203,7 +203,7 @@ export default {
     transcript: "Transkript",
     "Intro to Psychology": "Einführung in die Psychologie",
     "Psychological Research": "Psychologische Forschung",
-    "The Chemical Mind:": "Der chemische Geist:",
+    "The Chemical Mind": "Der chemische Geist:",
     "Meet Your Master - Getting to Know Your Brain":
       "Triff deinen Meister – Lerne dein Gehirn kennen",
     "Sensation and Perception": "Empfindung und Wahrnehmung",
@@ -259,6 +259,7 @@ export default {
     schedule: "Zeitplan",
     comingMeetings: "Bevorstehende Besprechungen",
     recentMeeting: "Letztes Schülergespräch",
+    comingSoon: "Der Zeitplan kommt bald!",
   },
 
   mentors: {
@@ -278,6 +279,7 @@ export default {
     acceptRequest: "Anfrage annehmen",
     sendRequest: "Anfrage senden",
     rejectRequest: "Anfrage ablehnen",
+    searchPlaceholder: "Suche nach Name, Kurs oder Standort",
   },
   //lerner
   account: {
@@ -381,9 +383,10 @@ export default {
   //Components
 
   connectedModal: {
-    title: "Connected",
-    subtitle: "You’re now linked with your parent!",
+    title: "Verbunden",
+    subtitle: "Du bist jetzt mit deinem Elternteil verbunden!",
   },
+
   photoUpload: {
     uploadCreative: "Kreatives Material hochladen (optional)",
     uploadPhoto: "Laden Sie Ihr Foto hoch",
@@ -491,8 +494,7 @@ export default {
   },
 
   trainingCard: {
-    "Module 1: Introduction to Psychology":
-      "Modul 1: Einführung in die Psychologie",
+    "M1": "Modul 1: Einführung in die Psychologie",
     "Module 2: Safeguarding": "Modul 2: Schutz und Sicherheit",
     "Final Project": "Abschlussprojekt",
     "CBT | Diagnosis | Crisis Care.......":

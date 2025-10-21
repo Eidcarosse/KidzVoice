@@ -86,7 +86,7 @@ export default function CoachDashboard() {
           />
           <Pressable
             onPress={() =>
-              infoToastMessage("Schedule", "Schedule is Coming soon!")
+              infoToastMessage(t("coachDashboard.schedule"), t("coachDashboard.comingSoon"))
             }
             style={{ marginTop: 5, marginLeft: 10 }}
           >

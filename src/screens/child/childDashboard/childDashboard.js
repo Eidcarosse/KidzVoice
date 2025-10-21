@@ -271,7 +271,6 @@ export default function ChildDashboard() {
                 }}
               >
                 <MaterialCommunityIcons name="logout" size={20} color="#fff" />
-                <Text style={styles.cancelText}>{t("childDashboard.cancel")}</Text>
                 <Text style={styles.logoutText}>{t("childDashboard.logout")}</Text>
               </TouchableOpacity>
             </View>

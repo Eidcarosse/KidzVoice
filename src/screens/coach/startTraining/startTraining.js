@@ -111,7 +111,7 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import styles from "./styles";
 import { Button, Header } from "../../../components";
 import { Ionicons } from "@expo/vector-icons";
-import { youtubeVideosList } from "../../../utils/Data";
+import { modules, youtubeVideosList } from "../../../utils/Data";
 import YoutubePlayer from "react-native-youtube-iframe";
 import ScreensName from "../../../routes/routes";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -125,7 +125,7 @@ export default function StartTraining() {
   const playerRef = useRef(null);
   const { t } = useTranslation();
 
-  const [selectedModule, setSelectedModule] = useState();
+  const [selectedModule, setSelectedModule] = useState("");
   const [selectedVideoId, setSelectedVideoId] = useState("eal4-A89IWY");
   const [completedVideos, setCompletedVideos] = useState([]);
   const [currentPlayableIndex, setCurrentPlayableIndex] = useState(0);
@@ -166,12 +166,13 @@ export default function StartTraining() {
   const handelStartQuiz = () => {
     navigation.navigate(ScreensName.STARTQUIZ);
   };
+  console.log(`trainingCard.${modules[0]?.title}`);
 
   return (
     <StatusBarWrapper edges={["bottom", "top"]}>
       <Header title={t(`startTraining.kidzLife`)} />
       <Text style={styles.titleText}>
-        {t(`trainingCard.${selectedModule?.title}`)}
+        {t(`trainingCard.${modules[0]?.title}`)}
       </Text>
 
       {/* Active Player */}
@@ -217,7 +218,6 @@ export default function StartTraining() {
         renderItem={({ item, index }) => {
           const isUnlocked = index <= currentPlayableIndex;
           const isCompleted = completedVideos.includes(item.id);
-          console.log("Item Title", item?.title);
 
           return (
             <TouchableOpacity
