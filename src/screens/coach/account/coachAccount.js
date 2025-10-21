@@ -10,9 +10,11 @@ import PersonalInfo from "./personalInfo";
 import EducationalInfo from "./educationalInfo/educationalInfo";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import ScreensName from "../../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function CoachAccount() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   const [activeInfo, setActiveInfo] = useState("Personal");
 
@@ -71,7 +73,7 @@ export default function CoachAccount() {
           </View>
         </View>
 
-        <Text style={styles.accountText}>Account Setup</Text>
+        <Text style={styles.accountText}>{t(`coachAccount.accountSetup`)}</Text>
         {activeInfo === "Personal" && (
           <PersonalInfo
             name={name}

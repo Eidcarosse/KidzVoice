@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import StatusBarWrapper from "../../components/customStatusbar";
 import { Button, RoleSelection, SocialLogin } from "../../components";
@@ -12,19 +18,48 @@ import {
   storeValue,
 } from "../../utils/Methods";
 import ScreensName from "../../routes/routes";
+import { useTranslation } from "react-i18next";
+import { Menu, MenuDivider, MenuItem } from "react-native-material-menu";
+import { MaterialIcons } from "@expo/vector-icons";
+import colors from "../../utils/AppColors";
 
 export default function SignIn() {
   const navigation = useNavigation();
+  const { t, i18n } = useTranslation();
   const [selectedRole, setSelectedRole] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
 
   const [childData, setChildData] = useState();
   const [parentData, setParentData] = useState();
 
+  const [languageMenu, setLanguageMenu] = useState(false);
+
   const [loading, setLoading] = useState(true);
+
+  const openLanuageMenu = () => {
+    setLanguageMenu(true);
+  };
+
+  const closeLanuageMenu = () => {
+    setLanguageMenu(false);
+  };
 
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
     const parentRes = await getStoredValue("parentData");
+    let languageRes = await getStoredValue("language");
+
+    console.log("Selected Language Data", languageRes);
+
+    if (languageRes) {
+      if (languageRes?.lang === "english") {
+        setSelectedLanguage("english");
+      } else {
+        setSelectedLanguage("german");
+      }
+    } else {
+      setSelectedLanguage("german");
+    }
     console.log(
       "Child Data Response",
       childDataRes,
@@ -126,9 +161,7 @@ export default function SignIn() {
         navigation.navigate(ScreensName.ACCOUNT);
       } else if (selectedRole?.title === "Teacher") {
         navigation.navigate(ScreensName.COACHDASHBOARDTABS);
-      }
-
-      else {
+      } else {
         navigation.navigate(ScreensName.COACHACCOUNT);
       }
     }
@@ -139,42 +172,86 @@ export default function SignIn() {
     infoToastMessage("Guest Mode", "Guest Mode Coming Soon");
   };
   return (
-    <StatusBarWrapper>
-      <Text style={styles.welcomeText}>Welcome! Tell us who you are 👋</Text>
+    <StatusBarWrapper scrollType={"scroll"}>
+      <ScrollView>
+        <View style={styles.menuView}>
+          <Menu
+            visible={languageMenu}
+            onRequestClose={closeLanuageMenu}
+            style={styles.menuStyle}
+            anchor={
+              <Pressable
+                style={styles.menuAnchorStyle}
+                onPress={openLanuageMenu}
+              >
+                <Text>{t(`signIn.${selectedLanguage}`)}</Text>
+                <MaterialIcons name="arrow-drop-down" size={16} />
+              </Pressable>
+            }
+          >
+            <MenuItem
+              style={styles.menuItemStyle}
+              onPress={() => {
+                storeValue("language", { lang: "english" });
+                i18n.changeLanguage("en");
+                setSelectedLanguage("english");
+                setLanguageMenu(false);
+              }}
+            >
+              {t(`signIn.english`)}
+            </MenuItem>
 
-      <RoleSelection selected={selectedRole} onSelection={setSelectedRole} />
+            <MenuDivider color={colors.gray} />
 
-      <SocialLogin
-        title="Continue with google"
-        image={Images.GOOGLE}
-        onPress={handleSignIn}
-      />
-      <SocialLogin
-        title="Continue with Facebook"
-        image={Images.FACEBOOK}
-        onPress={handleSignIn}
-      />
+            <MenuItem
+              style={styles.menuItemStyle}
+              onPress={() => {
+                storeValue("language", { lang: "german" });
+                i18n.changeLanguage("de");
+                setSelectedLanguage("german");
+                setLanguageMenu(false);
+              }}
+            >
+              {t(`signIn.german`)}
+            </MenuItem>
+          </Menu>
+        </View>
+        <Text style={styles.welcomeText}>{t(`signIn.welcome`)}</Text>
 
-      <SocialLogin
-        title="Continue with Apple"
-        image={Images.APPLE}
-        onPress={handleSignIn}
-      />
+        <RoleSelection selected={selectedRole} onSelection={setSelectedRole} />
 
-      <SocialLogin
-        title="Continue with X"
-        image={Images.X}
-        onPress={handleSignIn}
-      />
+        <SocialLogin
+          title={t(`signIn.continueGoogle`)}
+          image={Images.GOOGLE}
+          onPress={handleSignIn}
+        />
+        <SocialLogin
+          title={t(`signIn.continueFacebook`)}
+          image={Images.FACEBOOK}
+          onPress={handleSignIn}
+        />
 
-      <Text style={styles.alreadyText}>Already User?</Text>
-      <Button title={"Sign in"} onPress={handleSignIn} />
-      <Button
-        title={"Continue as Guest"}
-        onPress={handleGuest}
-        btnStyle={styles.guestBtnStyle}
-        textStyle={styles.guestBtnText}
-      />
+        <SocialLogin
+          title={t(`signIn.continueApple`)}
+          image={Images.APPLE}
+          onPress={handleSignIn}
+        />
+
+        <SocialLogin
+          title={t(`signIn.continueX`)}
+          image={Images.X}
+          onPress={handleSignIn}
+        />
+
+        <Text style={styles.alreadyText}>{t(`signIn.alreadyUser`)}</Text>
+        <Button title={t(`signIn.signIn`)} onPress={handleSignIn} />
+        <Button
+          title={t(`signIn.continueAsGuest`)}
+          onPress={handleGuest}
+          btnStyle={styles.guestBtnStyle}
+          textStyle={styles.guestBtnText}
+        />
+      </ScrollView>
     </StatusBarWrapper>
   );
 }

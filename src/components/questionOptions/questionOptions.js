@@ -3,6 +3,7 @@ import React from "react";
 import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import colors from "../../utils/AppColors";
 import styles from "./styles";
+import { useTranslation } from "react-i18next";
 
 export default function QuestionOptions({
   options,
@@ -10,6 +11,7 @@ export default function QuestionOptions({
   setState,
   multiple = false,
 }) {
+  const { t } = useTranslation();
   const isSelected = (value) =>
     multiple ? state.includes(value) : state === value;
 
@@ -41,7 +43,9 @@ export default function QuestionOptions({
             size={20}
             color={isSelected(option) ? colors.blueRibbon : colors.alto}
           />
-          <Text style={styles.optionText}>{option}</Text>
+          <Text style={styles.optionText}>
+            {t(`questionOptions.${option}`)}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>

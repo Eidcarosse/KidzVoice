@@ -4,13 +4,15 @@ import { height, width } from "../../../../utils/Dimensions";
 import { fonts } from "../../../../utils/fonts";
 import SuccessModal from "../../../../components/successModal/success";
 import { Button } from "../../../../components";
+import { useTranslation } from "react-i18next";
 
 export default function FeelingResult({ isBtn, onPress, image, text }) {
+  const { t } = useTranslation()
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
-      {isBtn && <Button title={"Next"} onPress={onPress} btnStyle={{ width: width(90), marginTop: 12 }} />}
+      {isBtn && <Button title={t`${'parentQuestionaire.next'}`} onPress={onPress} btnStyle={{ width: width(90), marginTop: 12 }} />}
     </View>
   );
 }

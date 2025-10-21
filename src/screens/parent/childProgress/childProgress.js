@@ -23,9 +23,11 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../../../components";
+import { useTranslation } from "react-i18next";
 
 export default function ChildProgress() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -34,29 +36,54 @@ export default function ChildProgress() {
     setChildData(childDataRes);
   };
 
-  const handleSearchTeacher = () => {
+  const handleNotificationPress = () => {
     console.log("Guest Mode");
-    infoToastMessage("Teacher", "Teacher Search Coming Soon");
+    infoToastMessage(
+      t(`childProgress.notification`),
+      t(`childProgress.notificationComing`)
+    );
+  };
+
+  const handleSearchTeacher = () => {
+    console.log("Guest Mode ww");
+    // infoToastMessage(
+    //   t(`childProgress.teacher`),
+    //   t(`childProgress.teacherSearch`)
+    // );
+    navigation.navigate(ScreensName.TEACHERSCREEN)
+
   };
 
   const handleStudentActivities = () => {
     console.log("Guest Mode");
-    infoToastMessage("Student Activities", "Student Activities Coming Soon");
+    infoToastMessage(
+      t(`childProgress.studentActivities`),
+      t(`childProgress.studentComing`)
+    );
   };
 
   const handleTeacherChat = () => {
     console.log("Guest Mode");
-    infoToastMessage("Teacher Chat", "Teacher Chat Coming Soon");
+    infoToastMessage(
+      t(`childProgress.teacherChat`),
+      t(`childProgress.teacherChatSoon`)
+    );
   };
 
   const handleAssignment = () => {
     console.log("Guest Mode");
-    infoToastMessage("Assignment", "Assignment Coming Soon");
+    infoToastMessage(
+      t(`childProgress.assignment`),
+      t(`childProgress.assignmentComing`)
+    );
   };
 
   const handleOtherTasks = () => {
     console.log("Guest Mode");
-    infoToastMessage("Other Tasks", "Other Tasks Coming Soon");
+    infoToastMessage(
+      t(`childProgress.otherTask`),
+      t(`childProgress.otherTaskComing`)
+    );
   };
 
   useEffect(() => {
@@ -67,12 +94,11 @@ export default function ChildProgress() {
   useFocusEffect(
     useCallback(() => {
       const onBackPress = () => {
-
         return true;
       };
 
       const subscription = BackHandler.addEventListener(
-        'hardwareBackPress',
+        "hardwareBackPress",
         onBackPress
       );
 
@@ -80,7 +106,6 @@ export default function ChildProgress() {
       return () => subscription.remove();
     }, [])
   );
-
 
   // useEffect(() => {
   //   const backAction = () => {
@@ -109,22 +134,29 @@ export default function ChildProgress() {
   }
   return (
     <StatusBarWrapper>
-      <ScrollView style={{ flex: 1, }} contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.header}>
           <Image
             source={{ uri: "https://randomuser.me/api/portraits/men/41.jpg" }}
             style={styles.avatar}
           />
           <Text style={styles.userName}>{childData?.name}</Text>
-          <TouchableOpacity style={styles.notificationBtn}>
+          <TouchableOpacity
+            style={styles.notificationBtn}
+            onPress={handleNotificationPress}
+          >
             <Ionicons name="notifications-outline" size={22} color="#000" />
           </TouchableOpacity>
         </View>
 
         <View>
           <View style={styles.progressHeaderView}>
-            <Text style={styles.progressText}>Progress Bar</Text>
-            <Text style={styles.viewDetailsText}>View details report</Text>
+            <Text style={styles.progressText}>
+              {t(`childProgress.progressBar`)}
+            </Text>
+            <Text style={styles.viewDetailsText}>
+              {t(`childProgress.viewDetailsReport`)}
+            </Text>
           </View>
 
           <View style={styles.progressHeaderView}>
@@ -145,8 +177,12 @@ export default function ChildProgress() {
                       }}
                     />
                     <View>
-                      <Text style={styles.progressTitleText}>{item?.title}</Text>
-                      <Text style={styles.progressTitleText}>{item?.value}</Text>
+                      <Text style={styles.progressTitleText}>
+                        {t(`childProgress.${item?.label}`)}
+                      </Text>
+                      <Text style={styles.progressTitleText}>
+                        {item?.value}
+                      </Text>
                     </View>
                   </View>
                 );
@@ -161,16 +197,16 @@ export default function ChildProgress() {
         >
           <Ionicons name="musical-notes" size={26} color={colors.white} />
           <View>
-            <Text style={styles.teacherTitle}>Teachers</Text>
+            <Text style={styles.teacherTitle}>
+              {t(`childProgress.teachers`)}
+            </Text>
             <Text style={styles.teacherSubtitle}>
-              You can search out more teacher
+              {t(`childProgress.teacherSubtitle`)}
             </Text>
           </View>
         </TouchableOpacity>
 
-        <Text style={styles.subHeading}>
-          You can check out the ongoing progress of your child
-        </Text>
+        <Text style={styles.subHeading}>{t(`childProgress.checkOut`)}</Text>
 
         <View style={styles.optionGrid}>
           <TouchableOpacity
@@ -178,11 +214,18 @@ export default function ChildProgress() {
             onPress={handleStudentActivities}
           >
             <Ionicons name="bulb-outline" size={20} color={colors.jumbo} />
-            <Text style={styles.optionText}>Activities for student</Text>
+            <Text style={styles.optionText}>
+              {t(`childProgress.activitiesForStudent`)}
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.optionBtn} onPress={handleTeacherChat}>
+          <TouchableOpacity
+            style={styles.optionBtn}
+            onPress={handleTeacherChat}
+          >
             <MaterialIcons name="chat" size={20} color={colors.jumbo} />
-            <Text style={styles.optionText}>Chat teacher</Text>
+            <Text style={styles.optionText}>
+              {t(`childProgress.chatTeacher`)}
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionBtn} onPress={handleAssignment}>
             <Ionicons
@@ -190,21 +233,27 @@ export default function ChildProgress() {
               size={20}
               color={colors.jumbo}
             />
-            <Text style={styles.optionText}>Assignment</Text>
+            <Text style={styles.optionText}>
+              {t(`childProgress.assignment`)}
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionBtn} onPress={handleOtherTasks}>
             <Ionicons name="list-outline" size={20} color={colors.jumbo} />
-            <Text style={styles.optionText}>Other tasks</Text>
+            <Text style={styles.optionText}>
+              {t(`childProgress.otherTasks`)}
+            </Text>
           </TouchableOpacity>
         </View>
-        <View style={{ flex: 1, justifyContent: "flex-end", paddingBottom: 10 }}>
+        <View
+          style={{ flex: 1, justifyContent: "flex-end", paddingBottom: 10 }}
+        >
           <Button
-            title="Setup Child"
+            title={t(`childProgress.setUpChild`)}
             onPress={async () => {
               try {
-                navigation.navigate(ScreensName.ACCOUNT)
+                navigation.navigate(ScreensName.ACCOUNT);
               } catch (error) {
-                console.error('❌ Error clearing AsyncStorage:', error);
+                console.error("❌ Error clearing AsyncStorage:", error);
               }
             }}
             textStyle={styles.textStyle}
@@ -212,7 +261,7 @@ export default function ChildProgress() {
           />
 
           <Button
-            title="Logout"
+            title={t(`childProgress.logOut`)}
             onPress={async () => {
               try {
                 const parentData = await getStoredValue("parentData");

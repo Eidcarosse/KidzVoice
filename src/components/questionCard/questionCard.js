@@ -3,8 +3,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./styles";
 import colors from "../../utils/AppColors";
+import { useTranslation } from "react-i18next";
 
 const QuestionCard = ({ question, optionList, answer, setAnswer }) => {
+  const { t } = useTranslation();
   return (
     <View style={styles.parentView}>
       <Text style={styles.questionText}>{question}</Text>
@@ -16,9 +18,19 @@ const QuestionCard = ({ question, optionList, answer, setAnswer }) => {
             onPress={() => setAnswer(option?.id)}
             style={styles.optionTouchable}
           >
-            <Text
-              style={styles.optionText}
-            >{`${option?.id}) ${option?.text}`}</Text>
+            <View
+              style={{
+                width: "90%",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Text style={styles.optionIdText}>{`${option?.id})`}</Text>
+
+              <Text style={styles.optionText}>
+                {t(`questionCard.${option?.text}`)}
+              </Text>
+            </View>
 
             <Ionicons
               name={

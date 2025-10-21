@@ -9,13 +9,19 @@ import colors from "../../../utils/AppColors";
 import ConnectedModal from "../../../components/conectedModal/connectedModal";
 import * as Clipboard from "expo-clipboard";
 import { User, Copy, FileText, ClipboardList } from "lucide-react-native";
-import { errorToastMessage, getStoredValue, storeValue } from "../../../utils/Methods";
+import {
+  errorToastMessage,
+  getStoredValue,
+  storeValue,
+} from "../../../utils/Methods";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import Toast from "react-native-toast-message";
+import { useTranslation } from "react-i18next";
 
 export default function GenerateChild() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [isConnectedModal, setIsConnectedModal] = useState(false);
   const [childId, setChild] = useState("");
 
@@ -43,8 +49,11 @@ export default function GenerateChild() {
 
   const handleViewSummary = () => {
     if (!childId) {
-      errorToastMessage("Error", "Please Genrate Child ID to view Summary");
-      return
+      errorToastMessage(
+        t(`generateChild.error`),
+        t(`generateChild.pleaseGenerate`)
+      );
+      return;
     }
     navigation.navigate(ScreensName.CHILDPROGRESS);
   };
@@ -70,61 +79,57 @@ export default function GenerateChild() {
   };
   return (
     <StatusBarWrapper>
-      <ScrollView contentContainerStyle={{
-        flexGrow: 1,
-        paddingBottom: 40,
-      }}>
-        <Image
-          source={Images.GENERATECHILD}
-          style={styles.imageStyle}
-          resizeMode="contain"
-        />
-        <Text style={styles.yourText}>
-          Your answers are securely saved. You can update anytime
-        </Text>
-        <DropDown
-          state={"View Summary"}
-          // icon={<Feather name="user" size={20} color={colors.ebonyClay} />}
-          icon={<ClipboardList size={20} color={colors.ebonyClay} />}
-          onPress={handleViewSummary}
-        />
-        <Text style={styles.secureText}>Secure link between accounts</Text>
+      {/* <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 40,
+        }}
+      > */}
+      <Image
+        source={Images.GENERATECHILD}
+        style={styles.imageStyle}
+        resizeMode="contain"
+      />
+      <Text style={styles.yourText}>{t(`generateChild.securelySave`)}</Text>
+      <DropDown
+        state={t(`generateChild.viewSummary`)}
+        // icon={<Feather name="user" size={20} color={colors.ebonyClay} />}
+        icon={<ClipboardList size={20} color={colors.ebonyClay} />}
+        onPress={handleViewSummary}
+      />
+      <Text style={styles.secureText}>{t(`generateChild.secureLink`)}</Text>
 
-        <View style={{ position: "relative" }}>
-          <DropDown
-            state={childId}
-            placeholder={"Generate child ID"}
-            icon={<User size={20} color={colors.ebonyClay} />}
-            rightIcon={
-              <TouchableOpacity
-                onPress={copyToClipboard}
-                style={styles.copyTextContainer}
-              >
-                <Text style={styles.copyText}>Copy</Text>
-              </TouchableOpacity>
-            }
+      <View style={{ position: "relative" }}>
+        <DropDown
+          state={childId}
+          placeholder={t(`generateChild.generateId`)}
+          icon={<User size={20} color={colors.ebonyClay} />}
+          rightIcon={
+            <TouchableOpacity
+              onPress={copyToClipboard}
+              style={styles.copyTextContainer}
+            >
+              <Text style={styles.copyText}>{t(`generateChild.copy`)}</Text>
+            </TouchableOpacity>
+          }
           // ❌ remove this — it causes whole dropdown to be pressable
           // onPress={copyToClipboard}
-          />
-          <Text style={styles.useText}>
-            Please copy your generated Child ID to use for login.
-          </Text>
-        </View>
-
-        <Button
-          title={"Generate Child ID"}
-          btnStyle={styles.generateBtnStyle}
-          onPress={handleGenerateChildId}
         />
+        <Text style={styles.useText}>{t(`generateChild.pleaseCopy`)}</Text>
+      </View>
 
+      <Button
+        title={t(`generateChild.generateId`)}
+        btnStyle={styles.generateBtnStyle}
+        onPress={handleGenerateChildId}
+      />
 
-
-        <ConnectedModal
-          isLoader={true}
-          visible={isConnectedModal}
-          onClose={() => setIsConnectedModal(false)}
-        />
-      </ScrollView>
+      <ConnectedModal
+        isLoader={true}
+        visible={isConnectedModal}
+        onClose={() => setIsConnectedModal(false)}
+      />
+      {/* </ScrollView> */}
     </StatusBarWrapper>
   );
 }

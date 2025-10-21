@@ -11,6 +11,7 @@ import { Ionicons, FontAwesome6 } from "@expo/vector-icons";
 import colors from "../../utils/AppColors";
 import QuestionOptions from "../questionOptions/questionOptions";
 import { getStoredValue } from "../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function FamilyContext({
   maxLiveTime,
@@ -20,6 +21,7 @@ export default function FamilyContext({
   contactPerson,
   setContactPerson,
 }) {
+  const { t } = useTranslation();
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -36,13 +38,12 @@ export default function FamilyContext({
   }, []);
   return (
     <View style={styles.parentView}>
-      <Text style={styles.title}>Family Context</Text>
-      <Text style={styles.subtitle}>
-        Purpose: Understand home and support system.
-      </Text>
+      <Text style={styles.title}>{t(`familyContext.familyContext`)}</Text>
+      <Text style={styles.subtitle}>{t(`familyContext.purpose`)}</Text>
 
       <Text style={styles.question}>
-        1 Who does {childData?.name} live with most of the time?
+        {t(`familyContext.question1p1`)} {childData?.name}{" "}
+        {t(`familyContext.question1p2`)}
       </Text>
 
       <QuestionOptions
@@ -53,7 +54,8 @@ export default function FamilyContext({
       />
 
       <Text style={styles.question}>
-        2 Does {childData?.name} have siblings?
+        {t(`familyContext.question2p1`)} {childData?.name}{" "}
+        {t(`familyContext.question2p2`)}
       </Text>
 
       <QuestionOptions
@@ -64,7 +66,8 @@ export default function FamilyContext({
       />
 
       <Text style={styles.question}>
-        3 Who is {childData?.name}’s primary caregiver/contact person?
+        {t(`familyContext.question3p1`)} {childData?.name}’s primary
+        {t(`familyContext.question3p2`)}
       </Text>
       <TextInput
         style={styles.textArea}

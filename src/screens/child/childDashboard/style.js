@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         paddingVertical: 12,
         borderRadius: 20,
-        alignSelf: 'center',
 
     },
     iconContainer: {

@@ -9,9 +9,11 @@ import Images from "../../assets/images";
 import { LockKeyhole } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function TrainingCard({ module }) {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   console.log("Modules", module);
 
   const handleStartTraning = (module) => {
@@ -28,7 +30,9 @@ export default function TrainingCard({ module }) {
         <Image source={Images.MODULEIMAGE} style={styles.image} />
         <View style={styles.headerText}>
           <View style={styles.titleIconView}>
-            <Text style={styles.moduleTitle}>{module?.title}</Text>
+            <Text style={styles.moduleTitle}>
+              {t(`trainingCard.${module?.title}`)}
+            </Text>
             {module?.inProgress ? (
               <Feather
                 name="more-vertical"
@@ -39,26 +43,38 @@ export default function TrainingCard({ module }) {
               <LockKeyhole size={20} color={colors.ebonyClay} />
             )}
           </View>
-          <Text style={styles.subTitle}>{module?.subTitle}</Text>
+          <Text style={styles.subTitle}>
+            {t(`trainingCard.${module?.subTitle}`)}
+          </Text>
           <View style={styles.iconsRow}>
             <Ionicons name="globe-outline" size={14} color={colors.ebonyClay} />
-            <Text style={styles.iconText}>{module?.language}</Text>
+            <Text style={styles.iconText}>
+              {t(`trainingCard.${module?.language}`)}
+            </Text>
             <Ionicons name="time-outline" size={14} color={colors.ebonyClay} />
-            <Text style={styles.iconText}> {module?.time}</Text>
+            <Text style={styles.iconText}>
+              {t(`trainingCard.${module?.time}`)}
+            </Text>
             <MaterialIcons
               name="ondemand-video"
               size={14}
               color={colors.ebonyClay}
             />
-            <Text style={styles.iconText}>{module?.mediaType}</Text>
+            <Text style={styles.iconText}>
+              {t(`trainingCard.${module?.mediaType}`)}
+            </Text>
             <MaterialIcons name="quiz" size={14} color={colors.ebonyClay} />
-            <Text style={styles.iconText}>{module?.moduleType}</Text>
+            <Text style={styles.iconText}>
+              {t(`trainingCard.${module?.moduleType}`)}
+            </Text>
           </View>
         </View>
       </View>
 
       {/* Description */}
-      <Text style={styles.description}>{module?.description}</Text>
+      <Text style={styles.description}>
+        {t(`trainingCard.${module?.description}`)}
+      </Text>
 
       {/* Progress Section */}
       {module?.inProgress && (
@@ -66,7 +82,10 @@ export default function TrainingCard({ module }) {
           <View style={styles.progressRow}>
             <Ionicons name="checkmark-circle" size={22} color={colors.jewel} />
             <Text style={styles.progressText}>
-              62% <Text style={styles.completedText}>Completed</Text>
+              62%{" "}
+              <Text style={styles.completedText}>
+                {t(`trainingCard.completed`)}
+              </Text>
             </Text>
           </View>
           <ProgressBar
@@ -76,7 +95,7 @@ export default function TrainingCard({ module }) {
           />
 
           <Button
-            title={"Start Training"}
+            title={t(`trainingCard.startTraining`)}
             btnStyle={styles.startButton}
             onPress={() => {
               handleStartTraning(module);

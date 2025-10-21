@@ -15,16 +15,16 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import { infoToastMessage } from "../../../utils/Methods";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function Certification() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const handleDownload = () => {
     // Download logic here
     //  alert('Downloading certificate...');
 
     infoToastMessage("Download", "Download Certificate coming soon");
-
-
   };
 
   const shareOnLinkedIn = () => {
@@ -41,7 +41,7 @@ export default function Certification() {
   return (
     <StatusBarWrapper>
       <View style={styles.container}>
-        <Header title={"Certification"} />
+        <Header title={t(`certification.certification`)} />
 
         <View style={styles.profileContainer}>
           <Image
@@ -60,16 +60,22 @@ export default function Certification() {
           <View style={styles.certBox}>
             <View>
               <View style={styles.certifiedstyle}>
-                <Text style={styles.certText}>Certified</Text>
+                <Text style={styles.certText}>
+                  {t(`certification.certified`)}
+                </Text>
                 <Icon name="check-decagram" size={20} color="#007BFF" />
               </View>
 
-              <Text style={styles.levelText}>Level 1</Text>
+              <Text style={styles.levelText}>
+                {t(`certification.certified`)}
+              </Text>
             </View>
           </View>
 
           <TouchableOpacity style={styles.downloadBtn} onPress={handleDownload}>
-            <Text style={styles.downloadText}>Download Certificate</Text>
+            <Text style={styles.downloadText}>
+              {t(`certification.downloadCertificate`)}
+            </Text>
           </TouchableOpacity>
         </View>
         {/* <Text style={styles.badgeLabel}>Badge share options</Text>

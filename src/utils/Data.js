@@ -4,7 +4,7 @@ const roles = [
   { id: 1, label: "parent", title: "Parent" },
   { id: 2, label: "coach", title: "Be a coach" },
   { id: 3, label: "learner", title: "Learner" },
-  { id: 4, label: "teacher", title: "Teacher" }
+  { id: 4, label: "teacher", title: "Teacher" },
 ];
 
 const relationships = [
@@ -82,7 +82,7 @@ const siblingsOptions = ["Yes", "No"];
 const modules = [
   {
     id: 1,
-    title: "Module 1: Introduction to Psychology",
+    title: "M1",
     subTitle: "CBT | Diagnosis | Crisis Care.......",
     language: "English",
     time: "1h 20m",
@@ -166,9 +166,27 @@ const tasks = [
 ];
 
 const childProgreeData = [
-  { value: 6, max: 10, color: colors.anakiwa, title: "Meetings" }, // Meetings
-  { value: 13, max: 20, color: colors.sunDown, title: "Assignments" }, // Assignments
-  { value: 23, max: 30, color: colors.grandis, title: "Activities" }, // Activities
+  {
+    value: 6,
+    max: 10,
+    color: colors.anakiwa,
+    title: "Meetings",
+    label: "meetings",
+  }, // Meetings
+  {
+    value: 13,
+    max: 20,
+    color: colors.sunDown,
+    title: "Assignments",
+    label: "assignments",
+  }, // Assignments
+  {
+    value: 23,
+    max: 30,
+    color: colors.grandis,
+    title: "Activities",
+    label: "activities",
+  }, // Activities
 ];
 
 const youtubeVideosList = [
@@ -189,7 +207,7 @@ const youtubeVideosList = [
   },
   {
     id: "W4N-7AlzK7s",
-    title: "The Chemical Mind:",
+    title: "The Chemical Mind",
     thumbnail: "https://img.youtube.com/vi/vo4pMVb0R6M/hqdefault.jpg",
   },
   {
@@ -227,7 +245,8 @@ const students = [
   {
     id: "2",
     name: "Mia Schneider",
-    title: "Experiencing emotional distress after family conflict and needs crisis support.",
+    title:
+      "Experiencing emotional distress after family conflict and needs crisis support.",
     location: "Munich, Germany",
     language: "German, English",
     rating: 0,
@@ -236,7 +255,8 @@ const students = [
   {
     id: "3",
     name: "Jonas Weber",
-    title: "Dealing with academic pressure, low self-esteem, and stress management challenges.",
+    title:
+      "Dealing with academic pressure, low self-esteem, and stress management challenges.",
     location: "Frankfurt, Germany",
     language: "German, English",
     rating: 0,
@@ -254,14 +274,14 @@ const students = [
   {
     id: "5",
     name: "Noah Becker",
-    title: "Struggling with family communication and emotional disconnection at home.",
+    title:
+      "Struggling with family communication and emotional disconnection at home.",
     location: "Cologne, Germany",
     language: "English, German",
     rating: 0,
     image: "https://randomuser.me/api/portraits/men/23.jpg",
   },
 ];
-
 
 const teachers = [
   {
@@ -341,7 +361,6 @@ const studentMeetings = [
     image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
 ];
-
 
 export {
   roles,

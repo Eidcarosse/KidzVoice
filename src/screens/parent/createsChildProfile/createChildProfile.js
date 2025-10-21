@@ -1,4 +1,11 @@
-import { View, Text, Image, ScrollView, TouchableOpacity, Platform } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 import StatusBarWrapper from "../../../components/customStatusbar";
@@ -20,16 +27,16 @@ import ScreensName from "../../../routes/routes";
 import { User, Calendar, GraduationCap, Award } from "lucide-react-native";
 import { storeValue } from "../../../utils/Methods";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useTranslation } from "react-i18next";
 
 export default function CreateChildProfile() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [grade, setGrade] = useState("");
   const [isDisplayGradeList, setIsDisplayGradeList] = useState(false);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
-
 
   const [school, setSchool] = useState("");
   const [isDisplaySchoolList, setIsDisplaySchoolList] = useState(false);
@@ -76,7 +83,7 @@ export default function CreateChildProfile() {
     hideDatePicker();
   };
   return (
-    <StatusBarWrapper >
+    <StatusBarWrapper>
       <KeyboardAwareScrollView
         enableOnAndroid
         extraScrollHeight={80}
@@ -93,17 +100,18 @@ export default function CreateChildProfile() {
           resizeMode="contain"
         />
 
-        <Text style={styles.createText}>Creates Child profile.</Text>
-
-        <Text style={styles.loremText}>
-          Enter your child’s basic details to create their profile.
+        <Text style={styles.createText}>
+          {t(`createChildProfile.createChildProfile`)}
         </Text>
 
+        <Text style={styles.loremText}>
+          {t(`createChildProfile.childDetails`)}
+        </Text>
 
         <Input
           state={name}
           setState={setName}
-          placeholder="Enter your name here"
+          placeholder={t(`createChildProfile.enterName`)}
           icon={<User size={20} color={colors.ebonyClay} />}
         />
 
@@ -111,7 +119,7 @@ export default function CreateChildProfile() {
           <Input
             state={date}
             setState={showDatePicker}
-            placeholder="day/month/year"
+            placeholder={t(`createChildProfile.enterDOB`)}
             editable={false}
             icon={<Calendar size={20} color={colors.ebonyClay} />}
           />
@@ -160,7 +168,7 @@ export default function CreateChildProfile() {
           )} */}
 
         <Button
-          title={"Save"}
+          title={t(`createChildProfile.saveButton`)}
           onPress={handleSave}
           btnStyle={{
             marginTop:

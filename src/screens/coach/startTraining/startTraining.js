@@ -111,23 +111,25 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import styles from "./styles";
 import { Button, Header } from "../../../components";
 import { Ionicons } from "@expo/vector-icons";
-import { youtubeVideosList } from "../../../utils/Data";
+import { modules, youtubeVideosList } from "../../../utils/Data";
 import YoutubePlayer from "react-native-youtube-iframe";
 import ScreensName from "../../../routes/routes";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import colors from "../../../utils/AppColors";
 import { Notebook } from "lucide-react-native";
+import { useTranslation } from "react-i18next";
 
 export default function StartTraining() {
   const navigation = useNavigation();
   const routes = useRoute();
   const playerRef = useRef(null);
+  const { t } = useTranslation();
 
-  const [selectedModule, setSelectedModule] = useState();
+  const [selectedModule, setSelectedModule] = useState("");
   const [selectedVideoId, setSelectedVideoId] = useState("eal4-A89IWY");
   const [completedVideos, setCompletedVideos] = useState([]);
   const [currentPlayableIndex, setCurrentPlayableIndex] = useState(0);
-  const [title, setTitle] = useState('Psychology Preview')
+  const [title, setTitle] = useState("Psychology Preview");
   useEffect(() => {
     setSelectedModule(routes.params?.module);
   }, [routes.params?.module]);
@@ -164,11 +166,14 @@ export default function StartTraining() {
   const handelStartQuiz = () => {
     navigation.navigate(ScreensName.STARTQUIZ);
   };
+  console.log(`trainingCard.${modules[0]?.title}`);
 
   return (
     <StatusBarWrapper edges={["bottom", "top"]}>
-      <Header title={"KidzLife"} />
-      <Text style={styles.titleText}>{selectedModule?.title}</Text>
+      <Header title={t(`startTraining.kidzLife`)} />
+      <Text style={styles.titleText}>
+        {t(`trainingCard.${modules[0]?.title}`)}
+      </Text>
 
       {/* Active Player */}
       <View style={styles.moduleImage}>
@@ -183,22 +188,24 @@ export default function StartTraining() {
         />
       </View>
 
-      <Text style={styles.subTitleText}>Title: {title}</Text>
+      <Text style={styles.subTitleText}>
+        {t(`startTraining.title`)} {t(`startTraining.${title}`)}
+      </Text>
 
       <View style={styles.iconTextParentView}>
         <View style={styles.iconTextView}>
           <Ionicons name="bookmark-outline" size={15} />
-          <Text style={styles.saveText}>Save</Text>
+          <Text style={styles.saveText}>{t(`startTraining.save`)}</Text>
         </View>
 
         <View style={styles.iconTextView}>
           <Ionicons name="share-social-outline" size={15} />
-          <Text style={styles.saveText}>Share</Text>
+          <Text style={styles.saveText}>{t(`startTraining.share`)}</Text>
         </View>
 
         <View style={styles.iconTextView}>
           <Ionicons name="document-text-outline" size={15} />
-          <Text style={styles.saveText}>Transcript</Text>
+          <Text style={styles.saveText}>{t(`startTraining.transcript`)}</Text>
         </View>
       </View>
 
@@ -214,7 +221,16 @@ export default function StartTraining() {
 
           return (
             <TouchableOpacity
-              onPress={() => { setTitle(item.title), handleVideoSelect(item.id, index) }}
+              onPress={() => {
+                console.log(
+                  "title",
+                  item?.title,
+                  t(`startTraining.${item?.title}`)
+                );
+
+                setTitle(item?.title);
+                handleVideoSelect(item.id, index);
+              }}
               disabled={!isUnlocked}
               style={[
                 styles.thumbnailContainer,
@@ -237,7 +253,7 @@ export default function StartTraining() {
                 ]}
                 numberOfLines={2}
               >
-                {item.title}
+                {t(`startTraining.${item?.title}`)}
               </Text>
               {isCompleted && (
                 <Ionicons
@@ -255,25 +271,15 @@ export default function StartTraining() {
 
       {/* Show Quiz button only after all videos completed */}
       {completedVideos.length === youtubeVideosList.length && (
-
         <TouchableOpacity
           onPress={handelStartQuiz}
           // disabled={completedVideos.length !== youtubeVideosList.length}
-          style={[
-            styles.thumbnailContainer,
-          ]}
+          style={[styles.thumbnailContainer]}
         >
-
           <Notebook size={25} color={colors.blueRibbon} />
-          <Text
-            style={[
-              styles.thumbnailTitle,
-            ]}
-            numberOfLines={2}
-          >
-            Assessment
+          <Text style={[styles.thumbnailTitle]} numberOfLines={2}>
+            {t(`startTraining.assessment`)}
           </Text>
-
         </TouchableOpacity>
       )}
     </StatusBarWrapper>

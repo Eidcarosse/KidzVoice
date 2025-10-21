@@ -6,6 +6,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { Calendar, Phone } from "lucide-react-native";
 import colors from "../../../../utils/AppColors";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { useTranslation } from "react-i18next";
 export default function PersonalInfo({
   name,
   setName,
@@ -15,12 +16,12 @@ export default function PersonalInfo({
   setContact,
   onPress,
 }) {
+  const { t } = useTranslation();
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
-
 
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
@@ -44,13 +45,19 @@ export default function PersonalInfo({
     // <KeyboardAwareScrollView>
 
     <View>
-      <Text style={styles.personalText}>Personal info</Text>
+      <Text style={styles.personalText}>
+        {t(`coachPersonalInfo.personalInfo`)}
+      </Text>
 
-      <Text style={styles.titleText}>Name</Text>
+      <Text style={styles.titleText}>{t(`coachPersonalInfo.name`)}</Text>
 
-      <Input placeholder={"Your Name"} state={name} setState={setName} />
+      <Input
+        placeholder={t(`coachPersonalInfo.yourName`)}
+        state={name}
+        setState={setName}
+      />
 
-      <Text style={styles.titleText}>Date of birth</Text>
+      <Text style={styles.titleText}>{t(`coachPersonalInfo.DOB`)}</Text>
 
       {/* <Input
         placeholder={"Acceptance and Commitment Therapy"}
@@ -61,23 +68,20 @@ export default function PersonalInfo({
         <Input
           state={dob}
           setState={showDatePicker}
-          placeholder="day/month/year"
+          placeholder={t(`coachPersonalInfo.enterDOB`)}
           editable={false}
           icon={<Calendar size={20} color={colors.ebonyClay} />}
         />
       </TouchableOpacity>
-      <Text style={styles.titleText}>Contact</Text>
+      <Text style={styles.titleText}>{t(`coachPersonalInfo.contact`)}</Text>
 
-      <View
-        style={
-          styles.textContainer}
-      >
+      <View style={styles.textContainer}>
         <Phone size={20} color={colors.ebonyClay} style={{ marginRight: 8 }} />
         <TextInput
           style={styles.textStyle}
           value={displayedPhone}
           onChangeText={handlePhoneChange}
-          placeholder="+41 XXXXXXXX"
+          placeholder={t(`coachPersonalInfo.contactPlaceholder`)}
           keyboardType="numeric"
           maxLength={12}
           selection={{
@@ -87,7 +91,11 @@ export default function PersonalInfo({
         />
       </View>
 
-      <Button title={"Next"} onPress={onPress} btnStyle={styles.nextButton} />
+      <Button
+        title={t(`coachPersonalInfo.next`)}
+        onPress={onPress}
+        btnStyle={styles.nextButton}
+      />
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"

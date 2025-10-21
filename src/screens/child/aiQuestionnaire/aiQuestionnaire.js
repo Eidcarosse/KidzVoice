@@ -28,27 +28,8 @@ import ScreensName from "../../../routes/routes";
 import { getStoredValue } from "../../../utils/Methods";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { height } from "../../../utils/Dimensions";
+import { useTranslation } from "react-i18next";
 
-const questionSets = {
-  LiveVedio: [
-    "What do you enjoy about live videos?",
-    "Have you ever streamed before?",
-    "What type of live content do you like?",
-    "Would you like to co-host with someone?",
-    "What’s your biggest challenge with live streaming?",
-  ],
-  Profile: [
-    "Who are you?",
-    "Where are you from?",
-    "What’s your favorite hobby?",
-    "What’s your dream job?",
-  ],
-  Default: [
-    "Who are you?",
-    "What’s your favorite color?",
-    "What inspires you?",
-  ],
-};
 
 const Questionnaire = () => {
   const route = useRoute();
@@ -66,6 +47,28 @@ const Questionnaire = () => {
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
+  const { t } = useTranslation();
+
+  const questionSets = {
+    LiveVedio: [
+      t('aiQuestionair.liveVideo.q1'),
+      t('aiQuestionair.liveVideo.q2'),
+      t('aiQuestionair.liveVideo.q3'),
+      t('aiQuestionair.liveVideo.q4'),
+      t('aiQuestionair.liveVideo.q5'),
+    ],
+    Profile: [
+      t('aiQuestionair.profile.q1'),
+      t('aiQuestionair.profile.q2'),
+      t('aiQuestionair.profile.q3'),
+      t('aiQuestionair.profile.q4'),
+    ],
+    Default: [
+      t('aiQuestionair.default.q1'),
+      t('aiQuestionair.default.q2'),
+      t('aiQuestionair.default.q3'),
+    ],
+  };
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
     console.log("Child Data Response", childDataRes);
@@ -122,11 +125,11 @@ const Questionnaire = () => {
 
     if (nextIndex >= dummyQuestions.length) {
       Alert.alert(
-        "✅ All questions completed!",
-        "Click OK to go to Live Section.",
+        t('aiQuestionair.alertTitle'),
+        t('aiQuestionair.alertMessage'),
         [
           {
-            text: "OK",
+            text: t('aiQuestionair.okButton'),
             onPress: () => {
               if (questionOf === "LiveVedio") {
                 navigation.navigate(ScreensName.AILIVEEXAMPLE);
@@ -137,6 +140,7 @@ const Questionnaire = () => {
           },
         ]
       );
+
       return; // stop here so it doesn’t set index past last question
     }
   };
@@ -262,7 +266,7 @@ const Questionnaire = () => {
             <View style={styles.inputRow}>
               <TextInput
                 style={styles.textInput}
-                placeholder="Type your answer..."
+                placeholder={t('aiQuestionair.typeAnswer')}
                 value={text}
                 onChangeText={setText}
               />

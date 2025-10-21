@@ -13,10 +13,11 @@ import StatusBarWrapper from "../../../components/customStatusbar";
 import CustomHeader from "../../../components/customHeader/header";
 import { teachers } from "../../../utils/Data";
 import { infoToastMessage } from "../../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function TeacherScreen() {
     const [searchText, setSearchText] = useState("");
-
+    const { t } = useTranslation()
     const filteredTeachers = useMemo(() => {
         const query = searchText?.toLowerCase().trim();
         if (!query) return teachers?.filter(Boolean) || [];
@@ -49,7 +50,7 @@ export default function TeacherScreen() {
                     <View style={styles.searchBar}>
                         <Ionicons name="search-outline" size={18} color="#999" />
                         <TextInput
-                            placeholder="Search by name, course, or location"
+                            placeholder={t("teacherProfile.searchPlaceholder")}
                             placeholderTextColor="#999"
                             style={styles.searchInput}
                             value={searchText}

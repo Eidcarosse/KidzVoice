@@ -7,6 +7,7 @@ import colors from "../../utils/AppColors";
 import QuestionOptions from "../questionOptions/questionOptions";
 import * as DocumentPicker from "expo-document-picker";
 import { getStoredValue } from "../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function ChildHistory({
   diagnoses,
@@ -18,6 +19,7 @@ export default function ChildHistory({
   report,
   setReport,
 }) {
+  const { t } = useTranslation();
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -57,13 +59,14 @@ export default function ChildHistory({
   };
   return (
     <View style={styles.parentView}>
-      <Text style={styles.title}>Child History</Text>
+      <Text style={styles.title}>{t(`childHistory.childHistory`)}</Text>
       <Text style={styles.subtitle}>
-        Purpose: Quick background about {childData?.name}.
+        {t(`childHistory.purpose`)} {childData?.name}.
       </Text>
 
       <Text style={styles.question}>
-        1 Has {childData?.name} received any previous diagnoses?
+        {t(`childHistory.question1p1`)} {childData?.name}{" "}
+        {t(`childHistory.question1p2`)}
       </Text>
 
       <QuestionOptions
@@ -74,7 +77,8 @@ export default function ChildHistory({
       />
 
       <Text style={styles.question}>
-        2 Has {childData?.name} ever received support services?
+        {t(`childHistory.question2p1`)} {childData?.name}{" "}
+        {t(`childHistory.question2p2`)}
       </Text>
 
       <QuestionOptions
@@ -84,9 +88,7 @@ export default function ChildHistory({
         multiple={true}
       />
 
-      <Text style={styles.question}>
-        3 Briefly describe any important medical/educational history
-      </Text>
+      <Text style={styles.question}>{t(`childHistory.question3`)}</Text>
       <TextInput
         style={styles.textArea}
         placeholder=""
@@ -104,7 +106,7 @@ export default function ChildHistory({
           color={colors.blueRibbon}
         />
         <Text style={styles.uploadText}>
-          {report ? report?.name : "Submit Reports"}
+          {report ? report?.name : t(`childHistory.submitReports`)}
         </Text>
       </TouchableOpacity>
     </View>

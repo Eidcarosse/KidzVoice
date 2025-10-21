@@ -16,6 +16,7 @@ import { Button } from "../../../components";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
 import { getStoredValue } from "../../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 const MagicBackpackScreen = () => {
   const navigation = useNavigation();
@@ -34,7 +35,7 @@ const MagicBackpackScreen = () => {
     getChildData();
     setLoading(false);
   }, []);
-
+  const { t } = useTranslation()
   const handleContinue = () => {
     navigation.navigate(ScreensName.QUESTIONAIRE);
     // navigation.navigate(ScreensName.AILIVESECTION)
@@ -44,12 +45,11 @@ const MagicBackpackScreen = () => {
   return (
     <StatusBarWrapper >
       <View style={styles.container}>
-        <Text style={styles.title}>For {childData?.name}</Text>
+        <Text style={styles.title}>{t('magicBackpack.forChild', { name: childData?.name })}</Text>
 
         <View style={styles.messageContainer}>
           <Text style={styles.messageText}>
-            This is your magic backpack.{"\n"}
-            Let's pack it with your dreams and secrets so I can know you better!
+            {t('magicBackpack.description')}
           </Text>
         </View>
 
@@ -59,7 +59,7 @@ const MagicBackpackScreen = () => {
 
         <Button
           onPress={handleContinue}
-          title={"Let's Started"}
+          title={t('magicBackpack.title')}
           btnStyle={styles.btnStyle}
         />
       </View>

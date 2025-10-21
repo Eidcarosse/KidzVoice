@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginVertical: 20,
     minHeight: height(10),
+    backgroundColor: colors.lightBlueRibbon,
   },
   uploadText: {
     marginLeft: 8,

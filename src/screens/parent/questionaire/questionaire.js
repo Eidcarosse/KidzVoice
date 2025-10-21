@@ -22,9 +22,11 @@ import { height } from "../../../utils/Dimensions";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useNavigation } from "@react-navigation/native";
 import ScreensName from "../../../routes/routes";
+import { useTranslation } from "react-i18next";
 
 export default function ParentQuestionaire() {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const [childHistory, setChildHistory] = useState("Pending");
   const [currentStrugles, setCurrentStrugles] = useState("Remaining");
   const [familyContext, setFamilyContext] = useState("Remaining");
@@ -52,8 +54,8 @@ export default function ParentQuestionaire() {
     if (activeQuetionaire === "Child History") {
       if (!diagnoses || !services || !history) {
         Alert.alert(
-          "Incomplete Information",
-          "Please fill out Diagnoses, Services, and History before continuing."
+          t(`startQuestionaire.incompleteInfo`),
+          t(`startQuestionaire.pleaseFill`)
         );
         return;
       }
@@ -61,12 +63,11 @@ export default function ParentQuestionaire() {
       setChildHistory("Completed");
       setActiveQuestionaire("Current Strugle");
       setCurrentStrugles("Pending");
-
     } else if (activeQuetionaire === "Current Strugle") {
       if (!strugglingArea || !struggleEffect) {
         Alert.alert(
-          "Incomplete Information",
-          "Please complete Struggling Area and Struggle Effect fields before continuing."
+          t(`startQuestionaire.incompleteInfo`),
+          t(`startQuestionaire.pleaseComplete`)
         );
         return;
       }
@@ -75,12 +76,11 @@ export default function ParentQuestionaire() {
       setCurrentStrugles("Completed");
       setActiveQuestionaire("Family Context");
       setFamilyContext("Pending");
-
     } else {
       if (!maxLiveTime || !siblings || !contactPerson) {
         Alert.alert(
-          "Incomplete Information",
-          "Please provide Maximum Live Time, Siblings, and Contact Person details before continuing."
+          t(`startQuestionaire.incompleteInfo`),
+          t(`startQuestionaire.pleaseProvide`)
         );
         return;
       }
@@ -122,8 +122,8 @@ export default function ParentQuestionaire() {
               currentStrugles == "Remaining"
                 ? "ellipse-outline"
                 : currentStrugles == "Pending"
-                  ? "radio-button-on"
-                  : "checkmark-circle-sharp"
+                ? "radio-button-on"
+                : "checkmark-circle-sharp"
             }
             size={25}
             color={
@@ -138,8 +138,8 @@ export default function ParentQuestionaire() {
               familyContext == "Remaining"
                 ? "ellipse-outline"
                 : familyContext == "Pending"
-                  ? "radio-button-on"
-                  : "checkmark-circle-sharp"
+                ? "radio-button-on"
+                : "checkmark-circle-sharp"
             }
             size={25}
             color={
@@ -183,7 +183,11 @@ export default function ParentQuestionaire() {
           )}
         </View>
 
-        <Button title={"Next"} onPress={handleNext} style={styles.nextBtn} />
+        <Button
+          title={t(`parentQuestionaire.next`)}
+          onPress={handleNext}
+          style={styles.nextBtn}
+        />
       </KeyboardAwareScrollView>
     </StatusBarWrapper>
   );

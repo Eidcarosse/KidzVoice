@@ -9,10 +9,12 @@ import ScreensName from "../../../routes/routes";
 import { styles } from "./styles";
 import SuccessModal from "../../../components/successModal/success";
 import { getStoredValue } from "../../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function AiLiveExample() {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   const question = "2 + 5";
   const correctAnswer = 7;
@@ -28,7 +30,6 @@ export default function AiLiveExample() {
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
     console.log("Child Data Response", childDataRes);
-
     setChildData(childDataRes);
   };
 
@@ -41,6 +42,7 @@ export default function AiLiveExample() {
     setSelected(option);
     setIsCorrect(option === correctAnswer);
   };
+
   const handleBack = () => {
     navigation.navigate(ScreensName.MAGICBACKPACK);
   };
@@ -50,14 +52,14 @@ export default function AiLiveExample() {
       <CustomHeader
         isBack={true}
         onGoBack={handleBack}
-        title={"Ai Live Section"}
+        title={t("aiLiveExample.header")}
       />
+
       <FeelingResult
         image={Images.AIICON}
-        text={
-          "let’s try this together. Look at this math problem. Imagine your own magic ball is holding all the distractions. Focus only on the numbers. Can you solve it?"
-        }
+        text={t("aiLiveExample.description")}
       />
+
       <View style={styles.questionContainer}>
         <Text style={styles.question}>{question}</Text>
         <Text style={styles.equalStyle}>=</Text>
@@ -89,17 +91,15 @@ export default function AiLiveExample() {
       {isCorrect !== null && (
         <Text style={styles.resultText}>
           {isCorrect
-            ? "🎉 Yes! You did it. Just like Sami, you used your magic ball."
-            : "❌ Try again!"}
+            ? t("aiLiveExample.correct")
+            : t("aiLiveExample.incorrect")}
         </Text>
       )}
 
       {isCorrect && (
         <SuccessModal
-          title={`${childData?.name} earns: ⭐ x10 + 💎 x1`}
-          subtitle={
-            "Amazing work, You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
-          }
+          title={t("aiLiveExample.modalTitle", { name: childData?.name })}
+          subtitle={t("aiLiveExample.modalSubtitle")}
           visible={modalVisible}
           onClose={() => setModalVisible(false)}
           questionOf={"AiExample"}

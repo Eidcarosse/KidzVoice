@@ -9,20 +9,19 @@ import { useNavigation } from "@react-navigation/native";
 import SuccessModal from "../../../components/successModal/success";
 import ScreensName from "../../../routes/routes";
 import { getStoredValue } from "../../../utils/Methods";
+import { useTranslation } from "react-i18next";
 
 export default function AiLiveSection() {
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const [selectedFeeling, setSelectedFeeling] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-
   const [childData, setChildData] = useState();
   const [loading, setLoading] = useState(true);
 
   const getChildData = async () => {
     const childDataRes = await getStoredValue("childData");
-    console.log("Child Data Response", childDataRes);
-
     setChildData(childDataRes);
   };
 
@@ -31,35 +30,29 @@ export default function AiLiveSection() {
     setLoading(false);
   }, []);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setModalVisible(true);
-  //   }, 10000);
-  //   return () => setModalVisible(false);
-  // }, [])
   const feelings = [
     {
       emoji: "😊",
-      label: "Happy",
-      message: "Awesome! Let's keep that smile going 😊",
+      label: t("aiLiveSection.feelings.happy.label"),
+      message: t("aiLiveSection.feelings.happy.message"),
       img: Images.HAPPYIMG,
     },
     {
       emoji: "😢",
-      label: "Sad",
-      message: "It's okay to feel sad sometimes 💙",
+      label: t("aiLiveSection.feelings.sad.label"),
+      message: t("aiLiveSection.feelings.sad.message"),
       img: Images.SADIMG,
     },
     {
       emoji: "😐",
-      label: "Okay",
-      message: "Got it, you’re feeling just okay today.",
+      label: t("aiLiveSection.feelings.okay.label"),
+      message: t("aiLiveSection.feelings.okay.message"),
       img: Images.OKAYIMG,
     },
     {
       emoji: "😡",
-      label: "Angry",
-      message: "Take a deep breath… we’ll calm things down together 😌",
+      label: t("aiLiveSection.feelings.angry.label"),
+      message: t("aiLiveSection.feelings.angry.message"),
       img: Images.ANGRYIMG,
     },
   ];
@@ -79,7 +72,7 @@ export default function AiLiveSection() {
       <CustomHeader
         isBack={true}
         onGoBack={handleBack}
-        title={"Ai Live Section"}
+        title={t("aiLiveSection.title")}
       />
 
       {!selected ? (
@@ -88,8 +81,7 @@ export default function AiLiveSection() {
 
           <View style={styles.textBox}>
             <Text style={styles.questionText}>
-              Hi {childData?.name}! I’m happy to see you again. Before we start,
-              tell me, how do you feel today?
+              {t("aiLiveSection.question", { name: childData?.name })}
             </Text>
           </View>
 
@@ -130,10 +122,8 @@ export default function AiLiveSection() {
       )}
 
       <SuccessModal
-        title={`${childData?.name} earns: ⭐ x10 + 💎 x1`}
-        subtitle={
-          "Amazing work, You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
-        }
+        title={t("aiLiveSection.successTitle", { name: childData?.name })}
+        subtitle={t("aiLiveSection.successSubtitle")}
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
         questionOf={"FeelingResult"}

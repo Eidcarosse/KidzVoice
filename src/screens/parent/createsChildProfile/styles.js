@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     color: colors.boulder,
     textAlign: "center",
     marginBottom: height(3),
+    marginHorizontal: 16,
   },
 });
 
