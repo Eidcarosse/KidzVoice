@@ -50,6 +50,13 @@ export default {
     childNeed:
       "needs. It only takes about 5 minutes. You can pause and return anytime.",
     beganButton: "Began",
+    incompleteInfo: "Incomplete Information",
+    pleaseProvide:
+      "Please provide Maximum Live Time, Siblings, and Contact Person details before continuing.",
+    pleaseComplete:
+      "Please complete Struggling Area and Struggle Effect fields before continuing.",
+    pleaseFill:
+      "Please fill out Diagnoses, Services, and History before continuing.",
   },
 
   parentQuestionaire: {
@@ -70,6 +77,8 @@ export default {
     copying: "Copying...",
     copied: "Copied!",
     copy: "Copy",
+    error: "Error",
+    pleaseGenerate: "Please Genrate Child ID to view Summary",
   },
 
   childProgress: {
@@ -88,6 +97,16 @@ export default {
     otherTasks: "Other Tasks",
     setUpChild: "Setup Child",
     logOut: "Logout",
+    teacher: "Teacher",
+    teacherSearch: "Teacher Search Coming Soon",
+    studentActivities: "Student Activities",
+    studentComing: "Student Activities Coming Soon",
+    teacherChat: "Teacher Chat",
+    teacherChatSoon: "Teacher Chat Coming Soon",
+    assignment: "Assignment",
+    assignmentComing: "Assignment Coming Soon",
+    otherTask: "Other Task",
+    otherTaskComing: "Other Task Coming Soon",
   },
 
   coachAccount: {
@@ -140,9 +159,9 @@ export default {
     modules: "Modules",
     logout: "Logout",
   },
-  "connectedModal": {
-    "title": "Verbunden",
-    "subtitle": "Du bist jetzt mit deinem Elternteil verbunden!"
+  connectedModal: {
+    title: "Verbunden",
+    subtitle: "Du bist jetzt mit deinem Elternteil verbunden!",
   },
   startTraining: {
     kidzLife: "KidzLife",
@@ -293,26 +312,30 @@ export default {
     liveSession: "AI Live Session",
     comeBackIn: "Come back in {{time}}",
   },
-  "aiLiveVedio": {
-    "title": "AI Live Section",
-    "description": "Let’s start with a breathing game. Imagine this ball is your breath. When it gets big, you breathe in. When it gets small, you breathe out. Ready?",
-    "playButton": "Play Video",
-    "title": "Great job",
-    "subtitle": "{{name}}! You just trained your focus, just like a football player before a big match."
-
+  aiLiveVedio: {
+    title: "AI Live Section",
+    description:
+      "Let’s start with a breathing game. Imagine this ball is your breath. When it gets big, you breathe in. When it gets small, you breathe out. Ready?",
+    playButton: "Play Video",
+    title: "Great job",
+    subtitle:
+      "{{name}}! You just trained your focus, just like a football player before a big match.",
   },
 
-  "aiLiveExample": {
-    "header": "AI Live Section",
-    "description": "Let’s try this together. Look at this math problem. Imagine your magic ball is holding all distractions. Focus only on the numbers. Can you solve it?",
-    "correct": "🎉 Yes! You did it. Just like Sami, you used your magic ball.",
-    "incorrect": "❌ Try again!",
-    "modalTitle": "{{name}} earns: ⭐ x10 + 💎 x1",
-    "modalSubtitle": "Amazing work! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure."
+  aiLiveExample: {
+    header: "AI Live Section",
+    description:
+      "Let’s try this together. Look at this math problem. Imagine your magic ball is holding all distractions. Focus only on the numbers. Can you solve it?",
+    correct: "🎉 Yes! You did it. Just like Sami, you used your magic ball.",
+    incorrect: "❌ Try again!",
+    modalTitle: "{{name}} earns: ⭐ x10 + 💎 x1",
+    modalSubtitle:
+      "Amazing work! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure.",
   },
   aiLiveSection: {
     title: "AI Live Section",
-    question: "Hi! I’m happy to see you again. Before we start, tell me, how do you feel today?",
+    question:
+      "Hi! I’m happy to see you again. Before we start, tell me, how do you feel today?",
 
     feelings: {
       happy: {
@@ -332,25 +355,25 @@ export default {
         message: "Take a deep breath… we’ll calm things down together 😌",
       },
     },
-    "magicBalls": "Magic Ball",
+    magicBalls: "Magic Ball",
     successTitle: "{{name}} earns: ⭐ x10 + 💎 x1",
-    successSubtitle: "Amazing work! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure.",
-  }
-  ,
-
-  "assignment": {
-    "title": "Assignment",
-    "writtenExam": "Written Exam",
-    "practicalExam": "Practical Exam",
-    "scheduleLiveSession": "Schedule Live Observed Session",
-    "portfolioSubmission": "Portfolio Submission",
-    "uploadCaseReports": "Upload case reports",
-    "underReview": "Your submitted assignment is under review",
-    "placeholderName": "Nadine Zimat"
+    successSubtitle:
+      "Amazing work! You’re one step closer to becoming a Focus Hero. Keep collecting stars to unlock your next adventure.",
+  },
+  assignment: {
+    title: "Assignment",
+    writtenExam: "Written Exam",
+    practicalExam: "Practical Exam",
+    scheduleLiveSession: "Schedule Live Observed Session",
+    portfolioSubmission: "Portfolio Submission",
+    uploadCaseReports: "Upload case reports",
+    underReview: "Your submitted assignment is under review",
+    placeholderName: "Nadine Zimat",
   },
   magicBackpack: {
     title: "Let's Started",
-    description: "This is your magic backpack.\nLet's pack it with your dreams and secrets so I can know you better!",
+    description:
+      "This is your magic backpack.\nLet's pack it with your dreams and secrets so I can know you better!",
     forChild: "For {{name}}",
   },
   //Components

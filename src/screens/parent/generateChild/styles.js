@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: height(1),
   },
   generateBtnStyle: {
-    marginTop: height(15),
+    marginTop: height(11),
   },
   copyTextContainer: {
     flexDirection: "row",
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   useText: {
     fontSize: 14,
     fontFamily: fonts.medium,
-    color: 'red',
+    color: "red",
     marginHorizontal: 16,
     textAlign: "center",
   },

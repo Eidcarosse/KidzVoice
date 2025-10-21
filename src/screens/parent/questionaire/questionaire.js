@@ -54,8 +54,8 @@ export default function ParentQuestionaire() {
     if (activeQuetionaire === "Child History") {
       if (!diagnoses || !services || !history) {
         Alert.alert(
-          "Incomplete Information",
-          "Please fill out Diagnoses, Services, and History before continuing."
+          t(`startQuestionaire.incompleteInfo`),
+          t(`startQuestionaire.pleaseFill`)
         );
         return;
       }
@@ -66,8 +66,8 @@ export default function ParentQuestionaire() {
     } else if (activeQuetionaire === "Current Strugle") {
       if (!strugglingArea || !struggleEffect) {
         Alert.alert(
-          "Incomplete Information",
-          "Please complete Struggling Area and Struggle Effect fields before continuing."
+          t(`startQuestionaire.incompleteInfo`),
+          t(`startQuestionaire.pleaseComplete`)
         );
         return;
       }
@@ -79,8 +79,8 @@ export default function ParentQuestionaire() {
     } else {
       if (!maxLiveTime || !siblings || !contactPerson) {
         Alert.alert(
-          "Incomplete Information",
-          "Please provide Maximum Live Time, Siblings, and Contact Person details before continuing."
+          t(`startQuestionaire.incompleteInfo`),
+          t(`startQuestionaire.pleaseProvide`)
         );
         return;
       }

@@ -18,9 +18,19 @@ const QuestionCard = ({ question, optionList, answer, setAnswer }) => {
             onPress={() => setAnswer(option?.id)}
             style={styles.optionTouchable}
           >
-            <Text style={styles.optionText}>
-              {`${option?.id})`} {t(`questionCard.${option?.text}`)}
-            </Text>
+            <View
+              style={{
+                width: "90%",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Text style={styles.optionIdText}>{`${option?.id})`}</Text>
+
+              <Text style={styles.optionText}>
+                {t(`questionCard.${option?.text}`)}
+              </Text>
+            </View>
 
             <Ionicons
               name={

@@ -52,6 +52,13 @@ export default {
     childNeed:
       "Bedürfnisse. Es dauert nur etwa 5 Minuten. Du kannst jederzeit pausieren und zurückkehren.",
     beganButton: "Beginnen",
+    incompleteInfo: "Unvollständige Informationen",
+    pleaseProvide:
+      "Bitte geben Sie die maximale Lebensdauer, Geschwister und Kontaktdaten der Bezugsperson an, bevor Sie fortfahren.",
+    pleaseComplete:
+      "Bitte füllen Sie die Felder 'Schwierigkeitsbereich' und 'Auswirkung der Schwierigkeit' aus, bevor Sie fortfahren.",
+    pleaseFill:
+      "Bitte füllen Sie die Bereiche Diagnosen, Dienstleistungen und Verlauf aus, bevor Sie fortfahren.",
   },
 
   parentQuestionaire: {
@@ -60,21 +67,25 @@ export default {
     familyContext: "Familiärer Kontext",
     next: "Weiter",
   },
-  "aiLiveVedio": {
-    "title": "KI-Live-Bereich",
-    "description": "Lass uns mit einem Atemspiel beginnen. Stell dir vor, dieser Ball ist dein Atem. Wenn er groß wird, atmest du ein. Wenn er klein wird, atmest du aus. Bereit?",
-    "playButton": "Video abspielen",
-    "title": "Großartige Arbeit",
-    "subtitle": "{{name}}! Du hast gerade deine Konzentration trainiert – genau wie ein Fußballspieler vor einem großen Spiel."
-
+  aiLiveVedio: {
+    title: "KI-Live-Bereich",
+    description:
+      "Lass uns mit einem Atemspiel beginnen. Stell dir vor, dieser Ball ist dein Atem. Wenn er groß wird, atmest du ein. Wenn er klein wird, atmest du aus. Bereit?",
+    playButton: "Video abspielen",
+    title: "Großartige Arbeit",
+    subtitle:
+      "{{name}}! Du hast gerade deine Konzentration trainiert – genau wie ein Fußballspieler vor einem großen Spiel.",
   },
-  "aiLiveExample": {
-    "header": "KI Live-Bereich",
-    "description": "Lass es uns gemeinsam versuchen. Sieh dir dieses Matheproblem an. Stell dir vor, deine magische Kugel hält alle Ablenkungen fest. Konzentriere dich nur auf die Zahlen. Kannst du es lösen?",
-    "correct": "🎉 Ja! Du hast es geschafft. Genau wie Sami hast du deine magische Kugel benutzt.",
-    "incorrect": "❌ Versuch es noch einmal!",
-    "modalTitle": "{{name}} erhält: ⭐ x10 + 💎 x1",
-    "modalSubtitle": "Großartige Arbeit! Du bist einen Schritt näher daran, ein Fokus-Held zu werden. Sammle weiterhin Sterne, um dein nächstes Abenteuer freizuschalten."
+  aiLiveExample: {
+    header: "KI Live-Bereich",
+    description:
+      "Lass es uns gemeinsam versuchen. Sieh dir dieses Matheproblem an. Stell dir vor, deine magische Kugel hält alle Ablenkungen fest. Konzentriere dich nur auf die Zahlen. Kannst du es lösen?",
+    correct:
+      "🎉 Ja! Du hast es geschafft. Genau wie Sami hast du deine magische Kugel benutzt.",
+    incorrect: "❌ Versuch es noch einmal!",
+    modalTitle: "{{name}} erhält: ⭐ x10 + 💎 x1",
+    modalSubtitle:
+      "Großartige Arbeit! Du bist einen Schritt näher daran, ein Fokus-Held zu werden. Sammle weiterhin Sterne, um dein nächstes Abenteuer freizuschalten.",
   },
 
   generateChild: {
@@ -90,16 +101,19 @@ export default {
     copying: "Kopieren...",
     copied: "Kopiert!",
     copy: "Kopieren",
+    error: "Fehler",
+    pleaseGenerate:
+      "Bitte generieren Sie eine Kinder-ID, um die Zusammenfassung anzuzeigen.",
   },
-  "assignment": {
-    "title": "Aufgabe",
-    "writtenExam": "Schriftliche Prüfung",
-    "practicalExam": "Praktische Prüfung",
-    "scheduleLiveSession": "Live beaufsichtigte Sitzung planen",
-    "portfolioSubmission": "Portfolio-Einreichung",
-    "uploadCaseReports": "Fallberichte hochladen",
-    "underReview": "Deine eingereichte Aufgabe wird überprüft",
-    "placeholderName": "Nadine Zimat"
+  assignment: {
+    title: "Aufgabe",
+    writtenExam: "Schriftliche Prüfung",
+    practicalExam: "Praktische Prüfung",
+    scheduleLiveSession: "Live beaufsichtigte Sitzung planen",
+    portfolioSubmission: "Portfolio-Einreichung",
+    uploadCaseReports: "Fallberichte hochladen",
+    underReview: "Deine eingereichte Aufgabe wird überprüft",
+    placeholderName: "Nadine Zimat",
   },
   childProgress: {
     progressBar: "Fortschrittsbalken",
@@ -117,6 +131,16 @@ export default {
     otherTasks: "Andere Aufgaben",
     setUpChild: "Kind einrichten",
     logOut: "Abmelden",
+    teacher: "Lehrer",
+    teacherSearch: "Lehrersuche – Demnächst verfügbar",
+    studentActivities: "Schüleraktivitäten",
+    studentComing: "Schüleraktivitäten – Demnächst verfügbar",
+    teacherChat: "Lehrerchat",
+    teacherChatSoon: "Lehrerchat – Demnächst verfügbar",
+    assignment: "Aufgabe",
+    assignmentComing: "Aufgabe – Demnächst verfügbar",
+    otherTask: "Andere Aufgabe",
+    otherTaskComing: "Andere Aufgabe – Demnächst verfügbar",
   },
 
   coachAccount: {
@@ -257,15 +281,16 @@ export default {
   },
   //lerner
   account: {
-    "accountSetup": "Konto einrichten",
-    "enterCode": "Geben Sie den einzigartigen Code des Elternteils ein",
+    accountSetup: "Konto einrichten",
+    enterCode: "Geben Sie den einzigartigen Code des Elternteils ein",
     enterUserCode: "Code eingeben",
     enterName: "Geben Sie hier Ihren Namen ein",
-    continue: "Fortsetzen"
+    continue: "Fortsetzen",
   },
   magicBackpack: {
     title: "Lass uns anfangen",
-    description: "Das ist dein magischer Rucksack.\nLass uns ihn mit deinen Träumen und Geheimnissen füllen, damit ich dich besser kennenlernen kann!",
+    description:
+      "Das ist dein magischer Rucksack.\nLass uns ihn mit deinen Träumen und Geheimnissen füllen, damit ich dich besser kennenlernen kann!",
     forChild: "Für {{name}}",
   },
   aiQuestionair: {
@@ -301,7 +326,8 @@ export default {
     homeworkHero: "⭐ Hausaufgaben-Held",
     friendlyStar: "🏆 Freundlicher Stern",
     challengesTitle: "Herausforderungen",
-    challengesSub: "Konzentration im Unterricht, Leseschwierigkeiten, Freunde finden",
+    challengesSub:
+      "Konzentration im Unterricht, Leseschwierigkeiten, Freunde finden",
     level: "Stufe {{level}}",
     completed: "Abgeschlossen",
     assignment: "Aufgaben",
@@ -319,11 +345,11 @@ export default {
     comingSoon: "{{feature}} kommt bald",
     liveSession: "KI-Live-Sitzung",
     comeBackIn: "Komme zurück in {{time}}",
-  }
-  ,
+  },
   aiLiveSection: {
     title: "KI-Live-Bereich",
-    question: "Hallo! Schön, dich wiederzusehen. Bevor wir anfangen, sag mir, wie fühlst du dich heute?",
+    question:
+      "Hallo! Schön, dich wiederzusehen. Bevor wir anfangen, sag mir, wie fühlst du dich heute?",
 
     feelings: {
       happy: {
@@ -343,19 +369,20 @@ export default {
         message: "Atme tief durch… wir beruhigen uns gemeinsam 😌",
       },
     },
-    "title": "KI Live Abschnitt",
-    "magicBalls": "Zauberball",
-    "breathingGame": "Atemspiel",
-    "successSubtitle": "Perfekt! Ich werde es mir merken. Wir werden den Zauberball öfter in deinem Training verwenden.",
+    title: "KI Live Abschnitt",
+    magicBalls: "Zauberball",
+    breathingGame: "Atemspiel",
+    successSubtitle:
+      "Perfekt! Ich werde es mir merken. Wir werden den Zauberball öfter in deinem Training verwenden.",
     successTitle: "{{name}} verdient: ⭐ x10 + 💎 x1",
-    successSubtitle: "Tolle Arbeit! Du bist deinem Ziel, ein Fokus-Held zu werden, einen Schritt näher. Sammle weiter Sterne, um dein nächstes Abenteuer freizuschalten.",
-  }
-  ,
+    successSubtitle:
+      "Tolle Arbeit! Du bist deinem Ziel, ein Fokus-Held zu werden, einen Schritt näher. Sammle weiter Sterne, um dein nächstes Abenteuer freizuschalten.",
+  },
   //Components
 
-  "connectedModal": {
-    "title": "Connected",
-    "subtitle": "You’re now linked with your parent!"
+  connectedModal: {
+    title: "Connected",
+    subtitle: "You’re now linked with your parent!",
   },
   photoUpload: {
     uploadCreative: "Kreatives Material hochladen (optional)",

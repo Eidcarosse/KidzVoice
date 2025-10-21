@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import StatusBarWrapper from "../../components/customStatusbar";
 import { Button, RoleSelection, SocialLogin } from "../../components";
@@ -166,81 +172,86 @@ export default function SignIn() {
     infoToastMessage("Guest Mode", "Guest Mode Coming Soon");
   };
   return (
-    <StatusBarWrapper>
-      <View style={styles.menuView}>
-        <Menu
-          visible={languageMenu}
-          onRequestClose={closeLanuageMenu}
-          style={styles.menuStyle}
-          anchor={
-            <Pressable style={styles.menuAnchorStyle} onPress={openLanuageMenu}>
-              <Text>{t(`signIn.${selectedLanguage}`)}</Text>
-              <MaterialIcons name="arrow-drop-down" size={16} />
-            </Pressable>
-          }
-        >
-          <MenuItem
-            style={styles.menuItemStyle}
-            onPress={() => {
-              storeValue("language", { lang: "english" });
-              i18n.changeLanguage("en");
-              setSelectedLanguage("english");
-              setLanguageMenu(false);
-            }}
+    <StatusBarWrapper scrollType={"scroll"}>
+      <ScrollView>
+        <View style={styles.menuView}>
+          <Menu
+            visible={languageMenu}
+            onRequestClose={closeLanuageMenu}
+            style={styles.menuStyle}
+            anchor={
+              <Pressable
+                style={styles.menuAnchorStyle}
+                onPress={openLanuageMenu}
+              >
+                <Text>{t(`signIn.${selectedLanguage}`)}</Text>
+                <MaterialIcons name="arrow-drop-down" size={16} />
+              </Pressable>
+            }
           >
-            {t(`signIn.english`)}
-          </MenuItem>
+            <MenuItem
+              style={styles.menuItemStyle}
+              onPress={() => {
+                storeValue("language", { lang: "english" });
+                i18n.changeLanguage("en");
+                setSelectedLanguage("english");
+                setLanguageMenu(false);
+              }}
+            >
+              {t(`signIn.english`)}
+            </MenuItem>
 
-          <MenuDivider color={colors.gray} />
+            <MenuDivider color={colors.gray} />
 
-          <MenuItem
-            style={styles.menuItemStyle}
-            onPress={() => {
-              storeValue("language", { lang: "german" });
-              i18n.changeLanguage("de");
-              setSelectedLanguage("german");
-              setLanguageMenu(false);
-            }}
-          >
-            {t(`signIn.german`)}
-          </MenuItem>
-        </Menu>
-      </View>
-      <Text style={styles.welcomeText}>{t(`signIn.welcome`)}</Text>
+            <MenuItem
+              style={styles.menuItemStyle}
+              onPress={() => {
+                storeValue("language", { lang: "german" });
+                i18n.changeLanguage("de");
+                setSelectedLanguage("german");
+                setLanguageMenu(false);
+              }}
+            >
+              {t(`signIn.german`)}
+            </MenuItem>
+          </Menu>
+        </View>
+        <Text style={styles.welcomeText}>{t(`signIn.welcome`)}</Text>
 
-      <RoleSelection selected={selectedRole} onSelection={setSelectedRole} />
+        <RoleSelection selected={selectedRole} onSelection={setSelectedRole} />
 
-      <SocialLogin
-        title={t(`signIn.continueGoogle`)}
-        image={Images.GOOGLE}
-        onPress={handleSignIn}
-      />
-      <SocialLogin
-        title={t(`signIn.continueFacebook`)}
-        image={Images.FACEBOOK}
-        onPress={handleSignIn}
-      />
+        <SocialLogin
+          title={t(`signIn.continueGoogle`)}
+          image={Images.GOOGLE}
+          onPress={handleSignIn}
+        />
+        <SocialLogin
+          title={t(`signIn.continueFacebook`)}
+          image={Images.FACEBOOK}
+          onPress={handleSignIn}
+        />
 
-      <SocialLogin
-        title={t(`signIn.continueApple`)}
-        image={Images.APPLE}
-        onPress={handleSignIn}
-      />
+        <SocialLogin
+          title={t(`signIn.continueApple`)}
+          image={Images.APPLE}
+          onPress={handleSignIn}
+        />
 
-      <SocialLogin
-        title={t(`signIn.continueX`)}
-        image={Images.X}
-        onPress={handleSignIn}
-      />
+        <SocialLogin
+          title={t(`signIn.continueX`)}
+          image={Images.X}
+          onPress={handleSignIn}
+        />
 
-      <Text style={styles.alreadyText}>{t(`signIn.alreadyUser`)}</Text>
-      <Button title={t(`signIn.signIn`)} onPress={handleSignIn} />
-      <Button
-        title={t(`signIn.continueAsGuest`)}
-        onPress={handleGuest}
-        btnStyle={styles.guestBtnStyle}
-        textStyle={styles.guestBtnText}
-      />
+        <Text style={styles.alreadyText}>{t(`signIn.alreadyUser`)}</Text>
+        <Button title={t(`signIn.signIn`)} onPress={handleSignIn} />
+        <Button
+          title={t(`signIn.continueAsGuest`)}
+          onPress={handleGuest}
+          btnStyle={styles.guestBtnStyle}
+          textStyle={styles.guestBtnText}
+        />
+      </ScrollView>
     </StatusBarWrapper>
   );
 }

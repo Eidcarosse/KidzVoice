@@ -79,7 +79,6 @@ export default function ChildHistory({
       <Text style={styles.question}>
         {t(`childHistory.question2p1`)} {childData?.name}{" "}
         {t(`childHistory.question2p2`)}
-        services?
       </Text>
 
       <QuestionOptions

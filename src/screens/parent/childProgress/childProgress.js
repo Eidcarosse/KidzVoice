@@ -38,27 +38,42 @@ export default function ChildProgress() {
 
   const handleSearchTeacher = () => {
     console.log("Guest Mode");
-    infoToastMessage("Teacher", "Teacher Search Coming Soon");
+    infoToastMessage(
+      t(`childProgress.teacher`),
+      t(`childProgress.teacherSearch`)
+    );
   };
 
   const handleStudentActivities = () => {
     console.log("Guest Mode");
-    infoToastMessage("Student Activities", "Student Activities Coming Soon");
+    infoToastMessage(
+      t(`childProgress.studentActivities`),
+      t(`childProgress.studentComing`)
+    );
   };
 
   const handleTeacherChat = () => {
     console.log("Guest Mode");
-    infoToastMessage("Teacher Chat", "Teacher Chat Coming Soon");
+    infoToastMessage(
+      t(`childProgress.teacherChat`),
+      t(`childProgress.teacherChatSoon`)
+    );
   };
 
   const handleAssignment = () => {
     console.log("Guest Mode");
-    infoToastMessage("Assignment", "Assignment Coming Soon");
+    infoToastMessage(
+      t(`childProgress.assignment`),
+      t(`childProgress.assignmentComing`)
+    );
   };
 
   const handleOtherTasks = () => {
     console.log("Guest Mode");
-    infoToastMessage("Other Tasks", "Other Tasks Coming Soon");
+    infoToastMessage(
+      t(`childProgress.otherTask`),
+      t(`childProgress.otherTaskComing`)
+    );
   };
 
   useEffect(() => {
