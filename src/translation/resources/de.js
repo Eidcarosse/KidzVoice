@@ -285,6 +285,9 @@ export default {
     sendRequest: "Anfrage senden",
     rejectRequest: "Anfrage ablehnen",
     searchPlaceholder: "Suche nach Name, Kurs oder Standort",
+    treacher: "Lehrer",
+    comingSoon: "Kommt bald",
+    noTeacher: "Keine Lehrer gefunden."
   },
   //lerner
   account: {

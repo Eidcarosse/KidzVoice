@@ -12,7 +12,7 @@ export default function FeelingResult({ isBtn, onPress, image, text }) {
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
       <Text style={styles.text}>{text}</Text>
-      {isBtn && <Button title={t`${'parentQuestionaire.next'}`} onPress={onPress} btnStyle={{ width: width(90), marginTop: 12 }} />}
+      {isBtn && <Button title={t(`parentQuestionaire.next`)} onPress={onPress} btnStyle={{ width: width(90), marginTop: 12 }} />}
     </View>
   );
 }

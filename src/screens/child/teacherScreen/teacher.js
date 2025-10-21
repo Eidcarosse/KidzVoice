@@ -43,7 +43,7 @@ export default function TeacherScreen() {
     return (
         <StatusBarWrapper>
             <View style={styles.container}>
-                <CustomHeader title={"Teachers"} />
+                <CustomHeader title={t("teacherProfile.treacher")} />
 
                 {/* 🔹 Search bar */}
                 <View style={styles.searchRow}>
@@ -62,7 +62,7 @@ export default function TeacherScreen() {
 
                     <TouchableOpacity
                         style={styles.filterButton}
-                        onPress={() => infoToastMessage("Filter", "Coming soon!")}
+                        onPress={() => infoToastMessage("Filter", t("teacherProfile.comingSoon"))}
                     >
                         <Ionicons name="filter-outline" size={20} color="#000" />
                     </TouchableOpacity>
@@ -80,7 +80,7 @@ export default function TeacherScreen() {
                         <View style={{ alignItems: "center", marginTop: 50 }}>
                             <Ionicons name="alert-circle-outline" size={28} color="#999" />
                             <Text style={{ color: "#999", marginTop: 10 }}>
-                                No teachers found.
+                                {t("teacherProfile.noTeacher")}
                             </Text>
                         </View>
                     }

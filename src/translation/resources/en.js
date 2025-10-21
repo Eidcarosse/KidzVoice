@@ -257,6 +257,9 @@ export default {
     sendRequest: "Send Request",
     rejectRequest: "Reject Request",
     searchPlaceholder: "Search by name, course, or location",
+    treacher: "Teacher",
+    comingSoon: "Comming Soon",
+    noTeacher: "No teachers found."
   },
 
   //learner

@@ -157,7 +157,7 @@ export default function ChildDashboard() {
               styles.liveButton,
               (isLocked || isSectionTaken) && { backgroundColor: "#99dae3ff" },
             ]}
-            // disabled={isLocked || isSectionTaken}
+            disabled={isLocked || isSectionTaken}
             onPress={handlePress}
           >
             <Text style={styles.liveText}>
@@ -222,8 +222,8 @@ export default function ChildDashboard() {
           <View style={styles.iconContainer}>
             <TeacherIcon width={30} height={30} />
           </View>
-          <Text style={styles.title}>{t("childDashboard.teachersTitle")}</Text>
-          <Text style={styles.subtitle}>{t("childDashboard.teachersSub")}</Text>
+          <Text style={styles.title}>{t("childDashboard.teachersTitle")} </Text>
+          {" "} <Text style={styles.subtitle}>{t("childDashboard.teachersSub")}</Text>
         </TouchableOpacity>
 
 

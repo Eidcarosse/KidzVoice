@@ -79,57 +79,58 @@ export default function GenerateChild() {
   };
   return (
     <StatusBarWrapper>
-      {/* <ScrollView
+      <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           flexGrow: 1,
           paddingBottom: 40,
         }}
-      > */}
-      <Image
-        source={Images.GENERATECHILD}
-        style={styles.imageStyle}
-        resizeMode="contain"
-      />
-      <Text style={styles.yourText}>{t(`generateChild.securelySave`)}</Text>
-      <DropDown
-        state={t(`generateChild.viewSummary`)}
-        // icon={<Feather name="user" size={20} color={colors.ebonyClay} />}
-        icon={<ClipboardList size={20} color={colors.ebonyClay} />}
-        onPress={handleViewSummary}
-      />
-      <Text style={styles.secureText}>{t(`generateChild.secureLink`)}</Text>
-
-      <View style={{ position: "relative" }}>
+      >
+        <Image
+          source={Images.GENERATECHILD}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
+        <Text style={styles.yourText}>{t(`generateChild.securelySave`)}</Text>
         <DropDown
-          state={childId}
-          placeholder={t(`generateChild.generateId`)}
-          icon={<User size={20} color={colors.ebonyClay} />}
-          rightIcon={
-            <TouchableOpacity
-              onPress={copyToClipboard}
-              style={styles.copyTextContainer}
-            >
-              <Text style={styles.copyText}>{t(`generateChild.copy`)}</Text>
-            </TouchableOpacity>
-          }
+          state={t(`generateChild.viewSummary`)}
+          // icon={<Feather name="user" size={20} color={colors.ebonyClay} />}
+          icon={<ClipboardList size={20} color={colors.ebonyClay} />}
+          onPress={handleViewSummary}
+        />
+        <Text style={styles.secureText}>{t(`generateChild.secureLink`)}</Text>
+
+        <View style={{ position: "relative" }}>
+          <DropDown
+            state={childId}
+            placeholder={t(`generateChild.generateId`)}
+            icon={<User size={20} color={colors.ebonyClay} />}
+            rightIcon={
+              <TouchableOpacity
+                onPress={copyToClipboard}
+                style={styles.copyTextContainer}
+              >
+                <Text style={styles.copyText}>{t(`generateChild.copy`)}</Text>
+              </TouchableOpacity>
+            }
           // ❌ remove this — it causes whole dropdown to be pressable
           // onPress={copyToClipboard}
+          />
+          <Text style={styles.useText}>{t(`generateChild.pleaseCopy`)}</Text>
+        </View>
+
+        <Button
+          title={t(`generateChild.generateId`)}
+          btnStyle={styles.generateBtnStyle}
+          onPress={handleGenerateChildId}
         />
-        <Text style={styles.useText}>{t(`generateChild.pleaseCopy`)}</Text>
-      </View>
 
-      <Button
-        title={t(`generateChild.generateId`)}
-        btnStyle={styles.generateBtnStyle}
-        onPress={handleGenerateChildId}
-      />
-
-      <ConnectedModal
-        isLoader={true}
-        visible={isConnectedModal}
-        onClose={() => setIsConnectedModal(false)}
-      />
-      {/* </ScrollView> */}
+        <ConnectedModal
+          isLoader={true}
+          visible={isConnectedModal}
+          onClose={() => setIsConnectedModal(false)}
+        />
+      </ScrollView>
     </StatusBarWrapper>
   );
 }
