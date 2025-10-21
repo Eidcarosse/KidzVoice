@@ -5,6 +5,7 @@ import StudentCard from "../../../components/studentCard/studentCard";
 import CustomHeader from "../../../components/customHeader/header";
 import { Ionicons } from "@expo/vector-icons";
 import { useTranslation } from "react-i18next";
+import { infoToastMessage } from "../../../utils/Methods";
 // import { students } from "../../../utils/Data";
 
 export default function Students() {
@@ -52,6 +53,14 @@ export default function Students() {
     },
   ];
 
+  const handleNotificationPress = () => {
+    console.log("Guest Mode");
+    infoToastMessage(
+      t(`coachDashboard.notification`),
+      t(`coachDashboard.notificationComing`)
+    );
+  };
+
   return (
     <StatusBarWrapper>
       <View style={styles.container}>
@@ -60,6 +69,7 @@ export default function Students() {
           rightIcon={
             <Ionicons name="notifications-outline" size={24} color="#000" />
           }
+          onPressRightIcon={handleNotificationPress}
         />
 
         <FlatList

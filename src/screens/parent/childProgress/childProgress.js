@@ -36,6 +36,14 @@ export default function ChildProgress() {
     setChildData(childDataRes);
   };
 
+  const handleNotificationPress = () => {
+    console.log("Guest Mode");
+    infoToastMessage(
+      t(`childProgress.notification`),
+      t(`childProgress.notificationComing`)
+    );
+  };
+
   const handleSearchTeacher = () => {
     console.log("Guest Mode ww");
     // infoToastMessage(
@@ -133,7 +141,10 @@ export default function ChildProgress() {
             style={styles.avatar}
           />
           <Text style={styles.userName}>{childData?.name}</Text>
-          <TouchableOpacity style={styles.notificationBtn}>
+          <TouchableOpacity
+            style={styles.notificationBtn}
+            onPress={handleNotificationPress}
+          >
             <Ionicons name="notifications-outline" size={22} color="#000" />
           </TouchableOpacity>
         </View>

@@ -107,6 +107,8 @@ export default {
     assignmentComing: "Assignment Coming Soon",
     otherTask: "Other Task",
     otherTaskComing: "Other Task Coming Soon",
+    notification: "Notification",
+    notificationComing: "Notification Coming Soon",
   },
 
   coachAccount: {
@@ -227,7 +229,10 @@ export default {
     schedule: "Schedule",
     comingMeetings: "meeting have upcoming",
     recentMeeting: "Recent students meeting",
-    comingSoon: "Schedule is Coming soon!"
+    comingSoon: "Schedule is Coming soon!",
+    scheduleComing: "Schedule Coming soon!",
+    notification: "Notification",
+    notificationComing: "Notification Coming Soon",
   },
 
   mentors: {
@@ -252,7 +257,6 @@ export default {
     sendRequest: "Send Request",
     rejectRequest: "Reject Request",
     searchPlaceholder: "Search by name, course, or location",
-
   },
 
   //learner
@@ -488,7 +492,7 @@ export default {
   },
 
   trainingCard: {
-    "M1": "M1",
+    M1: "M1",
     "Module 2: Safeguarding": "Module 2: Safeguarding",
     "Final Project": "Final Project",
     "CBT | Diagnosis | Crisis Care.......":

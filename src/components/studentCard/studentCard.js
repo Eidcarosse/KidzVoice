@@ -13,7 +13,7 @@ export default function StudentCard({
   image,
   highlighted,
 }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <View style={[styles.card, highlighted && styles.highlighted]}>
       <Text style={styles.index}>{index + 1}</Text>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   avatarWrapper: {
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "#4f46e5",
     borderRadius: 30,
     padding: 2,

@@ -24,6 +24,14 @@ export default function CoachDashboard() {
   const handleNewRequestsPress = () => {
     navigation.navigate(ScreensName.REQUESTS);
   };
+
+  const handleNotificationPress = () => {
+    console.log("Guest Mode");
+    infoToastMessage(
+      t(`coachDashboard.notification`),
+      t(`coachDashboard.notificationComing`)
+    );
+  };
   return (
     <StatusBarWrapper>
       <View style={styles.header}>
@@ -36,7 +44,14 @@ export default function CoachDashboard() {
             <Text style={styles.name}>Nadine Zimet</Text>
           </View>
         </View>
-        <Ionicons name="notifications-outline" size={24} color={colors.black} />
+
+        <TouchableOpacity onPress={handleNotificationPress}>
+          <Ionicons
+            name="notifications-outline"
+            size={24}
+            color={colors.black}
+          />
+        </TouchableOpacity>
       </View>
 
       <Text style={styles.sectionTitle}>
@@ -86,7 +101,10 @@ export default function CoachDashboard() {
           />
           <Pressable
             onPress={() =>
-              infoToastMessage(t("coachDashboard.schedule"), t("coachDashboard.comingSoon"))
+              infoToastMessage(
+                t("coachDashboard.schedule"),
+                t("coachDashboard.scheduleComing")
+              )
             }
             style={{ marginTop: 5, marginLeft: 10 }}
           >

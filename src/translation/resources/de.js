@@ -141,6 +141,8 @@ export default {
     assignmentComing: "Aufgabe – Demnächst verfügbar",
     otherTask: "Andere Aufgabe",
     otherTaskComing: "Andere Aufgabe – Demnächst verfügbar",
+    notification: "Benachrichtigung",
+    notificationComing: "Benachrichtigung – Demnächst verfügbar",
   },
 
   coachAccount: {
@@ -260,6 +262,9 @@ export default {
     comingMeetings: "Bevorstehende Besprechungen",
     recentMeeting: "Letztes Schülergespräch",
     comingSoon: "Der Zeitplan kommt bald!",
+    scheduleComing: "Zeitplan – Demnächst verfügbar!",
+    notification: "Benachrichtigung",
+    notificationComing: "Benachrichtigung – Demnächst verfügbar",
   },
 
   mentors: {
@@ -494,7 +499,7 @@ export default {
   },
 
   trainingCard: {
-    "M1": "Modul 1: Einführung in die Psychologie",
+    M1: "Modul 1: Einführung in die Psychologie",
     "Module 2: Safeguarding": "Modul 2: Schutz und Sicherheit",
     "Final Project": "Abschlussprojekt",
     "CBT | Diagnosis | Crisis Care.......":
