@@ -400,8 +400,8 @@ export default {
     uploadPhoto: "Laden Sie Ihr Foto hoch",
   },
   roleSelection: {
-    parent: "Elternteil",
-    learner: "Lernender",
+    parent: "Eltern",
+    learner: "Schüler",
     teacher: "Lehrer",
     coach: "Coach",
   },
