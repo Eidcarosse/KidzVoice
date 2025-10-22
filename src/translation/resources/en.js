@@ -91,7 +91,7 @@ export default {
     teacher: "Teachers",
     teacherSubtitle: "You can search out more teacher",
     checkOut: "You can check out the ongoing progress of your child",
-    activitiesForStudent: "Activities for student",
+    activitiesForStudent: "Activities for kid",
     chatTeacher: "Chat Teacher",
     assignment: "Assignment",
     otherTasks: "Other Tasks",
@@ -220,15 +220,15 @@ export default {
   childProfile: {},
 
   coachDashboard: {
-    suggestedStudents: "Suggested Students according to you",
+    suggestedStudents: "Suggested Kids according to you",
     newRequests: "New requests",
     upTo: "upto",
-    studentRequests: "students request for your availability",
-    students: "Students",
-    studentsClass: "students in your class",
+    studentRequests: "Kids request for your availability",
+    students: "Kids",
+    studentsClass: "Kids in your class",
     schedule: "Schedule",
     comingMeetings: "meeting have upcoming",
-    recentMeeting: "Recent students meeting",
+    recentMeeting: "Recent Kids meeting",
     comingSoon: "Schedule is Coming soon!",
     scheduleComing: "Schedule Coming soon!",
     notification: "Notification",
@@ -248,7 +248,7 @@ export default {
   },
 
   students: {
-    students: "Students",
+    students: "Kids",
   },
 
   teacherProfile: {

@@ -125,7 +125,7 @@ export default {
     teacher: "Lehrer",
     teacherSubtitle: "Du kannst nach weiteren Lehrern suchen",
     checkOut: "Überprüfe den aktuellen Fortschritt deines Kindes",
-    activitiesForStudent: "Aktivitäten für Schüler",
+    activitiesForStudent: "Aktivitäten für Kind",
     chatTeacher: "Mit Lehrer chatten",
     assignment: "Aufgabe",
     otherTasks: "Andere Aufgaben",
@@ -252,15 +252,15 @@ export default {
   childProfile: {},
 
   coachDashboard: {
-    suggestedStudents: "Empfohlene Schüler für dich",
+    suggestedStudents: "Empfohlene Kind für dich",
     newRequests: "Neue Anfragen",
     upTo: "bis zu",
     studentRequests: "Schüleranfragen zu deiner Verfügbarkeit",
-    students: "Schüler",
-    studentsClass: "Schüler in deiner Klasse",
+    students: "Kinder",
+    studentsClass: "Kinder in deiner Klasse",
     schedule: "Zeitplan",
     comingMeetings: "Bevorstehende Besprechungen",
-    recentMeeting: "Letztes Schülergespräch",
+    recentMeeting: "Letztes Kinder gespräch",
     comingSoon: "Der Zeitplan kommt bald!",
     scheduleComing: "Zeitplan – Demnächst verfügbar!",
     notification: "Benachrichtigung",
@@ -276,7 +276,7 @@ export default {
   },
 
   students: {
-    students: "Schüler",
+    students: "Kinder",
   },
 
   teacherProfile: {
