@@ -166,7 +166,6 @@ export default function StartTraining() {
   const handelStartQuiz = () => {
     navigation.navigate(ScreensName.STARTQUIZ);
   };
-  console.log(`trainingCard.${modules[0]?.title}`);
 
   return (
     <StatusBarWrapper edges={["bottom", "top"]}>

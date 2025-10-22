@@ -50,7 +50,15 @@ const styles = StyleSheet.create({
   },
 
   saveBtn: {
-    marginVertical: height(4),
+    marginTop: height(4),
+  },
+  waitUntil: {
+    marginHorizontal: 16,
+    color: colors.boulder,
+    fontSize: 14,
+    fontFamily: fonts.regular,
+    marginTop: height(2),
+    marginBottom: height(4),
   },
 });
 

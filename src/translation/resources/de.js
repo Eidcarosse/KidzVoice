@@ -287,8 +287,24 @@ export default {
     searchPlaceholder: "Suche nach Name, Kurs oder Standort",
     treacher: "Lehrer",
     comingSoon: "Kommt bald",
-    noTeacher: "Keine Lehrer gefunden."
+    noTeacher: "Keine Lehrer gefunden.",
   },
+
+  teacherChildProgress: {
+    progress: "Fortschritt",
+    viewDetailsReport: "Detailbericht anzeigen",
+    startLive: "Live-Sitzung starten",
+    checkOut: "Sie können den aktuellen Fortschritt überprüfen",
+    activities: "Aktivitäten",
+    chatKid: "Mit Kind chatten",
+    assignment: "Aufgabe",
+    chatParent: "Mit Eltern chatten",
+    activitiesComing: "Aktivitäten kommen bald",
+    chatKidComing: "Chat mit Kind kommt bald",
+    assignmentComing: "Aufgabe kommt bald",
+    chatParentComing: "Chat mit Eltern kommt bald",
+  },
+
   //lerner
   account: {
     accountSetup: "Konto einrichten",

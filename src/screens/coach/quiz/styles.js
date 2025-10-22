@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   skipButton: {
-    backgroundColor: colors.alto,
+    backgroundColor: colors.lightBlueRibbon,
     borderWidth: 1,
     borderColor: colors.blueRibbon,
     width: "47%",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     paddingVertical: height(1),
   },
   skipBtntext: {
-    color: colors.zumthor,
+    color: colors.blueRibbon,
   },
   submitButton: {
     width: "43%",

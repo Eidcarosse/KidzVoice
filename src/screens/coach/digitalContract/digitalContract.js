@@ -59,7 +59,7 @@ export default function DigitalContract() {
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
           flexGrow: 1,
-          paddingBottom: 40,
+          paddingBottom: 20,
         }}
         showsVerticalScrollIndicator={false}
       >
@@ -117,6 +117,10 @@ export default function DigitalContract() {
           btnStyle={styles.saveBtn}
           onPress={handleNext}
         />
+
+        <Text style={styles.waitUntil}>
+          You will need to wait until the contract is approved.
+        </Text>
       </KeyboardAwareScrollView>
 
       <Modal visible={showPad} animationType="slide">

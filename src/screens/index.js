@@ -39,8 +39,7 @@ import TeacherScreen from "./child/teacherScreen/teacher";
 import ViewProfileScreen from "./teacher/teacherProfile/teacherProfile";
 import Students from "./teacher/student/students";
 import StudentProgressChart from "./teacher/studentProgress";
-
-
+import TeacherStudentProgress from "./teacher/studentProgress";
 
 export {
   Students,
@@ -83,5 +82,5 @@ export {
   Profile,
   Requests,
   ChildProfile,
-
+  TeacherStudentProgress,
 };

@@ -6,14 +6,19 @@ import CustomHeader from "../../../components/customHeader/header";
 import { Ionicons } from "@expo/vector-icons";
 import { useTranslation } from "react-i18next";
 import { infoToastMessage } from "../../../utils/Methods";
+import { useNavigation } from "@react-navigation/native";
+import ScreensName from "../../../routes/routes";
 // import { students } from "../../../utils/Data";
 
 export default function Students() {
   const { t } = useTranslation();
+  const navigation = useNavigation();
   const [activeStudentId, setActiveStudentId] = useState(null);
 
-  const handleSelectStudent = (id) => {
-    setActiveStudentId(id);
+  const handleSelectStudent = (item) => {
+    setActiveStudentId(item.id);
+
+    navigation.navigate(ScreensName.TEACHERSTUDENTPROGRESS, { item });
   };
   const students = [
     {
@@ -78,7 +83,7 @@ export default function Students() {
           renderItem={({ item, index }) => (
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => handleSelectStudent(item.id)}
+              onPress={() => handleSelectStudent(item)}
             >
               <StudentCard
                 index={index}

@@ -3,7 +3,6 @@ import { fonts } from "../../../utils/fonts";
 import colors from "../../../utils/AppColors";
 import { height } from "../../../utils/Dimensions";
 
-
 const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
@@ -19,12 +18,12 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 13,
     color: "gray",
-    fontFamily: fonts.bold
+    fontFamily: fonts.bold,
   },
   btnStyleView: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     borderWidth: 0.5,
-    borderColor: 'blue'
+    borderColor: "blue",
   },
   userName: {
     fontSize: 18,
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
   },
   subHeading: {
     fontSize: 14,
-    marginBottom: 10,
+    marginBottom: 20,
     fontFamily: fonts.medium,
     marginHorizontal: 16,
   },

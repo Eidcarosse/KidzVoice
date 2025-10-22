@@ -259,7 +259,22 @@ export default {
     searchPlaceholder: "Search by name, course, or location",
     treacher: "Teacher",
     comingSoon: "Comming Soon",
-    noTeacher: "No teachers found."
+    noTeacher: "No teachers found.",
+  },
+
+  teacherChildProgress: {
+    progress: "Pregress",
+    viewDetailsReport: "View Details Report",
+    startLive: "Start Live Session",
+    checkOut: "You can check out the ongoing progress",
+    activities: "Activities",
+    chatKid: "Chat Kid",
+    assignment: "Assignment",
+    chatParent: "Chat Parent",
+    activitiesComing: "Activities Coming Soon",
+    chatKidComing: "Chat Kid Coming Soon",
+    assignmentComing: "Assignment Coming Soon",
+    chatParentComing: "Chat Parent Coming Soon",
   },
 
   //learner
