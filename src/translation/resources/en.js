@@ -2,7 +2,7 @@ export default {
   //Screens
 
   welCome: {
-    title: "KidzLife",
+    title: "Learniverse",
     description: " Grow Smarter, Kinder, Happier.",
     getStarted: "Get Started",
   },
@@ -166,7 +166,7 @@ export default {
     subtitle: "Du bist jetzt mit deinem Elternteil verbunden!",
   },
   startTraining: {
-    kidzLife: "KidzLife",
+    Learniverse: "Learniverse",
     title: "Title:",
     "Psychology Preview": "Psychology Preview",
     save: "Save",

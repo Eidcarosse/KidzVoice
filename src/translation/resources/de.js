@@ -2,7 +2,7 @@ export default {
   //Screens
 
   welCome: {
-    title: "KidzLife",
+    title: "Learniverse",
     description: " Werde klüger, freundlicher, glücklicher.",
     getStarted: "Loslegen",
   },
@@ -197,7 +197,7 @@ export default {
   },
 
   startTraining: {
-    kidzLife: "KidzLife",
+    Learniverse: "Learniverse",
     title: "Titel:",
     "Psychology Preview": "Psychologie-Vorschau",
     save: "Speichern",

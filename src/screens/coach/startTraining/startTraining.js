@@ -169,7 +169,7 @@ export default function StartTraining() {
 
   return (
     <StatusBarWrapper edges={["bottom", "top"]}>
-      <Header title={t(`startTraining.kidzLife`)} />
+      <Header title={t(`startTraining.Learniverse`)} />
       <Text style={styles.titleText}>
         {t(`trainingCard.${modules[0]?.title}`)}
       </Text>
