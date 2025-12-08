@@ -8,8 +8,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   imageStyle: {
+    marginTop: height(10),
     width: width(80),
-    height: height(25),
+    height: height(10),
+    resizeMode: 'contain'
     // backgroundColor: "red",
     // marginBottom: height(2),
   },

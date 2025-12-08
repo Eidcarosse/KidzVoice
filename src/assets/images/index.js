@@ -1,5 +1,6 @@
 const Images = {
   WELCOMEIMAGE: require("./welcomeImage.png"),
+  WELCOMEIMAGE1: require("./welcomeImage1.png"),
   ACCOUNTIMAGE: require("./Frame.png"),
   AIICON: require("./ai_icon.png"),
   AVATAR: require("./user.png"),

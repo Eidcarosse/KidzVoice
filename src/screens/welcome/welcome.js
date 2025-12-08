@@ -27,12 +27,12 @@ export default function Welcome() {
         }}
       >
         <Image
-          source={Images.WELCOMEIMAGE}
+          source={Images.WELCOMEIMAGE1}
           style={styles.imageStyle}
           resizeMode="contain"
         />
 
-        <Text style={styles.kidzText}>{t(`welCome.title`)}</Text>
+        {/* <Text style={styles.kidzText}>{t(`welCome.title`)}</Text> */}
 
         <Text style={styles.growText}>{t(`welCome.description`)}</Text>
       </View>
